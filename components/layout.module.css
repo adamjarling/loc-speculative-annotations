@@ -3,3 +3,23 @@
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerImage {
+  width: 8rem;
+  height: auto;
+}
+
+.headerHomeImage {
+  width: 12rem;
+  height: auto;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
