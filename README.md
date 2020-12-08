@@ -1,1 +1,1 @@
-This is a starter Next.js template for [Library of Congress Labs Speculative Annotation Project](https://www.loc.gov/item/prn-20-071/making-our-mark-2021-innovator-in-residence-to-focus-on-creative-notetaking/2020-10-29/).
+This is a starter Next.js template for [Library of Congress Labs Speculative Annotations Project](https://www.loc.gov/item/prn-20-071/making-our-mark-2021-innovator-in-residence-to-focus-on-creative-notetaking/2020-10-29/).
