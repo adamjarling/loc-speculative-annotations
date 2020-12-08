@@ -25,3 +25,13 @@ img {
   max-width: 100%;
   display: block;
 }
+
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 0.5rem;
+  border-color: #ccc;
+}
