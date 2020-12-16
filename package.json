@@ -2,24 +2,43 @@
   "name": "loc-speculative-annotations",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.1",
-    "@chakra-ui/react": "^1.0.2",
-    "@emotion/react": "^11.1.2",
+    "@chakra-ui/react": "^1.0.0",
+    "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "date-fns": "^2.16.1",
-    "framer-motion": "^2.9.5",
-    "gray-matter": "^4.0.2",
-    "next": "^10.0.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "remark": "^13.0.0",
-    "remark-html": "^13.0.1",
-    "swr": "^0.3.9"
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/user-event": "^12.0.2",
+    "framer-motion": "^2.9.4",
+    "konva": "^7.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "react-konva": "^17.0.0-0",
+    "react-scripts": "4.0.1",
+    "use-image": "^1.0.6",
+    "web-vitals": "^0.2.2"
+  },
+  "scripts": {
+    "start": "PORT=3001 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

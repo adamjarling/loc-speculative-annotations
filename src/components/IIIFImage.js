@@ -1,10 +1,9 @@
-import styles from "./image-test.module.css";
+import React from 'react';
 import {
   Box,
   Center,
   FormControl,
   FormLabel,
-  FormHelperText,
   HStack,
   IconButton,
   Image,
@@ -16,8 +15,8 @@ import {
   Spinner,
   Text,
   VStack,
-} from "@chakra-ui/react";
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+} from '@chakra-ui/react';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
 export default function ImageTest() {
   const [percent, setPercent] = React.useState(50);
@@ -34,7 +33,7 @@ export default function ImageTest() {
               defaultValue={50}
               min={10}
               max={100}
-              onChange={(valueString) => setPercent(valueString)}
+              onChange={valueString => setPercent(valueString)}
               value={percent}
             >
               <NumberInputField />
@@ -68,8 +67,7 @@ export default function ImageTest() {
         <Image
           src={`https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v/full/pct:${percent}/${rotation}/default.jpg`}
           alt="LOC image"
-          className={styles.image}
-          d="inline-block"
+          d="inline-block mb-6"
           fallback={
             <Center>
               <Spinner size="xl" />
