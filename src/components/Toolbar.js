@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaEraser, FaPen } from 'react-icons/fa';
 import { BiText } from 'react-icons/bi';
-import { Button, ButtonGroup, DarkMode } from '@chakra-ui/react';
+import { Button, ButtonGroup } from '@chakra-ui/react';
 import '../styles/styles.css';
 
 function Toolbar({ handleToolSelect, activeTool }) {
@@ -30,6 +30,9 @@ function Toolbar({ handleToolSelect, activeTool }) {
   );
 }
 
-Toolbar.propTypes = {};
+Toolbar.propTypes = {
+  activeTool: PropTypes.string,
+  handleToolSelect: PropTypes.func,
+};
 
 export default Toolbar;

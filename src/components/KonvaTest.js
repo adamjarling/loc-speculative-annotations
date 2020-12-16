@@ -25,6 +25,8 @@ export default function KonvaTest() {
 
   React.useEffect(() => {
     const fitStageIntoParentContainer = () => {
+      setImgSize({ width: 959, height: 1024 });
+
       const scale = window.innerWidth / imgSize.width;
       setStageSize({
         width: imgSize.width * scale,
@@ -39,7 +41,7 @@ export default function KonvaTest() {
     window.addEventListener('resize', fitStageIntoParentContainer);
     return () =>
       window.removeEventListener('resize', fitStageIntoParentContainer);
-  }, []);
+  }, [imgSize.height, imgSize.width]);
 
   const handleClick = e => {
     console.log('handleClick');

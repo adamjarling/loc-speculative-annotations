@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
 
-const IMG_SCALE = 0.5;
+//const IMG_SCALE = 0.5;
 
 function SourceImage({ imgUrl, stageSize }) {
   const [image] = useImage(imgUrl);
-  const imgWidth = stageSize.width * stageSize.scale.x * IMG_SCALE;
+  //const imgWidth = stageSize.width * stageSize.scale.x * IMG_SCALE;
 
   return (
     <Image
