@@ -2,6 +2,7 @@ import React from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import Layout from './components/Layout';
 import KonvaTest from './components/KonvaTest';
+import OpenSeadragonViewer from './components/OpenSeadragonViewer';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Layout>
         {/* <IIIFImage /> */}
         <hr />
-        <KonvaTest />
+        <OpenSeadragonViewer />
       </Layout>
     </ChakraProvider>
   );

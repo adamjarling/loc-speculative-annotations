@@ -12,12 +12,15 @@
     "@testing-library/user-event": "^12.0.2",
     "framer-motion": "^2.9.4",
     "konva": "^7.2.1",
+    "openseadragon": "^2.4.2",
+    "openseadragon-fabricjs-overlay": "https://github.com/altert/OpenseadragonFabricjsOverlay.git",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
     "react-konva": "^17.0.0-0",
     "react-scripts": "4.0.1",
     "use-image": "^1.0.6",
+    "use-open-seadragon": "^1.0.0",
     "web-vitals": "^0.2.2"
   },
   "scripts": {
@@ -40,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "use-open-seadragon/react": "^17.0.1",
+    "use-open-seadragon/react-dom": "^17.0.1"
   }
 }
