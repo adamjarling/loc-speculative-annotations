@@ -10,7 +10,7 @@ export default function Layout({ children }) {
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
           <React.Fragment>
-            <img src={logo} alt="logo" style={{ width: '300px' }} />
+            <img src={logo} alt="logo" style={{ width: '200px' }} />
             {children}
           </React.Fragment>
         </VStack>

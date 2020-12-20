@@ -2,6 +2,10 @@ import React from 'react';
 import { useOpenSeadragon, OpenSeadragon, Overlay } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
+import {
+  useFabricOverlayDispatch,
+  useFabricOverlayState,
+} from '../context/fabric-overlay-context';
 
 const tile = {
   type: 'image',
@@ -15,6 +19,9 @@ const osdOptions = {
 };
 
 export default function OpenSeadragonViewer() {
+  const { fabricOverlay } = useFabricOverlayState();
+  const dispatch = useFabricOverlayDispatch();
+
   // Add Fabric support to OSD via the plugin "OpenseadragonFabricjsOverlay"
   initFabricJSOverlay(OpenSeadragon, fabric);
 
@@ -22,21 +29,15 @@ export default function OpenSeadragonViewer() {
   const [ref, { viewer }] = useOpenSeadragon(tile, osdOptions);
 
   React.useEffect(() => {
+    console.log('useEffect [viewer]', viewer);
     if (!viewer) return;
 
-    // Create the fabric.js overlay
-    const overlay = viewer.fabricjsOverlay({ scale: 1 });
-
-    // Add fabric rectangle
-    var rect = new fabric.Rect({
-      left: 0,
-      top: 0,
-      fill: 'red',
-      width: 200,
-      height: 200,
+    // Create the fabric.js overlay, and set it on a sharable context
+    dispatch({
+      type: 'updateOverlay',
+      fabricOverlay: viewer.fabricjsOverlay({ scale: 1 }),
     });
-    overlay.fabricCanvas().add(rect);
-  }, [viewer]);
+  }, [dispatch, viewer]);
 
   return (
     <Box ref={ref} w="100%" h="600px" bgColor="antiquewhite">
