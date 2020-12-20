@@ -1,6 +1,6 @@
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import OpenSeadragon from 'openseadragon';
-import { useCallback, useContext, useRef } from 'react';
+import { useCallback } from 'react';
 
 const tile = {
   type: 'image',
