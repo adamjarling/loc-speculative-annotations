@@ -20,8 +20,16 @@ export default function useOpenSeadragon() {
       tileSources: [tile],
     });
     overlay = openSeadragon.fabricjsOverlay({ scale: 1 });
-    overlay.fabricCanvas().freeDrawingBrush.color = 'black';
-    overlay.fabricCanvas().freeDrawingBrush.width = 2;
+
+    // Add fabric rectangle
+    var rect = new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: 'red',
+      width: 200,
+      height: 200,
+    });
+    overlay.fabricCanvas().add(rect);
   }, []);
 
   return {
