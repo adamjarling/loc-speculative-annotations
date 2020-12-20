@@ -1,7 +1,7 @@
 import React from 'react';
-import { useOpenSeadragon } from 'use-open-seadragon';
-import { initOverlay } from 'openseadragon-fabricjs-overlay';
+//import { useOpenSeadragon } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
+import useOpenSeadragon from '../hooks/use-osd-fabric';
 
 const tile = {
   type: 'image',
@@ -15,17 +15,15 @@ const osdOptions = {
 };
 
 export default function OpenSeadragonViewer() {
-  const [ref, { viewer }] = useOpenSeadragon(tile, { ...osdOptions });
+  const { init } = useOpenSeadragon();
 
-  console.log('viewer', viewer);
+  React.useEffect(() => {
+    init();
+  }, []);
 
-  // React.useEffect(() => {
-  //   if (!viewer) return;
-  //   fabricjsOverlay();
-  //   viewer.fabricOverlay();
-  // }, [viewer]);
-
-  return <Box ref={ref} w="100%" h="600px" bgColor="antiquewhite" />;
+  return (
+    <Box id="openseadragon-viewer" w="100%" h="600px" bgColor="antiquewhite" />
+  );
 
   //return <Box id="osd" w="100%" h="800px" />;
 }

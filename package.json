@@ -13,7 +13,6 @@
     "framer-motion": "^2.9.4",
     "konva": "^7.2.1",
     "openseadragon": "^2.4.2",
-    "openseadragon-fabricjs-overlay": "https://github.com/altert/OpenseadragonFabricjsOverlay.git",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
