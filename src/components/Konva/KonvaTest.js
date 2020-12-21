@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Heading, Textarea } from '@chakra-ui/react';
 import { Layer, Line, Stage } from 'react-konva';
-import SourceImage from './SourceImage';
-import Toolbar from './Toolbar';
+import SourceImage from 'components/SourceImage';
+import Toolbar from 'components/Toolbar';
 
 const imgUrl =
   'https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v/full/pct:100/0/default.jpg';

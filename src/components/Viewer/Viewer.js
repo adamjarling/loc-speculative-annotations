@@ -5,7 +5,7 @@ import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
-} from '../context/fabric-overlay-context';
+} from 'context/fabric-overlay-context';
 
 const tile = {
   type: 'image',
@@ -18,7 +18,7 @@ const osdOptions = {
   showNavigationControl: true,
 };
 
-export default function OpenSeadragonViewer() {
+export default function Viewer() {
   const { fabricOverlay } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
 
