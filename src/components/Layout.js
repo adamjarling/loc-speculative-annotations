@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, VStack, Grid } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../ColorModeSwitcher';
-import logo from '../images/logo.png';
+import { ColorModeSwitcher } from 'ColorModeSwitcher';
+import logo from 'images/logo.png';
+import LayoutFooter from 'components/Layout/Footer';
 
 export default function Layout({ children }) {
   return (
@@ -10,8 +11,9 @@ export default function Layout({ children }) {
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
           <React.Fragment>
-            <img src={logo} alt="logo" style={{ width: '300px' }} />
+            <img src={logo} alt="logo" style={{ width: '200px' }} />
             {children}
+            <LayoutFooter />
           </React.Fragment>
         </VStack>
       </Grid>

@@ -1,18 +1,26 @@
 import React from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Layout from './components/Layout';
-import OpenSeadragonViewer from './components/OpenSeadragonViewer';
 import { ViewerProvider } from 'use-open-seadragon';
+import WorkSpace from './components/WorkSpace';
+import { FabricOverlayProvider } from './context/fabric-overlay-context';
+import brandPalette from 'styles/brandPalette';
+
+const theme = extendTheme({
+  colors: {
+    brand: brandPalette,
+  },
+});
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <ViewerProvider>
-        <Layout>
-          {/* <IIIFImage /> */}
-          <hr />
-          <OpenSeadragonViewer />
-        </Layout>
+        <FabricOverlayProvider>
+          <Layout>
+            <WorkSpace />
+          </Layout>
+        </FabricOverlayProvider>
       </ViewerProvider>
     </ChakraProvider>
   );

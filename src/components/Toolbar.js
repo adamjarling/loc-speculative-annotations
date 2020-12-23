@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { FaEraser, FaPen } from 'react-icons/fa';
 import { BiText } from 'react-icons/bi';
 import { Button, ButtonGroup } from '@chakra-ui/react';
-import '../styles/styles.css';
 
-function Toolbar({ handleToolSelect, activeTool }) {
+import 'styles/styles.css';
+
+function Toolbar({ handleRedBoxClick, handleToolSelect, activeTool }) {
   return (
     <ButtonGroup size="lg" spacing="6" mb={6}>
       <Button
@@ -26,12 +27,14 @@ function Toolbar({ handleToolSelect, activeTool }) {
       >
         <BiText />
       </Button>
+      <Button onClick={handleRedBoxClick}>Draw a red box</Button>
     </ButtonGroup>
   );
 }
 
 Toolbar.propTypes = {
   activeTool: PropTypes.string,
+  handleRedBoxClick: PropTypes.func,
   handleToolSelect: PropTypes.func,
 };
 
