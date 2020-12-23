@@ -4,7 +4,6 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  FormHelperText,
   Input,
   Modal,
   ModalOverlay,
@@ -17,13 +16,13 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
-export default function SaveCanvas({ handleSaveCanvas }) {
+export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [userCanvasName, setUserCanvasName] = React.useState('');
+  const [title, setTitle] = React.useState(selectedCanvas);
 
   const handleSave = () => {
     console.log('saves');
-    handleSaveCanvas(userCanvasName);
+    handleSaveCanvas(title);
     onClose();
   };
 
@@ -40,14 +39,14 @@ export default function SaveCanvas({ handleSaveCanvas }) {
             <FormControl
               id="user-canvas-name"
               isRequired
-              isInvalid={userCanvasName === ''}
+              isInvalid={title === ''}
             >
               <FormLabel>Save as</FormLabel>
             </FormControl>
             <Input
               placeholder="Name your work"
-              value={userCanvasName}
-              onChange={e => setUserCanvasName(e.target.value)}
+              value={title}
+              onChange={e => setTitle(e.target.value)}
             />
             <FormErrorMessage>Value can't be empty</FormErrorMessage>
           </ModalBody>
@@ -56,7 +55,7 @@ export default function SaveCanvas({ handleSaveCanvas }) {
               colorScheme="brand.neonGreen"
               mr={3}
               onClick={handleSave}
-              isDisabled={userCanvasName === ''}
+              isDisabled={title === ''}
             >
               Save
             </Button>
@@ -69,4 +68,5 @@ export default function SaveCanvas({ handleSaveCanvas }) {
 
 SaveCanvas.propTypes = {
   handleSaveCanvas: PropTypes.func,
+  selectedCanvas: PropTypes.string,
 };

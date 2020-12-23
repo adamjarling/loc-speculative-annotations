@@ -2,10 +2,7 @@ import React from 'react';
 import { useOpenSeadragon, OpenSeadragon, Overlay } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
-import {
-  useFabricOverlayDispatch,
-  useFabricOverlayState,
-} from 'context/fabric-overlay-context';
+import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 
 const tile = {
   type: 'image',
@@ -19,7 +16,6 @@ const osdOptions = {
 };
 
 export default function Viewer() {
-  const { fabricOverlay } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
 
   // Add Fabric support to OSD via the plugin "OpenseadragonFabricjsOverlay"

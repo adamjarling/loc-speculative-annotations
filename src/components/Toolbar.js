@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaEraser, FaPen } from 'react-icons/fa';
 import { BiText } from 'react-icons/bi';
-import { Button, ButtonGroup, Select } from '@chakra-ui/react';
-import SaveCanvas from 'components/Save/Canvas';
+import { Button, ButtonGroup } from '@chakra-ui/react';
+
 import 'styles/styles.css';
 
-function Toolbar({
-  handleRedBoxClick,
-  handleSaveCanvas,
-  handleToolSelect,
-  activeTool,
-}) {
+function Toolbar({ handleRedBoxClick, handleToolSelect, activeTool }) {
   return (
     <ButtonGroup size="lg" spacing="6" mb={6}>
       <Button
@@ -33,13 +28,13 @@ function Toolbar({
         <BiText />
       </Button>
       <Button onClick={handleRedBoxClick}>Draw a red box</Button>
-      <SaveCanvas handleSaveCanvas={handleSaveCanvas} />
     </ButtonGroup>
   );
 }
 
 Toolbar.propTypes = {
   activeTool: PropTypes.string,
+  handleRedBoxClick: PropTypes.func,
   handleToolSelect: PropTypes.func,
 };
 
