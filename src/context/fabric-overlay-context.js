@@ -5,6 +5,7 @@ const FabricOverlayDispatchContext = React.createContext();
 
 const defaultState = {
   fabricOverlay: null,
+  viewer: null,
 };
 
 function fabricOverlayReducer(state, action) {
@@ -13,6 +14,7 @@ function fabricOverlayReducer(state, action) {
       return {
         ...state,
         fabricOverlay: action.fabricOverlay,
+        viewer: action.viewer,
       };
     }
     default: {

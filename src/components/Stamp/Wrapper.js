@@ -2,44 +2,49 @@ import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { Box, Text } from '@chakra-ui/react';
 import StampLibraryOfCongress from 'components/Stamp/LibraryOfCongress';
-import pngStamp from 'images/loc-logo-horizantal.png';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 
-const defaultMouseCoordsState = { x: null, y: null };
-
 export default function StampWrapper() {
-  const { fabricOverlay } = useFabricOverlayState();
+  const { fabricOverlay, viewer } = useFabricOverlayState();
   const [activeStampRef, setActiveStampRef] = React.useState();
 
   React.useEffect(() => {
-    console.log('\nuseEffect fabricOverlay');
+    if (!viewer) return;
+    viewer.setMouseNavEnabled(activeStampRef ? false : true);
+    viewer.addHandler('canvas-click', obj =>
+      console.log('OSD canvas-click', obj)
+    );
+  }, [activeStampRef, viewer]);
+
+  React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    // Add event handlers
-    canvas.on('mouse:down', handleMouseDown);
+    // MOUSE DOWN
+    canvas.on('mouse:down', evt => {
+      viewer.setMouseNavEnabled(false);
+
+      if (!activeStampRef || evt.target) return;
+
+      const { x, y } = evt.absolutePointer;
+      const imgInstance = new fabric.Image(activeStampRef.current, {
+        left: x,
+        top: y,
+      });
+      fabricOverlay.fabricCanvas().add(imgInstance);
+    });
+
+    // MOUSE UP
+    canvas.on('mouse:up', evt => {
+      viewer.setMouseNavEnabled(true);
+    });
 
     return () => {
       // Remove event handlers
       canvas.off('mouse:down');
+      canvas.off('mouse:up');
     };
-  }, [fabricOverlay, activeStampRef]);
-
-  const createCursor = function () {
-    const cursor = new fabric.Image(activeStampRef.current);
-    return cursor;
-  };
-
-  const handleMouseDown = evt => {
-    if (!activeStampRef) return;
-
-    const { x, y } = evt.absolutePointer;
-    const imgInstance = new fabric.Image(activeStampRef.current, {
-      left: x,
-      top: y,
-    });
-    fabricOverlay.fabricCanvas().add(imgInstance);
-  };
+  }, [fabricOverlay, activeStampRef, viewer]);
 
   const handleStampClick = ref => {
     setActiveStampRef(ref);
@@ -48,7 +53,6 @@ export default function StampWrapper() {
   return (
     <Box boxShadow="md" padding="6">
       <Text fontSize="xl">Stamp Prototype</Text>
-      {/* <img src={pngStamp} ref={imgRef} /> */}
       <StampLibraryOfCongress handleStampClick={handleStampClick} />
     </Box>
   );

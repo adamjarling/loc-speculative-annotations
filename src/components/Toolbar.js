@@ -9,7 +9,7 @@ import 'styles/styles.css';
 function Toolbar({ handleRedBoxClick, handleToolSelect, activeTool }) {
   return (
     <ButtonGroup size="lg" spacing="6" mb={6}>
-      {/* <Button
+      <Button
         onClick={() => handleToolSelect('pen')}
         className={activeTool === 'pen' ? 'activeButton' : ''}
       >
@@ -26,7 +26,7 @@ function Toolbar({ handleRedBoxClick, handleToolSelect, activeTool }) {
         className={activeTool === 'text' ? 'activeButton' : ''}
       >
         <BiText />
-      </Button> */}
+      </Button>
       <Button onClick={handleRedBoxClick}>Draw a red box</Button>
     </ButtonGroup>
   );
