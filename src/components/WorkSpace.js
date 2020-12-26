@@ -4,6 +4,7 @@ import Viewer from 'components/Viewer/Viewer';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import SaveCanvasList from 'components/Save/CanvasList';
+import StampWrapper from 'components/Stamp/Wrapper';
 
 function WorkSpace(props) {
   const [activeTool, setActiveTool] = React.useState();
@@ -29,6 +30,7 @@ function WorkSpace(props) {
   return (
     <React.Fragment>
       <SaveCanvasList />
+      <StampWrapper />
       <Toolbar
         activeTool={activeTool}
         handleRedBoxClick={handleRedBoxClick}

@@ -25,13 +25,13 @@ export default function Viewer() {
   const [ref, { viewer }] = useOpenSeadragon(tile, osdOptions);
 
   React.useEffect(() => {
-    console.log('useEffect [viewer]', viewer);
     if (!viewer) return;
 
     // Create the fabric.js overlay, and set it on a sharable context
     dispatch({
       type: 'updateOverlay',
       fabricOverlay: viewer.fabricjsOverlay({ scale: 1 }),
+      viewer: viewer,
     });
   }, [dispatch, viewer]);
 

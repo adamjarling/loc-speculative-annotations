@@ -19,7 +19,6 @@ function SaveCanvasList() {
 
   // LocalStorage updating
   const [userCanvases, setUserCanvases] = useLocalStorageState('userCanvases');
-  console.log('userCanvases', userCanvases);
 
   // Track selected user canvases
   const [selectedCanvas, setSelectedCanvas] = React.useState();
