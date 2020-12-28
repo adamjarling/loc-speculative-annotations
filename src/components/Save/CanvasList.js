@@ -44,11 +44,6 @@ function SaveCanvasList() {
     });
   };
 
-  const handleNewCanvas = () => {
-    fabricOverlay._fabricCanvas.clear();
-    setSelectedCanvas('');
-  };
-
   const handleSaveCanvas = userCanvasName => {
     let newCanvases = {
       ...userCanvases,
@@ -84,11 +79,6 @@ function SaveCanvasList() {
             handleSaveCanvas={handleSaveCanvas}
             selectedCanvas={selectedCanvas}
           />
-        </Box>
-        <Box mx="3">
-          <Button variant="ghost" onClick={handleNewCanvas}>
-            Clear canvas
-          </Button>
         </Box>
         {userCanvases && (
           <Box>

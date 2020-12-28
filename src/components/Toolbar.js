@@ -6,9 +6,15 @@ import { Button, ButtonGroup } from '@chakra-ui/react';
 
 import 'styles/styles.css';
 
-function Toolbar({ handleRedBoxClick, handleToolSelect, activeTool }) {
+function Toolbar({
+  activeTool,
+  handleClearCanvas,
+  handleNewBoxClick,
+  handleRedBoxClick,
+  handleToolSelect,
+}) {
   return (
-    <ButtonGroup size="lg" spacing="6" mb={6}>
+    <ButtonGroup spacing="6" mb={6}>
       <Button
         onClick={() => handleToolSelect('pen')}
         className={activeTool === 'pen' ? 'activeButton' : ''}
@@ -28,12 +34,16 @@ function Toolbar({ handleRedBoxClick, handleToolSelect, activeTool }) {
         <BiText />
       </Button>
       <Button onClick={handleRedBoxClick}>Draw a red box</Button>
+      <Button onClick={handleNewBoxClick}>Draw test box</Button>
+      <Button onClick={handleClearCanvas}>Clear canvas</Button>
     </ButtonGroup>
   );
 }
 
 Toolbar.propTypes = {
   activeTool: PropTypes.string,
+  handleClearCanvas: PropTypes.func,
+  handleNewBoxClick: PropTypes.func,
   handleRedBoxClick: PropTypes.func,
   handleToolSelect: PropTypes.func,
 };

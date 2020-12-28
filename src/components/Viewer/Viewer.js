@@ -12,7 +12,7 @@ const tile = {
 
 const osdOptions = {
   debugMode: true,
-  showNavigationControl: true,
+  showNavigationControl: false,
 };
 
 export default function Viewer() {

@@ -1,0 +1,35 @@
+{
+  "profile": [
+    "http://iiif.io/api/image/2/level2.json",
+    {
+      "supports": [
+        "baseUriRedirect",
+        "cors",
+        "jsonldMediaType",
+        "mirroring",
+        "regionByPct",
+        "regionByPx",
+        "rotationBy90s",
+        "sizeByWhListed",
+        "sizeByForcedWh",
+        "sizeByH",
+        "sizeByPct",
+        "sizeByW",
+        "sizeByWh"
+      ],
+      "qualities": ["default", "native", "color", "gray", "bitonal"],
+      "formats": ["jpg", "txt", "jp2", "tif", "pdf", "gif", "png", "webp"]
+    }
+  ],
+  "tiles": [
+    {
+      "width": 512,
+      "scaleFactors": [1]
+    }
+  ],
+  "protocol": "http://iiif.io/api/image",
+  "height": 1024,
+  "width": 959,
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v"
+}

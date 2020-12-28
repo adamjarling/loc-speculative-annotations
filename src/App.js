@@ -1,10 +1,9 @@
 import React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import Layout from './components/Layout';
-import { ViewerProvider } from 'use-open-seadragon';
-import WorkSpace from './components/WorkSpace';
-import { FabricOverlayProvider } from './context/fabric-overlay-context';
 import brandPalette from 'styles/brandPalette';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import KonvaWrapper from 'components/Konva/KonvaWrapper';
+import OsdFabricWrapper from 'components/OsdFabricWrapper';
 
 const theme = extendTheme({
   colors: {
@@ -14,15 +13,18 @@ const theme = extendTheme({
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <ViewerProvider>
-        <FabricOverlayProvider>
-          <Layout>
-            <WorkSpace />
-          </Layout>
-        </FabricOverlayProvider>
-      </ViewerProvider>
-    </ChakraProvider>
+    <Router>
+      <ChakraProvider theme={theme}>
+        <Switch>
+          <Route path="/konva">
+            <KonvaWrapper />
+          </Route>
+          <Route path="/">
+            <OsdFabricWrapper />
+          </Route>
+        </Switch>
+      </ChakraProvider>
+    </Router>
   );
 }
 

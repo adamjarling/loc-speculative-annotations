@@ -6,9 +6,50 @@ import { fabric } from 'openseadragon-fabricjs-overlay';
 import SaveCanvasList from 'components/Save/CanvasList';
 import StampWrapper from 'components/Stamp/Wrapper';
 
-function WorkSpace(props) {
+function WorkSpace() {
   const [activeTool, setActiveTool] = React.useState();
-  const { fabricOverlay } = useFabricOverlayState();
+  const { fabricOverlay, viewer } = useFabricOverlayState();
+
+  React.useEffect(() => {
+    if (!viewer || !fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+
+    // // MOUSE DOWN
+    // canvas.on('mouse:down', evt => {
+    //   console.log('MOUSE DOWN');
+    //   viewer.setMouseNavEnabled(false);
+    //   viewer.outerTracker.setTracking(false);
+    // });
+
+    // // MOUSE UP
+    // canvas.on('mouse:up', evt => {
+    //   console.log('MOUSE UP');
+    //   viewer.setMouseNavEnabled(true);
+    //   viewer.outerTracker.setTracking(true);
+    // });
+
+    // viewer.addHandler('canvas-click', onOsdClick);
+
+    // return () => {
+    //   console.log('WorkSpace removing event handlers');
+    //   // Remove event handlers
+    //   canvas.off('mouse:down');
+    //   canvas.off('mouse:up');
+    //   viewer.removeHandler('canvas-click', onOsdClick);
+    // };
+  }, [fabricOverlay, viewer]);
+
+  const handleClearCanvas = () => {
+    fabricOverlay.fabricCanvas().clear();
+  };
+
+  const handleNewBoxClick = () => {
+    const fabCanvas = fabricOverlay.fabricCanvas();
+    const rect = new fabric.Rect();
+    rect.set({ width: 100, height: 100, fill: 'blue' });
+    fabCanvas.add(rect);
+    rect.set({ angle: 45 });
+  };
 
   const handleRedBoxClick = () => {
     // Add fabric rectangle
@@ -27,12 +68,16 @@ function WorkSpace(props) {
     setActiveTool(tool);
   };
 
+  const onOsdClick = obj => console.log('OSD canvas-click', obj);
+
   return (
     <React.Fragment>
       <SaveCanvasList />
-      <StampWrapper />
+      {/* <StampWrapper /> */}
       <Toolbar
         activeTool={activeTool}
+        handleClearCanvas={handleClearCanvas}
+        handleNewBoxClick={handleNewBoxClick}
         handleRedBoxClick={handleRedBoxClick}
         handleToolSelect={handleToolSelect}
       />
