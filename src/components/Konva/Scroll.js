@@ -9,6 +9,7 @@ export default function KonvaScroll({ locImage }) {
     height: window.innerHeight,
     width: window.innerWidth,
   });
+  const [scale, setScale] = React.useState(1);
 
   const locImageRef = React.useRef();
   const stageRef = React.useRef();
@@ -17,6 +18,8 @@ export default function KonvaScroll({ locImage }) {
   function centreRectShape(shape) {
     if (!shape) return;
     const stage = stageRef.current;
+    console.log('stage.getWidth()', stage.getWidth());
+    console.log('shape.getWidth()', shape.getWidth());
     shape.x((stage.getWidth() - shape.getWidth()) / 2);
     shape.y((stage.getHeight() - shape.getHeight()) / 2);
   }
@@ -54,8 +57,6 @@ export default function KonvaScroll({ locImage }) {
         ref={stageRef}
         scaleX={1}
         scaleY={1}
-        stroke={`blue`}
-        strokeWidth={4}
       >
         <Layer>
           {image && <Image image={image} draggable ref={locImageRef} />}

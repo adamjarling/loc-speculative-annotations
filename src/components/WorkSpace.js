@@ -10,35 +10,6 @@ function WorkSpace() {
   const [activeTool, setActiveTool] = React.useState();
   const { fabricOverlay, viewer } = useFabricOverlayState();
 
-  React.useEffect(() => {
-    if (!viewer || !fabricOverlay) return;
-    const canvas = fabricOverlay.fabricCanvas();
-
-    // // MOUSE DOWN
-    // canvas.on('mouse:down', evt => {
-    //   console.log('MOUSE DOWN');
-    //   viewer.setMouseNavEnabled(false);
-    //   viewer.outerTracker.setTracking(false);
-    // });
-
-    // // MOUSE UP
-    // canvas.on('mouse:up', evt => {
-    //   console.log('MOUSE UP');
-    //   viewer.setMouseNavEnabled(true);
-    //   viewer.outerTracker.setTracking(true);
-    // });
-
-    // viewer.addHandler('canvas-click', onOsdClick);
-
-    // return () => {
-    //   console.log('WorkSpace removing event handlers');
-    //   // Remove event handlers
-    //   canvas.off('mouse:down');
-    //   canvas.off('mouse:up');
-    //   viewer.removeHandler('canvas-click', onOsdClick);
-    // };
-  }, [fabricOverlay, viewer]);
-
   const handleClearCanvas = () => {
     fabricOverlay.fabricCanvas().clear();
   };
