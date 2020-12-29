@@ -63,6 +63,7 @@ function StampDrawer() {
               <StampLOCStamps handleStampClick={handleStampClick} />
             </DrawerBody>
 
+            {/* https://github.com/chakra-ui/chakra-ui/issues/2468 */}
             <DrawerFooter mb={isMobile ? 20 : 0}>
               <Button variant="outline" mr={3} onClick={onClose}>
                 Cancel
