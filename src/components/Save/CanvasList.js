@@ -54,38 +54,36 @@ function SaveCanvasList() {
   };
 
   return (
-    <Box boxShadow="md" padding="6">
-      <Flex justifyContent="space-between" alignItems="flex-end">
-        {userCanvases && (
-          <FormControl id="saved-user-canvases">
-            <FormLabel>Saved Canvases</FormLabel>
-            <Select
-              placeholder="Select one"
-              onChange={handleSelectChange}
-              value={selectedCanvas}
-              w={300}
-            >
-              {Object.keys(userCanvases).map(name => (
-                <option key={name}>{name}</option>
-              ))}
-            </Select>
-          </FormControl>
-        )}
-        <Box mx="3">
-          <SaveCanvas
-            handleSaveCanvas={handleSaveCanvas}
-            selectedCanvas={selectedCanvas}
-          />
+    <Flex justifyContent="space-between" alignItems="flex-end">
+      {userCanvases && (
+        <FormControl id="saved-user-canvases">
+          <FormLabel>Saved Canvases</FormLabel>
+          <Select
+            placeholder="Select one"
+            onChange={handleSelectChange}
+            value={selectedCanvas}
+            w={300}
+          >
+            {Object.keys(userCanvases).map(name => (
+              <option key={name}>{name}</option>
+            ))}
+          </Select>
+        </FormControl>
+      )}
+      <Box mx="3">
+        <SaveCanvas
+          handleSaveCanvas={handleSaveCanvas}
+          selectedCanvas={selectedCanvas}
+        />
+      </Box>
+      {userCanvases && (
+        <Box>
+          <Button variant="ghost" onClick={handleDeleteAll}>
+            Delete saved canvases
+          </Button>
         </Box>
-        {userCanvases && (
-          <Box>
-            <Button variant="ghost" onClick={handleDeleteAll}>
-              Delete saved canvases
-            </Button>
-          </Box>
-        )}
-      </Flex>
-    </Box>
+      )}
+    </Flex>
   );
 }
 

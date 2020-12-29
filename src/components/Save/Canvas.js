@@ -20,6 +20,10 @@ export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = React.useState(selectedCanvas);
 
+  React.useEffect(() => {
+    setTitle(selectedCanvas);
+  }, [selectedCanvas]);
+
   const handleSave = () => {
     console.log('saves');
     handleSaveCanvas(title);

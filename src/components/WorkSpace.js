@@ -4,6 +4,7 @@ import Viewer from 'components/Viewer/Viewer';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import SaveCanvasList from 'components/Save/CanvasList';
+import { Divider } from '@chakra-ui/react';
 
 function WorkSpace() {
   const [activeTool, setActiveTool] = React.useState();
@@ -41,7 +42,7 @@ function WorkSpace() {
   return (
     <React.Fragment>
       <SaveCanvasList />
-
+      <Divider />
       <Toolbar
         activeTool={activeTool}
         handleClearCanvas={handleClearCanvas}
