@@ -34,6 +34,7 @@ function Toolbar({
             <FaEraser />
           </Button>
         </WrapItem>
+
         <WrapItem>
           <Button
             onClick={() => handleToolSelect('text')}
@@ -42,15 +43,19 @@ function Toolbar({
             <BiText />
           </Button>
         </WrapItem>
+
         <WrapItem>
           <Button onClick={handleRedBoxClick}>Draw a red box</Button>
         </WrapItem>
+
         <WrapItem>
           <Button onClick={handleNewBoxClick}>Draw test box</Button>
         </WrapItem>
+
         <WrapItem>
           <StampDrawer />
         </WrapItem>
+
         <WrapItem>
           <Button onClick={handleClearCanvas} variant="outline">
             Clear canvas

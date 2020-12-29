@@ -16,6 +16,7 @@ import { FaStamp } from 'react-icons/fa';
 import StampLOCStamps from 'components/Stamp/LOC/Stamps';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import { isMobile } from 'react-device-detect';
 
 function StampDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -62,7 +63,7 @@ function StampDrawer() {
               <StampLOCStamps handleStampClick={handleStampClick} />
             </DrawerBody>
 
-            <DrawerFooter>
+            <DrawerFooter mb={isMobile ? 20 : 0}>
               <Button variant="outline" mr={3} onClick={onClose}>
                 Cancel
               </Button>

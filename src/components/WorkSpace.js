@@ -7,7 +7,7 @@ import SaveCanvasList from 'components/Save/CanvasList';
 
 function WorkSpace() {
   const [activeTool, setActiveTool] = React.useState();
-  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const { fabricOverlay } = useFabricOverlayState();
 
   const handleClearCanvas = () => {
     fabricOverlay.fabricCanvas().clear();

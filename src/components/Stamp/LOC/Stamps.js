@@ -49,22 +49,16 @@ function StampLOCStamps({ handleStampClick }) {
   };
 
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="20px">
+    <SimpleGrid columns={{ md: 2, lg: 2 }}>
       {stamps.map(stamp => (
         <Link
           onClick={() => handleClick(stamp)}
           key={stamp.id}
           p={2}
-          display="flex"
           {...(activeStamp &&
             stamp.id === activeStamp.id && { ...activeProps })}
         >
-          <Image
-            src={stamp.src}
-            alt={stamp.alt}
-            ref={stamp.ref}
-            objectFit="contain"
-          />
+          <Image src={stamp.src} alt={stamp.alt} ref={stamp.ref} />
         </Link>
       ))}
     </SimpleGrid>

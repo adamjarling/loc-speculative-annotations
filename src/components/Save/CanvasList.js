@@ -55,9 +55,6 @@ function SaveCanvasList() {
 
   return (
     <Box boxShadow="md" padding="6">
-      <Text color="gray.500" as="i" display="inline-block" pb={3}>
-        Only tool currently supported is adding red boxes
-      </Text>
       <Flex justifyContent="space-between" alignItems="flex-end">
         {userCanvases && (
           <FormControl id="saved-user-canvases">
