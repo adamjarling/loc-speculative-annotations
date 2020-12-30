@@ -4,6 +4,7 @@ import { FaEraser, FaPen } from 'react-icons/fa';
 import { BiText } from 'react-icons/bi';
 import { Button, Container, Tooltip, Wrap, WrapItem } from '@chakra-ui/react';
 import StampDrawer from 'components/Stamp/Drawer';
+import Draw from 'components/Draw/Draw';
 
 import 'styles/styles.css';
 
@@ -16,8 +17,8 @@ function Toolbar({
 }) {
   return (
     <Container centerContent maxW="100%">
-      <Wrap spacing="6" mb={6} as="nav">
-        <WrapItem>
+      <Wrap spacing="4" as="nav">
+        {/* <WrapItem>
           <Button
             onClick={() => handleToolSelect('pen')}
             className={activeTool === 'pen' ? 'activeButton' : ''}
@@ -42,14 +43,18 @@ function Toolbar({
           >
             <BiText />
           </Button>
+        </WrapItem> */}
+
+        <WrapItem>
+          <Draw />
         </WrapItem>
 
         <WrapItem>
-          <Button onClick={handleRedBoxClick}>Draw a red box</Button>
+          <Button onClick={handleRedBoxClick}>Red box</Button>
         </WrapItem>
 
         <WrapItem>
-          <Button onClick={handleNewBoxClick}>Draw test box</Button>
+          <Button onClick={handleNewBoxClick}>Blue box</Button>
         </WrapItem>
 
         <WrapItem>
