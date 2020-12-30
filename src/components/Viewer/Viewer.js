@@ -45,11 +45,6 @@ export default function Viewer() {
           </p>
         </div>
       </Overlay>
-      <Overlay x={0.2} y={0.8}>
-        <div style={{ background: '#fff' }}>
-          <p>I'm another overlay</p>
-        </div>
-      </Overlay>
     </Box>
   );
 }
