@@ -5,6 +5,7 @@ import { BiText } from 'react-icons/bi';
 import { Button, Container, Tooltip, Wrap, WrapItem } from '@chakra-ui/react';
 import StampDrawer from 'components/Stamp/Drawer';
 import Draw from 'components/Draw/Draw';
+import TypeText from 'components/TypeText/TypeText';
 
 import 'styles/styles.css';
 
@@ -50,15 +51,15 @@ function Toolbar({
         </WrapItem>
 
         <WrapItem>
-          <Button onClick={handleRedBoxClick}>Red box</Button>
-        </WrapItem>
-
-        <WrapItem>
-          <Button onClick={handleNewBoxClick}>Blue box</Button>
-        </WrapItem>
-
-        <WrapItem>
           <StampDrawer />
+        </WrapItem>
+
+        <WrapItem>
+          <TypeText />
+        </WrapItem>
+
+        <WrapItem>
+          <Button onClick={handleRedBoxClick}>Red box</Button>
         </WrapItem>
 
         <WrapItem>
