@@ -8,7 +8,7 @@ import { Divider } from '@chakra-ui/react';
 
 function WorkSpace() {
   const [activeTool, setActiveTool] = React.useState();
-  const { fabricOverlay } = useFabricOverlayState();
+  const { fabricOverlay, viewer } = useFabricOverlayState();
 
   const handleClearCanvas = () => {
     fabricOverlay.fabricCanvas().clear();
