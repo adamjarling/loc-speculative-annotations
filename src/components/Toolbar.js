@@ -67,6 +67,12 @@ function Toolbar({
             Clear canvas
           </Button>
         </WrapItem>
+
+        <WrapItem>
+          <Button onClick={handleClearCanvas} variant="outline">
+            Clear item
+          </Button>
+        </WrapItem>
       </Wrap>
     </Container>
   );

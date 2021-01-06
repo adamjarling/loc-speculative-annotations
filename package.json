@@ -16,6 +16,7 @@
     "konva": "^7.2.2",
     "lodash.debounce": "^4.0.8",
     "openseadragon": "^2.4.2",
+    "openseadragon-fabricjs-overlay": "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git",
     "react": "^17.0.1",
     "react-device-detect": "^1.15.0",
     "react-dom": "^17.0.1",

@@ -8434,7 +8434,13 @@ open@^7.0.2:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
 
-openseadragon@^2.4.1, openseadragon@^2.4.2:
+"openseadragon-fabricjs-overlay@https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git":
+  version "0.2.0"
+  resolved "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git#2edaeac8e1d6df744533a8d7af0c216732ace2d7"
+  dependencies:
+    openseadragon "^2.0.0"
+
+openseadragon@^2.0.0, openseadragon@^2.4.1, openseadragon@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/openseadragon/-/openseadragon-2.4.2.tgz#f25d833d0ab9941599d65a3e2b44bec546c9f15c"
   integrity sha512-398KbZwRtOYA6OmeWRY4Q0737NTacQ9Q6whmr9Lp1MNQO3p0eBz5LIASRne+4gwequcSM1vcHcjfy3dIndQziw==

@@ -32,14 +32,6 @@ function WorkSpace() {
       height: 200,
     });
     fabricOverlay.fabricCanvas().add(rect);
-
-    const textbox = new fabric.Textbox('Lorum ipsum dolor sit amet', {
-      left: 50,
-      top: 50,
-      width: 400,
-      backgroundColor: 'white',
-      fontSize: 50,
-    });
   };
 
   const handleToolSelect = tool => {
