@@ -13,19 +13,21 @@ import {
 import StampDrawer from 'components/Stamp/Drawer';
 import Draw from 'components/Draw/Draw';
 import TypeText from 'components/TypeText/TypeText';
+import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 import 'styles/styles.css';
 
 function Toolbar({
-  activeTool,
   handleClearCanvas,
   handleNewBoxClick,
   handleRedBoxClick,
   handleToolSelect,
 }) {
+  const { activeTool } = useFabricOverlayState();
+
   return (
     <Box>
-      <Wrap spacing="4" as="nav">
+      <Wrap spacing="2" as="nav">
         {/* <WrapItem>
           <Button
             onClick={() => handleToolSelect('pen')}
@@ -54,7 +56,7 @@ function Toolbar({
         </WrapItem> */}
 
         <WrapItem>
-          <Draw />
+          <Draw isActive={activeTool === 'DRAW'} />
         </WrapItem>
 
         <WrapItem>
@@ -86,7 +88,6 @@ function Toolbar({
 }
 
 Toolbar.propTypes = {
-  activeTool: PropTypes.string,
   handleClearCanvas: PropTypes.func,
   handleNewBoxClick: PropTypes.func,
   handleRedBoxClick: PropTypes.func,

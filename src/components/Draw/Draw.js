@@ -1,9 +1,6 @@
 import React from 'react';
 import { FaPaintBrush } from 'react-icons/fa';
-import { FiSettings } from 'react-icons/fi';
 import {
-  Button,
-  ButtonGroup,
   Drawer,
   DrawerBody,
   DrawerOverlay,
@@ -13,22 +10,36 @@ import {
   IconButton,
   useDisclosure,
 } from '@chakra-ui/react';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import {
+  useFabricOverlayDispatch,
+  useFabricOverlayState,
+} from 'context/fabric-overlay-context';
 import DrawColorPicker from 'components/Draw/ColorPicker';
 import DrawWidthPicker from 'components/Draw/WidthPicker';
+import ToolbarButton from 'components/Toolbar/Button';
 
-function Draw(props) {
+function Draw({ isActive }) {
   const [isDrawing, setIsDrawing] = React.useState();
   const [color, setColor] = React.useState('#24e600');
   const [width, setWidth] = React.useState(20);
-  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const {
+    activeTool,
+    fabricOverlay,
+    isToolSettingsVisible,
+    viewer,
+  } = useFabricOverlayState();
+  const dispatch = useFabricOverlayDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  console.log('activeTool', activeTool);
+  console.log('isToolSettingsVisible', isToolSettingsVisible);
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    if (isDrawing) {
+    // Handle Fabric drawing mode
+    if (isActive) {
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
       canvas.isDrawingMode = true;
@@ -39,7 +50,20 @@ function Draw(props) {
       viewer.outerTracker.setTracking(true);
       canvas.isDrawingMode = false;
     }
-  }, [isDrawing]);
+  }, [isActive]);
+
+  React.useEffect(() => {
+    // Update brush color and size with Fabric
+    if (!fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+    canvas.freeDrawingBrush.color = color;
+    canvas.freeDrawingBrush.width = width;
+  }, [color, width]);
+
+  function handleClose() {
+    dispatch({ type: 'toggleToolSettingsVisible' });
+    onClose();
+  }
 
   function handleColorSelect(color) {
     setColor(color);
@@ -51,22 +75,31 @@ function Draw(props) {
 
   return (
     <>
-      {!isDrawing && (
-        <ButtonGroup isAttached>
-          <Button
-            onClick={() => setIsDrawing(true)}
-            leftIcon={<FaPaintBrush />}
-          >
-            Draw
-          </Button>
-          <IconButton
-            aria-label="Add to friends"
-            icon={<FiSettings />}
-            onClick={onOpen}
-          />
-        </ButtonGroup>
-      )}
-      {isDrawing && (
+      <ToolbarButton
+        //onClick={() => setIsDrawing(true)}
+        onClick={() =>
+          dispatch({ type: 'updateTool', tool: isActive ? '' : 'DRAW' })
+        }
+        icon={<FaPaintBrush />}
+        variant={isActive ? 'outline' : ''}
+        colorScheme={isActive ? 'brand.neonGreen' : ''}
+      />
+      {
+        // <ButtonGroup isAttached>
+        //   <Button
+        //     onClick={() => setIsDrawing(true)}
+        //     leftIcon={<FaPaintBrush />}
+        //   >
+        //     Draw
+        //   </Button>
+        //   <IconButton
+        //     aria-label="Add to friends"
+        //     icon={<FiSettings />}
+        //     onClick={onOpen}
+        //   />
+        // </ButtonGroup>
+      }
+      {/* {isDrawing && (
         <Button
           onClick={() => setIsDrawing(false)}
           leftIcon={<FaPaintBrush />}
@@ -74,8 +107,12 @@ function Draw(props) {
         >
           Stop Drawing
         </Button>
-      )}
-      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+      )} */}
+      <Drawer
+        placement="right"
+        onClose={handleClose}
+        isOpen={isToolSettingsVisible}
+      >
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />

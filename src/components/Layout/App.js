@@ -12,8 +12,8 @@ import LayoutSidebar from 'components/Layout/Sidebar/Sidebar';
 import LayoutSidebarNav from 'components/Layout/Sidebar/Nav';
 
 function LayoutApp(props) {
-  const [activeTool, setActiveTool] = React.useState();
-  const { fabricOverlay, viewer } = useFabricOverlayState();
+  //const [activeTool, setActiveTool] = React.useState();
+  const { activeTool, fabricOverlay, viewer } = useFabricOverlayState();
 
   const handleClearCanvas = () => {
     fabricOverlay.fabricCanvas().clear();
@@ -41,7 +41,7 @@ function LayoutApp(props) {
 
   const handleToolSelect = tool => {
     console.log('tool', tool);
-    setActiveTool(tool);
+    //setActiveTool(tool);
   };
   return (
     <Flex h="100vh" bg="green.500">

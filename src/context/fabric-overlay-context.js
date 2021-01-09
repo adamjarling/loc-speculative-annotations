@@ -4,17 +4,31 @@ const FabricOverlayStateContext = React.createContext();
 const FabricOverlayDispatchContext = React.createContext();
 
 const defaultState = {
+  activeTool: null,
   fabricOverlay: null,
+  isToolSettingsVisible: false,
   viewer: null,
 };
 
 function fabricOverlayReducer(state, action) {
   switch (action.type) {
+    case 'toggleToolSettingsVisible': {
+      return {
+        ...state,
+        isToolSettingsVisible: !state.isToolSettingsVisible,
+      };
+    }
     case 'updateOverlay': {
       return {
         ...state,
         fabricOverlay: action.fabricOverlay,
         viewer: action.viewer,
+      };
+    }
+    case 'updateTool': {
+      return {
+        ...state,
+        activeTool: action.tool,
       };
     }
     default: {
