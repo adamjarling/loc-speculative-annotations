@@ -30,6 +30,11 @@ function ViewerHeader(props) {
     dispatch({ type: 'toggleToolSettingsVisible' });
   };
 
+  const shouldDisplaySettings = () => {
+    const toolsWithSettings = ['DRAW'];
+    return activeTool && toolsWithSettings.indexOf(activeTool) > -1;
+  };
+
   return (
     <Flex
       as="header"
@@ -38,12 +43,14 @@ function ViewerHeader(props) {
       alignItems="center"
     >
       <Box>
-        <ToolbarButton
-          icon={<SettingsIcon />}
-          label="Tool settings"
-          onClick={handleSettingsClick}
-          variant="ghost"
-        />
+        {shouldDisplaySettings() && (
+          <ToolbarButton
+            icon={<SettingsIcon />}
+            label="Tool settings"
+            onClick={handleSettingsClick}
+            variant="ghost"
+          />
+        )}
       </Box>
       <HStack spacing="10px">
         <ColorModeSwitcher />

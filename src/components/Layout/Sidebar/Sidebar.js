@@ -7,7 +7,7 @@ export default function Sidebar({ children }) {
       as="section"
       w="80px"
       h="100vh"
-      bg="blue.500"
+      // bg="blue.500"
       direction="column"
       justifyContent="space-between"
     >

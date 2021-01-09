@@ -30,7 +30,6 @@ function WorksListModal(props) {
   const [activeWork, setActiveWork] = React.useState();
 
   const handleImageClick = id => {
-    console.log('id', id);
     setActiveWork(id);
   };
 

@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 
 function DrawWidthPicker({ color, handleWidthSelect, prevWidth }) {
-  console.log('DrawWidthPicker render');
   const [width, setWidth] = React.useState(prevWidth);
 
   function handleOnChange(val) {

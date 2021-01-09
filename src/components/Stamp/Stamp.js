@@ -15,14 +15,29 @@ import {
 import { FaStamp } from 'react-icons/fa';
 import StampLOCStamps from 'components/Stamp/LOC/Stamps';
 import { fabric } from 'openseadragon-fabricjs-overlay';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { isMobile } from 'react-device-detect';
+import ToolbarButton from 'components/Toolbar/Button';
+import {
+  useFabricOverlayDispatch,
+  useFabricOverlayState,
+} from 'context/fabric-overlay-context';
+import useRandomNumber from 'hooks/use-random-number';
 
-function StampDrawer() {
+function Stamp({ isActive }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
-  const { fabricOverlay } = useFabricOverlayState();
   const [activeStampRef, setActiveStampRef] = React.useState();
+  const { fabricOverlay } = useFabricOverlayState();
+  const dispatch = useFabricOverlayDispatch();
+  const { getRandomNumber } = useRandomNumber();
+
+  function handleClose() {
+    onClose();
+  }
+
+  const handleToolbarButtonClick = () => {
+    dispatch({ type: 'updateTool', tool: isActive ? '' : 'STAMP' });
+    onOpen();
+  };
 
   const handleStampClick = ref => {
     setActiveStampRef(ref);
@@ -30,8 +45,8 @@ function StampDrawer() {
 
   const addStampToCanvas = () => {
     const imgInstance = new fabric.Image(activeStampRef.current, {
-      left: 100,
-      top: 100,
+      left: getRandomNumber(50, 800),
+      top: getRandomNumber(50, 800),
     });
     fabricOverlay.fabricCanvas().add(imgInstance);
     onClose();
@@ -39,21 +54,13 @@ function StampDrawer() {
 
   return (
     <>
-      <Tooltip
-        label="Add a stamp to the canvas"
-        openDelay={500}
-        aria-label="Stamp tooltip"
-      >
-        <Button ref={btnRef} leftIcon={<FaStamp />} onClick={onOpen}>
-          Stamp
-        </Button>
-      </Tooltip>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
+      <ToolbarButton
+        onClick={handleToolbarButtonClick}
+        icon={<FaStamp />}
+        isActive={isActive}
+        label="Stamp"
+      />
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
@@ -79,8 +86,8 @@ function StampDrawer() {
   );
 }
 
-StampDrawer.propTypes = {
+Stamp.propTypes = {
   activeTool: PropTypes.string,
 };
 
-export default StampDrawer;
+export default Stamp;

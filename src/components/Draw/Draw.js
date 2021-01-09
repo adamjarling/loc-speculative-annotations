@@ -23,16 +23,12 @@ function Draw({ isActive }) {
   const [color, setColor] = React.useState('#24e600');
   const [width, setWidth] = React.useState(20);
   const {
-    activeTool,
     fabricOverlay,
     isToolSettingsVisible,
     viewer,
   } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  console.log('activeTool', activeTool);
-  console.log('isToolSettingsVisible', isToolSettingsVisible);
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
@@ -76,38 +72,13 @@ function Draw({ isActive }) {
   return (
     <>
       <ToolbarButton
-        //onClick={() => setIsDrawing(true)}
         onClick={() =>
           dispatch({ type: 'updateTool', tool: isActive ? '' : 'DRAW' })
         }
         icon={<FaPaintBrush />}
-        variant={isActive ? 'outline' : ''}
-        colorScheme={isActive ? 'brand.neonGreen' : ''}
+        isActive={isActive}
+        label="Draw"
       />
-      {
-        // <ButtonGroup isAttached>
-        //   <Button
-        //     onClick={() => setIsDrawing(true)}
-        //     leftIcon={<FaPaintBrush />}
-        //   >
-        //     Draw
-        //   </Button>
-        //   <IconButton
-        //     aria-label="Add to friends"
-        //     icon={<FiSettings />}
-        //     onClick={onOpen}
-        //   />
-        // </ButtonGroup>
-      }
-      {/* {isDrawing && (
-        <Button
-          onClick={() => setIsDrawing(false)}
-          leftIcon={<FaPaintBrush />}
-          variant="outline"
-        >
-          Stop Drawing
-        </Button>
-      )} */}
       <Drawer
         placement="right"
         onClose={handleClose}

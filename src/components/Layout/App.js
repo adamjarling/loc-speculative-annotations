@@ -44,7 +44,7 @@ function LayoutApp(props) {
     //setActiveTool(tool);
   };
   return (
-    <Flex h="100vh" bg="green.500">
+    <Flex h="100vh">
       <LayoutSidebar>
         <Toolbar
           activeTool={activeTool}
