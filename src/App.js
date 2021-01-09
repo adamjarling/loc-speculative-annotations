@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import KonvaWrapper from 'components/Konva/KonvaWrapper';
 import OsdFabricWrapper from 'components/OsdFabricWrapper';
 import { Fonts } from 'components/TypeText/Fonts';
+import LayoutApp from 'components/Layout/App';
+import LayoutSite from 'components/Layout/Site';
 
 const theme = extendTheme({
   colors: {
@@ -26,8 +28,13 @@ function App() {
           <Route path="/konva">
             <KonvaWrapper />
           </Route>
-          <Route path="/">
-            <OsdFabricWrapper />
+          <Route exact path="/about">
+            <LayoutSite />
+          </Route>
+          <Route exact path="/">
+            <OsdFabricWrapper>
+              <LayoutApp />
+            </OsdFabricWrapper>
           </Route>
         </Switch>
       </ChakraProvider>

@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaEraser, FaPen } from 'react-icons/fa';
 import { BiText } from 'react-icons/bi';
-import { Button, Container, Tooltip, Wrap, WrapItem } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Tooltip,
+  Wrap,
+  WrapItem,
+} from '@chakra-ui/react';
 import StampDrawer from 'components/Stamp/Drawer';
 import Draw from 'components/Draw/Draw';
 import TypeText from 'components/TypeText/TypeText';
@@ -17,7 +24,7 @@ function Toolbar({
   handleToolSelect,
 }) {
   return (
-    <Container centerContent maxW="100%">
+    <Box>
       <Wrap spacing="4" as="nav">
         {/* <WrapItem>
           <Button
@@ -74,7 +81,7 @@ function Toolbar({
           </Button>
         </WrapItem>
       </Wrap>
-    </Container>
+    </Box>
   );
 }
 

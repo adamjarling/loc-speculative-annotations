@@ -1,12 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Box, Divider, Flex } from '@chakra-ui/react';
 import Toolbar from 'components/Toolbar';
 import Viewer from 'components/Viewer/Viewer';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import SaveCanvasList from 'components/Save/CanvasList';
-import { Divider, Flex } from '@chakra-ui/react';
+import ViewerHeader from 'components/Viewer/Header';
+import ViewerFooter from 'components/Viewer/Footer';
+import LayoutSidebar from 'components/Layout/Sidebar/Sidebar';
+import LayoutSidebarNav from 'components/Layout/Sidebar/Nav';
 
-function WorkSpace() {
+function LayoutApp(props) {
   const [activeTool, setActiveTool] = React.useState();
   const { fabricOverlay, viewer } = useFabricOverlayState();
 
@@ -38,21 +43,28 @@ function WorkSpace() {
     console.log('tool', tool);
     setActiveTool(tool);
   };
-
   return (
-    <Flex h="100vh">
-      <SaveCanvasList />
-      <Divider />
-      <Toolbar
-        activeTool={activeTool}
-        handleClearCanvas={handleClearCanvas}
-        handleNewBoxClick={handleNewBoxClick}
-        handleRedBoxClick={handleRedBoxClick}
-        handleToolSelect={handleToolSelect}
-      />
-      <Viewer />
+    <Flex h="100vh" bg="green.500">
+      <LayoutSidebar>
+        <Toolbar
+          activeTool={activeTool}
+          handleClearCanvas={handleClearCanvas}
+          handleNewBoxClick={handleNewBoxClick}
+          handleRedBoxClick={handleRedBoxClick}
+          handleToolSelect={handleToolSelect}
+        />
+        <LayoutSidebarNav />
+      </LayoutSidebar>
+
+      <Box flex="1">
+        <ViewerHeader />
+        <Viewer />
+        <ViewerFooter />
+      </Box>
     </Flex>
   );
 }
 
-export default WorkSpace;
+LayoutApp.propTypes = {};
+
+export default LayoutApp;

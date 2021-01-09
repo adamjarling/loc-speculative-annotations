@@ -36,7 +36,7 @@ export default function Viewer() {
   }, [dispatch, viewer]);
 
   return (
-    <Box ref={ref} w="100%" h="600px" bgColor="antiquewhite">
+    <Box ref={ref} w="100%" h="88vh" bgColor="antiquewhite">
       <Overlay x={0.5} y={0.5}>
         <div style={{ background: '#fff' }}>
           <p>
