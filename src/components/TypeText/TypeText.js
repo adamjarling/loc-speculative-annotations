@@ -8,27 +8,27 @@ import {
   MenuList,
   MenuOptionGroup,
 } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
-import { CgFormatText } from 'react-icons/cg';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import { FiType } from 'react-icons/fi';
+import {
+  useFabricOverlayDispatch,
+  useFabricOverlayState,
+} from 'context/fabric-overlay-context';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import FontFaceObserver from 'fontfaceobserver';
 import { FiSettings } from 'react-icons/fi';
+import useRandomNumber from 'hooks/use-random-number';
+import ToolbarButton from 'components/Toolbar/Button';
 
 // Textbox with padding solution:
 // https://github.com/fabricjs/fabric.js/issues/3731
 
 const fonts = ['Staatliches', 'Xanh Mono', 'Yellowtail'];
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
-function TypeText(props) {
+function TypeText({ isActive }) {
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const [currentFont, setCurrentFont] = React.useState(fonts[0]);
+  const { getRandomNumber } = useRandomNumber();
+  const dispatch = useFabricOverlayDispatch();
 
   const loadAndUse = font => {
     const canvas = fabricOverlay.fabricCanvas();
@@ -52,9 +52,12 @@ function TypeText(props) {
   };
 
   const handleButtonClick = e => {
+    dispatch({ type: 'updateTool', tool: isActive ? '' : 'TYPE' });
+
+    // Create new Textbox instance
     const textbox = new fabric.Textbox('Type something here', {
-      left: getRandomInt(50, 800),
-      top: getRandomInt(30, 800),
+      left: getRandomNumber(50, 800),
+      top: getRandomNumber(30, 800),
       width: 400,
       backgroundColor: 'white',
       editingBorderColor: 'green',
@@ -72,9 +75,12 @@ function TypeText(props) {
 
   return (
     <div>
-      <Button onClick={handleButtonClick} leftIcon={<CgFormatText />}>
-        Type
-      </Button>
+      <ToolbarButton
+        onClick={handleButtonClick}
+        icon={<FiType />}
+        isActive={isActive}
+        label="Type Text"
+      />
       <Menu>
         <MenuButton as={Button}>
           <FiSettings />
@@ -102,6 +108,8 @@ function TypeText(props) {
   );
 }
 
-TypeText.propTypes = {};
+TypeText.propTypes = {
+  isActive: PropTypes.bool,
+};
 
 export default TypeText;

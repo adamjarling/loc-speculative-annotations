@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Wrap, WrapItem } from '@chakra-ui/react';
+import { Box, Divider, Wrap, WrapItem } from '@chakra-ui/react';
 import Stamp from 'components/Stamp/Stamp';
 import Draw from 'components/Draw/Draw';
 import TypeText from 'components/TypeText/TypeText';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import ClearCanvas from 'components/ClearCanvas';
 
 import 'styles/styles.css';
 
-function Toolbar({ handleClearCanvas, handleRedBoxClick }) {
+function Toolbar(props) {
   const { activeTool } = useFabricOverlayState();
 
   return (
-    <Box>
-      <Wrap spacing="2" as="nav">
+    <Box mt="6vh">
+      <Wrap spacing="2" as="nav" direction="column" align="center">
         <WrapItem>
           <Draw isActive={activeTool === 'DRAW'} />
         </WrapItem>
@@ -27,28 +28,17 @@ function Toolbar({ handleClearCanvas, handleRedBoxClick }) {
         </WrapItem>
 
         <WrapItem>
-          <Button onClick={handleRedBoxClick}>Red box</Button>
+          <Divider />
         </WrapItem>
 
         <WrapItem>
-          <Button onClick={handleClearCanvas} variant="outline">
-            Clear canvas
-          </Button>
-        </WrapItem>
-
-        <WrapItem>
-          <Button onClick={handleClearCanvas} variant="outline">
-            Clear item
-          </Button>
+          <ClearCanvas />
         </WrapItem>
       </Wrap>
     </Box>
   );
 }
 
-Toolbar.propTypes = {
-  handleClearCanvas: PropTypes.func,
-  handleRedBoxClick: PropTypes.func,
-};
+Toolbar.propTypes = {};
 
 export default Toolbar;
