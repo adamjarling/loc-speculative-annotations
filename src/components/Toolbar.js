@@ -6,6 +6,7 @@ import Draw from 'components/Draw/Draw';
 import TypeText from 'components/TypeText/TypeText';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ClearCanvas from 'components/ClearCanvas';
+import TypeTextDrawer from 'components/TypeText/Drawer';
 
 import 'styles/styles.css';
 
@@ -24,7 +25,7 @@ function Toolbar(props) {
         </WrapItem>
 
         <WrapItem>
-          <TypeText isActive={activeTool === 'TYPE'} />
+          <TypeTextDrawer isActive={activeTool === 'TYPE'} />
         </WrapItem>
 
         <WrapItem>

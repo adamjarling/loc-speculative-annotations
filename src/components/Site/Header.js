@@ -21,8 +21,8 @@ function SiteHeader(props) {
     <Flex alignItems="center">
       <Box flex="1">
         <HStack as="nav">
-          <NavItem label="About" />
-          <NavItem label="Teach" />
+          <NavItem label="About" url="#" />
+          <NavItem label="Teach" url="#" />
           <NavItem label="Annotate" />
         </HStack>
       </Box>

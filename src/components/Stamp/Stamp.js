@@ -30,10 +30,6 @@ function Stamp({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { getRandomNumber } = useRandomNumber();
 
-  function handleClose() {
-    onClose();
-  }
-
   const handleToolbarButtonClick = () => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'STAMP' });
     onOpen();

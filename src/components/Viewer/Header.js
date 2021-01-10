@@ -31,7 +31,7 @@ function ViewerHeader(props) {
   };
 
   const shouldDisplaySettings = () => {
-    const toolsWithSettings = ['DRAW', 'TYPE'];
+    const toolsWithSettings = ['DRAW'];
     return activeTool && toolsWithSettings.indexOf(activeTool) > -1;
   };
 
@@ -47,12 +47,6 @@ function ViewerHeader(props) {
           <Button leftIcon={<SettingsIcon />} onClick={handleSettingsClick}>
             Settings
           </Button>
-          // <ToolbarButton
-          //   icon={<SettingsIcon />}
-          //   label="Tool settings"
-          //   onClick={handleSettingsClick}
-          //   variant="ghost"
-          // />
         )}
       </Box>
       <HStack spacing="10px">
