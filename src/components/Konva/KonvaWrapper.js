@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from 'components/Layout';
 import KonvaManualZoom from 'components/Konva/ManualZoom';
 
 const iiifImageParams = '/full/pct:100/0/default.jpg';
@@ -23,9 +22,9 @@ export default function KonvaWrapper() {
   }, []);
 
   return (
-    <Layout>
+    <>
       <KonvaManualZoom locImage={locImage} />
       {/* <KonvaZoom /> */}
-    </Layout>
+    </>
   );
 }

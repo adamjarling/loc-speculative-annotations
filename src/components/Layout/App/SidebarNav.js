@@ -9,7 +9,6 @@ export default function Nav() {
       <Link href="https://labs.loc.gov/" isExternal>
         <Image src={locLogo} alt="Library of Congress Labs" />
       </Link>
-      <WorksListModal />
     </VStack>
   );
 }

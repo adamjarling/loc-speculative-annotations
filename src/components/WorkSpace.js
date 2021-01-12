@@ -1,5 +1,5 @@
 import React from 'react';
-import Toolbar from 'components/Toolbar';
+import Toolbar from 'components/Toolbar/Toolbar';
 import Viewer from 'components/Viewer/Viewer';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { fabric } from 'openseadragon-fabricjs-overlay';

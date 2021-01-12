@@ -14,8 +14,9 @@ import {
   SimpleGrid,
   useDisclosure,
 } from '@chakra-ui/react';
-import { FaImages } from 'react-icons/fa';
+import { AddIcon } from '@chakra-ui/icons';
 import faker from 'faker';
+import ToolbarButton from 'components/Toolbar/Button';
 
 const renderMockImages = () => {
   const items = [];
@@ -35,13 +36,10 @@ function WorksListModal(props) {
 
   return (
     <>
-      <IconButton
-        icon={<FaImages />}
-        size="lg"
+      <ToolbarButton
         onClick={onOpen}
-        w="full"
-        fontSize="3xl"
-        aria-label="Select another work"
+        icon={<AddIcon />}
+        label="Pick another work"
       />
 
       <Modal
@@ -59,7 +57,7 @@ function WorksListModal(props) {
               {renderMockImages().map(image => (
                 <Box
                   key={image.id}
-                  bg="tomato"
+                  bg="brand.pink.500"
                   h="200px"
                   onClick={() => handleImageClick(image.id)}
                 />

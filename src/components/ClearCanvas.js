@@ -52,7 +52,11 @@ function ClearCanvas(props) {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="red" onClick={handleClearCanvas} ml={3}>
+              <Button
+                colorScheme="brand.pink"
+                onClick={handleClearCanvas}
+                ml={3}
+              >
                 Clear
               </Button>
             </AlertDialogFooter>

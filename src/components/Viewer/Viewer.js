@@ -35,16 +35,5 @@ export default function Viewer() {
     });
   }, [dispatch, viewer]);
 
-  return (
-    <Box ref={ref} w="100%" h="88vh" bgColor="antiquewhite">
-      <Overlay x={0.5} y={0.5}>
-        <div style={{ background: '#fff' }}>
-          <p>
-            I'm a Overlay component where React components can live on the
-            canvas
-          </p>
-        </div>
-      </Overlay>
-    </Box>
-  );
+  return <Box ref={ref} w="100%" bgColor="brand.offWhite.50"></Box>;
 }

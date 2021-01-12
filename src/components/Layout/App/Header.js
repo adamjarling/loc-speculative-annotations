@@ -5,9 +5,10 @@ import {
   Flex,
   HStack,
   IconButton,
+  Image,
   Tooltip,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import { CloseIcon } from '@chakra-ui/icons';
 import { useHistory } from 'react-router-dom';
 import {
@@ -15,9 +16,9 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import { SettingsIcon } from '@chakra-ui/icons';
-import ToolbarButton from 'components/Toolbar/Button';
+import SALogo from 'components/SALogo';
 
-function ViewerHeader(props) {
+function LayoutAppHeader(props) {
   const history = useHistory();
   const { activeTool } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
@@ -38,17 +39,22 @@ function ViewerHeader(props) {
   return (
     <Flex
       as="header"
-      h="6vh"
+      h="8vh"
       justifyContent="space-between"
       alignItems="center"
     >
       <Box>
-        {shouldDisplaySettings() && (
+        {shouldDisplaySettings() ? (
           <Button leftIcon={<SettingsIcon />} onClick={handleSettingsClick}>
             Settings
           </Button>
+        ) : (
+          <Box w="100px" h="20" />
         )}
       </Box>
+
+      <SALogo />
+
       <HStack spacing="10px">
         <ColorModeSwitcher />
         <Tooltip label="Close the app" aria-label="Close the app">
@@ -64,6 +70,6 @@ function ViewerHeader(props) {
   );
 }
 
-ViewerHeader.propTypes = {};
+LayoutAppHeader.propTypes = {};
 
-export default ViewerHeader;
+export default LayoutAppHeader;

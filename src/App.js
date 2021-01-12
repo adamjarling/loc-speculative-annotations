@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import KonvaWrapper from 'components/Konva/KonvaWrapper';
 import OsdFabricWrapper from 'components/OsdFabricWrapper';
 import { Fonts } from 'components/TypeText/Fonts';
-import LayoutApp from 'components/Layout/App';
-import LayoutSite from 'components/Layout/Site';
+import LayoutApp from 'components/Layout/App/App';
+import LayoutSite from 'components/Layout/Site/Site';
 
 const theme = extendTheme({
   colors: {

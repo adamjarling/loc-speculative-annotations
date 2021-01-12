@@ -14,7 +14,7 @@ function Toolbar(props) {
   const { activeTool } = useFabricOverlayState();
 
   return (
-    <Box mt="6vh">
+    <Box>
       <Wrap spacing="2" as="nav" direction="column" align="center">
         <WrapItem>
           <Draw isActive={activeTool === 'DRAW'} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Container, Divider } from '@chakra-ui/react';
-import SiteHeader from 'components/Site/Header';
+import SiteHeader from 'components/Layout/Site/Header';
 import SiteAbout from 'components/Site/About';
 import SiteTeach from 'components/Site/Teach';
 

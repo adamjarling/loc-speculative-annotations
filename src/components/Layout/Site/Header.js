@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Center, Flex, HStack, Link } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import { Link as RRLink } from 'react-router-dom';
+import SALogo from 'components/SALogo';
 
 function NavItem({ label, url = '/' }) {
   return (
@@ -18,7 +19,8 @@ function NavItem({ label, url = '/' }) {
 
 function SiteHeader(props) {
   return (
-    <Flex alignItems="center">
+    <Flex alignItems="center" justifyContent="space-between" h="8vh">
+      <SALogo />
       <Box flex="1">
         <HStack as="nav">
           <NavItem label="About" url="#" />
