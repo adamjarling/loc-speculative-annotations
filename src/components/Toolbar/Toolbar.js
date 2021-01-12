@@ -7,6 +7,11 @@ import TypeText from 'components/TypeText/TypeText';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ClearCanvas from 'components/ClearCanvas';
 import TypeTextDrawer from 'components/TypeText/Drawer';
+import SaveCanvas from 'components/Save/Canvas';
+import { ImBubbles3 } from 'react-icons/im';
+import { MdFormatQuote } from 'react-icons/md';
+import { FaHandPointRight } from 'react-icons/fa';
+import ToolbarButton from 'components/Toolbar/Button';
 
 import 'styles/styles.css';
 
@@ -30,6 +35,26 @@ function Toolbar(props) {
 
         <WrapItem>
           <Divider />
+        </WrapItem>
+
+        <WrapItem>
+          <ToolbarButton icon={<ImBubbles3 />} label="Speech bubble" disabled />
+        </WrapItem>
+
+        <WrapItem>
+          <ToolbarButton
+            icon={<MdFormatQuote />}
+            label="Punctuation"
+            disabled
+          />
+        </WrapItem>
+
+        <WrapItem>
+          <ToolbarButton
+            icon={<FaHandPointRight />}
+            label="Hand point"
+            disabled
+          />
         </WrapItem>
 
         <WrapItem>

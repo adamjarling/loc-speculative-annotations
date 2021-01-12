@@ -8,6 +8,8 @@ export default function LayoutAppSidebar({ children }) {
       w="80px"
       direction="column"
       justifyContent="space-between"
+      boxShadow="base"
+      zIndex="1"
     >
       {children}
     </Flex>

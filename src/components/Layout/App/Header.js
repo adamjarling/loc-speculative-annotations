@@ -42,8 +42,10 @@ function LayoutAppHeader(props) {
       h="8vh"
       justifyContent="space-between"
       alignItems="center"
+      boxShadow="base"
+      zIndex="1"
     >
-      <Box>
+      <Box pl="3">
         {shouldDisplaySettings() ? (
           <Button leftIcon={<SettingsIcon />} onClick={handleSettingsClick}>
             Settings

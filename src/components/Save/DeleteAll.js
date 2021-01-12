@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AiOutlineClear } from 'react-icons/ai';
 import {
   AlertDialog,
   AlertDialogBody,
@@ -10,27 +9,27 @@ import {
   AlertDialogOverlay,
   Button,
 } from '@chakra-ui/react';
-import ToolbarButton from 'components/Toolbar/Button';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import { ChevronDownIcon, DeleteIcon } from '@chakra-ui/icons';
 
-function ClearCanvas(props) {
-  const { fabricOverlay } = useFabricOverlayState();
+function SaveDeleteAll({ handleDeleteAll }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
 
-  const handleClearCanvas = () => {
-    fabricOverlay.fabricCanvas().clear();
-    onClose();
+  const handleConfirmClick = () => {
+    setIsOpen(false);
+    handleDeleteAll();
   };
 
   return (
     <>
-      <ToolbarButton
+      <Button
+        leftIcon={<DeleteIcon />}
+        variant="ghost"
         onClick={() => setIsOpen(true)}
-        icon={<AiOutlineClear />}
-        label="Clear"
-      />
+      >
+        Delete all
+      </Button>
 
       <AlertDialog
         isOpen={isOpen}
@@ -40,12 +39,11 @@ function ClearCanvas(props) {
         <AlertDialogOverlay>
           <AlertDialogContent>
             <AlertDialogHeader fontSize="lg" fontWeight="bold">
-              Clear Canvas
+              Delete all
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              Are you sure? This will remove all current annotations from the
-              canvas.
+              Are you sure? This will delete all your saved annotations.
             </AlertDialogBody>
 
             <AlertDialogFooter>
@@ -54,10 +52,10 @@ function ClearCanvas(props) {
               </Button>
               <Button
                 colorScheme="brand.pink"
-                onClick={handleClearCanvas}
+                onClick={handleConfirmClick}
                 ml={3}
               >
-                Clear
+                Delete All
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>
@@ -67,6 +65,6 @@ function ClearCanvas(props) {
   );
 }
 
-ClearCanvas.propTypes = {};
+SaveDeleteAll.propTypes = {};
 
-export default ClearCanvas;
+export default SaveDeleteAll;

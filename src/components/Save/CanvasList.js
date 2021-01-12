@@ -57,7 +57,7 @@ function SaveCanvasList() {
     <Flex justifyContent="space-between" alignItems="flex-end">
       {userCanvases && (
         <FormControl id="saved-user-canvases">
-          <FormLabel>Saved Canvases</FormLabel>
+          <FormLabel>Select saved annotation:</FormLabel>
           <Select
             placeholder="Select one"
             onChange={handleSelectChange}

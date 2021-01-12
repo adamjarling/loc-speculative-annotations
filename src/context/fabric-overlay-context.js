@@ -4,6 +4,7 @@ const FabricOverlayStateContext = React.createContext();
 const FabricOverlayDispatchContext = React.createContext();
 
 const defaultState = {
+  activeAnnotation: '',
   activeTool: null,
   fabricOverlay: null,
   isToolSettingsVisible: false,
@@ -16,6 +17,12 @@ function fabricOverlayReducer(state, action) {
       return {
         ...state,
         isToolSettingsVisible: !state.isToolSettingsVisible,
+      };
+    }
+    case 'updateActiveAnnotation': {
+      return {
+        ...state,
+        activeAnnotation: action.activeAnnotation,
       };
     }
     case 'updateOverlay': {

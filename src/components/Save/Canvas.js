@@ -15,10 +15,16 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import { FaSave } from 'react-icons/fa';
+import {
+  useFabricOverlayDispatch,
+  useFabricOverlayState,
+} from 'context/fabric-overlay-context';
+import useLocalStorageState from 'hooks/use-local-storage-state';
 
 export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [title, setTitle] = React.useState(selectedCanvas);
+  const [title, setTitle] = React.useState('');
 
   React.useEffect(() => {
     setTitle(selectedCanvas);
@@ -32,12 +38,14 @@ export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
 
   return (
     <>
-      <Button onClick={onOpen}>Save your work</Button>
+      <Button onClick={onOpen} leftIcon={<FaSave />} variant="ghost">
+        Save
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Save your annotations</ModalHeader>
+          <ModalHeader>Save annotation</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FormControl
@@ -52,6 +60,7 @@ export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
               value={title}
               onChange={e => setTitle(e.target.value)}
             />
+            <input type="text" />
             <FormErrorMessage>Value can't be empty</FormErrorMessage>
           </ModalBody>
           <ModalFooter>
