@@ -65,6 +65,17 @@ function Draw({ isActive }) {
     setColor(color);
   }
 
+  const handleToolbarClick = () => {
+    if (isActive) {
+      // User wants to make inactive
+      onClose();
+    } else {
+      // User wants to make active
+      onOpen();
+    }
+    dispatch({ type: 'updateTool', tool: isActive ? '' : 'DRAW' });
+  };
+
   function handleWidthSelect(width) {
     setWidth(width);
   }
@@ -72,18 +83,12 @@ function Draw({ isActive }) {
   return (
     <>
       <ToolbarButton
-        onClick={() =>
-          dispatch({ type: 'updateTool', tool: isActive ? '' : 'DRAW' })
-        }
+        onClick={handleToolbarClick}
         icon={<FaPaintBrush />}
         isActive={isActive}
         label="Draw"
       />
-      <Drawer
-        placement="right"
-        onClose={handleClose}
-        isOpen={isToolSettingsVisible}
-      >
+      <Drawer placement="right" onClose={handleClose} isOpen={isOpen}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
