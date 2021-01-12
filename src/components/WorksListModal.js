@@ -39,7 +39,7 @@ function WorksListModal(props) {
       <ToolbarButton
         onClick={onOpen}
         icon={<AddIcon />}
-        label="Pick another work"
+        label="Select another item from the Library of Congress"
       />
 
       <Modal
@@ -50,7 +50,9 @@ function WorksListModal(props) {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Select a new work</ModalHeader>
+          <ModalHeader>
+            Select another item from the Library of Congress
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid minChildWidth="200px" spacing={10}>

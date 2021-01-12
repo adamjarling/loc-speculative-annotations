@@ -47,8 +47,7 @@ function TypeTextDrawer({ isActive }) {
     const textbox = new fabric.Textbox(textValue, {
       left: getRandomNumber(50, 800),
       top: getRandomNumber(30, 800),
-      width: 400,
-      backgroundColor: 'white',
+      //width: 400,
       editingBorderColor: 'green',
       fontFamily: currentFont,
       fontSize: 50,
