@@ -1,22 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Box, Divider, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Toolbar from 'components/Toolbar/Toolbar';
 import Viewer from 'components/Viewer/Viewer';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import { fabric } from 'openseadragon-fabricjs-overlay';
-import SaveCanvasList from 'components/Save/CanvasList';
-import ViewerFooter from 'components/Layout/App/Footer';
-import LayoutSidebar from 'components/Layout/App/Sidebar';
 import LayoutSidebarNav from 'components/Layout/App/SidebarNav';
 import LayoutAppHeader from 'components/Layout/App/Header';
 import LayoutAppBody from 'components/Layout/App/Body';
 import LayoutAppSidebar from './Sidebar';
 import LayoutAppFooter from './Footer';
+import Div100vh from 'react-div-100vh';
 
 function LayoutApp(props) {
   return (
-    <Flex h="100vh" direction="column">
+    <Flex as={Div100vh} h="100vh" direction="column">
       <LayoutAppHeader />
       <LayoutAppBody>
         <LayoutAppSidebar>
