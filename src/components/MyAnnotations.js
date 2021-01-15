@@ -15,7 +15,6 @@ import {
   Select,
 } from '@chakra-ui/react';
 import { ChevronDownIcon, DeleteIcon } from '@chakra-ui/icons';
-import { FaSave } from 'react-icons/fa';
 import useLocalStorageState from 'hooks/use-local-storage-state';
 import {
   useFabricOverlayDispatch,

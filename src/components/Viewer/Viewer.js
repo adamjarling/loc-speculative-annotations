@@ -35,5 +35,5 @@ export default function Viewer() {
     });
   }, [dispatch, viewer]);
 
-  return <Box ref={ref} w="100%" bgColor="brand.offWhite.50"></Box>;
+  return <Box ref={ref} w="100%"></Box>;
 }
