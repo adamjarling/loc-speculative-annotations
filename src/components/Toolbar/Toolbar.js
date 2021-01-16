@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { Box, Divider, Wrap, WrapItem } from '@chakra-ui/react';
 import Stamp from 'components/Stamp/Stamp';
 import Draw from 'components/Draw/Draw';
-import TypeText from 'components/TypeText/TypeText';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ClearCanvas from 'components/ClearCanvas';
 import TypeTextDrawer from 'components/TypeText/Drawer';
-import SaveCanvas from 'components/Save/Canvas';
 import { ImBubbles3 } from 'react-icons/im';
 import { MdFormatQuote } from 'react-icons/md';
 import { FaHandPointRight } from 'react-icons/fa';
@@ -15,7 +13,7 @@ import ToolbarButton from 'components/Toolbar/Button';
 
 import 'styles/styles.css';
 
-function Toolbar(props) {
+function Toolbar() {
   const { activeTool } = useFabricOverlayState();
 
   return (
@@ -64,7 +62,5 @@ function Toolbar(props) {
     </Box>
   );
 }
-
-Toolbar.propTypes = {};
 
 export default Toolbar;

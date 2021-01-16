@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import {
   Button,
@@ -77,6 +76,7 @@ function TypeTextDrawer({ isActive }) {
     onOpen();
   };
 
+  // TODO: We'll need this if adjusting the font or size of a selected textarea item
   const loadAndUse = font => {
     const canvas = fabricOverlay.fabricCanvas();
     const activeObject = canvas.getActiveObject();
@@ -153,7 +153,5 @@ function TypeTextDrawer({ isActive }) {
     </>
   );
 }
-
-TypeTextDrawer.propTypes = {};
 
 export default TypeTextDrawer;

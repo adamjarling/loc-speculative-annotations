@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
-  IconButton,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -26,7 +24,7 @@ const renderMockImages = () => {
   return items;
 };
 
-function WorksListModal(props) {
+function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeWork, setActiveWork] = React.useState();
 
@@ -75,7 +73,5 @@ function WorksListModal(props) {
     </>
   );
 }
-
-WorksListModal.propTypes = {};
 
 export default WorksListModal;

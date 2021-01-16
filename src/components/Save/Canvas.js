@@ -72,7 +72,6 @@ export default function SaveCanvas() {
               value={title}
               onChange={e => setTitle(e.target.value)}
             />
-            <input type="text" />
             <FormErrorMessage>Value can't be empty</FormErrorMessage>
           </ModalBody>
           <ModalFooter>

@@ -25,7 +25,7 @@ import ToolbarButton from 'components/Toolbar/Button';
 const fonts = ['Staatliches', 'Xanh Mono', 'Yellowtail'];
 
 function TypeText({ isActive }) {
-  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const { fabricOverlay } = useFabricOverlayState();
   const [currentFont, setCurrentFont] = React.useState(fonts[0]);
   const { getRandomNumber } = useRandomNumber();
   const dispatch = useFabricOverlayDispatch();

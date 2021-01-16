@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { useToast } from '@chakra-ui/react';
 var codec = require('json-url')('lzma');
 
-function ShareQueryParamHandler(props) {
+function ShareQueryParamHandler() {
   const { fabricOverlay } = useFabricOverlayState();
   const toast = useToast();
   const location = useLocation();
@@ -21,7 +20,6 @@ function ShareQueryParamHandler(props) {
       codec
         .decompress(sharedCanvasParam)
         .then(json => {
-          console.log('json', json);
           fabricOverlay.fabricCanvas().loadFromJSON(json);
         })
         .catch(error => {
@@ -39,7 +37,5 @@ function ShareQueryParamHandler(props) {
   }, [fabricOverlay]);
   return <div></div>;
 }
-
-ShareQueryParamHandler.propTypes = {};
 
 export default ShareQueryParamHandler;

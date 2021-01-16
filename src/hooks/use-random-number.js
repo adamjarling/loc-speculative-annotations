@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function useRandomNumber() {
   function getRandomNumber(min, max) {
     min = Math.ceil(min);
