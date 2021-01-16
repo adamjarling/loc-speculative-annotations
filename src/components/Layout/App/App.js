@@ -8,10 +8,12 @@ import LayoutAppBody from 'components/Layout/App/Body';
 import LayoutAppSidebar from './Sidebar';
 import LayoutAppFooter from './Footer';
 import Div100vh from 'react-div-100vh';
+import ShareQueryParamHandler from 'components/Share/QueryParamHandler';
 
 function LayoutApp(props) {
   return (
     <Flex as={Div100vh} h="100vh" direction="column">
+      <ShareQueryParamHandler />
       <LayoutAppHeader />
       <LayoutAppBody>
         <LayoutAppSidebar>
