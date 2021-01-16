@@ -3,11 +3,22 @@ import React from 'react';
 const FabricOverlayStateContext = React.createContext();
 const FabricOverlayDispatchContext = React.createContext();
 
+function getLocalUserCanvases() {
+  const userCanvases = window.localStorage.getItem('userCanvases');
+  if (!userCanvases) {
+    window.localStorage.setItem('userCanvases', JSON.stringify({}));
+    return {};
+  } else {
+    return JSON.parse(userCanvases);
+  }
+}
+
 const defaultState = {
-  activeAnnotation: '',
   activeTool: null,
+  activeUserCanvas: '',
   fabricOverlay: null,
   isToolSettingsVisible: false,
+  userCanvases: getLocalUserCanvases(),
   viewer: null,
 };
 
@@ -19,10 +30,10 @@ function fabricOverlayReducer(state, action) {
         isToolSettingsVisible: !state.isToolSettingsVisible,
       };
     }
-    case 'updateActiveAnnotation': {
+    case 'updateActiveUserCanvas': {
       return {
         ...state,
-        activeAnnotation: action.activeAnnotation,
+        activeUserCanvas: action.activeUserCanvas,
       };
     }
     case 'updateOverlay': {
@@ -36,6 +47,20 @@ function fabricOverlayReducer(state, action) {
       return {
         ...state,
         activeTool: action.tool,
+      };
+    }
+    case 'updateUserCanvases': {
+      // Update localStorage
+      window.localStorage.setItem(
+        'userCanvases',
+        JSON.stringify(action.userCanvases)
+      );
+
+      // Update context state
+      return {
+        ...state,
+        activeUserCanvas: action.activeUserCanvas,
+        userCanvases: action.userCanvases,
       };
     }
     default: {

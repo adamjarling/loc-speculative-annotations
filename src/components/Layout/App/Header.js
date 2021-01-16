@@ -16,13 +16,10 @@ import { useHistory } from 'react-router-dom';
 import SALogo from 'components/SALogo';
 import Share from 'components/Share/Share';
 import { Link as RRLink } from 'react-router-dom';
+import SaveCanvas from 'components/Save/Canvas';
 
 function LayoutAppHeader(props) {
   const history = useHistory();
-
-  const handleCloseClick = () => {
-    history.push('/about');
-  };
 
   return (
     <Flex
@@ -45,10 +42,7 @@ function LayoutAppHeader(props) {
 
       <HStack spacing="10px">
         <Share />
-
-        <Tooltip label="Save" aria-label="Save">
-          <IconButton icon={<FaSave />} aria-label="Save" disabled />
-        </Tooltip>
+        <SaveCanvas />
         <Tooltip label="Undo" aria-label="Undo">
           <IconButton icon={<ImUndo />} aria-label="Undo" disabled />
         </Tooltip>

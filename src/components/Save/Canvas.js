@@ -4,6 +4,7 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
+  IconButton,
   Input,
   Modal,
   ModalOverlay,
@@ -20,27 +21,38 @@ import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
-import useLocalStorageState from 'hooks/use-local-storage-state';
 
-export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
+export default function SaveCanvas() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = React.useState('');
+  const {
+    activeUserCanvas,
+    fabricOverlay,
+    userCanvases,
+  } = useFabricOverlayState();
+  const dispatch = useFabricOverlayDispatch();
 
   React.useEffect(() => {
-    setTitle(selectedCanvas);
-  }, [selectedCanvas]);
+    setTitle(activeUserCanvas);
+  }, [activeUserCanvas]);
 
-  const handleSave = () => {
-    console.log('saves');
-    handleSaveCanvas(title);
+  const handleSaveCanvas = () => {
+    let newCanvases = {
+      ...userCanvases,
+      [title]: fabricOverlay._fabricCanvas.toObject(),
+    };
+
+    dispatch({
+      type: 'updateUserCanvases',
+      userCanvases: newCanvases,
+      activeUserCanvas: title,
+    });
     onClose();
   };
 
   return (
     <>
-      <Button onClick={onOpen} leftIcon={<FaSave />} variant="ghost">
-        Save
-      </Button>
+      <IconButton onClick={onOpen} icon={<FaSave />} aria-label="Save" />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -67,7 +79,7 @@ export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
             <Button
               colorScheme="brand.neonGreen"
               mr={3}
-              onClick={handleSave}
+              onClick={handleSaveCanvas}
               isDisabled={title === ''}
             >
               Save
@@ -79,7 +91,4 @@ export default function SaveCanvas({ handleSaveCanvas, selectedCanvas = '' }) {
   );
 }
 
-SaveCanvas.propTypes = {
-  handleSaveCanvas: PropTypes.func,
-  selectedCanvas: PropTypes.string,
-};
+SaveCanvas.propTypes = {};
