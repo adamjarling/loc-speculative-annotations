@@ -21,6 +21,7 @@ function ShareLinkDisplay({ linkUrl, onModalClose, showLink }) {
     onModalClose();
   };
 
+  /* https://coderrocketfuel.com/article/how-to-copy-text-to-the-clipboard-in-react-js */
   const handleCopyClick = () => {
     textAreaRef.current.select();
     document.execCommand('copy');

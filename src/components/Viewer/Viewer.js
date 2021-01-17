@@ -3,9 +3,11 @@ import { useOpenSeadragon, OpenSeadragon, Overlay } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
+import localImg from 'images/zac-wolff-bAs9pP4XCmI-unsplash.jpg';
 
 const tile = {
   type: 'image',
+  // url: localImg,
   url:
     'https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v/full/pct:100/0/default.jpg',
 };

@@ -3,6 +3,7 @@ import { Flex, Button, ButtonGroup } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
 import MyAnnotations from 'components/MyAnnotations';
 import { GrUserManager } from 'react-icons/gr';
+import RemoveObject from 'components/RemoveObject';
 
 function ViewerFooter(props) {
   return (
@@ -18,6 +19,7 @@ function ViewerFooter(props) {
       <WorksListModal />
 
       <ButtonGroup>
+        <RemoveObject />
         <MyAnnotations />
         <Button leftIcon={<GrUserManager />}>Curator Annotation</Button>
       </ButtonGroup>
