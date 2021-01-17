@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { DeleteIcon } from '@chakra-ui/icons';
 
@@ -37,13 +37,14 @@ export default function RemoveObject() {
   }
 
   return (
-    <IconButton
-      icon={<DeleteIcon />}
+    <Button
+      leftIcon={<DeleteIcon />}
       onClick={handleRemoveObject}
-      aria-label="Remove Item"
-      mr={3}
       colorScheme="red"
       variant="outline"
-    />
+      ml={6}
+    >
+      Remove Item
+    </Button>
   );
 }

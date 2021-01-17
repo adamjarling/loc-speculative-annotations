@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button,
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -13,19 +11,17 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { FaStamp } from 'react-icons/fa';
-import StampLOCStamps from 'components/Stamp/LOC/Stamps';
 import { fabric } from 'openseadragon-fabricjs-overlay';
-import { isMobile } from 'react-device-detect';
 import ToolbarButton from 'components/Toolbar/Button';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import useRandomNumber from 'hooks/use-random-number';
+import StampSheet1 from 'components/Stamp/Sheet1';
 
 function Stamp({ isActive }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [activeStampRef, setActiveStampRef] = React.useState();
   const { fabricOverlay } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const { getRandomNumber } = useRandomNumber();
@@ -35,16 +31,14 @@ function Stamp({ isActive }) {
     onOpen();
   };
 
-  const handleStampClick = ref => {
-    setActiveStampRef(ref);
-  };
-
-  const addStampToCanvas = () => {
-    const imgInstance = new fabric.Image(activeStampRef.current, {
-      left: getRandomNumber(50, 800),
-      top: getRandomNumber(50, 800),
+  const handleStampClick = stampObj => {
+    fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
+      const obj = fabric.util
+        .groupSVGElements(objects, options)
+        .set({ left: getRandomNumber(50, 500), top: getRandomNumber(50, 500) });
+      fabricOverlay.fabricCanvas().add(obj).renderAll();
     });
-    fabricOverlay.fabricCanvas().add(imgInstance);
+
     onClose();
   };
 
@@ -63,18 +57,8 @@ function Stamp({ isActive }) {
             <DrawerHeader>Select your stamp</DrawerHeader>
 
             <DrawerBody>
-              <StampLOCStamps handleStampClick={handleStampClick} />
+              <StampSheet1 handleStampClick={handleStampClick} />
             </DrawerBody>
-
-            {/* https://github.com/chakra-ui/chakra-ui/issues/2468 */}
-            <DrawerFooter mb={isMobile ? 20 : 0}>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button onClick={addStampToCanvas} disabled={!activeStampRef}>
-                Add Stamp
-              </Button>
-            </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
