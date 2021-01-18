@@ -10,7 +10,7 @@ import { ImBubbles3 } from 'react-icons/im';
 import { MdFormatQuote } from 'react-icons/md';
 import { FaHandPointRight } from 'react-icons/fa';
 import ToolbarButton from 'components/Toolbar/Button';
-import ToolbarPointer from 'components/Toolbar/Pointer';
+import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
 
 import 'styles/styles.css';
@@ -19,7 +19,7 @@ function Toolbar() {
   const { activeTool } = useFabricOverlayState();
 
   return (
-    <Box pt={3}>
+    <Box pt={3} position="relative">
       <Wrap spacing="2" as="nav" direction="column" align="center">
         <WrapItem>
           <ToolbarPointer isActive={activeTool === 'POINTER'} />

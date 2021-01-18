@@ -10,7 +10,6 @@ import {
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 export default function EyebrowNav() {
-  const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue('gray.200', 'gray.700');
 
   return (

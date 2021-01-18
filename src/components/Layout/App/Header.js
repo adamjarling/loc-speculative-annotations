@@ -38,15 +38,6 @@ function LayoutAppHeader(props) {
           </Link>
           <Button leftIcon={<FaPencilAlt />}>Annotate</Button>
         </HStack>
-
-        {/* <HStack spacing="10px">
-          <Share />
-          <SaveCanvas />
-          <Tooltip label="Undo" aria-label="Undo">
-            <IconButton icon={<ImUndo />} aria-label="Undo" disabled />
-          </Tooltip>
-          <ColorModeSwitcher />
-        </HStack> */}
       </Flex>
     </Box>
   );

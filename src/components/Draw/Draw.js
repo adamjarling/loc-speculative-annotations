@@ -1,15 +1,6 @@
 import React from 'react';
 import { FaPaintBrush } from 'react-icons/fa';
-import {
-  Drawer,
-  DrawerBody,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Heading,
-  IconButton,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Divider, useDisclosure } from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -17,31 +8,27 @@ import {
 import DrawColorPicker from 'components/Draw/ColorPicker';
 import DrawWidthPicker from 'components/Draw/WidthPicker';
 import ToolbarButton from 'components/Toolbar/Button';
+import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 
 function Draw({ isActive }) {
-  const [isDrawing, setIsDrawing] = React.useState();
   const [color, setColor] = React.useState('#24e600');
-  const [width, setWidth] = React.useState(20);
-  const {
-    fabricOverlay,
-    isToolSettingsVisible,
-    viewer,
-  } = useFabricOverlayState();
+  const [width, setWidth] = React.useState('sm');
+  const { fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    // Handle Fabric drawing mode
     if (isActive) {
+      // Enable Fabric drawing; disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
       canvas.isDrawingMode = true;
       canvas.freeDrawingBrush.color = color;
       canvas.freeDrawingBrush.width = width;
     } else {
+      // Disable Fabric drawing; enable OSD mouseclicks
       viewer.setMouseNavEnabled(true);
       viewer.outerTracker.setTracking(true);
       canvas.isDrawingMode = false;
@@ -52,27 +39,16 @@ function Draw({ isActive }) {
     // Update brush color and size with Fabric
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
+
     canvas.freeDrawingBrush.color = color;
     canvas.freeDrawingBrush.width = width;
   }, [color, width]);
-
-  function handleClose() {
-    dispatch({ type: 'toggleToolSettingsVisible' });
-    onClose();
-  }
 
   function handleColorSelect(color) {
     setColor(color);
   }
 
   const handleToolbarClick = () => {
-    if (isActive) {
-      // User wants to make inactive
-      onClose();
-    } else {
-      // User wants to make active
-      onOpen();
-    }
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'DRAW' });
   };
 
@@ -88,27 +64,17 @@ function Draw({ isActive }) {
         isActive={isActive}
         label="Draw"
       />
-      <Drawer placement="right" onClose={handleClose} isOpen={isOpen}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerBody>
-              <Heading size="md" mb="4">
-                Color
-              </Heading>
-              <DrawColorPicker handleColorSelect={handleColorSelect} />
-              <Heading size="md" mt="10" mb="4">
-                Size
-              </Heading>
-              <DrawWidthPicker
-                color={color}
-                handleWidthSelect={handleWidthSelect}
-                prevWidth={width}
-              />
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
+      {isActive && (
+        <ToolbarOptionsPanel>
+          <DrawColorPicker handleColorSelect={handleColorSelect} />
+          <Divider my={3} />
+          <DrawWidthPicker
+            color={color}
+            handleWidthSelect={handleWidthSelect}
+            prevPixelWidth={width}
+          />
+        </ToolbarOptionsPanel>
+      )}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import brandPalette from 'styles/brandPalette';
-import { Box, SimpleGrid } from '@chakra-ui/react';
+import { Box, SimpleGrid, VStack } from '@chakra-ui/react';
 
 const colors = Object.keys(brandPalette).map(key => {
   return {
@@ -12,18 +12,18 @@ const colors = Object.keys(brandPalette).map(key => {
 
 function DrawColorPicker({ handleColorSelect }) {
   return (
-    <SimpleGrid columns={3} spacing={2}>
+    <VStack>
       {colors.map(color => (
         <Box
           key={color.id}
           as="button"
           bg={color.color}
-          w="100%"
-          h="80px"
+          w="40px"
+          h="40px"
           onClick={() => handleColorSelect(color.color)}
         ></Box>
       ))}
-    </SimpleGrid>
+    </VStack>
   );
 }
 

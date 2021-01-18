@@ -4,7 +4,7 @@ import { BiPointer } from 'react-icons/bi';
 import ToolbarButton from 'components/Toolbar/Button';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 
-function ToolbarPointer({ isActive }) {
+function ToolbarPointerControl({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
 
   const handleToolbarClick = () => {
@@ -21,8 +21,8 @@ function ToolbarPointer({ isActive }) {
   );
 }
 
-ToolbarPointer.propTypes = {
+ToolbarPointerControl.propTypes = {
   isActive: PropTypes.bool,
 };
 
-export default ToolbarPointer;
+export default ToolbarPointerControl;

@@ -1,50 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Center,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-} from '@chakra-ui/react';
+import { Box, IconButton, VStack } from '@chakra-ui/react';
+import { FaRegDotCircle } from 'react-icons/fa';
 
-function DrawWidthPicker({ color, handleWidthSelect, prevWidth }) {
-  const [width, setWidth] = React.useState(prevWidth);
+const widths = [
+  {
+    fontSize: '1rem',
+    label: 'extra small',
+    size: 'xs',
+  },
+  {
+    fontSize: '1.5rem',
+    label: 'small',
+    size: 'sm',
+  },
+  { fontSize: '2rem', label: 'medium', size: 'md' },
+  { fontSize: '2.5rem', label: 'large', size: 'lg' },
+];
 
-  function handleOnChange(val) {
-    setWidth(val);
-  }
+function DrawWidthPicker({ color, handleWidthSelect, prevPixelWidth }) {
+  const [selectedWidth, setSelectedWidth] = React.useState(() => {
+    let defaultSize = 'sm';
+    if (prevPixelWidth) {
+      switch (prevPixelWidth) {
+        case 2:
+          defaultSize = 'xs';
+          break;
+        case 12:
+          defaultSize = 'sm';
+          break;
+        case 24:
+          defaultSize = 'md';
+          break;
+        case 48:
+          defaultSize = 'lg';
+          break;
+        default:
+          defaultSize = 'sm';
+      }
+    }
+    return defaultSize;
+  });
 
-  function handleOnChangeEnd(val) {
-    handleWidthSelect(val);
-  }
+  const handleClick = size => {
+    let pixelWidth = 0;
+    switch (size) {
+      case 'xs':
+        pixelWidth = 2;
+        break;
+      case 'sm':
+        pixelWidth = 12;
+        break;
+      case 'md':
+        pixelWidth = 24;
+        break;
+      case 'lg':
+        pixelWidth = 48;
+        break;
+      default:
+        pixelWidth = 2;
+    }
+    setSelectedWidth(size);
+    return handleWidthSelect(pixelWidth);
+  };
 
   return (
-    <>
-      <Slider
-        aria-label="slider-brush-stroke-width"
-        defaultValue={width}
-        max={100}
-        min={5}
-        onChange={handleOnChange}
-        onChangeEnd={handleOnChangeEnd}
-      >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
-      </Slider>
-
-      <Center mt="6">
-        <Box
-          borderRadius="50%"
-          w={`${width}px`}
-          h={`${width}px`}
-          bg={color}
-        ></Box>
-      </Center>
-    </>
+    <VStack>
+      {widths.map(widthObj => (
+        <IconButton
+          key={widthObj.label}
+          aria-label={widthObj.label}
+          icon={<FaRegDotCircle size={widthObj.fontSize} />}
+          color={widthObj.size === selectedWidth ? color : ''}
+          size={widthObj.size}
+          onClick={() => handleClick(widthObj.size)}
+        />
+      ))}
+    </VStack>
   );
 }
 
