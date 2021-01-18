@@ -26,11 +26,9 @@ function ClearCanvas(props) {
 
   return (
     <>
-      <ToolbarButton
-        onClick={() => setIsOpen(true)}
-        icon={<AiOutlineClear />}
-        label="Clear"
-      />
+      <Button onClick={() => setIsOpen(true)} size="sm">
+        Clear all
+      </Button>
 
       <AlertDialog
         isOpen={isOpen}

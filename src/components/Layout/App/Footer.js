@@ -2,28 +2,36 @@ import React from 'react';
 import { Box, Flex, Button, ButtonGroup } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
 import MyAnnotations from 'components/MyAnnotations';
-import { GrUserManager } from 'react-icons/gr';
-import RemoveObject from 'components/RemoveObject';
+import ShowHideAnnotations from 'components/ShowHideAnnotations';
+import ClearCanvas from 'components/ClearCanvas';
+import Share from 'components/Share/Share';
+import SaveCanvas from 'components/Save/Canvas';
+import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 
-function ViewerFooter(props) {
+function ViewerFooter() {
   return (
     <Flex
       as="footer"
-      h="6vh"
       justifyContent="space-between"
       alignItems="center"
-      px="3"
+      px={3}
+      py={2}
       boxShadow="base"
       zIndex="1"
     >
-      <Box>
+      <Flex direction="row">
         <WorksListModal />
-        <RemoveObject />
-      </Box>
+        <ShowHideAnnotations />
+      </Flex>
 
       <ButtonGroup>
-        <MyAnnotations />
-        <Button leftIcon={<GrUserManager />}>Curator Annotation</Button>
+        {/* <MyAnnotations /> */}
+        <ClearCanvas />
+        <Button size="sm">Undo</Button>
+        <Button size="sm">Redo</Button>
+        <Share />
+        <SaveCanvas />
+        <ColorModeSwitcher size="sm" />
       </ButtonGroup>
     </Flex>
   );

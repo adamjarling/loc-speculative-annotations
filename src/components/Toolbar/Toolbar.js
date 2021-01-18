@@ -10,6 +10,8 @@ import { ImBubbles3 } from 'react-icons/im';
 import { MdFormatQuote } from 'react-icons/md';
 import { FaHandPointRight } from 'react-icons/fa';
 import ToolbarButton from 'components/Toolbar/Button';
+import ToolbarPointer from 'components/Toolbar/Pointer';
+import RemoveObject from 'components/RemoveObject';
 
 import 'styles/styles.css';
 
@@ -17,14 +19,10 @@ function Toolbar() {
   const { activeTool } = useFabricOverlayState();
 
   return (
-    <Box>
+    <Box pt={3}>
       <Wrap spacing="2" as="nav" direction="column" align="center">
         <WrapItem>
-          <Draw isActive={activeTool === 'DRAW'} />
-        </WrapItem>
-
-        <WrapItem>
-          <Stamp isActive={activeTool === 'STAMP'} />
+          <ToolbarPointer isActive={activeTool === 'POINTER'} />
         </WrapItem>
 
         <WrapItem>
@@ -32,7 +30,11 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
-          <Divider />
+          <Draw isActive={activeTool === 'DRAW'} />
+        </WrapItem>
+
+        <WrapItem>
+          <Stamp isActive={activeTool === 'STAMP'} />
         </WrapItem>
 
         <WrapItem>
@@ -56,7 +58,12 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
-          <ClearCanvas />
+          <Divider />
+        </WrapItem>
+
+        <WrapItem>
+          <RemoveObject />
+          {/* <ClearCanvas /> */}
         </WrapItem>
       </Wrap>
     </Box>

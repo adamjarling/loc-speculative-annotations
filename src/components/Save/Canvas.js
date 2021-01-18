@@ -52,7 +52,12 @@ export default function SaveCanvas() {
 
   return (
     <>
-      <IconButton onClick={onOpen} icon={<FaSave />} aria-label="Save" />
+      <IconButton
+        onClick={onOpen}
+        icon={<FaSave />}
+        aria-label="Save"
+        size="sm"
+      />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

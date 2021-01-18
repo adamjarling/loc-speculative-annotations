@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { DeleteIcon } from '@chakra-ui/icons';
+import ToolbarButton from 'components/Toolbar/Button';
 
 export default function RemoveObject() {
   const { fabricOverlay } = useFabricOverlayState();
@@ -32,19 +33,12 @@ export default function RemoveObject() {
     fabricOverlay.fabricCanvas().remove(activeObject);
   };
 
-  if (!isActiveObject) {
-    return null;
-  }
-
   return (
-    <Button
-      leftIcon={<DeleteIcon />}
+    <ToolbarButton
       onClick={handleRemoveObject}
-      colorScheme="red"
-      variant="outline"
-      ml={6}
-    >
-      Remove Item
-    </Button>
+      icon={<DeleteIcon />}
+      label="Remove item"
+      disabled={!isActiveObject}
+    />
   );
 }

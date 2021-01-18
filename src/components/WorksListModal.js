@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box,
   Button,
+  IconButton,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -10,6 +11,7 @@ import {
   ModalBody,
   ModalCloseButton,
   SimpleGrid,
+  Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
@@ -33,12 +35,20 @@ function WorksListModal() {
   };
 
   return (
-    <>
-      <ToolbarButton
-        onClick={onOpen}
-        icon={<AddIcon />}
-        label="Select another item from the Library of Congress"
-      />
+    <Box>
+      <Tooltip
+        label="Select another item"
+        aria-label="Select another item"
+        placement="right-end"
+        openDelay={500}
+      >
+        <IconButton
+          icon={<AddIcon />}
+          size="lg"
+          fontSize="3xl"
+          variant="ghost"
+        />
+      </Tooltip>
 
       <Modal
         isOpen={isOpen}
@@ -70,7 +80,7 @@ function WorksListModal() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+    </Box>
   );
 }
 

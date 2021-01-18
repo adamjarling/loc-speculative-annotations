@@ -9,7 +9,8 @@ function SALogo(props) {
       <Image
         src={saLogo}
         alt="Speculative Annotations"
-        w="120px"
+        w="auto"
+        maxH="50px"
         mt="0"
         zIndex="1000"
       />

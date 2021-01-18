@@ -58,7 +58,7 @@ function Share(props) {
   return (
     <div>
       <Menu>
-        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} size="sm">
           Share
         </MenuButton>
         <MenuList>
