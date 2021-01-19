@@ -13,6 +13,7 @@ import {
   SimpleGrid,
   Tooltip,
   useDisclosure,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import faker from 'faker';
@@ -29,6 +30,7 @@ const renderMockImages = () => {
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeWork, setActiveWork] = React.useState();
+  const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
   const handleImageClick = id => {
     setActiveWork(id);
@@ -44,8 +46,8 @@ function WorksListModal() {
       >
         <IconButton
           icon={<AddIcon />}
-          size="lg"
-          fontSize="3xl"
+          size={iconButtonSize}
+          fontSize={['2xl', '3xl']}
           variant="ghost"
         />
       </Tooltip>

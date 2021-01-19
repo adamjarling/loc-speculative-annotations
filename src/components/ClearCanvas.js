@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AiOutlineClear } from 'react-icons/ai';
 import {
   AlertDialog,
   AlertDialogBody,
@@ -9,8 +8,8 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   Button,
+  useBreakpointValue,
 } from '@chakra-ui/react';
-import ToolbarButton from 'components/Toolbar/Button';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 function ClearCanvas(props) {
@@ -18,6 +17,7 @@ function ClearCanvas(props) {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
+  const buttonSize = useBreakpointValue({ base: 'xs', sm: 'sm', md: 'md' });
 
   const handleClearCanvas = () => {
     fabricOverlay.fabricCanvas().clear();
@@ -26,7 +26,7 @@ function ClearCanvas(props) {
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)} size="sm">
+      <Button onClick={() => setIsOpen(true)} size={buttonSize}>
         Clear all
       </Button>
 

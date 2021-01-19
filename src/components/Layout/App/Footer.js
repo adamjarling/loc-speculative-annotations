@@ -1,5 +1,11 @@
 import React from 'react';
-import { Box, Flex, Button, ButtonGroup } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Button,
+  ButtonGroup,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
 import MyAnnotations from 'components/MyAnnotations';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
@@ -9,6 +15,9 @@ import SaveCanvas from 'components/Save/Canvas';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 
 function ViewerFooter() {
+  const buttonSize = useBreakpointValue({ base: 'xs', sm: 'sm' });
+  const isMobileVisible = useBreakpointValue({ base: false, md: true });
+
   return (
     <Flex
       as="footer"
@@ -21,17 +30,17 @@ function ViewerFooter() {
     >
       <Flex direction="row">
         <WorksListModal />
-        <ShowHideAnnotations />
+        {isMobileVisible && <ShowHideAnnotations />}
       </Flex>
 
       <ButtonGroup>
         {/* <MyAnnotations /> */}
         <ClearCanvas />
-        <Button size="sm">Undo</Button>
-        <Button size="sm">Redo</Button>
+        <Button size={buttonSize}>Undo</Button>
+        <Button size={buttonSize}>Redo</Button>
         <Share />
         <SaveCanvas />
-        <ColorModeSwitcher size="sm" />
+        <ColorModeSwitcher size={buttonSize} />
       </ButtonGroup>
     </Flex>
   );

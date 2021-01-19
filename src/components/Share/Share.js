@@ -6,6 +6,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  useBreakpointValue,
   useToast,
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -21,6 +22,7 @@ function Share(props) {
   const { fabricOverlay } = useFabricOverlayState();
   const [showLink, setShowLink] = React.useState();
   const [linkUrl, setLinkUrl] = React.useState('');
+  const buttonSize = useBreakpointValue({ base: 'xs', sm: 'sm', md: 'md' });
 
   const handleSharableLinkClick = () => {
     if (showLink) {
@@ -58,7 +60,11 @@ function Share(props) {
   return (
     <div>
       <Menu>
-        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} size="sm">
+        <MenuButton
+          as={Button}
+          rightIcon={<ChevronDownIcon />}
+          size={buttonSize}
+        >
           Share
         </MenuButton>
         <MenuList>
