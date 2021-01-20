@@ -10,6 +10,8 @@ const colors = Object.keys(brandPalette).map(key => {
   };
 });
 
+const colorBoxSizes = ['30px', '36px'];
+
 function DrawColorPicker({ handleColorSelect }) {
   return (
     <VStack>
@@ -18,8 +20,8 @@ function DrawColorPicker({ handleColorSelect }) {
           key={color.id}
           as="button"
           bg={color.color}
-          w="40px"
-          h="40px"
+          w={colorBoxSizes}
+          h={colorBoxSizes}
           onClick={() => handleColorSelect(color.color)}
         ></Box>
       ))}

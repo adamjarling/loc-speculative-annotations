@@ -13,9 +13,10 @@ import ClearCanvas from 'components/ClearCanvas';
 import Share from 'components/Share/Share';
 import SaveCanvas from 'components/Save/Canvas';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
+import useButtonSize from 'hooks/use-button-size';
 
 function ViewerFooter() {
-  const buttonSize = useBreakpointValue({ base: 'xs', sm: 'sm' });
+  const buttonSize = useButtonSize();
   const isMobileVisible = useBreakpointValue({ base: false, md: true });
 
   return (

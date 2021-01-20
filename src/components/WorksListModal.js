@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   IconButton,
+  Image,
+  Link,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -16,24 +18,27 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import faker from 'faker';
-import ToolbarButton from 'components/Toolbar/Button';
+import { locImages } from 'services/loc-images';
+import { Link as RRLink, useHistory } from 'react-router-dom';
 
-const renderMockImages = () => {
-  const items = [];
-  for (let i = 0; i < 15; i++) {
-    items.push({ id: faker.random.uuid() });
-  }
-  return items;
+const activeStyles = {
+  border: '4px',
+  borderColor: 'brand.neonGreen.500',
 };
 
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeWork, setActiveWork] = React.useState();
+  const history = useHistory();
   const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
-  const handleImageClick = id => {
-    setActiveWork(id);
+  const handleImageClick = image => {
+    setActiveWork(image);
+  };
+
+  const handleSelectItem = () => {
+    onClose();
+    history.push(`/${activeWork.id}`);
   };
 
   return (
@@ -46,6 +51,7 @@ function WorksListModal() {
       >
         <IconButton
           icon={<AddIcon />}
+          onClick={() => onOpen()}
           size={iconButtonSize}
           fontSize={['2xl', '3xl']}
           variant="ghost"
@@ -66,19 +72,27 @@ function WorksListModal() {
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid minChildWidth="200px" spacing={10}>
-              {renderMockImages().map(image => (
-                <Box
+              {locImages.map(image => (
+                <Link
                   key={image.id}
-                  bg="brand.pink.500"
-                  h="200px"
-                  onClick={() => handleImageClick(image.id)}
-                />
+                  href="#"
+                  onClick={() => handleImageClick(image)}
+                  {...(activeWork &&
+                    activeWork.id === image.id && { ...activeStyles })}
+                >
+                  <Image src={image.url} alt={image.alt} />
+                </Link>
               ))}
             </SimpleGrid>
           </ModalBody>
 
           <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
+            <Button mr={3} onClick={handleSelectItem} disabled={!activeWork}>
+              Select Item
+            </Button>
+            <Button onClick={onClose} variant="ghost">
+              Close
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

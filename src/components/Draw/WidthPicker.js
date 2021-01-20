@@ -3,65 +3,29 @@ import PropTypes from 'prop-types';
 import { Box, IconButton, VStack } from '@chakra-ui/react';
 import { FaRegDotCircle } from 'react-icons/fa';
 
-const widths = [
+export const widths = [
   {
     fontSize: '1rem',
     label: 'extra small',
+    pixelWidth: 2,
     size: 'xs',
   },
   {
     fontSize: '1.5rem',
     label: 'small',
+    pixelWidth: 12,
     size: 'sm',
   },
-  { fontSize: '2rem', label: 'medium', size: 'md' },
-  { fontSize: '2.5rem', label: 'large', size: 'lg' },
+  { fontSize: '2rem', label: 'medium', pixelWidth: 24, size: 'md' },
+  { fontSize: '2.5rem', label: 'large', pixelWidth: 48, size: 'lg' },
 ];
 
-function DrawWidthPicker({ color, handleWidthSelect, prevPixelWidth }) {
-  const [selectedWidth, setSelectedWidth] = React.useState(() => {
-    let defaultSize = 'sm';
-    if (prevPixelWidth) {
-      switch (prevPixelWidth) {
-        case 2:
-          defaultSize = 'xs';
-          break;
-        case 12:
-          defaultSize = 'sm';
-          break;
-        case 24:
-          defaultSize = 'md';
-          break;
-        case 48:
-          defaultSize = 'lg';
-          break;
-        default:
-          defaultSize = 'sm';
-      }
-    }
-    return defaultSize;
-  });
+function DrawWidthPicker({ color, handleWidthSelect, prevWidth }) {
+  const [selectedWidth, setSelectedWidth] = React.useState(prevWidth);
 
-  const handleClick = size => {
-    let pixelWidth = 0;
-    switch (size) {
-      case 'xs':
-        pixelWidth = 2;
-        break;
-      case 'sm':
-        pixelWidth = 12;
-        break;
-      case 'md':
-        pixelWidth = 24;
-        break;
-      case 'lg':
-        pixelWidth = 48;
-        break;
-      default:
-        pixelWidth = 2;
-    }
-    setSelectedWidth(size);
-    return handleWidthSelect(pixelWidth);
+  const handleClick = widthObj => {
+    setSelectedWidth(widthObj);
+    return handleWidthSelect(widthObj);
   };
 
   return (
@@ -71,9 +35,9 @@ function DrawWidthPicker({ color, handleWidthSelect, prevPixelWidth }) {
           key={widthObj.label}
           aria-label={widthObj.label}
           icon={<FaRegDotCircle size={widthObj.fontSize} />}
-          color={widthObj.size === selectedWidth ? color : ''}
+          color={widthObj.size === selectedWidth.size ? color : ''}
           size={widthObj.size}
-          onClick={() => handleClick(widthObj.size)}
+          onClick={() => handleClick(widthObj)}
         />
       ))}
     </VStack>

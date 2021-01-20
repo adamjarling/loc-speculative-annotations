@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPaintBrush } from 'react-icons/fa';
-import { Box, Divider, useDisclosure } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -9,10 +9,11 @@ import DrawColorPicker from 'components/Draw/ColorPicker';
 import DrawWidthPicker from 'components/Draw/WidthPicker';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
+import { widths } from 'components/Draw/WidthPicker';
 
 function Draw({ isActive }) {
   const [color, setColor] = React.useState('#24e600');
-  const [width, setWidth] = React.useState('sm');
+  const [width, setWidth] = React.useState(widths[1]);
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
 
@@ -26,7 +27,7 @@ function Draw({ isActive }) {
       viewer.outerTracker.setTracking(false);
       canvas.isDrawingMode = true;
       canvas.freeDrawingBrush.color = color;
-      canvas.freeDrawingBrush.width = width;
+      canvas.freeDrawingBrush.width = width.pixelWidth;
     } else {
       // Disable Fabric drawing; enable OSD mouseclicks
       viewer.setMouseNavEnabled(true);
@@ -41,7 +42,7 @@ function Draw({ isActive }) {
     const canvas = fabricOverlay.fabricCanvas();
 
     canvas.freeDrawingBrush.color = color;
-    canvas.freeDrawingBrush.width = width;
+    canvas.freeDrawingBrush.width = width.pixelWidth;
   }, [color, width]);
 
   function handleColorSelect(color) {
@@ -53,7 +54,7 @@ function Draw({ isActive }) {
   };
 
   function handleWidthSelect(width) {
-    setWidth(width);
+    setWidth({ ...width });
   }
 
   return (
@@ -71,14 +72,12 @@ function Draw({ isActive }) {
           <DrawWidthPicker
             color={color}
             handleWidthSelect={handleWidthSelect}
-            prevPixelWidth={width}
+            prevWidth={width}
           />
         </ToolbarOptionsPanel>
       )}
     </>
   );
 }
-
-Draw.propTypes = {};
 
 export default Draw;

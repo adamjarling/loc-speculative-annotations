@@ -23,20 +23,17 @@ function App() {
   return (
     <Router>
       <ChakraProvider theme={theme}>
-        <Fonts />
-        <Switch>
-          <Route path="/konva">
-            <KonvaWrapper />
-          </Route>
-          <Route exact path="/about">
-            <LayoutSite />
-          </Route>
-          <Route exact path="/">
-            <OsdFabricWrapper>
+        <OsdFabricWrapper>
+          <Fonts />
+          <Switch>
+            <Route exact path="/about">
+              <LayoutSite />
+            </Route>
+            <Route path="/:id?">
               <LayoutApp />
-            </OsdFabricWrapper>
-          </Route>
-        </Switch>
+            </Route>
+          </Switch>
+        </OsdFabricWrapper>
       </ChakraProvider>
     </Router>
   );

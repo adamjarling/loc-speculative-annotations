@@ -21,6 +21,7 @@ import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
+import useButtonSize from 'hooks/use-button-size';
 
 export default function SaveCanvas() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,6 +32,7 @@ export default function SaveCanvas() {
     userCanvases,
   } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
+  const buttonSize = useButtonSize();
 
   React.useEffect(() => {
     setTitle(activeUserCanvas);
@@ -56,7 +58,7 @@ export default function SaveCanvas() {
         onClick={onOpen}
         icon={<FaSave />}
         aria-label="Save"
-        size="sm"
+        size={buttonSize}
       />
 
       <Modal isOpen={isOpen} onClose={onClose}>
