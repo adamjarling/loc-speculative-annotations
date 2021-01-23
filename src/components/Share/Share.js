@@ -35,7 +35,7 @@ function Share(props) {
       codec
         .compress(canvasObj)
         .then(result => {
-          setLinkUrl(`${window.location.origin}?${queryURLParam}=${result}`);
+          setLinkUrl(`${window.location.href}?${queryURLParam}=${result}`);
           setShowLink(true);
         })
         .catch(error => {

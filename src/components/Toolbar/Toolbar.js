@@ -4,8 +4,8 @@ import { Box, Divider, Wrap, WrapItem } from '@chakra-ui/react';
 import Stamp from 'components/Stamp/Stamp';
 import Draw from 'components/Draw/Draw';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import ClearCanvas from 'components/ClearCanvas';
 import TypeTextDrawer from 'components/TypeText/Drawer';
+import TypeTextPointAndDrop from 'components/TypeText/PointAndDrop';
 import { ImBubbles3 } from 'react-icons/im';
 import { MdFormatQuote } from 'react-icons/md';
 import { FaHandPointRight } from 'react-icons/fa';
@@ -26,7 +26,7 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
-          <TypeTextDrawer isActive={activeTool === 'TYPE'} />
+          <TypeTextPointAndDrop isActive={activeTool === 'TYPE'} />
         </WrapItem>
 
         <WrapItem>
