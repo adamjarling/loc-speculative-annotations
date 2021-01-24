@@ -35,7 +35,7 @@ function ViewerFooter() {
       </Flex>
 
       <ButtonGroup>
-        {/* <MyAnnotations /> */}
+        <MyAnnotations />
         <ClearCanvas />
         <Button size={buttonSize}>Undo</Button>
         <Button size={buttonSize}>Redo</Button>
