@@ -170,7 +170,7 @@ function TypeTextPointAndDrop({ isActive }) {
           />
         </ToolbarOptionsPanel>
       )}
-      {/* {myState.isSelected && <TypeTextOptionsBar />} */}
+      {myState.isSelected && <TypeTextOptionsBar />}
     </div>
   );
 }

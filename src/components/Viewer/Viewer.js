@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useOpenSeadragon, OpenSeadragon, Overlay } from 'use-open-seadragon';
+import { useOpenSeadragon, OpenSeadragon, useZoom } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
+import ViewerZoomBar from 'components/Viewer/ZoomBar';
+import { isBrowser } from 'react-device-detect';
 
 const osdOptions = {
   debugMode: true,
-  showNavigationControl: false,
+  showNavigationControl: true,
+  zoomPerClick: 1.0,
 };
 
 export default function Viewer({ tile }) {
@@ -30,7 +33,11 @@ export default function Viewer({ tile }) {
     });
   }, [dispatch, viewer]);
 
-  return <Box ref={ref} w="100%"></Box>;
+  return (
+    <Box ref={ref} w="100%">
+      {isBrowser && <ViewerZoomBar />}
+    </Box>
+  );
 }
 
 Viewer.propTypes = {
