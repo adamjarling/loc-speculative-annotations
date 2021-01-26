@@ -13,6 +13,7 @@ import { Divider } from '@chakra-ui/react';
 import { fonts } from 'components/TypeText/FontPicker';
 import { sizes } from 'components/TypeText/SizePicker';
 import TypeTextSizePicker from 'components/TypeText/SizePicker';
+import FontFaceObserver from 'fontfaceobserver';
 
 function TypeTextPointAndDrop({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
@@ -24,6 +25,7 @@ function TypeTextPointAndDrop({ isActive }) {
     activeFont: fonts[0],
     activeSize: sizes[1],
     isActive,
+    isSelected: false,
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -46,25 +48,46 @@ function TypeTextPointAndDrop({ isActive }) {
         top: options.absolutePointer.y,
         //width: 400,
         //backgroundColor: 'white',
-        editingBorderColor: 'green',
+        editingBorderColor: '#18b300',
         fontFamily: myStateRef.current.activeFont.fontFamily,
         fontSize: myStateRef.current.activeSize.fontSizePixels,
       });
       fabricOverlay.fabricCanvas().add(textbox);
 
-      // Make pointer the active tool
+      // De-activate Text tool after adding text to the canvas
       dispatch({ type: 'updateTool', tool: 'POINTER' });
     }
 
-    // Add click handler
+    function handleSelectionCleared(options) {
+      console.log('options', options);
+      if (!myStateRef.current.isSelected) return;
+
+      setMyState({ ...myState, isSelected: false });
+    }
+
+    function handleSelectionCreated(options) {
+      console.log('options', options);
+      if (options.target.get('type') !== 'textbox') return;
+
+      setMyState({ ...myState, isSelected: true });
+    }
+
+    // Add click handlers
     canvas.on('mouse:down', handleMouseDown);
+    canvas.on('selection:created', handleSelectionCreated);
+    canvas.on('selection:cleared', handleSelectionCleared);
 
     // Remove handler
-    return function clearFabricMouseDownHandler() {
+    return function clearFabricEventHandlers() {
       canvas.off('mouse:down', handleMouseDown);
+      canvas.off('selection:created', handleSelectionCreated);
+      canvas.off('selection:cleared', handleSelectionCleared);
     };
   }, [fabricOverlay]);
 
+  /**
+   * Handle Type tool being selected in main Toolbar
+   */
   React.useEffect(() => {
     if (!fabricOverlay) return;
 
@@ -82,8 +105,23 @@ function TypeTextPointAndDrop({ isActive }) {
     }
   }, [isActive]);
 
+  /**
+   * Update a selected textbox
+   */
+  React.useEffect(() => {
+    console.log('useEffect()', myState);
+    if (!myState.isSelected || !fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+
+    canvas.getActiveObject().setOptions({
+      fontSize: myState.activeSize.fontSizePixels,
+    });
+    canvas.requestRenderAll();
+  }, [myState.activeFont, myState.activeSize]);
+
   const handleFontChange = font => {
     setMyState({ ...myState, activeFont: font });
+    loadAndUse(font.fontFamily);
   };
 
   const handleSizeChange = size => {
@@ -94,6 +132,27 @@ function TypeTextPointAndDrop({ isActive }) {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'TYPE' });
   };
 
+  const loadAndUse = font => {
+    const canvas = fabricOverlay.fabricCanvas();
+    const activeObject = canvas.getActiveObject();
+
+    if (!activeObject) {
+      return;
+    }
+
+    var myfont = new FontFaceObserver(font);
+    myfont
+      .load()
+      .then(function () {
+        // when font is loaded, use it.
+        canvas.getActiveObject().set('fontFamily', font);
+        canvas.requestRenderAll();
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
+  };
+
   return (
     <div>
       <ToolbarButton
@@ -102,7 +161,7 @@ function TypeTextPointAndDrop({ isActive }) {
         isActive={isActive}
         label="Type Text"
       />
-      {isActive && (
+      {(isActive || myState.isSelected) && (
         <ToolbarOptionsPanel>
           <TypeTextFontPicker
             handleFontChange={handleFontChange}
