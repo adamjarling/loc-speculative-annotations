@@ -62,7 +62,7 @@ function TypeText({ isActive }) {
       backgroundColor: 'white',
       editingBorderColor: 'green',
       fontFamily: currentFont,
-      fontSize: 50,
+      fontSize: 72,
     });
 
     fabricOverlay.fabricCanvas().add(textbox);

@@ -63,7 +63,6 @@ function Toolbar() {
 
         <WrapItem>
           <RemoveObject />
-          {/* <ClearCanvas /> */}
         </WrapItem>
       </Wrap>
     </Box>

@@ -9,11 +9,9 @@ import {
 } from 'context/fabric-overlay-context';
 import TypeTextFontPicker from 'components/TypeText/FontPicker';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
-import { Divider } from '@chakra-ui/react';
 import { fonts } from 'components/TypeText/FontPicker';
-import { sizes } from 'components/TypeText/SizePicker';
-import TypeTextSizePicker from 'components/TypeText/SizePicker';
 import FontFaceObserver from 'fontfaceobserver';
+import TypeTextOptionsBar from 'components/TypeText/OptionsBar';
 
 function TypeTextPointAndDrop({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
@@ -23,9 +21,9 @@ function TypeTextPointAndDrop({ isActive }) {
   // https://medium.com/geographit/accessing-react-state-in-event-listeners-with-usestate-and-useref-hooks-8cceee73c559
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
-    activeSize: sizes[1],
     isActive,
     isSelected: false,
+    previewText: 'Type something',
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -43,14 +41,12 @@ function TypeTextPointAndDrop({ isActive }) {
       }
 
       // Create new Textbox instance and add it to canvas
-      const textbox = new fabric.Textbox('Type something here', {
+      const textbox = new fabric.Textbox(myStateRef.current.previewText, {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
-        //width: 400,
-        //backgroundColor: 'white',
         editingBorderColor: '#18b300',
         fontFamily: myStateRef.current.activeFont.fontFamily,
-        fontSize: myStateRef.current.activeSize.fontSizePixels,
+        fontSize: 100,
       });
       fabricOverlay.fabricCanvas().add(textbox);
 
@@ -59,15 +55,17 @@ function TypeTextPointAndDrop({ isActive }) {
     }
 
     function handleSelectionCleared(options) {
-      console.log('options', options);
       if (!myStateRef.current.isSelected) return;
 
       setMyState({ ...myState, isSelected: false });
     }
 
     function handleSelectionCreated(options) {
-      console.log('options', options);
       if (options.target.get('type') !== 'textbox') return;
+
+      const canvas = fabricOverlay.fabricCanvas();
+      const activeObject = canvas.getActiveObject();
+      console.log('activeObject', activeObject);
 
       setMyState({ ...myState, isSelected: true });
     }
@@ -90,14 +88,19 @@ function TypeTextPointAndDrop({ isActive }) {
    */
   React.useEffect(() => {
     if (!fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
 
     // Update state here so the event listener callbacks can access accurate values
-    setMyState({ ...myState, isActive });
+    setMyState({ ...myState, isActive, isSelected: false });
 
     if (isActive) {
       // Disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
+
+      // Deselect all Fabric Canvas objects
+      canvas.discardActiveObject();
+      canvas.requestRenderAll();
     } else {
       // Enable OSD mouseclicks
       viewer.setMouseNavEnabled(true);
@@ -108,24 +111,20 @@ function TypeTextPointAndDrop({ isActive }) {
   /**
    * Update a selected textbox
    */
-  React.useEffect(() => {
-    console.log('useEffect()', myState);
-    if (!myState.isSelected || !fabricOverlay) return;
-    const canvas = fabricOverlay.fabricCanvas();
-
-    canvas.getActiveObject().setOptions({
-      fontSize: myState.activeSize.fontSizePixels,
-    });
-    canvas.requestRenderAll();
-  }, [myState.activeFont, myState.activeSize]);
+  // React.useEffect(() => {
+  //   console.log('useEffect()', myState);
+  //   if (!myState.isSelected || !fabricOverlay) return;
+  //   const canvas = fabricOverlay.fabricCanvas();
+  //   //canvas.requestRenderAll();
+  // }, [myState.activeFont]);
 
   const handleFontChange = font => {
     setMyState({ ...myState, activeFont: font });
-    loadAndUse(font.fontFamily);
+    //loadAndUse(font.fontFamily);
   };
 
-  const handleSizeChange = size => {
-    setMyState({ ...myState, activeSize: size });
+  const handlePreviewTextChange = e => {
+    setMyState({ ...myState, previewText: e.target.value });
   };
 
   const handleToolbarButtonClick = e => {
@@ -161,19 +160,17 @@ function TypeTextPointAndDrop({ isActive }) {
         isActive={isActive}
         label="Type Text"
       />
-      {(isActive || myState.isSelected) && (
+      {isActive && (
         <ToolbarOptionsPanel>
           <TypeTextFontPicker
-            handleFontChange={handleFontChange}
             activeFont={myState.activeFont}
-          />
-          <Divider my={3} />
-          <TypeTextSizePicker
-            activeSize={myState.activeSize}
-            handleSizeChange={handleSizeChange}
+            handleFontChange={handleFontChange}
+            handlePreviewTextChange={handlePreviewTextChange}
+            previewText={myState.previewText}
           />
         </ToolbarOptionsPanel>
       )}
+      {/* {myState.isSelected && <TypeTextOptionsBar />} */}
     </div>
   );
 }

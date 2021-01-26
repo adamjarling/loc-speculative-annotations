@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flex } from '@chakra-ui/react';
 import Toolbar from 'components/Toolbar/Toolbar';
-import Viewer from 'components/Viewer/Viewer';
 import ViewerImageGrabber from 'components/Viewer/ImageGrabber';
 import LayoutAppHeader from 'components/Layout/App/Header';
 import LayoutAppBody from 'components/Layout/App/Body';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import { Link, Wrap, WrapItem } from '@chakra-ui/react';
+import { Button, Input, Link, VStack, Wrap, WrapItem } from '@chakra-ui/react';
 import faker from 'faker';
 import FontFaceObserver from 'fontfaceobserver';
 
@@ -25,7 +25,12 @@ const activeClasses = {
   padding: '1px 4px',
 };
 
-function TypeTextFontPicker({ activeFont, handleFontChange }) {
+function TypeTextFontPicker({
+  activeFont,
+  handleFontChange,
+  handlePreviewTextChange,
+  previewText,
+}) {
   const { fabricOverlay } = useFabricOverlayState();
 
   const handleFontClick = font => {
@@ -54,25 +59,33 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
   };
 
   return (
-    <Wrap>
-      {fonts.map(font => (
-        <WrapItem key={font.id}>
-          <Link
-            fontFamily={font.fontFamily}
-            id={font.id}
-            onClick={() => handleFontClick(font)}
-            {...(activeFont.id === font.id && { ...activeClasses })}
-          >
-            {font.sampleText}
-          </Link>
-        </WrapItem>
-      ))}
-    </Wrap>
+    <VStack spacing={3}>
+      <Input placeholder="Type here" onChange={handlePreviewTextChange} />
+
+      <Wrap direction="column" justify="flex-start" minW="200px">
+        {fonts.map(font => (
+          <WrapItem key={font.id}>
+            <Link
+              fontFamily={font.fontFamily}
+              id={font.id}
+              onClick={() => handleFontClick(font)}
+              fontSize="24px"
+              {...(activeFont.id === font.id && { ...activeClasses })}
+            >
+              {previewText}
+            </Link>
+          </WrapItem>
+        ))}
+      </Wrap>
+    </VStack>
   );
 }
 
 TypeTextFontPicker.propTypes = {
+  activeFont: PropTypes.object,
   handleFontChange: PropTypes.func,
+  handlePreviewTextChange: PropTypes.func,
+  previewText: PropTypes.string,
 };
 
 export default TypeTextFontPicker;
