@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
 function ToolbarOptionsPanel({ children }) {
-  const bg = useColorModeValue('gray.200', 'gray.700');
+  const bg = useColorModeValue('white', 'gray.700');
 
   return (
     <Box

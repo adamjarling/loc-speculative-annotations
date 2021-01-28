@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '@chakra-ui/react';
+import { Box, useColorModeValue } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
-function TypeTextOptionsBar(props) {
+function TypeTextOptionsBar({ selectedCoords = { top: 0, left: 0 } }) {
   const { fabricOverlay } = useFabricOverlayState();
+  const bg = useColorModeValue('white', 'gray.700');
 
   //   React.useEffect(() => {
   //     if (!fabricOverlay) return;
@@ -14,18 +15,21 @@ function TypeTextOptionsBar(props) {
 
   return (
     <Box
-      background="red.500"
-      w="400px"
-      h="50px"
+      bg={bg}
+      p={3}
+      minW="400px"
       position="absolute"
-      left="400px"
-      top="400px"
+      left="120px"
+      top="20px"
+      shadow="lg"
     >
-      asdfasdf
+      I'm the options bar for selected text
     </Box>
   );
 }
 
-TypeTextOptionsBar.propTypes = {};
+TypeTextOptionsBar.propTypes = {
+  selectedCoords: PropTypes.object,
+};
 
 export default TypeTextOptionsBar;

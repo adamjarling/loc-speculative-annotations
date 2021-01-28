@@ -17,13 +17,12 @@ function TypeTextPointAndDrop({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { fabricOverlay, viewer } = useFabricOverlayState();
 
-  // Solution to retain state value in event handler callbacks
-  // https://medium.com/geographit/accessing-react-state-in-event-listeners-with-usestate-and-useref-hooks-8cceee73c559
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
     isActive,
     isSelected: false,
     previewText: 'Type something',
+    selectedCoords: { top: 0, left: 0 },
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -57,28 +56,43 @@ function TypeTextPointAndDrop({ isActive }) {
     function handleSelectionCleared(options) {
       if (!myStateRef.current.isSelected) return;
 
-      setMyState({ ...myState, isSelected: false });
+      setMyState({
+        ...myState,
+        isSelected: false,
+        selectedCoords: { top: 0, left: 0 },
+      });
     }
 
-    function handleSelectionCreated(options) {
+    function handleSelected(options) {
       if (options.target.get('type') !== 'textbox') return;
+      console.log('handleSelected', options);
 
       const canvas = fabricOverlay.fabricCanvas();
       const activeObject = canvas.getActiveObject();
       console.log('activeObject', activeObject);
 
-      setMyState({ ...myState, isSelected: true });
+      setMyState({
+        ...myState,
+        isSelected: true,
+        // TODO: Figure out how to center place this w/ coords on canvas
+        selectedCoords: {
+          top: options.e.y,
+          left: options.e.x,
+        },
+      });
     }
 
     // Add click handlers
     canvas.on('mouse:down', handleMouseDown);
-    canvas.on('selection:created', handleSelectionCreated);
+    canvas.on('selection:created', handleSelected);
+    canvas.on('selection:updated', handleSelected);
     canvas.on('selection:cleared', handleSelectionCleared);
 
     // Remove handler
     return function clearFabricEventHandlers() {
       canvas.off('mouse:down', handleMouseDown);
-      canvas.off('selection:created', handleSelectionCreated);
+      canvas.off('selection:created', handleSelected);
+      canvas.off('selection:updated', handleSelected);
       canvas.off('selection:cleared', handleSelectionCleared);
     };
   }, [fabricOverlay]);
@@ -170,7 +184,9 @@ function TypeTextPointAndDrop({ isActive }) {
           />
         </ToolbarOptionsPanel>
       )}
-      {myState.isSelected && <TypeTextOptionsBar />}
+      {myState.isSelected && (
+        <TypeTextOptionsBar selectedCoords={myState.selectedCoords} />
+      )}
     </div>
   );
 }

@@ -20,9 +20,7 @@ export const fonts = [
 ];
 
 const activeClasses = {
-  border: '2px',
   borderColor: 'brand.neonGreen.500',
-  padding: '1px 4px',
 };
 
 function TypeTextFontPicker({
@@ -62,7 +60,7 @@ function TypeTextFontPicker({
     <VStack spacing={3}>
       <Input placeholder="Type here" onChange={handlePreviewTextChange} />
 
-      <Wrap direction="column" justify="flex-start" minW="200px">
+      <Wrap direction="column" justify="flex-start">
         {fonts.map(font => (
           <WrapItem key={font.id}>
             <Link
@@ -70,6 +68,13 @@ function TypeTextFontPicker({
               id={font.id}
               onClick={() => handleFontClick(font)}
               fontSize="24px"
+              w="200px"
+              whiteSpace="nowrap"
+              overflow="hidden"
+              textOverflow="ellipsis"
+              borderWidth="1px"
+              p={3}
+              borderRadius={10}
               {...(activeFont.id === font.id && { ...activeClasses })}
             >
               {previewText}
