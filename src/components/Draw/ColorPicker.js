@@ -1,14 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import brandPalette from 'styles/brandPalette';
-import { Box, SimpleGrid, VStack } from '@chakra-ui/react';
+import { Box, VStack } from '@chakra-ui/react';
 
-const colors = Object.keys(brandPalette).map(key => {
-  return {
-    id: key,
-    color: brandPalette[key]['500'],
-  };
-});
+// const colors = Object.keys(brandPalette).map(key => {
+//   return {
+//     id: key,
+//     color: brandPalette[key]['500'],
+//   };
+// });
+
+export const colors = [
+  {
+    label: 'green',
+    hex: brandPalette.green['500'],
+  },
+  {
+    label: 'pastelBlue',
+    hex: brandPalette.pastelBlue['500'],
+  },
+  {
+    label: 'pastelGreen',
+    hex: brandPalette.pastelGreen['500'],
+  },
+  {
+    label: 'pastelPurple',
+    hex: brandPalette.pastelPurple['500'],
+  },
+  {
+    label: 'pink',
+    hex: brandPalette.pink['500'],
+  },
+  {
+    label: 'teal',
+    hex: brandPalette.teal['500'],
+  },
+  {
+    label: 'yellow',
+    hex: brandPalette.yellow['500'],
+  },
+];
 
 const colorBoxSizes = ['30px', '36px'];
 
@@ -17,12 +48,12 @@ function DrawColorPicker({ handleColorSelect }) {
     <VStack>
       {colors.map(color => (
         <Box
-          key={color.id}
+          key={color.label}
           as="button"
-          bg={color.color}
+          bg={color.hex}
           w={colorBoxSizes}
           h={colorBoxSizes}
-          onClick={() => handleColorSelect(color.color)}
+          onClick={() => handleColorSelect(color)}
         ></Box>
       ))}
     </VStack>

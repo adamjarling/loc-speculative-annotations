@@ -23,7 +23,7 @@ import { Link as RRLink, useHistory } from 'react-router-dom';
 
 const activeStyles = {
   border: '4px',
-  borderColor: 'brand.neonGreen.500',
+  borderColor: 'brand.green.500',
 };
 
 function WorksListModal() {

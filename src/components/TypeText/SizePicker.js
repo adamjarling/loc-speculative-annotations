@@ -21,7 +21,7 @@ export const sizes = [
 
 const activeClasses = {
   border: '2px',
-  borderColor: 'brand.neonGreen.500',
+  borderColor: 'brand.green.500',
 };
 
 function TypeTextSizePicker({ handleSizeChange, activeSize }) {

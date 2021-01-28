@@ -14,7 +14,7 @@ function ToolbarButton({ label = 'Toolbar button', isActive, ...restProps }) {
         size="lg"
         fontSize="2xl"
         variant={isActive ? 'outline' : ''}
-        colorScheme={isActive ? 'brand.neonGreen' : ''}
+        colorScheme={isActive ? 'brand.green' : ''}
         {...restProps}
       />
     </Tooltip>

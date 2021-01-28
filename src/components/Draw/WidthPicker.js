@@ -1,51 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, IconButton, VStack } from '@chakra-ui/react';
-import { FaRegDotCircle } from 'react-icons/fa';
+import { Box, VStack } from '@chakra-ui/react';
+import brandPalette from 'styles/brandPalette';
 
 export const widths = [
   {
-    fontSize: '1rem',
-    label: 'extra small',
     pixelWidth: 2,
-    size: 'xs',
+    size: 'Sm',
   },
   {
-    fontSize: '1.5rem',
-    label: 'small',
     pixelWidth: 12,
-    size: 'sm',
+    size: 'Md',
   },
-  { fontSize: '2rem', label: 'medium', pixelWidth: 24, size: 'md' },
-  { fontSize: '2.5rem', label: 'large', pixelWidth: 48, size: 'lg' },
+  { pixelWidth: 24, size: 'Lg' },
 ];
 
-function DrawWidthPicker({ color, handleWidthSelect, prevWidth }) {
-  const [selectedWidth, setSelectedWidth] = React.useState(prevWidth);
+const activeStyles = {
+  border: '1px',
+  borderColor: brandPalette.green['500'],
+};
 
-  const handleClick = widthObj => {
-    setSelectedWidth(widthObj);
-    return handleWidthSelect(widthObj);
-  };
+// Responsive size of control
+const widthBoxSize = ['30px', '36px'];
 
+function DrawWidthPicker({ color, handleWidthSelect, width }) {
   return (
     <VStack>
-      {widths.map(widthObj => (
-        <IconButton
-          key={widthObj.label}
-          aria-label={widthObj.label}
-          icon={<FaRegDotCircle size={widthObj.fontSize} />}
-          color={widthObj.size === selectedWidth.size ? color : ''}
-          size={widthObj.size}
-          onClick={() => handleClick(widthObj)}
-        />
-      ))}
+      {widths.map(widthObj => {
+        let imgSrc = require(`images/pen-weight-icons/${color.label}${widthObj.size}.png`);
+        return (
+          <Box
+            key={widthObj.size}
+            as="button"
+            bgImage={`url(${imgSrc.default})`}
+            bgSize="cover"
+            w={widthBoxSize}
+            h={widthBoxSize}
+            display="block"
+            onClick={() => handleWidthSelect(widthObj)}
+            {...(widthObj.size === width.size && { ...activeStyles })}
+          />
+        );
+      })}
     </VStack>
   );
 }
 
 DrawWidthPicker.propTypes = {
-  color: PropTypes.string,
+  color: PropTypes.object,
   handleWidthSelect: PropTypes.func,
 };
 

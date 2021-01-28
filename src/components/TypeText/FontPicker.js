@@ -20,7 +20,7 @@ export const fonts = [
 ];
 
 const activeClasses = {
-  borderColor: 'brand.neonGreen.500',
+  borderColor: 'brand.green.500',
 };
 
 function TypeTextFontPicker({

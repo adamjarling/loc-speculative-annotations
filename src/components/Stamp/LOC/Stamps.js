@@ -7,7 +7,7 @@ import { Box, Image, Link, SimpleGrid, Wrap, WrapItem } from '@chakra-ui/react';
 
 const activeProps = {
   border: '2px',
-  borderColor: 'brand.neonGreen.500',
+  borderColor: 'brand.green.500',
 };
 
 function StampLOCStamps({ handleStampClick }) {

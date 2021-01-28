@@ -83,7 +83,7 @@ export default function SaveCanvas() {
           </ModalBody>
           <ModalFooter>
             <Button
-              colorScheme="brand.neonGreen"
+              colorScheme="brand.green"
               mr={3}
               onClick={handleSaveCanvas}
               isDisabled={title === ''}

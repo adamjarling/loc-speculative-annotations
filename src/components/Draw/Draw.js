@@ -10,10 +10,11 @@ import DrawWidthPicker from 'components/Draw/WidthPicker';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { widths } from 'components/Draw/WidthPicker';
+import { colors } from 'components/Draw/ColorPicker';
 
 function Draw({ isActive }) {
-  const [color, setColor] = React.useState('#24e600');
-  const [width, setWidth] = React.useState(widths[1]);
+  const [color, setColor] = React.useState(colors[0]);
+  const [width, setWidth] = React.useState(widths[0]);
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
 
@@ -26,7 +27,7 @@ function Draw({ isActive }) {
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
       canvas.isDrawingMode = true;
-      canvas.freeDrawingBrush.color = color;
+      canvas.freeDrawingBrush.color = color.hex;
       canvas.freeDrawingBrush.width = width.pixelWidth;
     } else {
       // Disable Fabric drawing; enable OSD mouseclicks
@@ -41,11 +42,12 @@ function Draw({ isActive }) {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    canvas.freeDrawingBrush.color = color;
+    canvas.freeDrawingBrush.color = color.hex;
     canvas.freeDrawingBrush.width = width.pixelWidth;
   }, [color, width]);
 
   function handleColorSelect(color) {
+    console.log('color', color);
     setColor(color);
   }
 
@@ -54,6 +56,7 @@ function Draw({ isActive }) {
   };
 
   function handleWidthSelect(width) {
+    console.log('width', width);
     setWidth({ ...width });
   }
 
@@ -72,7 +75,7 @@ function Draw({ isActive }) {
           <DrawWidthPicker
             color={color}
             handleWidthSelect={handleWidthSelect}
-            prevWidth={width}
+            width={width}
           />
         </ToolbarOptionsPanel>
       )}
