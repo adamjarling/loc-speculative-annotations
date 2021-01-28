@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import brandPalette from 'styles/brandPalette';
 import { Box, VStack } from '@chakra-ui/react';
 
-// const colors = Object.keys(brandPalette).map(key => {
-//   return {
-//     id: key,
-//     color: brandPalette[key]['500'],
-//   };
-// });
-
 export const colors = [
   {
     label: 'green',

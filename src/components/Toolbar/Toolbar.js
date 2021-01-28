@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Divider, Wrap, WrapItem } from '@chakra-ui/react';
 import Stamp from 'components/Stamp/Stamp';
 import Draw from 'components/Draw/Draw';
+import Shape from 'components/Shape/Shape';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import TypeTextDrawer from 'components/TypeText/Drawer';
 import TypeTextPointAndDrop from 'components/TypeText/PointAndDrop';
@@ -31,6 +32,10 @@ function Toolbar() {
 
         <WrapItem>
           <Draw isActive={activeTool === 'DRAW'} />
+        </WrapItem>
+
+        <WrapItem>
+          <Shape isActive={activeTool === 'SHAPE'} />
         </WrapItem>
 
         <WrapItem>
