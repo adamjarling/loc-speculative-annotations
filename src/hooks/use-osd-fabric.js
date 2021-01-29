@@ -1,3 +1,5 @@
+// TODO: Remove this
+
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import OpenSeadragon from 'openseadragon';
 import { useCallback } from 'react';
