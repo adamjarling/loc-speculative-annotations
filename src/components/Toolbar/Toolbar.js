@@ -5,8 +5,7 @@ import Stamp from 'components/Stamp/Stamp';
 import Draw from 'components/Draw/Draw';
 import Shape from 'components/Shape/Shape';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import TypeTextDrawer from 'components/TypeText/Drawer';
-import TypeTextPointAndDrop from 'components/TypeText/PointAndDrop';
+import TypeText from 'components/TypeText/TypeText';
 import { ImBubbles3 } from 'react-icons/im';
 import { MdFormatQuote } from 'react-icons/md';
 import { FaHandPointRight } from 'react-icons/fa';
@@ -27,7 +26,7 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
-          <TypeTextPointAndDrop isActive={activeTool === 'TYPE'} />
+          <TypeText isActive={activeTool === 'TYPE'} />
         </WrapItem>
 
         <WrapItem>
