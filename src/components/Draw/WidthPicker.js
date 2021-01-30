@@ -17,7 +17,6 @@ export const widths = [
 
 const activeStyles = {
   border: '1px',
-  borderColor: brandPalette.green['500'],
 };
 
 // Responsive size of control

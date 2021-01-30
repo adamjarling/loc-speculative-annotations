@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useOpenSeadragon, OpenSeadragon, useZoom } from 'use-open-seadragon';
+import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';

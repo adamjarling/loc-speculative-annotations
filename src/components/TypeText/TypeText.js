@@ -18,10 +18,10 @@ function TypeText({ isActive }) {
   const { fabricOverlay, viewer } = useFabricOverlayState();
 
   const [myState, _setMyState] = React.useState({
-    activeFont: fonts[0],
-    isActive,
-    isSelected: false,
-    previewText: 'Type something',
+    activeFont: null,
+    isActive, // Is the main Type tool active
+    isSelectedOnCanvas: false,
+    previewText: '',
     selectedCoords: { top: 0, left: 0 },
   });
   const myStateRef = React.useRef(myState);
@@ -30,12 +30,37 @@ function TypeText({ isActive }) {
     _setMyState(data);
   };
 
+  /**
+   * Handle an individual font being selected
+   */
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+
+    // Update state here so the event listener callbacks can access accurate values
+    //setMyState({ ...myState, isActive, isSelectedOnCanvas: false });
+
+    if (myState.activeFont) {
+      // Disable OSD mouseclicks
+      viewer.setMouseNavEnabled(false);
+      viewer.outerTracker.setTracking(false);
+
+      // Deselect all Fabric Canvas objects
+      canvas.discardActiveObject();
+      canvas.requestRenderAll();
+    } else {
+      // Enable OSD mouseclicks
+      viewer.setMouseNavEnabled(true);
+      viewer.outerTracker.setTracking(true);
+    }
+  }, [myState.activeFont]);
+
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
     function handleMouseDown(options) {
-      if (options.target || !myStateRef.current.isActive) {
+      if (options.target || !myStateRef.current.activeFont) {
         return;
       }
 
@@ -49,31 +74,33 @@ function TypeText({ isActive }) {
       });
       fabricOverlay.fabricCanvas().add(textbox);
 
-      // De-activate Text tool after adding text to the canvas
-      dispatch({ type: 'updateTool', tool: 'POINTER' });
+      // De-activate selected font
+      setMyState({
+        ...myState,
+        activeFont: null,
+        previewText: '',
+      });
     }
 
     function handleSelectionCleared(options) {
-      if (!myStateRef.current.isSelected) return;
+      if (!myStateRef.current.isSelectedOnCanvas) return;
 
       setMyState({
         ...myState,
-        isSelected: false,
+        isSelectedOnCanvas: false,
         selectedCoords: { top: 0, left: 0 },
       });
     }
 
     function handleSelected(options) {
       if (options.target.get('type') !== 'textbox') return;
-      console.log('handleSelected', options);
 
       const canvas = fabricOverlay.fabricCanvas();
       const activeObject = canvas.getActiveObject();
-      console.log('activeObject', activeObject);
 
       setMyState({
         ...myState,
-        isSelected: true,
+        isSelectedOnCanvas: true,
         // TODO: Figure out how to center place this w/ coords on canvas
         selectedCoords: {
           top: options.e.y,
@@ -98,36 +125,11 @@ function TypeText({ isActive }) {
   }, [fabricOverlay]);
 
   /**
-   * Handle Type tool being selected in main Toolbar
-   */
-  React.useEffect(() => {
-    if (!fabricOverlay) return;
-    const canvas = fabricOverlay.fabricCanvas();
-
-    // Update state here so the event listener callbacks can access accurate values
-    setMyState({ ...myState, isActive, isSelected: false });
-
-    if (isActive) {
-      // Disable OSD mouseclicks
-      viewer.setMouseNavEnabled(false);
-      viewer.outerTracker.setTracking(false);
-
-      // Deselect all Fabric Canvas objects
-      canvas.discardActiveObject();
-      canvas.requestRenderAll();
-    } else {
-      // Enable OSD mouseclicks
-      viewer.setMouseNavEnabled(true);
-      viewer.outerTracker.setTracking(true);
-    }
-  }, [isActive]);
-
-  /**
    * Update a selected textbox
    */
   // React.useEffect(() => {
   //   console.log('useEffect()', myState);
-  //   if (!myState.isSelected || !fabricOverlay) return;
+  //   if (!myState.isSelectedOnCanvas || !fabricOverlay) return;
   //   const canvas = fabricOverlay.fabricCanvas();
   //   //canvas.requestRenderAll();
   // }, [myState.activeFont]);
@@ -184,7 +186,7 @@ function TypeText({ isActive }) {
           />
         </ToolbarOptionsPanel>
       )}
-      {myState.isSelected && (
+      {myState.isSelectedOnCanvas && (
         <OptionsBar left={340}>Type tool options go here</OptionsBar>
       )}
     </div>

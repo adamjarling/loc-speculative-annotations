@@ -58,7 +58,11 @@ function TypeTextFontPicker({
 
   return (
     <VStack spacing={3}>
-      <Input placeholder="Type here" onChange={handlePreviewTextChange} />
+      <Input
+        placeholder="Type here"
+        onChange={handlePreviewTextChange}
+        value={previewText}
+      />
 
       <Wrap direction="column" justify="flex-start">
         {fonts.map(font => (
@@ -75,9 +79,10 @@ function TypeTextFontPicker({
               borderWidth="1px"
               p={3}
               borderRadius={10}
-              {...(activeFont.id === font.id && { ...activeClasses })}
+              {...(activeFont &&
+                activeFont.id === font.id && { ...activeClasses })}
             >
-              {previewText}
+              {previewText || 'Type something'}
             </Link>
           </WrapItem>
         ))}

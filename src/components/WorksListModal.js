@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
-import { Link as RRLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const activeStyles = {
   border: '4px',

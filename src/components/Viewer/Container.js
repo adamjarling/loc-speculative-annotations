@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { locImages } from 'services/loc-images';
 
-export default function ViewerImageGrabber() {
+export default function ViewerContainer() {
   const params = useParams();
 
   if (!params.id) {

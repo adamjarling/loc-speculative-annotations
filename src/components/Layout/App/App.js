@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex } from '@chakra-ui/react';
 import Toolbar from 'components/Toolbar/Toolbar';
-import ViewerImageGrabber from 'components/Viewer/ImageGrabber';
+import ViewerContainer from 'components/Viewer/Container';
 import LayoutAppHeader from 'components/Layout/App/Header';
 import LayoutAppBody from 'components/Layout/App/Body';
 import LayoutAppSidebar from './Sidebar';
@@ -17,7 +17,7 @@ function LayoutApp() {
         <LayoutAppSidebar>
           <Toolbar />
         </LayoutAppSidebar>
-        <ViewerImageGrabber />
+        <ViewerContainer />
       </LayoutAppBody>
       <LayoutAppFooter />
     </Flex>

@@ -41,7 +41,7 @@ function Shape({ isActive }) {
   };
 
   /**
-   * Handle Shape tool being selected in main Toolbar
+   * Handle an individual shape being selected
    */
   React.useEffect(() => {
     if (!fabricOverlay) return;
@@ -67,13 +67,7 @@ function Shape({ isActive }) {
     const canvas = fabricOverlay.fabricCanvas();
 
     function handleMouseDown(options) {
-      console.log(
-        'myStateRef.current.activeShape',
-        myStateRef.current.activeShape
-      );
       if (options.target || !myStateRef.current.activeShape) {
-        // console.log('handleMouseDown type', options.target.get('type'));
-
         return;
       }
 
@@ -188,11 +182,9 @@ function Shape({ isActive }) {
         !FABRIC_SHAPE_TYPES.find(shapeType => shapeType === optionsTargetType)
       )
         return;
-      console.log('handleSelected', options);
 
       const canvas = fabricOverlay.fabricCanvas();
       const activeObject = canvas.getActiveObject();
-      console.log('activeObject', activeObject);
 
       setMyState({
         ...myState,
@@ -216,7 +208,6 @@ function Shape({ isActive }) {
   }, [fabricOverlay]);
 
   const handleShapeSelect = shape => {
-    console.log('shape', shape);
     setMyState({ ...myState, activeShape: shape });
   };
 
