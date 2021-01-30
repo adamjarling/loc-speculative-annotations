@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Button, Flex, HStack, Link } from '@chakra-ui/react';
-import { FaPencilAlt } from 'react-icons/fa';
+import { Box, Flex, HStack, Link } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import SALogo from 'components/SALogo';
 import { Link as RRLink } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import useButtonSize from 'hooks/use-button-size';
+import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
 
 function LayoutAppHeader() {
   const history = useHistory();
@@ -35,13 +35,15 @@ function LayoutAppHeader() {
           <Link as={RRLink} to="/about">
             Teach
           </Link>
-          <Button
+          <MyAnnotations />
+
+          {/* <Button
             onClick={handleHomeClick}
             leftIcon={<FaPencilAlt />}
             size={buttonSize}
           >
             Annotate
-          </Button>
+          </Button> */}
         </HStack>
       </Flex>
     </Box>

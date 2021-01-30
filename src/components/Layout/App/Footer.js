@@ -7,11 +7,10 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
-import MyAnnotations from 'components/MyAnnotations';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
 import ClearCanvas from 'components/ClearCanvas';
 import Share from 'components/Share/Share';
-import SaveCanvas from 'components/Save/Canvas';
+import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
 
@@ -35,12 +34,11 @@ function ViewerFooter() {
       </Flex>
 
       <ButtonGroup>
-        <MyAnnotations />
         <ClearCanvas />
         <Button size={buttonSize}>Undo</Button>
         <Button size={buttonSize}>Redo</Button>
         <Share />
-        <SaveCanvas />
+        <MyAnnotationsSave />
         <ColorModeSwitcher size={buttonSize} />
       </ButtonGroup>
     </Flex>

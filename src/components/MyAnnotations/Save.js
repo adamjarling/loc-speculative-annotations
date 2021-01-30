@@ -23,7 +23,7 @@ import {
 } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
 
-export default function SaveCanvas() {
+export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = React.useState('');
   const {
@@ -97,4 +97,4 @@ export default function SaveCanvas() {
   );
 }
 
-SaveCanvas.propTypes = {};
+MyAnnotationsSave.propTypes = {};

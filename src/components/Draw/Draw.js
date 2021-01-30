@@ -47,7 +47,6 @@ function Draw({ isActive }) {
   }, [color, width]);
 
   function handleColorSelect(color) {
-    console.log('color', color);
     setColor(color);
   }
 
@@ -56,7 +55,6 @@ function Draw({ isActive }) {
   };
 
   function handleWidthSelect(width) {
-    console.log('width', width);
     setWidth({ ...width });
   }
 
