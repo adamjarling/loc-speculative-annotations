@@ -11,7 +11,7 @@ import TypeTextFontPicker from 'components/TypeText/FontPicker';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
-import TypeTextOptionsBar from 'components/TypeText/OptionsBar';
+import OptionsBar from 'components/OptionsBar/OptionsBar';
 
 function TypeTextPointAndDrop({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
@@ -185,7 +185,7 @@ function TypeTextPointAndDrop({ isActive }) {
         </ToolbarOptionsPanel>
       )}
       {myState.isSelected && (
-        <TypeTextOptionsBar selectedCoords={myState.selectedCoords} />
+        <OptionsBar left={340}>Type tool options go here</OptionsBar>
       )}
     </div>
   );

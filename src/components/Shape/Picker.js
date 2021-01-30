@@ -10,6 +10,10 @@ import {
 } from 'react-icons/bs';
 import { FaSlash } from 'react-icons/fa';
 
+const activeStyles = {
+  border: '2px solid',
+};
+
 export const shapes = [
   { name: 'line', icon: <FaSlash /> },
   { name: 'arrow', icon: <BsArrowUpRight /> },
@@ -19,7 +23,7 @@ export const shapes = [
   { name: 'star', icon: <BsStar /> },
 ];
 
-function ShapePicker({ handleShapeSelect }) {
+function ShapePicker({ activeShape, handleShapeSelect }) {
   return (
     <VStack>
       {shapes.map(shape => (
@@ -27,12 +31,17 @@ function ShapePicker({ handleShapeSelect }) {
           key={shape.name}
           icon={shape.icon}
           onClick={() => handleShapeSelect(shape)}
+          {...(activeShape &&
+            activeShape.name === shape.name && { ...activeStyles })}
         />
       ))}
     </VStack>
   );
 }
 
-ShapePicker.propTypes = { handleShapeSelect: PropTypes.func };
+ShapePicker.propTypes = {
+  activeShape: PropTypes.object,
+  handleShapeSelect: PropTypes.func,
+};
 
 export default ShapePicker;

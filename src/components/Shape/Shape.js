@@ -15,15 +15,24 @@ import useRandomColor from 'hooks/use-random-color';
 
 // Default size for height / width for new shapes
 const OBJECT_SIZE = 200;
+const FABRIC_SHAPE_TYPES = [
+  'circle',
+  'group',
+  'line',
+  'polygon',
+  'rect',
+  'triangle',
+];
+
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const { getRandomColor } = useRandomColor();
 
   const [myState, _setMyState] = React.useState({
-    activeShape: null,
-    isActive,
-    isSelected: false,
+    activeShape: null, // active shape in Options Panel
+    isActive, // Is the Shape tool itself active
+    isSelectedOnCanvas: false, // Is a shape on canvas selected
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -38,7 +47,7 @@ function Shape({ isActive }) {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    if (isActive) {
+    if (myState.activeShape) {
       // Disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
@@ -51,19 +60,24 @@ function Shape({ isActive }) {
       viewer.setMouseNavEnabled(true);
       viewer.outerTracker.setTracking(true);
     }
-  }, [isActive]);
+  }, [myState.activeShape]);
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
     function handleMouseDown(options) {
-      console.log('handleMouseDown', options);
-      if (options.target) {
+      console.log(
+        'myStateRef.current.activeShape',
+        myStateRef.current.activeShape
+      );
+      if (options.target || !myStateRef.current.activeShape) {
+        // console.log('handleMouseDown type', options.target.get('type'));
+
         return;
       }
 
-      // Create new Shape instance and add it to canvas
+      // Create new Shape instance
       let newShape;
       const shapeOptions = {
         left: options.absolutePointer.x,
@@ -152,24 +166,28 @@ function Shape({ isActive }) {
           break;
       }
 
+      // Add new shape to the canvas
       newShape && fabricOverlay.fabricCanvas().add(newShape);
 
-      // De-activate Shape tool after adding text to the canvas
-      dispatch({ type: 'updateTool', tool: 'POINTER' });
+      // De-activate currently selected shape
+      setMyState({ ...myState, activeShape: null });
     }
 
     function handleSelectionCleared(options) {
-      if (!myStateRef.current.isSelected) return;
+      if (!myStateRef.current.isSelectedOnCanvas) return;
 
       setMyState({
         ...myState,
-        isSelected: false,
+        isSelectedOnCanvas: false,
       });
     }
 
     function handleSelected(options) {
-      console.log('handleSelected', options);
-      if (options.target.get('type') !== 'textbox') return;
+      const optionsTargetType = options.target.get('type');
+      if (
+        !FABRIC_SHAPE_TYPES.find(shapeType => shapeType === optionsTargetType)
+      )
+        return;
       console.log('handleSelected', options);
 
       const canvas = fabricOverlay.fabricCanvas();
@@ -178,7 +196,7 @@ function Shape({ isActive }) {
 
       setMyState({
         ...myState,
-        isSelected: true,
+        isSelectedOnCanvas: true,
       });
     }
 
@@ -216,11 +234,16 @@ function Shape({ isActive }) {
       />
       {isActive && (
         <ToolbarOptionsPanel>
-          <ShapePicker handleShapeSelect={handleShapeSelect} />
+          <ShapePicker
+            activeShape={myState.activeShape}
+            handleShapeSelect={handleShapeSelect}
+          />
         </ToolbarOptionsPanel>
       )}
-      {myState.isSelected && (
-        <OptionsBar>Options for selected shape object go here</OptionsBar>
+      {myState.isSelectedOnCanvas && (
+        <OptionsBar left={175}>
+          Options for selected shape object go here
+        </OptionsBar>
       )}
     </>
   );
