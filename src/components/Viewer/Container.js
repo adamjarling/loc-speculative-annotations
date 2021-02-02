@@ -16,6 +16,11 @@ export default function ViewerContainer() {
   const location = useLocation();
   const { fabricOverlay, userCanvases } = useFabricOverlayState();
 
+  const newCanvasTitle =
+    location.state && location.state.canvasTitle
+      ? location.state.canvasTitle
+      : '';
+
   React.useEffect(() => {
     if (!fabricOverlay) return;
 
@@ -24,7 +29,7 @@ export default function ViewerContainer() {
     fabricOverlay
       .fabricCanvas()
       .loadFromJSON(userCanvases[location.state.canvasTitle]['fabricCanvas']);
-  }, [location.state.canvasTitle]);
+  }, [newCanvasTitle]);
 
   if (!params.id) {
     // If no id is referenced, default to the first LOC image
