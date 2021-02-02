@@ -68,6 +68,21 @@ function MyAnnotations() {
     setSelectedCanvas('');
   };
 
+  const handleUpdateSavedCanvasTitle = ({ prevValue, nextValue }) => {
+    console.log('prevValue', prevValue);
+    console.log('nextValue', nextValue);
+
+    const updatedCanvases = { ...userCanvases };
+    updatedCanvases[nextValue] = updatedCanvases[prevValue];
+    delete updatedCanvases[prevValue];
+
+    dispatch({
+      type: 'updateUserCanvases',
+      userCanvases: updatedCanvases,
+      activeUserCanvas,
+    });
+  };
+
   const onDeleteModalClose = () => setIsDeleteModalOpen(false);
 
   return (
@@ -94,6 +109,7 @@ function MyAnnotations() {
         handleCloseClick={() => setIsListOpen(false)}
         handleDeleteClick={handleDeleteClick}
         handleChangeCanvas={handleChangeCanvas}
+        handleUpdateSavedCanvasTitle={handleUpdateSavedCanvasTitle}
         isOpen={isListOpen}
         userCanvases={userCanvases}
       />

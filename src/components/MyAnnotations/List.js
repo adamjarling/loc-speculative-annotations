@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
+  Editable,
+  EditableInput,
+  EditablePreview,
   Flex,
   IconButton,
   Modal,
@@ -27,10 +30,17 @@ function MyAnnotationsList({
   handleChangeCanvas,
   handleCloseClick,
   handleDeleteClick,
+  handleUpdateSavedCanvasTitle,
   isOpen,
   userCanvases,
 }) {
   const userCanvasTitles = Object.keys(userCanvases);
+
+  const handleEditSubmit = (prevValue, nextValue) => {
+    if (prevValue !== nextValue) {
+      handleUpdateSavedCanvasTitle({ prevValue, nextValue });
+    }
+  };
 
   return (
     <>
@@ -50,7 +60,15 @@ function MyAnnotationsList({
                     <Box flex="1">
                       <Box bg="tomato" w="100px" h="75px"></Box>
                     </Box>
-                    <Box flex="auto">{uc}</Box>
+                    <Box flex="auto" pl={1}>
+                      <Editable
+                        defaultValue={uc}
+                        onSubmit={nextValue => handleEditSubmit(uc, nextValue)}
+                      >
+                        <EditablePreview />
+                        <EditableInput />
+                      </Editable>
+                    </Box>
                     <Stack direction="row" alignItems="center">
                       <IconButton
                         icon={<TiArrowForward />}
@@ -82,6 +100,7 @@ MyAnnotationsList.propTypes = {
   handleCloseClick: PropTypes.func,
   handleDeleteClick: PropTypes.func,
   handleChangeCanvas: PropTypes.func,
+  handleUpdateSavedCanvasTitle: PropTypes.func,
   isOpen: PropTypes.bool,
   userCanvases: PropTypes.object,
 };

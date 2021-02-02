@@ -16,6 +16,16 @@ export default function ViewerContainer() {
   const location = useLocation();
   const { fabricOverlay, userCanvases } = useFabricOverlayState();
 
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
+
+    // User selected a Saved Annotation from their list
+    // Update the Fabric canvas
+    fabricOverlay
+      .fabricCanvas()
+      .loadFromJSON(userCanvases[location.state.canvasTitle]['fabricCanvas']);
+  }, [location.state.canvasTitle]);
+
   if (!params.id) {
     // If no id is referenced, default to the first LOC image
     const defaultId = locImages[0].id;
@@ -42,14 +52,6 @@ export default function ViewerContainer() {
         </Alert>
       </Box>
     );
-  }
-
-  // User selected a Saved Annotation from their list
-  // Update the Fabric canvas
-  if (location.state && location.state.canvasTitle && fabricOverlay) {
-    fabricOverlay
-      .fabricCanvas()
-      .loadFromJSON(userCanvases[location.state.canvasTitle]['fabricCanvas']);
   }
 
   // Success
