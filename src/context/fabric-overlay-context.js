@@ -14,7 +14,6 @@ function getLocalUserCanvases() {
 }
 
 const defaultState = {
-  activeLOCWork: '',
   activeTool: null,
   activeUserCanvas: '',
   fabricOverlay: null,

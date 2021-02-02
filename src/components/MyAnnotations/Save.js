@@ -22,9 +22,11 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
+import { useParams } from 'react-router-dom';
 
 export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const params = useParams;
   const [title, setTitle] = React.useState('');
   const {
     activeUserCanvas,
@@ -41,7 +43,10 @@ export default function MyAnnotationsSave() {
   const handleSaveCanvas = () => {
     let newCanvases = {
       ...userCanvases,
-      [title]: fabricOverlay._fabricCanvas.toObject(),
+      [title]: {
+        locWorkId: params.id,
+        fabricCanvas: fabricOverlay._fabricCanvas.toObject(),
+      },
     };
 
     dispatch({
@@ -82,12 +87,7 @@ export default function MyAnnotationsSave() {
             <FormErrorMessage>Value can't be empty</FormErrorMessage>
           </ModalBody>
           <ModalFooter>
-            <Button
-              colorScheme="brand.green"
-              mr={3}
-              onClick={handleSaveCanvas}
-              isDisabled={title === ''}
-            >
+            <Button mr={3} onClick={handleSaveCanvas} isDisabled={title === ''}>
               Save
             </Button>
           </ModalFooter>

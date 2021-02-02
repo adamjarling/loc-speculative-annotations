@@ -9,9 +9,10 @@ import {
 import useButtonSize from 'hooks/use-button-size';
 import MyAnnotationsList from 'components/MyAnnotations/List';
 import MyAnnotationsDelete from 'components/MyAnnotations/Delete';
-import MyAnnotationsSaveBeforeSwitching from 'components/MyAnnotations/SaveBeforeSwitching';
+import { useHistory } from 'react-router-dom';
 
 function MyAnnotations() {
+  const history = useHistory();
   const {
     activeUserCanvas,
     fabricOverlay,
@@ -27,10 +28,16 @@ function MyAnnotations() {
   const handleChangeCanvas = canvasTitle => {
     setSelectedCanvas(canvasTitle);
     setIsListOpen(false);
+
     if (canvasTitle) {
-      fabricOverlay._fabricCanvas.loadFromJSON(userCanvases[canvasTitle]);
+      dispatch({
+        type: 'updateActiveUserCanvas',
+        activeUserCanvas: canvasTitle,
+      });
+      history.push(`/${userCanvases[canvasTitle]['locWorkId']}`, {
+        canvasTitle,
+      });
     }
-    dispatch({ type: 'updateActiveUserCanvas', activeUserCanvas: canvasTitle });
   };
 
   const handleDelete = () => {
@@ -97,8 +104,6 @@ function MyAnnotations() {
         onDeleteModalClose={onDeleteModalClose}
         selectedCanvas={selectedCanvas}
       />
-
-      <MyAnnotationsSaveBeforeSwitching />
     </>
   );
 }

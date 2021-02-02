@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   Box,
-  Flex,
   Button,
   ButtonGroup,
+  Flex,
+  IconButton,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
@@ -13,6 +14,7 @@ import Share from 'components/Share/Share';
 import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
+import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
 
 function ViewerFooter() {
   const buttonSize = useButtonSize();
@@ -35,8 +37,16 @@ function ViewerFooter() {
 
       <ButtonGroup>
         <ClearCanvas />
-        <Button size={buttonSize}>Undo</Button>
-        <Button size={buttonSize}>Redo</Button>
+        <IconButton
+          icon={<RiArrowGoBackFill />}
+          aria-label="Undo"
+          size={buttonSize}
+        />
+        <IconButton
+          icon={<RiArrowGoForwardLine />}
+          aria-label="Redo"
+          size={buttonSize}
+        />
         <Share />
         <MyAnnotationsSave />
         <ColorModeSwitcher size={buttonSize} />

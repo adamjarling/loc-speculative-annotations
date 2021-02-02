@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useLocation, useParams } from 'react-router-dom';
 import Viewer from 'components/Viewer/Viewer';
 import {
   Alert,
@@ -9,14 +9,19 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { locImages } from 'services/loc-images';
+import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 export default function ViewerContainer() {
   const params = useParams();
+  const location = useLocation();
+  const { fabricOverlay, userCanvases } = useFabricOverlayState();
 
   if (!params.id) {
+    // If no id is referenced, default to the first LOC image
+    const defaultId = locImages[0].id;
     return (
       <div>
-        <Redirect to={`/${locImages[0].id}`} />
+        <Redirect to={`/${defaultId}`} />
       </div>
     );
   }
@@ -37,6 +42,14 @@ export default function ViewerContainer() {
         </Alert>
       </Box>
     );
+  }
+
+  // User selected a Saved Annotation from their list
+  // Update the Fabric canvas
+  if (location.state && location.state.canvasTitle && fabricOverlay) {
+    fabricOverlay
+      .fabricCanvas()
+      .loadFromJSON(userCanvases[location.state.canvasTitle]['fabricCanvas']);
   }
 
   // Success
