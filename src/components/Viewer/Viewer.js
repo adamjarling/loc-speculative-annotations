@@ -8,8 +8,10 @@ import ViewerZoomBar from 'components/Viewer/ZoomBar';
 import { isBrowser } from 'react-device-detect';
 
 const osdOptions = {
+  constrainDuringPan: true,
   debugMode: true,
   showNavigationControl: true,
+  springStiffness: 3,
   zoomPerClick: 1.0,
 };
 

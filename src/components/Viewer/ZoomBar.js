@@ -8,7 +8,7 @@ function ViewerZoomBar(props) {
 
   return (
     //TODO: Figure out the Z-Index in relation to Annotation button dropdown
-    <Box position="absolute" right="20px" top="20px" /* zIndex="10" */>
+    <Box position="absolute" right="20px" top="20px" zIndex="10">
       <ButtonGroup spacing="3" size="lg">
         <IconButton icon={<FiZoomIn />} onClick={() => zoomIn()} />
         <IconButton icon={<FiZoomOut />} onClick={() => zoomOut()} />
