@@ -1,4 +1,3 @@
-import localImg from 'images/zac-wolff-bAs9pP4XCmI-unsplash.jpg';
 import testJpeg2000Image from 'images/loc-images/jpeg2000-test.jpg';
 
 export const locImages = [
@@ -10,10 +9,18 @@ export const locImages = [
       'https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v/full/pct:100/0/default.jpg',
   },
   {
-    id: 'asd0986709856-2343',
-    alt: 'Sample image 2',
+    id: 'bell-manuscript',
+    alt: 'Manuscript from Alexander Graham Bell 1876',
     type: 'image',
-    url: localImg,
+    url:
+      'https://tile.loc.gov/storage-services/service/mss/magbell/253/25300102/0033.jpg',
+  },
+  {
+    id: 'walt-whitman-papers',
+    alt: 'Walt Whitman Papers in the Charles E. Feinberg Collection',
+    type: 'image',
+    url:
+      'https://tile.loc.gov/image-services/iiif/service:mss:mss18630:037:06:013/full/pct:100/0/default.jpg',
   },
   {
     id: 'tester-jpeg-2000-asd994883',
