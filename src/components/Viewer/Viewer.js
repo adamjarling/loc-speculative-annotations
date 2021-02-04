@@ -10,6 +10,8 @@ import { isBrowser } from 'react-device-detect';
 const osdOptions = {
   constrainDuringPan: true,
   debugMode: true,
+  // minZoomLevel: 1,
+  // maxZoomLevel: 3,
   showNavigationControl: true,
   springStiffness: 3,
   zoomPerClick: 1.0,
