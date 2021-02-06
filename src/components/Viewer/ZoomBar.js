@@ -1,6 +1,6 @@
 import React from 'react';
 import { useZoom } from 'use-open-seadragon';
-import { Box, ButtonGroup, IconButton } from '@chakra-ui/react';
+import { Box, Button, ButtonGroup, IconButton } from '@chakra-ui/react';
 import { FiZoomIn, FiZoomOut } from 'react-icons/fi';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
