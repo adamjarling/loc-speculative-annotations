@@ -44,12 +44,18 @@ function ShapePicker({
           />
         ))}
       </VStack>
-      <Divider py={2} mb={2} />
-      <ToolbarFillPicker
-        color={color}
-        handleFillSelect={handleFillSelect}
-        isFill={isFill}
-      />
+      {activeShape &&
+        ['square', 'circle', 'triangle', 'star'].indexOf(activeShape.name) >
+          -1 && (
+          <>
+            <Divider py={2} mb={2} />
+            <ToolbarFillPicker
+              color={color}
+              handleFillSelect={handleFillSelect}
+              isFill={isFill}
+            />
+          </>
+        )}
     </>
   );
 }

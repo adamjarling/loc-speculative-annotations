@@ -26,11 +26,10 @@ const FABRIC_SHAPE_TYPES = [
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
-  console.log('color', color);
 
   const [myState, _setMyState] = React.useState({
     activeShape: null, // active shape in Options Panel
-    isFill: false, // fill or outline style?
+    isFill: true, // fill or outline style?
     isActive, // Is the Shape tool itself active
     isSelectedOnCanvas: false, // Is a shape on canvas selected
   });
@@ -44,7 +43,6 @@ function Shape({ isActive }) {
    * Handle color change
    */
   React.useEffect(() => {
-    console.log('useEffect', color);
     setMyState({ ...myState, color });
   }, [color.hex]);
 
@@ -73,7 +71,6 @@ function Shape({ isActive }) {
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
-    console.log('useEffect');
 
     function handleMouseDown(options) {
       if (options.target || !myStateRef.current.activeShape) {
@@ -87,7 +84,15 @@ function Shape({ isActive }) {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
       };
-      const isFill = myStateRef.current.isFill;
+      let fillProps = myStateRef.current.isFill
+        ? {
+            fill: shapeOptions.color,
+          }
+        : {
+            fill: 'rgba(0,0,0,0)',
+            stroke: shapeOptions.color,
+            strokeWidth: 10,
+          };
       switch (myStateRef.current.activeShape.name) {
         /**
          * Line
@@ -147,9 +152,7 @@ function Shape({ isActive }) {
             ...shapeOptions,
             width: OBJECT_SIZE,
             height: OBJECT_SIZE,
-            fill: isFill ? shapeOptions.color : 'rgba(0,0,0,0)',
-            stroke: !isFill ? shapeOptions.color : false,
-            strokeWidth: !isFill ? 10 : 0,
+            ...fillProps,
           });
           break;
 
@@ -160,7 +163,8 @@ function Shape({ isActive }) {
           newShape = new fabric.Circle({
             ...shapeOptions,
             radius: OBJECT_SIZE / 2,
-            fill: shapeOptions.color,
+            //fill: shapeOptions.color,
+            ...fillProps,
           });
           break;
 
@@ -172,7 +176,7 @@ function Shape({ isActive }) {
             ...shapeOptions,
             width: OBJECT_SIZE,
             height: OBJECT_SIZE,
-            fill: shapeOptions.color,
+            ...fillProps,
           });
           break;
 
@@ -183,9 +187,7 @@ function Shape({ isActive }) {
           let points = starPolygonPoints(5, 150, 75);
           newShape = new fabric.Polygon(points, {
             ...shapeOptions,
-            fill: 'rgba(0,0,0,0)',
-            stroke: shapeOptions.color,
-            strokeWidth: 10,
+            ...fillProps,
           });
           break;
         default:
@@ -203,7 +205,7 @@ function Shape({ isActive }) {
       if (!myStateRef.current.isSelectedOnCanvas) return;
 
       setMyState({
-        ...myState,
+        ...myStateRef.current,
         isSelectedOnCanvas: false,
       });
     }
@@ -219,7 +221,7 @@ function Shape({ isActive }) {
       const activeObject = canvas.getActiveObject();
 
       setMyState({
-        ...myState,
+        ...myStateRef.current,
         isSelectedOnCanvas: true,
       });
     }
@@ -240,7 +242,6 @@ function Shape({ isActive }) {
   }, [fabricOverlay]);
 
   const handleFillSelect = value => {
-    console.log('value', value);
     setMyState({ ...myState, isFill: value });
   };
 
