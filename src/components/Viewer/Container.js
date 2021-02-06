@@ -22,7 +22,7 @@ export default function ViewerContainer() {
       : '';
 
   React.useEffect(() => {
-    if (!fabricOverlay) return;
+    if (!fabricOverlay || !location.state) return;
 
     // User selected a Saved Annotation from their list
     // Update the Fabric canvas

@@ -1,18 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Container, Divider } from '@chakra-ui/react';
-import SiteHeader from 'components/Layout/Site/Header';
+import LayoutHeader from 'components/Layout/Header';
 import SiteAbout from 'components/Site/About';
 import SiteTeach from 'components/Site/Teach';
+import { useLocation } from 'react-router-dom';
 
 function LayoutSite(props) {
+  const teachRef = React.useRef(null);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.hash === '#teach') {
+      teachRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location.hash]);
+
   return (
     <Box>
-      <SiteHeader />
+      <LayoutHeader />
       <Container>
         <SiteAbout />
         <Divider />
-        <SiteTeach />
+        <div ref={teachRef}>
+          <SiteTeach />
+        </div>
       </Container>
     </Box>
   );

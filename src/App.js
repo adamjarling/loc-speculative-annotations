@@ -13,6 +13,9 @@ const theme = extendTheme({
     brand: brandPalette,
   },
   fonts: {
+    heading: 'ocr-a-std',
+    body: 'Open Sans',
+
     courierPrime: 'Courier Prime',
     ocrAStd: 'ocr-a-std',
     openSans: 'Open Sans',
@@ -20,7 +23,13 @@ const theme = extendTheme({
   },
   styles: {
     global: {
-      body: {
+      button: {
+        fontFamily: 'ocr-a-std',
+      },
+      header: {
+        fontFamily: 'ocr-a-std',
+      },
+      nav: {
         fontFamily: 'ocr-a-std',
       },
     },

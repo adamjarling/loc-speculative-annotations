@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from '@chakra-ui/react';
 import Toolbar from 'components/Toolbar/Toolbar';
 import ViewerContainer from 'components/Viewer/Container';
-import LayoutAppHeader from 'components/Layout/App/Header';
+import LayoutHeader from 'components/Layout/Header';
 import LayoutAppBody from 'components/Layout/App/Body';
 import LayoutAppSidebar from './Sidebar';
 import LayoutAppFooter from './Footer';
@@ -12,7 +12,7 @@ function LayoutApp() {
   return (
     <Flex as={Div100vh} h="100vh" direction="column">
       <ShareQueryParamHandler />
-      <LayoutAppHeader />
+      <LayoutHeader />
       <LayoutAppBody>
         <LayoutAppSidebar>
           <Toolbar />

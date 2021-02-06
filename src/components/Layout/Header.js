@@ -1,20 +1,16 @@
 import React from 'react';
-import { Box, Flex, HStack, Link } from '@chakra-ui/react';
-import { useHistory } from 'react-router-dom';
+import { Box, Button, Flex, HStack, Link } from '@chakra-ui/react';
 import SALogo from 'components/SALogo';
-import { Link as RRLink } from 'react-router-dom';
+import { Link as RRLink, useHistory, useLocation } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import useButtonSize from 'hooks/use-button-size';
 import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
 
-function LayoutAppHeader() {
+function LayoutHeader() {
+  const location = useLocation();
   const history = useHistory();
   const fontSizes = ['xs', 'sm', 'md'];
   const buttonSize = useButtonSize();
-
-  const handleHomeClick = () => {
-    history.push('/');
-  };
 
   return (
     <Box as="header">
@@ -32,22 +28,18 @@ function LayoutAppHeader() {
           <Link as={RRLink} to="/about">
             About
           </Link>
-          <Link as={RRLink} to="/about">
+          <Link as={RRLink} to="/about#teach">
             Teach
           </Link>
-          <MyAnnotations />
-
-          {/* <Button
-            onClick={handleHomeClick}
-            leftIcon={<FaPencilAlt />}
-            size={buttonSize}
-          >
-            Annotate
-          </Button> */}
+          {location.pathname === '/about' ? (
+            <Button onClick={() => history.push('/')}>My Annotations</Button>
+          ) : (
+            <MyAnnotations />
+          )}
         </HStack>
       </Flex>
     </Box>
   );
 }
 
-export default LayoutAppHeader;
+export default LayoutHeader;
