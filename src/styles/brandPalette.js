@@ -4,7 +4,7 @@ const brandPalette = {
     100: '#bcffaf',
     200: '#92ff7e',
     300: '#67ff4c',
-    400: '#3eff1a',
+    400: '#3eff1a', // this is the color
     500: '#24e600',
     600: '#18b300',
     700: '#0d8000',
@@ -53,7 +53,7 @@ const brandPalette = {
     200: '#ff7ffb',
     300: '#ff4cf8',
     400: '#ff1af5',
-    500: '#e600dc',
+    500: '#e600dc', // The color
     600: '#b400ac',
     700: '#81007b',
     800: '#4f004b',
@@ -65,7 +65,7 @@ const brandPalette = {
     200: '#7bffe9',
     300: '#48ffe0',
     400: '#1affd7',
-    500: '#00e6bd',
+    500: '#00e6bd', // The color
     600: '#00b393',
     700: '#008069',
     800: '#004e3f',
@@ -77,12 +77,43 @@ const brandPalette = {
     200: '#feff7d',
     300: '#feff4b',
     400: '#fdff1a',
-    500: '#e4e600',
+    500: '#e4e600', // The color
     600: '#b1b300',
     700: '#7e8000',
     800: '#4c4d00',
     900: '#191b00',
   },
 };
+
+export const brandColors = [
+  {
+    label: 'green',
+    hex: brandPalette.green['500'],
+  },
+  {
+    label: 'pink',
+    hex: brandPalette.pink['500'],
+  },
+  {
+    label: 'teal',
+    hex: brandPalette.teal['500'],
+  },
+  {
+    label: 'yellow',
+    hex: brandPalette.yellow['500'],
+  },
+  {
+    label: 'pastelBlue',
+    hex: brandPalette.pastelBlue['50'],
+  },
+  {
+    label: 'pastelGreen',
+    hex: brandPalette.pastelGreen['50'],
+  },
+  {
+    label: 'pastelPurple',
+    hex: brandPalette.pastelPurple['50'],
+  },
+];
 
 export default brandPalette;

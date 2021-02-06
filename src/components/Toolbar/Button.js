@@ -13,8 +13,7 @@ function ToolbarButton({ label = 'Toolbar button', isActive, ...restProps }) {
       <IconButton
         size="lg"
         fontSize="2xl"
-        variant={isActive ? 'outline' : ''}
-        colorScheme={isActive ? 'brand.green' : ''}
+        variant={isActive ? 'solid' : 'ghost'}
         {...restProps}
       />
     </Tooltip>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, IconButton, VStack } from '@chakra-ui/react';
+import { Box, Divider, IconButton, Text, VStack } from '@chakra-ui/react';
 import {
   BsArrowUpRight,
   BsCircle,
@@ -9,10 +9,7 @@ import {
   BsTriangle,
 } from 'react-icons/bs';
 import { FaSlash } from 'react-icons/fa';
-
-const activeStyles = {
-  border: '2px solid',
-};
+import ToolbarFillPicker from 'components/Toolbar/FillPicker';
 
 export const shapes = [
   { name: 'line', icon: <FaSlash /> },
@@ -23,25 +20,46 @@ export const shapes = [
   { name: 'star', icon: <BsStar /> },
 ];
 
-function ShapePicker({ activeShape, handleShapeSelect }) {
+function ShapePicker({
+  activeShape,
+  color,
+  handleFillSelect,
+  handleShapeSelect,
+  isFill,
+}) {
   return (
-    <VStack>
-      {shapes.map(shape => (
-        <IconButton
-          key={shape.name}
-          icon={shape.icon}
-          onClick={() => handleShapeSelect(shape)}
-          {...(activeShape &&
-            activeShape.name === shape.name && { ...activeStyles })}
-        />
-      ))}
-    </VStack>
+    <>
+      <Text fontSize="xs" textAlign="center" mb={1}>
+        Shape
+      </Text>
+      <VStack color={color.hex}>
+        {shapes.map(shape => (
+          <IconButton
+            key={shape.name}
+            icon={shape.icon}
+            onClick={() => handleShapeSelect(shape)}
+            variant={
+              activeShape && activeShape.name === shape.name ? 'solid' : 'ghost'
+            }
+          />
+        ))}
+      </VStack>
+      <Divider py={2} mb={2} />
+      <ToolbarFillPicker
+        color={color}
+        handleFillSelect={handleFillSelect}
+        isFill={isFill}
+      />
+    </>
   );
 }
 
 ShapePicker.propTypes = {
   activeShape: PropTypes.object,
+  color: PropTypes.object,
+  handleFillSelect: PropTypes.func,
   handleShapeSelect: PropTypes.func,
+  isFill: PropTypes.bool,
 };
 
 export default ShapePicker;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { brandColors } from 'styles/brandPalette';
 
 const FabricOverlayStateContext = React.createContext();
 const FabricOverlayDispatchContext = React.createContext();
@@ -16,6 +17,7 @@ function getLocalUserCanvases() {
 const defaultState = {
   activeTool: null,
   activeUserCanvas: '',
+  color: brandColors[0],
   fabricOverlay: null,
   isToolSettingsVisible: false,
   userCanvases: getLocalUserCanvases(),
@@ -34,6 +36,13 @@ function fabricOverlayReducer(state, action) {
       return {
         ...state,
         activeUserCanvas: action.activeUserCanvas,
+      };
+    }
+    case 'updateColor': {
+      return {
+        ...state,
+        color: action.color,
+        activeTool: '',
       };
     }
     case 'updateOverlay': {

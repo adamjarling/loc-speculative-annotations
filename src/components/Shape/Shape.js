@@ -11,7 +11,6 @@ import {
 import ShapePicker from 'components/Shape/Picker';
 import OptionsBar from 'components/OptionsBar/OptionsBar';
 import { starPolygonPoints } from 'services/fabric-helpers';
-import useRandomColor from 'hooks/use-random-color';
 
 // Default size for height / width for new shapes
 const OBJECT_SIZE = 200;
@@ -26,11 +25,12 @@ const FABRIC_SHAPE_TYPES = [
 
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
-  const { fabricOverlay, viewer } = useFabricOverlayState();
-  const { getRandomColor } = useRandomColor();
+  const { color, fabricOverlay, viewer } = useFabricOverlayState();
+  console.log('color', color);
 
   const [myState, _setMyState] = React.useState({
     activeShape: null, // active shape in Options Panel
+    isFill: false, // fill or outline style?
     isActive, // Is the Shape tool itself active
     isSelectedOnCanvas: false, // Is a shape on canvas selected
   });
@@ -39,6 +39,14 @@ function Shape({ isActive }) {
     myStateRef.current = data;
     _setMyState(data);
   };
+
+  /**
+   * Handle color change
+   */
+  React.useEffect(() => {
+    console.log('useEffect', color);
+    setMyState({ ...myState, color });
+  }, [color.hex]);
 
   /**
    * Handle an individual shape being selected
@@ -65,6 +73,7 @@ function Shape({ isActive }) {
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
+    console.log('useEffect');
 
     function handleMouseDown(options) {
       if (options.target || !myStateRef.current.activeShape) {
@@ -74,12 +83,16 @@ function Shape({ isActive }) {
       // Create new Shape instance
       let newShape;
       const shapeOptions = {
+        color: myStateRef.current.color.hex,
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
       };
+      const isFill = myStateRef.current.isFill;
       switch (myStateRef.current.activeShape.name) {
+        /**
+         * Line
+         */
         case 'line':
-          const lineColor = getRandomColor();
           newShape = new fabric.Line(
             [
               shapeOptions.left,
@@ -88,14 +101,17 @@ function Shape({ isActive }) {
               shapeOptions.top - OBJECT_SIZE,
             ],
             {
-              fill: lineColor,
-              stroke: lineColor,
+              fill: shapeOptions.color,
+              stroke: shapeOptions.color,
               strokeWidth: 10,
             }
           );
           break;
+
+        /**
+         * Arrow
+         */
         case 'arrow':
-          const arrowColor = getRandomColor();
           const arrowLength = shapeOptions.left + OBJECT_SIZE * 1.25;
           const arrowHeadLength = 50;
           const arrowBody = new fabric.Line(
@@ -106,14 +122,14 @@ function Shape({ isActive }) {
               shapeOptions.top,
             ],
             {
-              stroke: arrowColor,
+              stroke: shapeOptions.color,
               strokeWidth: 20,
             }
           );
           const arrowHead = new fabric.Triangle({
             width: arrowHeadLength,
             height: 80,
-            fill: arrowColor,
+            fill: shapeOptions.color,
             left: arrowLength + arrowHeadLength,
             top: shapeOptions.top - 15,
             angle: 90,
@@ -122,37 +138,53 @@ function Shape({ isActive }) {
           const objs = [arrowBody, arrowHead];
           newShape = new fabric.Group(objs);
           break;
+
+        /**
+         * Square
+         */
         case 'square':
           newShape = new fabric.Rect({
             ...shapeOptions,
             width: OBJECT_SIZE,
             height: OBJECT_SIZE,
-            fill: 'rgba(0,0,0,0)',
-            stroke: getRandomColor(),
-            strokeWidth: 10,
+            fill: isFill ? shapeOptions.color : 'rgba(0,0,0,0)',
+            stroke: !isFill ? shapeOptions.color : false,
+            strokeWidth: !isFill ? 10 : 0,
           });
           break;
+
+        /**
+         * Circle
+         */
         case 'circle':
           newShape = new fabric.Circle({
             ...shapeOptions,
             radius: OBJECT_SIZE / 2,
-            fill: getRandomColor(),
+            fill: shapeOptions.color,
           });
           break;
+
+        /**
+         * Triangle
+         */
         case 'triangle':
           newShape = new fabric.Triangle({
             ...shapeOptions,
             width: OBJECT_SIZE,
             height: OBJECT_SIZE,
-            fill: getRandomColor(),
+            fill: shapeOptions.color,
           });
           break;
+
+        /**
+         * Star
+         */
         case 'star':
           let points = starPolygonPoints(5, 150, 75);
           newShape = new fabric.Polygon(points, {
             ...shapeOptions,
             fill: 'rgba(0,0,0,0)',
-            stroke: getRandomColor(),
+            stroke: shapeOptions.color,
             strokeWidth: 10,
           });
           break;
@@ -164,7 +196,7 @@ function Shape({ isActive }) {
       newShape && fabricOverlay.fabricCanvas().add(newShape);
 
       // De-activate currently selected shape
-      setMyState({ ...myState, activeShape: null });
+      setMyState({ ...myStateRef.current, activeShape: null });
     }
 
     function handleSelectionCleared(options) {
@@ -207,6 +239,11 @@ function Shape({ isActive }) {
     };
   }, [fabricOverlay]);
 
+  const handleFillSelect = value => {
+    console.log('value', value);
+    setMyState({ ...myState, isFill: value });
+  };
+
   const handleShapeSelect = shape => {
     setMyState({ ...myState, activeShape: shape });
   };
@@ -227,15 +264,18 @@ function Shape({ isActive }) {
         <ToolbarOptionsPanel>
           <ShapePicker
             activeShape={myState.activeShape}
+            color={color}
+            handleFillSelect={handleFillSelect}
             handleShapeSelect={handleShapeSelect}
+            isFill={myState.isFill}
           />
         </ToolbarOptionsPanel>
       )}
-      {myState.isSelectedOnCanvas && (
+      {/* {myState.isSelectedOnCanvas && (
         <OptionsBar left={175}>
           Options for selected shape object go here
         </OptionsBar>
-      )}
+      )} */}
     </>
   );
 }

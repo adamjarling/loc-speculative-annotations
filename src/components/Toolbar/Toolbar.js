@@ -12,6 +12,7 @@ import { FaHandPointRight } from 'react-icons/fa';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
+import ToolbarColor from 'components/Toolbar/Color';
 
 import 'styles/styles.css';
 
@@ -67,6 +68,14 @@ function Toolbar() {
 
         <WrapItem>
           <RemoveObject />
+        </WrapItem>
+
+        <WrapItem>
+          <Divider />
+        </WrapItem>
+
+        <WrapItem>
+          <ToolbarColor isActive={activeTool === 'COLOR'} />
         </WrapItem>
       </Wrap>
     </Box>

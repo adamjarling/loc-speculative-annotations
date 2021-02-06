@@ -10,10 +10,10 @@ import DrawWidthPicker from 'components/Draw/WidthPicker';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { widths } from 'components/Draw/WidthPicker';
-import { colors } from 'components/Draw/ColorPicker';
+import { brandColors } from 'styles/brandPalette';
 
 function Draw({ isActive }) {
-  const [color, setColor] = React.useState(colors[0]);
+  const [color, setColor] = React.useState(brandColors[0]);
   const [width, setWidth] = React.useState(widths[0]);
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
