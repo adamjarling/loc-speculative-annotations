@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { Button, Input, Link, VStack, Wrap, WrapItem } from '@chakra-ui/react';
-import faker from 'faker';
 import FontFaceObserver from 'fontfaceobserver';
 
 export const fonts = [
   {
-    id: 'staatliches',
-    fontFamily: 'Staatliches',
-    sampleText: faker.lorem.words(),
+    id: 'reenieBeanie',
+    fontFamily: 'Reenie Beanie',
   },
-  { id: 'xanhMono', fontFamily: 'Xanh Mono', sampleText: faker.lorem.words() },
   {
-    id: 'yellowtail',
-    fontFamily: 'Yellowtail',
-    sampleText: faker.lorem.words(),
+    id: 'courierPrime',
+    fontFamily: 'Courier Prime',
+  },
+  {
+    id: 'openSans',
+    fontFamily: 'Open Sans',
   },
 ];
 

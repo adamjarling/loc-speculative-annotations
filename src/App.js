@@ -13,9 +13,17 @@ const theme = extendTheme({
     brand: brandPalette,
   },
   fonts: {
-    staatliches: 'Staatliches',
-    xanhMono: 'Xanh Mono',
-    yellowtail: 'Yellowtail',
+    courierPrime: 'Courier Prime',
+    ocrAStd: 'ocr-a-std',
+    openSans: 'Open Sans',
+    reenieBeanie: 'Reenie Beanie',
+  },
+  styles: {
+    global: {
+      body: {
+        fontFamily: 'ocr-a-std',
+      },
+    },
   },
 });
 
