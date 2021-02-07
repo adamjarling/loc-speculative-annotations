@@ -49,6 +49,7 @@ function Stamp({ isActive }) {
         icon={<FaStamp />}
         isActive={isActive}
         label="Stamp"
+        disabled={true}
       />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>

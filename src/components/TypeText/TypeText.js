@@ -15,11 +15,13 @@ import OptionsBar from 'components/OptionsBar/OptionsBar';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
-  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const { color, fabricOverlay, viewer } = useFabricOverlayState();
 
   const [myState, _setMyState] = React.useState({
-    activeFont: null,
+    activeFont: fonts[0],
+    color,
     isActive, // Is the main Type tool active
+    isEditing: false,
     isSelectedOnCanvas: false,
     previewText: '',
     selectedCoords: { top: 0, left: 0 },
@@ -29,6 +31,29 @@ function TypeText({ isActive }) {
     myStateRef.current = data;
     _setMyState(data);
   };
+
+  /**
+   * Handle main tool change
+   */
+  React.useEffect(() => {
+    setMyState({ ...myState, color, isActive });
+
+    if (!fabricOverlay) return;
+    fabricOverlay.fabricCanvas().defaultCursor = isActive
+      ? 'crosshair'
+      : 'auto';
+  }, [color, isActive]);
+
+  React.useEffect(() => {
+    if (!isActive) return;
+    if (myState.isEditing) {
+      fabricOverlay.fabricCanvas().defaultCursor = 'auto';
+      fabricOverlay.fabricCanvas().hoverCursor = 'text';
+    } else {
+      fabricOverlay.fabricCanvas().defaultCursor = 'crosshair';
+      fabricOverlay.fabricCanvas().hoverCursor = 'move';
+    }
+  }, [myState.isEditing]);
 
   /**
    * Handle an individual font being selected
@@ -55,12 +80,23 @@ function TypeText({ isActive }) {
     }
   }, [myState.activeFont]);
 
+  /**
+   * Set up event handlers when Fabric is ready
+   */
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
     function handleMouseDown(options) {
-      if (options.target || !myStateRef.current.activeFont) {
+      // Selected an existing object OR not in Type Tool mode
+      if (options.target || !myStateRef.current.isActive) {
+        return;
+      }
+
+      // Was user previously editing text?
+      if (myStateRef.current.isEditing) {
+        canvas.discardActiveObject();
+        setMyState({ ...myStateRef.current, isEditing: false });
         return;
       }
 
@@ -68,16 +104,20 @@ function TypeText({ isActive }) {
       const textbox = new fabric.Textbox(myStateRef.current.previewText, {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
-        editingBorderColor: '#18b300',
+        //editingBorderColor: 'white',
         fontFamily: myStateRef.current.activeFont.fontFamily,
         fontSize: 100,
+        selectionBackgroundColor: 'rgba(255, 255, 255, 0.5)',
       });
       fabricOverlay.fabricCanvas().add(textbox);
+      textbox.set({ fill: myStateRef.current.color.hex });
+      canvas.setActiveObject(textbox);
+      textbox.enterEditing();
 
-      // De-activate selected font
       setMyState({
-        ...myState,
-        activeFont: null,
+        ...myStateRef.current,
+        isEditing: true,
+        //activeFont: null,
         previewText: '',
       });
     }
@@ -86,7 +126,7 @@ function TypeText({ isActive }) {
       if (!myStateRef.current.isSelectedOnCanvas) return;
 
       setMyState({
-        ...myState,
+        ...myStateRef.current,
         isSelectedOnCanvas: false,
         selectedCoords: { top: 0, left: 0 },
       });
@@ -99,13 +139,13 @@ function TypeText({ isActive }) {
       const activeObject = canvas.getActiveObject();
 
       setMyState({
-        ...myState,
+        ...myStateRef.current,
         isSelectedOnCanvas: true,
         // TODO: Figure out how to center place this w/ coords on canvas
-        selectedCoords: {
-          top: options.e.y,
-          left: options.e.x,
-        },
+        // selectedCoords: {
+        //   top: options.e.y,
+        //   left: options.e.x,
+        // },
       });
     }
 
@@ -186,9 +226,9 @@ function TypeText({ isActive }) {
           />
         </ToolbarOptionsPanel>
       )}
-      {myState.isSelectedOnCanvas && (
+      {/* {myState.isSelectedOnCanvas && (
         <OptionsBar left={340}>Type tool options go here</OptionsBar>
-      )}
+      )} */}
     </div>
   );
 }

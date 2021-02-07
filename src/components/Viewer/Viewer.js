@@ -9,31 +9,19 @@ import { isBrowser } from 'react-device-detect';
 
 const osdOptions = {
   constrainDuringPan: true,
-  debugMode: true,
+  debugMode: false,
   gestureSettingsMouse: {
     clickToZoom: false,
     flickEnabled: true,
     pinchToZoom: true,
     scrollToZoom: false,
   },
-  // gestureSettingsPen: {
-  //   clickToZoom: false,
-  //   flickEnabled: true,
-  //   pinchToZoom: true,
-  //   scrollToZoom: true,
-  // },
   gestureSettingsTouch: {
     clickToZoom: false,
     flickEnabled: true,
     pinchToZoom: true,
     scrollToZoom: true,
   },
-  // gestureSettingsUnknown: {
-  //   clickToZoom: false,
-  //   flickEnabled: true,
-  //   pinchToZoom: true,
-  //   scrollToZoom: true,
-  // },
   // minZoomLevel: 1,
   // maxZoomLevel: 3,
   showNavigationControl: true,
