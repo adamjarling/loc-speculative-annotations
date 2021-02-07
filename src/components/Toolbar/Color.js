@@ -30,6 +30,7 @@ function ToolbarColor({ isActive }) {
         w={colorBoxSizes}
         h={colorBoxSizes}
         onClick={handleToolbarClick}
+        borderRadius={3}
       ></Box>
 
       {isActive && (

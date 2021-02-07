@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, VStack } from '@chakra-ui/react';
-import brandPalette from 'styles/brandPalette';
+import { VStack } from '@chakra-ui/react';
+import ToolbarBorderBox from 'components/Toolbar/BorderBox';
+import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 
 export const widths = [
   {
@@ -15,30 +16,23 @@ export const widths = [
   { pixelWidth: 24, size: 'Lg' },
 ];
 
-const activeStyles = {
-  border: '1px',
-};
-
-// Responsive size of control
-const widthBoxSize = ['30px', '36px'];
-
 function DrawWidthPicker({ color, handleWidthSelect, width }) {
   return (
     <VStack>
       {widths.map(widthObj => {
         let imgSrc = require(`images/pen-weight-icons/${color.label}${widthObj.size}.png`);
         return (
-          <Box
+          <ToolbarBorderBox
             key={widthObj.size}
-            as="button"
-            bgImage={`url(${imgSrc.default})`}
-            bgSize="cover"
-            w={widthBoxSize}
-            h={widthBoxSize}
-            display="block"
-            onClick={() => handleWidthSelect(widthObj)}
-            {...(widthObj.size === width.size && { ...activeStyles })}
-          />
+            isActive={widthObj.size === width.size}
+          >
+            <ToolbarBorderBoxInner
+              bgImage={`url(${imgSrc.default})`}
+              bgSize="cover"
+              display="block"
+              onClick={() => handleWidthSelect(widthObj)}
+            />
+          </ToolbarBorderBox>
         );
       })}
     </VStack>
