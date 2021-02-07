@@ -40,6 +40,13 @@ function Shape({ isActive }) {
   };
 
   /**
+   * Handle primary tool change
+   */
+  React.useEffect(() => {
+    setMyState({ ...myState, isActive });
+  }, [isActive]);
+
+  /**
    * Handle color change
    */
   React.useEffect(() => {
@@ -73,7 +80,11 @@ function Shape({ isActive }) {
     const canvas = fabricOverlay.fabricCanvas();
 
     function handleMouseDown(options) {
-      if (options.target || !myStateRef.current.activeShape) {
+      if (
+        options.target ||
+        !myStateRef.current.activeShape ||
+        !myStateRef.current.isActive
+      ) {
         return;
       }
 
