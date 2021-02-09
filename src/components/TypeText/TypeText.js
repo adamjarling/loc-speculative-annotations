@@ -13,6 +13,8 @@ import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
 import OptionsBar from 'components/OptionsBar/OptionsBar';
 
+export const previewDefaultText = 'Type to see preview of text';
+
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
@@ -39,9 +41,7 @@ function TypeText({ isActive }) {
     setMyState({ ...myState, color, isActive });
 
     if (!fabricOverlay) return;
-    fabricOverlay.fabricCanvas().defaultCursor = isActive
-      ? 'crosshair'
-      : 'auto';
+    fabricOverlay.fabricCanvas().defaultCursor = isActive ? 'text' : 'auto';
   }, [color, isActive]);
 
   React.useEffect(() => {
@@ -50,7 +50,7 @@ function TypeText({ isActive }) {
       fabricOverlay.fabricCanvas().defaultCursor = 'auto';
       fabricOverlay.fabricCanvas().hoverCursor = 'text';
     } else {
-      fabricOverlay.fabricCanvas().defaultCursor = 'crosshair';
+      fabricOverlay.fabricCanvas().defaultCursor = 'text';
       fabricOverlay.fabricCanvas().hoverCursor = 'move';
     }
   }, [myState.isEditing]);
@@ -101,7 +101,7 @@ function TypeText({ isActive }) {
       }
 
       // Create new Textbox instance and add it to canvas
-      const textbox = new fabric.Textbox(myStateRef.current.previewText, {
+      const textbox = new fabric.IText(myStateRef.current.previewText, {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
         //editingBorderColor: 'white',
@@ -117,7 +117,6 @@ function TypeText({ isActive }) {
       setMyState({
         ...myStateRef.current,
         isEditing: true,
-        //activeFont: null,
         previewText: '',
       });
     }
