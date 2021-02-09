@@ -9,6 +9,34 @@ import DrawWidthPicker from 'components/Draw/WidthPicker';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { widths } from 'components/Draw/WidthPicker';
+import logo from 'images/logo.png';
+
+const getDrawCursor = (brushSize, brushColor) => {
+  brushSize = brushSize < 12 ? 8 : brushSize;
+  const circle = `
+		<svg
+			height="${brushSize}"
+			fill="${brushColor}"
+			viewBox="0 0 ${brushSize * 2} ${brushSize * 2}"
+			width="${brushSize}"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<circle
+				cx="50%"
+				cy="50%"
+				r="${brushSize}" 
+			/>
+		</svg>
+	`;
+
+  return `data:image/svg+xml;base64,${window.btoa(circle)}`;
+};
+
+function createFreeDrawingCursor(brushWidth, brushColor) {
+  return `url(${getDrawCursor(brushWidth, brushColor)}) ${brushWidth / 2} ${
+    brushWidth / 2
+  }, crosshair`;
+}
 
 function Draw({ isActive }) {
   const [width, setWidth] = React.useState(widths[0]);
@@ -20,12 +48,20 @@ function Draw({ isActive }) {
     const canvas = fabricOverlay.fabricCanvas();
 
     if (isActive) {
+      const brushWidth = width.pixelWidth;
+
       // Enable Fabric drawing; disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
       canvas.isDrawingMode = true;
       canvas.freeDrawingBrush.color = color.hex;
-      canvas.freeDrawingBrush.width = width.pixelWidth;
+      canvas.freeDrawingBrush.width = brushWidth;
+
+      // EXAMPLE: of using an image
+      // https://i.stack.imgur.com/fp7eL.png
+      //canvas.freeDrawingCursor = `url(${logo}) 0 50, auto`;
+
+      canvas.freeDrawingCursor = createFreeDrawingCursor(brushWidth, color.hex);
     } else {
       // Disable Fabric drawing; enable OSD mouseclicks
       viewer.setMouseNavEnabled(true);
@@ -38,9 +74,11 @@ function Draw({ isActive }) {
     // Update brush color and size with Fabric
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
+    const brushWidth = width.pixelWidth;
 
     canvas.freeDrawingBrush.color = color.hex;
-    canvas.freeDrawingBrush.width = width.pixelWidth;
+    canvas.freeDrawingBrush.width = brushWidth;
+    canvas.freeDrawingCursor = createFreeDrawingCursor(brushWidth, color.hex);
   }, [width]);
 
   const handleToolbarClick = () => {

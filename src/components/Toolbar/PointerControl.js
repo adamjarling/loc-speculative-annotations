@@ -13,7 +13,8 @@ function ToolbarPointerControl({ isActive }) {
 
   const handleToolbarClick = () => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'POINTER' });
-    fabricOverlay.fabricCanvas().defaultCursor = 'pointer';
+    fabricOverlay.fabricCanvas().defaultCursor = 'default';
+    fabricOverlay.fabricCanvas().hoverCursor = 'move';
   };
 
   return (
