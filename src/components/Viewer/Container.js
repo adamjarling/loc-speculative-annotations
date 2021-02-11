@@ -21,11 +21,12 @@ export default function ViewerContainer() {
       ? location.state.canvasTitle
       : '';
 
+  /**
+   * Handle changes to selected LOC work.
+   * User selected a Saved Annotation from their list, so update the Fabric canvas
+   */
   React.useEffect(() => {
     if (!fabricOverlay || !location.state) return;
-
-    // User selected a Saved Annotation from their list
-    // Update the Fabric canvas
     fabricOverlay
       .fabricCanvas()
       .loadFromJSON(userCanvases[location.state.canvasTitle]['fabricCanvas']);

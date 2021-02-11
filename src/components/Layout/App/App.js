@@ -8,10 +8,11 @@ import LayoutAppSidebar from './Sidebar';
 import LayoutAppFooter from './Footer';
 import Div100vh from 'react-div-100vh';
 import ShareQueryParamHandler from 'components/Share/QueryParamHandler';
-
+import useKeyboardEvents from 'hooks/use-keyboard-events';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 function LayoutApp() {
   const { fabricOverlay } = useFabricOverlayState();
+  const { handleEvent } = useKeyboardEvents();
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
@@ -19,7 +20,7 @@ function LayoutApp() {
   }, [fabricOverlay]);
 
   return (
-    <Flex as={Div100vh} h="100vh" direction="column">
+    <Flex as={Div100vh} h="100vh" direction="column" onKeyDown={handleEvent}>
       <ShareQueryParamHandler />
       <LayoutHeader />
       <LayoutAppBody>

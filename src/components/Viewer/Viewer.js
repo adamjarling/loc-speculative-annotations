@@ -6,6 +6,7 @@ import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import ViewerZoomBar from 'components/Viewer/ZoomBar';
 import { isBrowser } from 'react-device-detect';
+import useKeyboardEvents from 'hooks/use-keyboard-events';
 
 const osdOptions = {
   constrainDuringPan: true,
