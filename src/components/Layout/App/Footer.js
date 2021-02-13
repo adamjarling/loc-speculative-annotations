@@ -15,10 +15,13 @@ import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
 import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
+import { isBrowser } from 'react-device-detect';
 
 function ViewerFooter() {
   const buttonSize = useButtonSize();
   const isMobileVisible = useBreakpointValue({ base: false, md: true });
+
+  console.log('isBrowser', isBrowser);
 
   return (
     <Flex
@@ -32,7 +35,7 @@ function ViewerFooter() {
     >
       <Flex direction="row">
         <WorksListModal />
-        {isMobileVisible && <ShowHideAnnotations />}
+        {isBrowser && <ShowHideAnnotations />}
       </Flex>
 
       <ButtonGroup>
