@@ -29,9 +29,13 @@ function Shape({ isActive }) {
 
   const [myState, _setMyState] = React.useState({
     activeShape: null, // active shape in Options Panel
-    isFill: true, // fill or outline style?
+    currentDragShape: null,
     isActive, // Is the Shape tool itself active
-    isSelectedOnCanvas: false, // Is a shape on canvas selected
+    isFill: true, // fill or outline style?
+    isMouseDown: false,
+    isSelectedOnCanvas: false, // Is a shape on canvas selected,
+    origX: null, // starting X point for drag creating an object
+    origY: null, // starting Y point for drag creating an object
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -60,6 +64,8 @@ function Shape({ isActive }) {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
+    console.log('useEffect() myState.activeShape', myState.activeShape);
+
     if (myState.activeShape) {
       // Disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
@@ -75,6 +81,9 @@ function Shape({ isActive }) {
     }
   }, [myState.activeShape]);
 
+  /**
+   * Add shapes and handle mouse events
+   */
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
@@ -88,13 +97,25 @@ function Shape({ isActive }) {
         return;
       }
 
+      // Save starting mouse down coordinates
+      //let pointer = canvas.getPointer(options.e);
+      console.log('options', options);
+      let origX = options.absolutePointer.x;
+      let origY = options.absolutePointer.y;
+
       // Create new Shape instance
       let newShape;
       const shapeOptions = {
         color: myStateRef.current.color.hex,
-        left: options.absolutePointer.x,
-        top: options.absolutePointer.y,
+        left: origX,
+        top: origY,
+        originX: 'left',
+        originY: 'top',
+        width: 0,
+        height: 0,
       };
+
+      // Solid fill or stroke?
       let fillProps = myStateRef.current.isFill
         ? {
             fill: shapeOptions.color,
@@ -104,6 +125,8 @@ function Shape({ isActive }) {
             stroke: shapeOptions.color,
             strokeWidth: 10,
           };
+
+      // Shape options
       switch (myStateRef.current.activeShape.name) {
         /**
          * Line
@@ -161,8 +184,6 @@ function Shape({ isActive }) {
         case 'square':
           newShape = new fabric.Rect({
             ...shapeOptions,
-            width: OBJECT_SIZE,
-            height: OBJECT_SIZE,
             ...fillProps,
           });
           break;
@@ -174,7 +195,6 @@ function Shape({ isActive }) {
           newShape = new fabric.Circle({
             ...shapeOptions,
             radius: OBJECT_SIZE / 2,
-            //fill: shapeOptions.color,
             ...fillProps,
           });
           break;
@@ -205,15 +225,73 @@ function Shape({ isActive }) {
           break;
       }
 
+      setMyState({
+        ...myStateRef.current,
+        currentDragShape: newShape,
+        isMouseDown: true,
+        origX,
+        origY,
+      });
+
       // Add new shape to the canvas
       newShape && fabricOverlay.fabricCanvas().add(newShape);
+    }
 
-      // De-activate currently selected shape
-      setMyState({ ...myStateRef.current, activeShape: null });
+    function handleMouseMove(options) {
+      if (
+        options.target ||
+        !myStateRef.current.activeShape ||
+        !myStateRef.current.isActive ||
+        !myStateRef.current.currentDragShape
+      ) {
+        return;
+      }
+      console.log('handleMouseMove() myStateRef.current', myStateRef.current);
+
+      // Dynamically drag size element to the canvas
+      const pointer = fabricOverlay.fabricCanvas().getPointer(options.e);
+      if (myStateRef.current.origX > pointer.x) {
+        myStateRef.current.currentDragShape.set({ left: Math.abs(pointer.x) });
+      }
+      if (myStateRef.current.origY > pointer.y) {
+        myStateRef.current.currentDragShape.set({ top: Math.abs(pointer.y) });
+      }
+      myStateRef.current.currentDragShape.set({
+        width: Math.abs(myStateRef.current.origX - pointer.x),
+      });
+      myStateRef.current.currentDragShape.set({
+        height: Math.abs(myStateRef.current.origY - pointer.y),
+      });
+      fabricOverlay.fabricCanvas().renderAll();
+    }
+
+    function handleMouseUp(options) {
+      console.log('myStateRef.current', myStateRef.current);
+      if (
+        !myStateRef.current.isActive ||
+        !myStateRef.current.currentDragShape
+      ) {
+        return;
+      }
+
+      // Make newly created object "active"
+      fabricOverlay
+        .fabricCanvas()
+        .setActiveObject(myStateRef.current.currentDragShape);
+      fabricOverlay.fabricCanvas().renderAll();
+
+      setMyState({
+        ...myStateRef.current,
+        currentDragShape: null,
+      });
     }
 
     function handleSelectionCleared(options) {
-      if (!myStateRef.current.isSelectedOnCanvas) return;
+      if (
+        !myStateRef.current.isActive ||
+        !myStateRef.current.isSelectedOnCanvas
+      )
+        return;
 
       setMyState({
         ...myStateRef.current,
@@ -222,14 +300,15 @@ function Shape({ isActive }) {
     }
 
     function handleSelected(options) {
+      if (!myStateRef.current.isActive) return;
+      console.log('handleSelected');
+
+      // Filter out any non-shape selections
       const optionsTargetType = options.target.get('type');
       if (
         !FABRIC_SHAPE_TYPES.find(shapeType => shapeType === optionsTargetType)
       )
         return;
-
-      const canvas = fabricOverlay.fabricCanvas();
-      const activeObject = canvas.getActiveObject();
 
       setMyState({
         ...myStateRef.current,
@@ -239,6 +318,8 @@ function Shape({ isActive }) {
 
     // Add click handlers
     canvas.on('mouse:down', handleMouseDown);
+    canvas.on('mouse:move', handleMouseMove);
+    canvas.on('mouse:up', handleMouseUp);
     canvas.on('selection:created', handleSelected);
     canvas.on('selection:updated', handleSelected);
     canvas.on('selection:cleared', handleSelectionCleared);
@@ -246,6 +327,8 @@ function Shape({ isActive }) {
     // Remove handler
     return function clearFabricEventHandlers() {
       canvas.off('mouse:down', handleMouseDown);
+      canvas.off('mouse:move', handleMouseMove);
+      canvas.off('mouse:up', handleMouseUp);
       canvas.off('selection:created', handleSelected);
       canvas.off('selection:updated', handleSelected);
       canvas.off('selection:cleared', handleSelectionCleared);
