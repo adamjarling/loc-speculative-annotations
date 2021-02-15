@@ -10,7 +10,10 @@ import {
 } from 'context/fabric-overlay-context';
 import ShapePicker from 'components/Shape/Picker';
 import OptionsBar from 'components/OptionsBar/OptionsBar';
-import { starPolygonPoints } from 'services/fabric-helpers';
+import {
+  fabricCalcArrowAngle,
+  starPolygonPoints,
+} from 'services/fabric-helpers';
 
 // Default size for height / width for new shapes
 const OBJECT_SIZE = 200;
@@ -64,8 +67,6 @@ function Shape({ isActive }) {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    console.log('useEffect() myState.activeShape', myState.activeShape);
-
     if (myState.activeShape) {
       // Disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
@@ -98,19 +99,16 @@ function Shape({ isActive }) {
       }
 
       // Save starting mouse down coordinates
-      //let pointer = canvas.getPointer(options.e);
-      console.log('options', options);
-      let origX = options.absolutePointer.x;
-      let origY = options.absolutePointer.y;
+      let pointer = canvas.getPointer(options.e);
+      let origX = pointer.x;
+      let origY = pointer.y;
 
       // Create new Shape instance
-      let newShape;
+      let newShape = null;
       const shapeOptions = {
         color: myStateRef.current.color.hex,
         left: origX,
         top: origY,
-        originX: 'left',
-        originY: 'top',
         width: 0,
         height: 0,
       };
@@ -133,49 +131,57 @@ function Shape({ isActive }) {
          */
         case 'line':
           newShape = new fabric.Line(
-            [
-              shapeOptions.left,
-              shapeOptions.top,
-              shapeOptions.left + OBJECT_SIZE,
-              shapeOptions.top - OBJECT_SIZE,
-            ],
+            [pointer.x, pointer.y, pointer.x, pointer.y],
             {
               fill: shapeOptions.color,
+              originX: 'center',
+              originY: 'center',
               stroke: shapeOptions.color,
               strokeWidth: 10,
             }
           );
+          fabricOverlay.fabricCanvas().add(newShape);
           break;
 
         /**
          * Arrow
          */
         case 'arrow':
-          const arrowLength = shapeOptions.left + OBJECT_SIZE * 1.25;
-          const arrowHeadLength = 50;
-          const arrowBody = new fabric.Line(
-            [
-              shapeOptions.left,
-              shapeOptions.top,
-              arrowLength,
-              shapeOptions.top,
-            ],
+          newShape = {};
+          newShape.arrowBody = new fabric.Line(
+            [pointer.x, pointer.y, pointer.x, pointer.y],
             {
+              fill: shapeOptions.color,
+              originX: 'center',
+              originY: 'center',
               stroke: shapeOptions.color,
-              strokeWidth: 20,
+              strokeWidth: 10,
             }
           );
-          const arrowHead = new fabric.Triangle({
-            width: arrowHeadLength,
-            height: 80,
-            fill: shapeOptions.color,
-            left: arrowLength + arrowHeadLength,
-            top: shapeOptions.top - 15,
-            angle: 90,
-          });
+          let centerX = (newShape.arrowBody.x1 + newShape.arrowBody.x2) / 2;
+          let centerY = (newShape.arrowBody.y1 + newShape.arrowBody.y2) / 2;
+          let deltaX = newShape.arrowBody.left - centerX;
+          let deltaY = newShape.arrowBody.top - centerY;
 
-          const objs = [arrowBody, arrowHead];
-          newShape = new fabric.Group(objs);
+          newShape.arrowHead = new fabric.Triangle({
+            left: newShape.arrowBody.get('x1') + deltaX,
+            top: newShape.arrowBody.get('y1') + deltaY,
+            originX: 'center',
+            originY: 'center',
+            selectable: false,
+            pointType: 'arrow_start',
+            angle: -45,
+            width: 40,
+            height: 40,
+            fill: shapeOptions.color,
+          });
+          newShape.deltas = {
+            deltaX,
+            deltaY,
+          };
+          fabricOverlay
+            .fabricCanvas()
+            .add(newShape.arrowBody, newShape.arrowHead);
           break;
 
         /**
@@ -185,18 +191,26 @@ function Shape({ isActive }) {
           newShape = new fabric.Rect({
             ...shapeOptions,
             ...fillProps,
+            width: pointer.x - origX,
+            height: pointer.y - origY,
           });
+          fabricOverlay.fabricCanvas().add(newShape);
           break;
 
         /**
          * Circle
          */
         case 'circle':
-          newShape = new fabric.Circle({
+          newShape = new fabric.Ellipse({
             ...shapeOptions,
-            radius: OBJECT_SIZE / 2,
             ...fillProps,
+            originX: 'left',
+            originY: 'top',
+            rx: pointer.x - origX,
+            ry: pointer.y - origY,
+            angle: 0,
           });
+          fabricOverlay.fabricCanvas().add(newShape);
           break;
 
         /**
@@ -205,21 +219,21 @@ function Shape({ isActive }) {
         case 'triangle':
           newShape = new fabric.Triangle({
             ...shapeOptions,
-            width: OBJECT_SIZE,
-            height: OBJECT_SIZE,
             ...fillProps,
           });
+          fabricOverlay.fabricCanvas().add(newShape);
           break;
 
         /**
          * Star
          */
         case 'star':
-          let points = starPolygonPoints(5, 150, 75);
+          let points = starPolygonPoints(5, 50, 25);
           newShape = new fabric.Polygon(points, {
             ...shapeOptions,
             ...fillProps,
           });
+          fabricOverlay.fabricCanvas().add(newShape);
           break;
         default:
           break;
@@ -234,7 +248,7 @@ function Shape({ isActive }) {
       });
 
       // Add new shape to the canvas
-      newShape && fabricOverlay.fabricCanvas().add(newShape);
+      //newShape && fabricOverlay.fabricCanvas().add(newShape);
     }
 
     function handleMouseMove(options) {
@@ -246,27 +260,85 @@ function Shape({ isActive }) {
       ) {
         return;
       }
-      console.log('handleMouseMove() myStateRef.current', myStateRef.current);
+      const c = myStateRef.current;
 
       // Dynamically drag size element to the canvas
       const pointer = fabricOverlay.fabricCanvas().getPointer(options.e);
-      if (myStateRef.current.origX > pointer.x) {
-        myStateRef.current.currentDragShape.set({ left: Math.abs(pointer.x) });
+
+      if (['square', 'star', 'triangle'].indexOf(c.activeShape.name) > -1) {
+        /**
+         * Rectangle or Triangle
+         */
+        if (c.origX > pointer.x) {
+          c.currentDragShape.set({
+            left: Math.abs(pointer.x),
+          });
+        }
+        if (c.origY > pointer.y) {
+          c.currentDragShape.set({ top: Math.abs(pointer.y) });
+        }
+        c.currentDragShape.set({
+          width: Math.abs(c.origX - pointer.x),
+          height: Math.abs(c.origY - pointer.y),
+        });
+      } else if (c.activeShape.name === 'circle') {
+        /**
+         * Ellipse (circle)
+         */
+        let rx = Math.abs(c.origX - pointer.x) / 2;
+        let ry = Math.abs(c.origY - pointer.y) / 2;
+        if (rx > c.currentDragShape.strokeWidth) {
+          rx -= c.currentDragShape.strokeWidth / 2;
+        }
+        if (ry > c.currentDragShape.strokeWidth) {
+          ry -= c.currentDragShape.strokeWidth / 2;
+        }
+        c.currentDragShape.set({ rx, ry });
+
+        if (c.origX > pointer.x) {
+          c.currentDragShape.set({ originX: 'right' });
+        } else {
+          c.currentDragShape.set({ originX: 'left' });
+        }
+        if (c.origY > pointer.y) {
+          c.currentDragShape.set({ originY: 'bottom' });
+        } else {
+          c.currentDragShape.set({ originY: 'top' });
+        }
+      } else if (c.activeShape.name === 'line') {
+        /**
+         * Line
+         */
+        c.currentDragShape.set({
+          x2: pointer.x,
+          y2: pointer.y,
+        });
+      } else if (c.activeShape.name === 'arrow') {
+        /**
+         * Arrow
+         */
+        // TODO: Either wire this up or use a polygon arrow?
+        let { arrowBody, arrowHead, deltas } = c.currentDragShape;
+        arrowBody.set({
+          x2: pointer.x,
+          y2: pointer.y,
+        });
+        arrowHead.set({
+          left: pointer.x + deltas.deltaX,
+          top: pointer.y + deltas.deltaY,
+          angle: fabricCalcArrowAngle(
+            arrowBody.x1,
+            arrowBody.y1,
+            arrowBody.x2,
+            arrowBody.y2
+          ),
+        });
       }
-      if (myStateRef.current.origY > pointer.y) {
-        myStateRef.current.currentDragShape.set({ top: Math.abs(pointer.y) });
-      }
-      myStateRef.current.currentDragShape.set({
-        width: Math.abs(myStateRef.current.origX - pointer.x),
-      });
-      myStateRef.current.currentDragShape.set({
-        height: Math.abs(myStateRef.current.origY - pointer.y),
-      });
+
       fabricOverlay.fabricCanvas().renderAll();
     }
 
     function handleMouseUp(options) {
-      console.log('myStateRef.current', myStateRef.current);
       if (
         !myStateRef.current.isActive ||
         !myStateRef.current.currentDragShape
@@ -275,9 +347,21 @@ function Shape({ isActive }) {
       }
 
       // Make newly created object "active"
-      fabricOverlay
-        .fabricCanvas()
-        .setActiveObject(myStateRef.current.currentDragShape);
+      if (myStateRef.current.activeShape.name === 'arrow') {
+        // Handle an arrow differently since it's composed of
+        // 2 different shape objects
+        const { arrowBody, arrowHead } = myStateRef.current.currentDragShape;
+        let group = new fabric.Group([arrowBody, arrowHead]);
+        fabricOverlay.fabricCanvas().remove([arrowBody, arrowHead]);
+        fabricOverlay.fabricCanvas().add(group);
+        fabricOverlay.fabricCanvas().setActiveObject(group);
+      } else {
+        // All other shapes
+        fabricOverlay
+          .fabricCanvas()
+          .setActiveObject(myStateRef.current.currentDragShape);
+      }
+
       fabricOverlay.fabricCanvas().renderAll();
 
       setMyState({
@@ -301,7 +385,6 @@ function Shape({ isActive }) {
 
     function handleSelected(options) {
       if (!myStateRef.current.isActive) return;
-      console.log('handleSelected');
 
       // Filter out any non-shape selections
       const optionsTargetType = options.target.get('type');
