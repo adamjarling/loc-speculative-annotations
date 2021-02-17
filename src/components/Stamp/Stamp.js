@@ -17,14 +17,12 @@ import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
-import useRandomNumber from 'hooks/use-random-number';
 import StampSheet1 from 'components/Stamp/Sheet1';
 
 function Stamp({ isActive }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { fabricOverlay } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
-  const { getRandomNumber } = useRandomNumber();
 
   const handleToolbarButtonClick = () => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'STAMP' });
@@ -32,11 +30,28 @@ function Stamp({ isActive }) {
   };
 
   const handleStampClick = stampObj => {
-    fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
-      const obj = fabric.util
-        .groupSVGElements(objects, options)
-        .set({ left: getRandomNumber(50, 500), top: getRandomNumber(50, 500) });
-      fabricOverlay.fabricCanvas().add(obj).renderAll();
+    fabric.Image.fromURL(stampObj.src, function (oImg) {
+      const canvas = fabricOverlay.fabricCanvas();
+      canvas.setActiveObject(oImg);
+      canvas.add(oImg).renderAll();
+
+      var tintFilter = new fabric.Image.filters.BlendColor({
+        color: '#e5f6ff',
+        mode: 'tint',
+      });
+      oImg.filters.push(tintFilter);
+      oImg.applyFilters();
+      canvas.renderAll();
+
+      /**
+       * Example of how to update an existing filter color
+       * For when we implement the options panel where users
+       * can update a selected object
+       */
+      // let activeObject = canvas.getActiveObject();
+      // activeObject.filters[0]['color'] = '#e600dc';
+      // activeObject.applyFilters();
+      // canvas.renderAll();
     });
 
     onClose();
@@ -49,7 +64,7 @@ function Stamp({ isActive }) {
         icon={<FaStamp />}
         isActive={isActive}
         label="Stamp"
-        disabled={true}
+        disabled={false}
       />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
