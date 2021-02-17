@@ -50,7 +50,7 @@ function Shape({ isActive }) {
    * Handle primary tool change
    */
   React.useEffect(() => {
-    setMyState({ ...myState, isActive });
+    setMyState({ ...myState, activeShape: null, isActive });
   }, [isActive]);
 
   /**
@@ -155,7 +155,7 @@ function Shape({ isActive }) {
               originX: 'center',
               originY: 'center',
               stroke: shapeOptions.color,
-              strokeWidth: 10,
+              strokeWidth: 20,
             }
           );
           let centerX = (newShape.arrowBody.x1 + newShape.arrowBody.x2) / 2;
@@ -171,8 +171,8 @@ function Shape({ isActive }) {
             selectable: false,
             pointType: 'arrow_start',
             angle: -45,
-            width: 40,
-            height: 40,
+            width: 100,
+            height: 100,
             fill: shapeOptions.color,
           });
           newShape.deltas = {
@@ -228,7 +228,7 @@ function Shape({ isActive }) {
          * Star
          */
         case 'star':
-          let points = starPolygonPoints(5, 50, 25);
+          let points = starPolygonPoints(5, 150, 75);
           newShape = new fabric.Polygon(points, {
             ...shapeOptions,
             ...fillProps,
@@ -367,6 +367,7 @@ function Shape({ isActive }) {
       setMyState({
         ...myStateRef.current,
         currentDragShape: null,
+        isMouseDown: false,
       });
     }
 

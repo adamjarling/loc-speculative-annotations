@@ -24,7 +24,7 @@ function DrawWidthPicker({ color, handleWidthSelect, width }) {
         return (
           <ToolbarBorderBox
             key={widthObj.size}
-            isActive={widthObj.size === width.size}
+            isActive={width && widthObj.size === width.size}
           >
             <ToolbarBorderBoxInner
               bgImage={`url(${imgSrc.default})`}

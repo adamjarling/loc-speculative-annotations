@@ -21,8 +21,6 @@ function ViewerFooter() {
   const buttonSize = useButtonSize();
   const isMobileVisible = useBreakpointValue({ base: false, md: true });
 
-  console.log('isBrowser', isBrowser);
-
   return (
     <Flex
       as="footer"

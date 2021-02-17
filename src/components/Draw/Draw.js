@@ -47,6 +47,23 @@ function Draw({ isActive }) {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
+    function handleMouseDown() {
+      // Need this as double protection to make sure OSD isn't swallowing
+      // Fabric's drawing mode for some reason
+      viewer.setMouseNavEnabled(false);
+      viewer.outerTracker.setTracking(false);
+    }
+    canvas.on('mouse:down', handleMouseDown);
+
+    return () => {
+      canvas.off('mouse:down', handleMouseDown);
+    };
+  }, [fabricOverlay]);
+
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+
     if (isActive) {
       const brushWidth = width.pixelWidth;
 
@@ -57,7 +74,9 @@ function Draw({ isActive }) {
       canvas.freeDrawingBrush.color = color.hex;
       canvas.freeDrawingBrush.width = brushWidth;
 
-      // EXAMPLE: of using an image
+      canvas.renderAll();
+
+      // EXAMPLE: of using an image for cursor
       // https://i.stack.imgur.com/fp7eL.png
       //canvas.freeDrawingCursor = `url(${logo}) 0 50, auto`;
 
@@ -73,6 +92,7 @@ function Draw({ isActive }) {
   React.useEffect(() => {
     // Update brush color and size with Fabric
     if (!fabricOverlay) return;
+
     const canvas = fabricOverlay.fabricCanvas();
     const brushWidth = width.pixelWidth;
 
