@@ -68,6 +68,8 @@ function Shape({ isActive }) {
     const canvas = fabricOverlay.fabricCanvas();
 
     if (myState.activeShape) {
+      canvas.defaultCursor = 'crosshair';
+
       // Disable OSD mouseclicks
       viewer.setMouseNavEnabled(false);
       viewer.outerTracker.setTracking(false);
@@ -76,6 +78,8 @@ function Shape({ isActive }) {
       canvas.discardActiveObject();
       canvas.requestRenderAll();
     } else {
+      canvas.defaultCursor = 'auto';
+
       // Enable OSD mouseclicks
       viewer.setMouseNavEnabled(true);
       viewer.outerTracker.setTracking(true);
@@ -89,6 +93,9 @@ function Shape({ isActive }) {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
+    /**
+     * Mouse down
+     */
     function handleMouseDown(options) {
       if (
         options.target ||
@@ -251,6 +258,9 @@ function Shape({ isActive }) {
       //newShape && fabricOverlay.fabricCanvas().add(newShape);
     }
 
+    /**
+     * Mouse move
+     */
     function handleMouseMove(options) {
       if (
         options.target ||
@@ -338,6 +348,9 @@ function Shape({ isActive }) {
       fabricOverlay.fabricCanvas().renderAll();
     }
 
+    /**
+     * Mouse up
+     */
     function handleMouseUp(options) {
       if (
         !myStateRef.current.isActive ||

@@ -29,8 +29,17 @@ export default function RemoveObject() {
   }, [fabricOverlay]);
 
   const handleRemoveObject = () => {
-    const activeObject = fabricOverlay.fabricCanvas().getActiveObject();
-    fabricOverlay.fabricCanvas().remove(activeObject);
+    const canvas = fabricOverlay.fabricCanvas();
+    const activeObject = canvas.getActiveObject();
+
+    // Object has children (ie. arrow has children objects triangle and line)
+    if (activeObject.getObjects) {
+      let objs = activeObject.getObjects();
+      for (let i in objs) {
+        canvas.remove(objs[i]);
+      }
+    }
+    canvas.remove(activeObject);
   };
 
   return (
