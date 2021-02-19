@@ -1,64 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Drawer,
-  DrawerBody,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Tooltip,
-  useDisclosure,
-} from '@chakra-ui/react';
 import { FaStamp } from 'react-icons/fa';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import ToolbarButton from 'components/Toolbar/Button';
+import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
-import StampSheet1 from 'components/Stamp/Sheet1';
+import StampPicker from 'components/Stamp/Picker';
 
 function Stamp({ isActive }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { fabricOverlay } = useFabricOverlayState();
+  const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
+
+  const [myState, _setMyState] = React.useState({
+    activeStamp: null,
+    isActive, // Is the Shape tool itself active
+  });
+  const myStateRef = React.useRef(myState);
+  const setMyState = data => {
+    myStateRef.current = data;
+    _setMyState(data);
+  };
 
   const handleToolbarButtonClick = () => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'STAMP' });
-    onOpen();
   };
 
-  const handleStampClick = stampObj => {
-    fabric.Image.fromURL(stampObj.src, function (oImg) {
-      const canvas = fabricOverlay.fabricCanvas();
-      canvas.setActiveObject(oImg);
-      canvas.add(oImg).renderAll();
-
-      var tintFilter = new fabric.Image.filters.BlendColor({
-        color: '#e5f6ff',
-        mode: 'tint',
-      });
-      oImg.filters.push(tintFilter);
-      oImg.applyFilters();
-      canvas.renderAll();
-
-      /**
-       * Example of how to update an existing filter color
-       * For when we implement the options panel where users
-       * can update a selected object
-       */
-      // let activeObject = canvas.getActiveObject();
-      // activeObject.filters[0]['color'] = '#e600dc';
-      // activeObject.applyFilters();
-      // canvas.renderAll();
+  const handleStampChange = stampObj => {
+    console.log('color', color);
+    fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
+      const obj = fabric.util
+        .groupSVGElements(objects, options)
+        .set({ left: 100, top: 100, fill: color.hex });
+      fabricOverlay.fabricCanvas().add(obj).renderAll();
     });
-
-    onClose();
   };
 
   return (
-    <>
+    <div>
       <ToolbarButton
         onClick={handleToolbarButtonClick}
         icon={<FaStamp />}
@@ -66,19 +47,16 @@ function Stamp({ isActive }) {
         label="Stamp"
         disabled={false}
       />
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Select your stamp</DrawerHeader>
-
-            <DrawerBody>
-              <StampSheet1 handleStampClick={handleStampClick} />
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-    </>
+      {isActive && (
+        <ToolbarOptionsPanel>
+          <StampPicker
+            activeStamp={myState.activeStamp}
+            color={color}
+            handleStampChange={handleStampChange}
+          />
+        </ToolbarOptionsPanel>
+      )}
+    </div>
   );
 }
 
