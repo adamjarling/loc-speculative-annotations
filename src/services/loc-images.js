@@ -13,7 +13,8 @@ export const locImages = [
     alt: 'Manuscript from Alexander Graham Bell 1876',
     type: 'image',
     url:
-      'https://tile.loc.gov/storage-services/service/mss/magbell/253/25300102/0033.jpg',
+      'https://tile.loc.gov/image-services/iiif/service:mss:magbell:253:25300102:0033/full/full/0/default.jpg',
+    //'https://tile.loc.gov/storage-services/service/mss/magbell/253/25300102/0033.jpg',
   },
   {
     id: 'walt-whitman-papers',
