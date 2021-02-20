@@ -31,10 +31,18 @@ function Stamp({ isActive }) {
   const handleStampChange = stampObj => {
     console.log('color', color);
     fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
-      const obj = fabric.util
-        .groupSVGElements(objects, options)
-        .set({ left: 100, top: 100, fill: color.hex });
-      fabricOverlay.fabricCanvas().add(obj).renderAll();
+      const shape = fabric.util.groupSVGElements(objects, options);
+      if (shape.type === 'group') {
+        // The SVG file has multiple objects
+        const shapeObjects = shape.getObjects();
+        shapeObjects.forEach((obj, i) => (shape.item(i).fill = color.hex));
+        shape.addWithUpdate();
+      } else {
+        // SVG file only has one solid object
+        shape.fill = color.hex;
+      }
+      shape.set({ left: 100, top: 100 });
+      fabricOverlay.fabricCanvas().add(shape).renderAll();
     });
   };
 
