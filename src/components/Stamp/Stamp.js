@@ -16,6 +16,7 @@ function Stamp({ isActive }) {
 
   const [myState, _setMyState] = React.useState({
     activeStamp: null,
+    color,
     isActive, // Is the Shape tool itself active
   });
   const myStateRef = React.useRef(myState);
@@ -24,26 +25,79 @@ function Stamp({ isActive }) {
     _setMyState(data);
   };
 
+  React.useEffect(() => {
+    setMyState({ ...myState, color, isActive });
+  }, [color, isActive]);
+
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
+    fabricOverlay.fabricCanvas().defaultCursor = myState.activeStamp
+      ? 'crosshair'
+      : 'auto';
+  }, [myState.activeStamp]);
+
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+
+    function handleMouseDown(o) {
+      if (
+        o.target ||
+        !myStateRef.current.activeStamp ||
+        !myStateRef.current.isActive
+      ) {
+        return;
+      }
+
+      const c = myStateRef.current;
+      const pointer = canvas.getPointer(o.e);
+
+      fabric.loadSVGFromURL(c.activeStamp.src, function (objects, options) {
+        const shape = fabric.util.groupSVGElements(objects, options);
+        if (shape.type === 'group') {
+          // The SVG file has multiple objects
+          const shapeObjects = shape.getObjects();
+          shapeObjects.forEach((obj, i) => (shape.item(i).fill = c.color.hex));
+          shape.addWithUpdate();
+        } else {
+          // SVG file only has one solid object
+          shape.fill = c.color.hex;
+        }
+        shape.set({ left: pointer.x, top: pointer.y });
+        fabricOverlay.fabricCanvas().add(shape).renderAll();
+      });
+    }
+
+    // Add click handlers
+    canvas.on('mouse:down', handleMouseDown);
+
+    // Remove handler
+    return function clearFabricEventHandlers() {
+      canvas.off('mouse:down', handleMouseDown);
+    };
+  }, [fabricOverlay]);
+
   const handleToolbarButtonClick = () => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'STAMP' });
   };
 
   const handleStampChange = stampObj => {
-    console.log('color', color);
-    fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
-      const shape = fabric.util.groupSVGElements(objects, options);
-      if (shape.type === 'group') {
-        // The SVG file has multiple objects
-        const shapeObjects = shape.getObjects();
-        shapeObjects.forEach((obj, i) => (shape.item(i).fill = color.hex));
-        shape.addWithUpdate();
-      } else {
-        // SVG file only has one solid object
-        shape.fill = color.hex;
-      }
-      shape.set({ left: 100, top: 100 });
-      fabricOverlay.fabricCanvas().add(shape).renderAll();
-    });
+    setMyState({ ...myState, activeStamp: stampObj });
+
+    // fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
+    //   const shape = fabric.util.groupSVGElements(objects, options);
+    //   if (shape.type === 'group') {
+    //     // The SVG file has multiple objects
+    //     const shapeObjects = shape.getObjects();
+    //     shapeObjects.forEach((obj, i) => (shape.item(i).fill = color.hex));
+    //     shape.addWithUpdate();
+    //   } else {
+    //     // SVG file only has one solid object
+    //     shape.fill = color.hex;
+    //   }
+    //   shape.set({ left: 100, top: 100 });
+    //   fabricOverlay.fabricCanvas().add(shape).renderAll();
+    // });
   };
 
   return (
