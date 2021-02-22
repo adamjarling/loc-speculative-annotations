@@ -13,6 +13,7 @@ import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
 import ToolbarColor from 'components/Toolbar/Color';
+import Metadata from 'components/Metadata/Metadata';
 
 import 'styles/styles.css';
 
@@ -40,6 +41,10 @@ function Toolbar() {
 
         <WrapItem>
           <Stamp isActive={activeTool === 'STAMP'} />
+        </WrapItem>
+
+        <WrapItem>
+          <Metadata isActive={activeTool === 'METADATA'} />
         </WrapItem>
 
         <WrapItem>
