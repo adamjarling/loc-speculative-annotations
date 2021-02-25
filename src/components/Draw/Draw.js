@@ -43,11 +43,25 @@ function Draw({ isActive }) {
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
 
+  const [myState, _setMyState] = React.useState({
+    isActive,
+  });
+  const myStateRef = React.useRef(myState);
+  const setMyState = data => {
+    myStateRef.current = data;
+    _setMyState(data);
+  };
+
+  React.useEffect(() => {
+    setMyState({ isActive });
+  }, [isActive]);
+
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
     function handleMouseDown() {
+      if (!myStateRef.current.isActive) return;
       // Need this as double protection to make sure OSD isn't swallowing
       // Fabric's drawing mode for some reason
       viewer.setMouseNavEnabled(false);

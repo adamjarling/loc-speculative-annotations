@@ -14,6 +14,8 @@ import {
   ModalCloseButton,
   SimpleGrid,
   Tooltip,
+  Wrap,
+  WrapItem,
   useDisclosure,
   useBreakpointValue,
 } from '@chakra-ui/react';
@@ -71,19 +73,24 @@ function WorksListModal() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <SimpleGrid minChildWidth="200px" spacing={10}>
+            <Wrap spacing="20px">
               {locImages.map(image => (
-                <Link
-                  key={image.id}
-                  href="#"
-                  onClick={() => handleImageClick(image)}
-                  {...(activeWork &&
-                    activeWork.id === image.id && { ...activeStyles })}
-                >
-                  <Image src={image.url} alt={image.alt} />
-                </Link>
+                <WrapItem key="image.id" w="200px" h="auto">
+                  <Link
+                    key={image.id}
+                    href="#"
+                    onClick={() => handleImageClick(image)}
+                  >
+                    <Image
+                      src={image.url}
+                      alt={image.alt}
+                      {...(activeWork &&
+                        activeWork.id === image.id && { ...activeStyles })}
+                    />
+                  </Link>
+                </WrapItem>
               ))}
-            </SimpleGrid>
+            </Wrap>
           </ModalBody>
 
           <ModalFooter>
