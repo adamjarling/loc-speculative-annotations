@@ -11,7 +11,7 @@ import ShareQueryParamHandler from 'components/Share/QueryParamHandler';
 import useKeyboardEvents from 'hooks/use-keyboard-events';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 function LayoutApp() {
-  const { fabricOverlay } = useFabricOverlayState();
+  const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
   const { handleEvent } = useKeyboardEvents();
 
   React.useEffect(() => {
@@ -24,9 +24,7 @@ function LayoutApp() {
       <ShareQueryParamHandler />
       <LayoutHeader />
       <LayoutAppBody>
-        <LayoutAppSidebar>
-          <Toolbar />
-        </LayoutAppSidebar>
+        <LayoutAppSidebar>{isToolbarVisible && <Toolbar />}</LayoutAppSidebar>
         <ViewerContainer />
       </LayoutAppBody>
       <LayoutAppFooter />

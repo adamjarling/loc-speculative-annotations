@@ -17,7 +17,7 @@ import useButtonSize from 'hooks/use-button-size';
 import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
 import { isBrowser } from 'react-device-detect';
 
-function ViewerFooter() {
+function LayoutAppFooter() {
   const buttonSize = useButtonSize();
   const isMobileVisible = useBreakpointValue({ base: false, md: true });
 
@@ -56,4 +56,4 @@ function ViewerFooter() {
   );
 }
 
-export default ViewerFooter;
+export default LayoutAppFooter;

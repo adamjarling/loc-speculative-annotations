@@ -19,6 +19,7 @@ const defaultState = {
   activeUserCanvas: '',
   color: brandColors[0],
   fabricOverlay: null,
+  isToolbarVisible: true,
   isToolSettingsVisible: false,
   userCanvases: getLocalUserCanvases(),
   viewer: null,
@@ -26,6 +27,12 @@ const defaultState = {
 
 function fabricOverlayReducer(state, action) {
   switch (action.type) {
+    case 'toggleToolbarVisible': {
+      return {
+        ...state,
+        isToolbarVisible: action.isVisible,
+      };
+    }
     case 'toggleToolSettingsVisible': {
       return {
         ...state,
