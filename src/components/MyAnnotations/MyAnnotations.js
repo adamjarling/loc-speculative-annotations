@@ -10,6 +10,7 @@ import useButtonSize from 'hooks/use-button-size';
 import MyAnnotationsList from 'components/MyAnnotations/List';
 import MyAnnotationsDelete from 'components/MyAnnotations/Delete';
 import { useHistory } from 'react-router-dom';
+import { isBrowser, isMobile, isTablet } from 'react-device-detect';
 
 function MyAnnotations() {
   const history = useHistory();
@@ -95,7 +96,7 @@ function MyAnnotations() {
           size={buttonSize}
           disabled={true}
         >
-          My Annotations
+          {(isTablet || isBrowser) && <>My Annotations</>}
         </MenuButton>
         <MenuList>
           <MenuItem onClick={handleNewAnnotation}>New Annotation</MenuItem>

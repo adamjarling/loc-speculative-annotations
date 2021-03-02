@@ -12,7 +12,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  SimpleGrid,
   Tooltip,
   Wrap,
   WrapItem,
@@ -75,7 +74,7 @@ function WorksListModal() {
           <ModalBody>
             <Wrap spacing="20px">
               {locImages.map(image => (
-                <WrapItem key="image.id" w="200px" h="auto">
+                <WrapItem key={image.id} w="200px" h="auto">
                   <Link
                     key={image.id}
                     href="#"
