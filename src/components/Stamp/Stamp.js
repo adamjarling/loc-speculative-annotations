@@ -25,10 +25,16 @@ function Stamp({ isActive }) {
     _setMyState(data);
   };
 
+  /**
+   * Handle state change for active toolbar, and color change
+   */
   React.useEffect(() => {
     setMyState({ ...myState, color, isActive });
   }, [color, isActive]);
 
+  /**
+   * Update mouse cursor styles based on toolbar option selected
+   */
   React.useEffect(() => {
     if (!fabricOverlay) return;
     fabricOverlay.fabricCanvas().defaultCursor = myState.activeStamp
@@ -36,11 +42,16 @@ function Stamp({ isActive }) {
       : 'auto';
   }, [myState.activeStamp]);
 
+  /**
+   * Handle mouse events to interact with Fabric canvas
+   */
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    function handleMouseDown(o) {
+    function handleDragEnter(o) {}
+
+    function handleDrop(o) {
       if (
         o.target ||
         !myStateRef.current.activeStamp ||
@@ -52,8 +63,12 @@ function Stamp({ isActive }) {
       const c = myStateRef.current;
       const pointer = canvas.getPointer(o.e);
 
+      // In case we need to reference the draggable element in the future...
+      const dragEl = document.getElementById(myStateRef.current.activeStamp.id);
+
       fabric.loadSVGFromURL(c.activeStamp.src, function (objects, options) {
         const shape = fabric.util.groupSVGElements(objects, options);
+
         if (shape.type === 'group') {
           // The SVG file has multiple objects
           const shapeObjects = shape.getObjects();
@@ -63,17 +78,23 @@ function Stamp({ isActive }) {
           // SVG file only has one solid object
           shape.fill = c.color.hex;
         }
-        shape.set({ left: pointer.x, top: pointer.y });
-        fabricOverlay.fabricCanvas().add(shape).renderAll();
+
+        shape.set({
+          left: pointer.x,
+          top: pointer.y,
+        });
+        canvas.add(shape).renderAll();
       });
     }
 
     // Add click handlers
-    canvas.on('mouse:down', handleMouseDown);
+    canvas.on('dragenter', handleDragEnter);
+    canvas.on('drop', handleDrop);
 
     // Remove handler
     return function clearFabricEventHandlers() {
-      canvas.off('mouse:down', handleMouseDown);
+      canvas.off('dragenter', handleDragEnter);
+      canvas.off('drop', handleDrop);
     };
   }, [fabricOverlay]);
 
@@ -83,21 +104,6 @@ function Stamp({ isActive }) {
 
   const handleStampChange = stampObj => {
     setMyState({ ...myState, activeStamp: stampObj });
-
-    // fabric.loadSVGFromURL(stampObj.src, function (objects, options) {
-    //   const shape = fabric.util.groupSVGElements(objects, options);
-    //   if (shape.type === 'group') {
-    //     // The SVG file has multiple objects
-    //     const shapeObjects = shape.getObjects();
-    //     shapeObjects.forEach((obj, i) => (shape.item(i).fill = color.hex));
-    //     shape.addWithUpdate();
-    //   } else {
-    //     // SVG file only has one solid object
-    //     shape.fill = color.hex;
-    //   }
-    //   shape.set({ left: 100, top: 100 });
-    //   fabricOverlay.fabricCanvas().add(shape).renderAll();
-    // });
   };
 
   return (

@@ -6,7 +6,6 @@ import { isMobile, isTablet } from 'react-device-detect';
 
 function ToolbarButton({ label = 'Toolbar button', isActive, ...restProps }) {
   const windowHeight = useWindowHeight();
-  console.log('windowHeight', windowHeight);
 
   let iconSizes = { size: 'lg', fontSize: '2xl' };
 
