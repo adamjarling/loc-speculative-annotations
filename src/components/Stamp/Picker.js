@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Input, SimpleGrid } from '@chakra-ui/react';
+import { Box, Input, SimpleGrid, Text } from '@chakra-ui/react';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 import { borderBoxPixelSizes } from 'components/Toolbar/BorderBox';
@@ -66,141 +66,169 @@ import { ReactComponent as Stamp25 } from 'images/stamps/stamp25.svg';
 export const stamps = [
   {
     id: 'stamp1',
+    label: 'Speech bubble',
     src: stamp1,
     StampSVG: Stamp1,
   },
   {
     id: 'stamp2',
+    label: 'Speech bubble',
     src: stamp2,
     StampSVG: Stamp2,
   },
   {
     id: 'stamp3',
+    label: 'Speech bubble circle',
     src: stamp3,
     StampSVG: Stamp3,
   },
   {
     id: 'stamp4',
+    label: 'Long speech bubble',
     src: stamp4,
     StampSVG: Stamp4,
   },
   {
     id: 'stamp5',
+    label: 'Insert',
     src: stamp5,
     StampSVG: Stamp5,
   },
   {
     id: 'stamp6',
+    label: 'Thought bubble',
     src: stamp6,
     StampSVG: Stamp6,
   },
   {
     id: 'stamp7',
+    label: 'Ampersand',
     src: stamp7,
     StampSVG: Stamp7,
   },
   {
     id: 'stamp8',
+    label: 'Idea light bulb',
     src: stamp8,
     StampSVG: Stamp8,
   },
   {
     id: 'stamp9',
+    label: 'Period',
     src: stamp9,
     StampSVG: Stamp9,
   },
   {
     id: 'stamp10',
+    label: 'Ellipses',
     src: stamp10,
     StampSVG: Stamp10,
   },
   {
     id: 'stamp11',
+    label: 'Comma',
     src: stamp11,
     StampSVG: Stamp11,
   },
   {
     id: 'stamp12',
+    label: 'Eye',
     src: stamp12,
     StampSVG: Stamp12,
   },
   {
     id: 'stamp13',
+    label: 'Parenthesis L',
     src: stamp13,
     StampSVG: Stamp13,
   },
   {
     id: 'stamp13_5',
+    label: 'Parenthesis R',
     src: stamp13_5,
     StampSVG: Stamp13_5,
   },
   {
     id: 'stamp14',
+    label: 'Exclamation point',
     src: stamp14,
     StampSVG: Stamp14,
   },
   {
     id: 'stamp15',
+    label: 'Hashtag',
     src: stamp15,
     StampSVG: Stamp15,
   },
   {
     id: 'stamp16',
+    label: 'Bracket L',
     src: stamp16,
     StampSVG: Stamp16,
   },
   {
     id: 'stamp16_5',
+    label: 'Bracket R',
     src: stamp16_5,
     StampSVG: Stamp16_5,
   },
   {
     id: 'stamp17',
+    label: 'Asterisk',
     src: stamp17,
     StampSVG: Stamp17,
   },
   {
     id: 'stamp18',
+    label: 'Sound',
     src: stamp18,
     StampSVG: Stamp18,
   },
   {
     id: 'stamp19',
+    label: '',
     src: stamp19,
     StampSVG: Stamp19,
   },
   {
     id: 'stamp20',
+    label: '',
     src: stamp20,
     StampSVG: Stamp20,
   },
   {
     id: 'stamp21',
+    label: '',
     src: stamp21,
     StampSVG: Stamp21,
   },
   {
     id: 'stamp22',
+    label: '',
     src: stamp22,
     StampSVG: Stamp22,
   },
   {
     id: 'stamp22_5',
+    label: '',
     src: stamp22_5,
     StampSVG: Stamp22_5,
   },
   {
     id: 'stamp23',
+    label: 'Question mark',
     src: stamp23,
     StampSVG: Stamp23,
   },
   {
     id: 'stamp24',
+    label: '',
     src: stamp24,
     StampSVG: Stamp24,
   },
   {
     id: 'stamp25',
+    label: 'Arrow',
     src: stamp25,
     StampSVG: Stamp25,
   },
@@ -213,26 +241,47 @@ function StampPicker({ activeStamp, color, handleStampChange }) {
     : borderBoxPixelSizes[1] + gridSpacing;
 
   const optionsPanelHeight = stampButtonSize * 10;
-  const optionsPanelTopMargin = '20px';
+  const optionsPanelWidth = stampButtonSize * 2;
+
+  const [filteredStamps, setFilteredStamps] = React.useState([...stamps]);
+
+  const handleTextChange = e => {
+    if (!e.target.value) {
+      setFilteredStamps([...stamps]);
+    } else {
+      const filtered = stamps.filter(stamp =>
+        stamp.label.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setFilteredStamps(filtered);
+    }
+  };
 
   return (
     <Box>
       <Input
+        onChange={handleTextChange}
         size="xs"
         fontSize="xs"
         mb="4px"
         variant="filled"
         placeholder="Search..."
       />
-      <Box overflowY="scroll" h={optionsPanelHeight}>
+      <Box overflowY="scroll" h={optionsPanelHeight} minW={optionsPanelWidth}>
+        {filteredStamps.length === 0 && (
+          <Text as="p" fontSize="xs" my={4}>
+            No results
+          </Text>
+        )}
+
         <SimpleGrid columns={2} spacing={`${gridSpacing}px`}>
-          {stamps.map(stampObj => {
+          {filteredStamps.map(stampObj => {
             return (
               <ToolbarBorderBox
                 key={stampObj.id}
                 isActive={activeStamp && stampObj.id === activeStamp.id}
                 draggable="true"
                 id={stampObj.id}
+                title={stampObj.label}
               >
                 <ToolbarBorderBoxInner
                   onClick={() => handleStampChange(stampObj)}
