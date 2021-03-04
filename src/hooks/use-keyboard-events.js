@@ -1,6 +1,5 @@
 import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import { act } from '@testing-library/react';
 
 export default function useKeyboardEvents() {
   const { fabricOverlay } = useFabricOverlayState();
@@ -23,17 +22,17 @@ export default function useKeyboardEvents() {
       // handle Down key
       //moveSelected(Direction.DOWN);
     } else if (key === 8 || key === 46) {
-      const canvas = fabricOverlay.fabricCanvas();
-      const activeObject = canvas.getActiveObject();
+      const activeObject = fabricOverlay.fabricCanvas().getActiveObject();
+      if (!activeObject) return;
 
       // Object has children (ie. arrow has children objects triangle and line)
       if (activeObject.getObjects) {
         let objs = activeObject.getObjects();
         for (let i in objs) {
-          canvas.remove(objs[i]);
+          fabricOverlay.fabricCanvas().remove(objs[i]);
         }
       }
-      canvas.remove(activeObject);
+      fabricOverlay.fabricCanvas().remove(activeObject);
     }
   }
 

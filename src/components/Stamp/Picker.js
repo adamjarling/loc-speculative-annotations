@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, SimpleGrid, VStack } from '@chakra-ui/react';
+import { Box, Input, SimpleGrid } from '@chakra-ui/react';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
+import { borderBoxPixelSizes } from 'components/Toolbar/BorderBox';
+import { isMobile } from 'react-device-detect';
+
 import stamp1 from 'images/stamps/stamp1.svg';
 import stamp2 from 'images/stamps/stamp2.svg';
 import stamp3 from 'images/stamps/stamp3.svg';
@@ -204,30 +207,47 @@ export const stamps = [
 ];
 
 function StampPicker({ activeStamp, color, handleStampChange }) {
+  const gridSpacing = 16;
+  const stampButtonSize = isMobile
+    ? borderBoxPixelSizes[0] + gridSpacing
+    : borderBoxPixelSizes[1] + gridSpacing;
+
+  const optionsPanelHeight = stampButtonSize * 10;
+  const optionsPanelTopMargin = '20px';
+
   return (
-    <Box overflowY="scroll">
-      <SimpleGrid columns={2} spacing={4}>
-        {stamps.map(stampObj => {
-          return (
-            <ToolbarBorderBox
-              key={stampObj.id}
-              isActive={activeStamp && stampObj.id === activeStamp.id}
-              draggable="true"
-              id={stampObj.id}
-            >
-              <ToolbarBorderBoxInner
-                onClick={() => handleStampChange(stampObj)}
+    <Box>
+      <Input
+        size="xs"
+        fontSize="xs"
+        mb="4px"
+        variant="filled"
+        placeholder="Search..."
+      />
+      <Box overflowY="scroll" h={optionsPanelHeight}>
+        <SimpleGrid columns={2} spacing={`${gridSpacing}px`}>
+          {stamps.map(stampObj => {
+            return (
+              <ToolbarBorderBox
+                key={stampObj.id}
+                isActive={activeStamp && stampObj.id === activeStamp.id}
+                draggable="true"
+                id={stampObj.id}
               >
-                <stampObj.StampSVG
-                  fill={color.hex}
-                  height="100%"
-                  width="100%"
-                />
-              </ToolbarBorderBoxInner>
-            </ToolbarBorderBox>
-          );
-        })}
-      </SimpleGrid>
+                <ToolbarBorderBoxInner
+                  onClick={() => handleStampChange(stampObj)}
+                >
+                  <stampObj.StampSVG
+                    fill={color.hex}
+                    height="100%"
+                    width="100%"
+                  />
+                </ToolbarBorderBoxInner>
+              </ToolbarBorderBox>
+            );
+          })}
+        </SimpleGrid>
+      </Box>
     </Box>
   );
 }

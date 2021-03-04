@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
-const colorBoxSizes = ['30px', '36px'];
+export const borderBoxSizes = ['30px', '36px'];
+export const borderBoxPixelSizes = [30, 36];
 const borderRadius = 3;
 
 function ToolbarBorderBox({ children, isActive, ...restProps }) {
@@ -14,8 +15,8 @@ function ToolbarBorderBox({ children, isActive, ...restProps }) {
 
   return (
     <Box
-      w={colorBoxSizes}
-      h={colorBoxSizes}
+      w={borderBoxSizes}
+      h={borderBoxSizes}
       borderRadius={borderRadius}
       {...(isActive && { ...activeStyles })}
       {...restProps}
