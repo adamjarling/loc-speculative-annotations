@@ -9,7 +9,7 @@ function ToolbarOptionsPanel({ children }) {
     <Box
       backgroundColor={bg}
       position="absolute"
-      top="6"
+      top="3"
       left={['16', '24']}
       p={[1, 2]}
       boxShadow="xl"

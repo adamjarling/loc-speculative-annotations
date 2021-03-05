@@ -10,6 +10,8 @@ import {
 } from 'react-icons/bs';
 import { FaSlash } from 'react-icons/fa';
 import ToolbarFillPicker from 'components/Toolbar/FillPicker';
+import { useWindowHeight } from '@react-hook/window-size';
+import { isMobile, isTablet } from 'react-device-detect';
 
 export const shapes = [
   { name: 'line', icon: <FaSlash /> },
@@ -27,9 +29,19 @@ function ShapePicker({
   handleShapeSelect,
   isFill,
 }) {
+  const windowHeight = useWindowHeight();
+  let btnSize = 'lg';
+
+  if (windowHeight <= 645) {
+    btnSize = 'md';
+  }
+  if (isMobile && !isTablet) {
+    btnSize = 'md';
+  }
+
   return (
     <>
-      <Text fontSize="xs" textAlign="center" mb={1}>
+      <Text fontSize="xs" textAlign="center" my={1}>
         Shape
       </Text>
       <VStack color={color.hex}>
@@ -38,6 +50,7 @@ function ShapePicker({
             key={shape.name}
             icon={shape.icon}
             onClick={() => handleShapeSelect(shape)}
+            size={btnSize}
             variant={
               activeShape && activeShape.name === shape.name ? 'solid' : 'ghost'
             }
