@@ -42,6 +42,15 @@ const osdOptions = {
 export default function Viewer({ tile }) {
   const dispatch = useFabricOverlayDispatch();
 
+  // Customize Fabric selection handles
+  fabric.Object.prototype.set({
+    borderColor: '#22a2f8',
+    borderScaleFactor: 2, // selection stroke width
+    cornerColor: 'white',
+    cornerSize: 10,
+    transparentCorners: false,
+  });
+
   // Add Fabric support to OSD via the plugin "OpenseadragonFabricjsOverlay"
   initFabricJSOverlay(OpenSeadragon, fabric);
 
