@@ -8,6 +8,7 @@ export default function LayoutAppSidebar({ children }) {
       w={{ base: '50px', sm: '60px', md: '80px' }}
       direction="column"
       justifyContent="space-between"
+      alignItems="center"
       boxShadow="base"
       zIndex="1"
     >
