@@ -11,15 +11,16 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Heading,
+  IconButton,
   Link,
   Text,
+  Tooltip,
   Wrap,
   WrapItem,
+  useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
-import ToolbarButton from 'components/Toolbar/Button';
 import { useParams } from 'react-router-dom';
 import { locImages } from 'services/loc-images';
 
@@ -35,35 +36,45 @@ function MetadataBody({ children }) {
   return <Box mb={3}>{children}</Box>;
 }
 
-function Metadata({ isActive }) {
-  const dispatch = useFabricOverlayDispatch();
-  const { onClose } = useDisclosure();
+function Metadata() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [currentWork, setCurrentWork] = React.useState();
+  const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
   const handleClose = () => {
-    dispatch({ type: 'updateTool', tool: isActive ? '' : 'METADATA' });
     onClose();
   };
 
   const handleToolbarClick = () => {
     // Drawer not yet opened
-    if (!isActive) {
+    if (!isOpen) {
       const work = locImages.find(i => i.id === params.id);
       setCurrentWork(work);
+      onOpen();
+    } else {
+      onClose();
     }
-    dispatch({ type: 'updateTool', tool: isActive ? '' : 'METADATA' });
   };
 
   return (
     <>
-      <ToolbarButton
-        onClick={handleToolbarClick}
-        icon={<FaInfoCircle />}
-        isActive={isActive}
+      <Tooltip
         label="Info"
-      />
-      <Drawer isOpen={isActive} placement="right" onClose={handleClose}>
+        aria-label="Info"
+        placement="right-end"
+        openDelay={500}
+      >
+        <IconButton
+          icon={<FaInfoCircle />}
+          onClick={handleToolbarClick}
+          size={iconButtonSize}
+          fontSize={['2xl', '3xl']}
+          variant="ghost"
+        />
+      </Tooltip>
+
+      <Drawer isOpen={isOpen} placement="right" onClose={handleClose}>
         <DrawerOverlay>
           {currentWork && (
             <DrawerContent>

@@ -10,6 +10,7 @@ import Div100vh from 'react-div-100vh';
 import ShareQueryParamHandler from 'components/Share/QueryParamHandler';
 import useKeyboardEvents from 'hooks/use-keyboard-events';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import Metadata from 'components/Metadata/Metadata';
 function LayoutApp() {
   const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
   const { handleEvent } = useKeyboardEvents();
@@ -24,7 +25,14 @@ function LayoutApp() {
       <ShareQueryParamHandler />
       <LayoutHeader />
       <LayoutAppBody>
-        <LayoutAppSidebar>{isToolbarVisible && <Toolbar />}</LayoutAppSidebar>
+        <LayoutAppSidebar>
+          {isToolbarVisible && (
+            <>
+              <Toolbar />
+              <Metadata />
+            </>
+          )}
+        </LayoutAppSidebar>
         <ViewerContainer />
       </LayoutAppBody>
       <LayoutAppFooter />
