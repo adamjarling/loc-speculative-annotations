@@ -7,7 +7,7 @@ import Share from 'components/Share/Share';
 import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
-import { isBrowser } from 'react-device-detect';
+import { isBrowser, isTablet } from 'react-device-detect';
 
 function LayoutAppFooter() {
   const buttonSize = useButtonSize();
@@ -17,7 +17,7 @@ function LayoutAppFooter() {
       as="footer"
       justifyContent="space-between"
       alignItems="center"
-      px={3}
+      px={isBrowser || isTablet ? 3 : '2px'}
       py={2}
       boxShadow="base"
       zIndex="1"

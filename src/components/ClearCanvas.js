@@ -8,16 +8,16 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   Button,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import useButtonSize from 'hooks/use-button-size';
 
 function ClearCanvas(props) {
   const { fabricOverlay } = useFabricOverlayState();
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
-  const buttonSize = useBreakpointValue({ base: 'xs', sm: 'sm', md: 'md' });
+  const buttonSize = useButtonSize();
 
   const handleClearCanvas = () => {
     fabricOverlay.fabricCanvas().clear();
