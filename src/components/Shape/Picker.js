@@ -1,34 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Divider, IconButton, Text, VStack } from '@chakra-ui/react';
-import {
-  BsArrowUpRight,
-  BsCircle,
-  BsSquare,
-  BsStar,
-  BsTriangle,
-} from 'react-icons/bs';
-import { FaSlash } from 'react-icons/fa';
-import ToolbarFillPicker from 'components/Toolbar/FillPicker';
+import { BsCircle, BsSquare } from 'react-icons/bs';
 import { useWindowHeight } from '@react-hook/window-size';
 import { isMobile, isTablet } from 'react-device-detect';
 
 export const shapes = [
-  { name: 'line', icon: <FaSlash /> },
-  { name: 'arrow', icon: <BsArrowUpRight /> },
   { name: 'square', icon: <BsSquare /> },
   { name: 'circle', icon: <BsCircle /> },
-  { name: 'triangle', icon: <BsTriangle /> },
-  { name: 'star', icon: <BsStar /> },
 ];
 
-function ShapePicker({
-  activeShape,
-  color,
-  handleFillSelect,
-  handleShapeSelect,
-  isFill,
-}) {
+function ShapePicker({ activeShape, color, handleShapeSelect }) {
   const windowHeight = useWindowHeight();
   let btnSize = 'lg';
 
@@ -57,18 +39,6 @@ function ShapePicker({
           />
         ))}
       </VStack>
-      {activeShape &&
-        ['square', 'circle', 'triangle', 'star'].indexOf(activeShape.name) >
-          -1 && (
-          <>
-            <Divider py={2} mb={2} />
-            <ToolbarFillPicker
-              color={color}
-              handleFillSelect={handleFillSelect}
-              isFill={isFill}
-            />
-          </>
-        )}
     </>
   );
 }

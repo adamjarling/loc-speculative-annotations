@@ -10,21 +10,11 @@ import {
 } from 'context/fabric-overlay-context';
 import ShapePicker from 'components/Shape/Picker';
 import OptionsBar from 'components/OptionsBar/OptionsBar';
-import {
-  fabricCalcArrowAngle,
-  starPolygonPoints,
-} from 'services/fabric-helpers';
+import { fabricCalcArrowAngle } from 'services/fabric-helpers';
 
 // Default size for height / width for new shapes
 const OBJECT_SIZE = 200;
-const FABRIC_SHAPE_TYPES = [
-  'circle',
-  'group',
-  'line',
-  'polygon',
-  'rect',
-  'triangle',
-];
+const FABRIC_SHAPE_TYPES = ['circle', 'rect'];
 
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
@@ -34,7 +24,6 @@ function Shape({ isActive }) {
     activeShape: null, // active shape in Options Panel
     currentDragShape: null,
     isActive, // Is the Shape tool itself active
-    isFill: true, // fill or outline style?
     isMouseDown: false,
     isSelectedOnCanvas: false, // Is a shape on canvas selected,
     origX: null, // starting X point for drag creating an object
@@ -120,77 +109,15 @@ function Shape({ isActive }) {
         height: 0,
       };
 
-      // Solid fill or stroke?
-      let fillProps = myStateRef.current.isFill
-        ? {
-            fill: shapeOptions.color,
-          }
-        : {
-            fill: 'rgba(0,0,0,0)',
-            stroke: shapeOptions.color,
-            strokeWidth: 10,
-          };
+      // Stroke fill
+      let fillProps = {
+        fill: 'rgba(0,0,0,0)',
+        stroke: shapeOptions.color,
+        strokeWidth: 10,
+      };
 
       // Shape options
       switch (myStateRef.current.activeShape.name) {
-        /**
-         * Line
-         */
-        case 'line':
-          newShape = new fabric.Line(
-            [pointer.x, pointer.y, pointer.x, pointer.y],
-            {
-              fill: shapeOptions.color,
-              originX: 'center',
-              originY: 'center',
-              stroke: shapeOptions.color,
-              strokeWidth: 10,
-            }
-          );
-          fabricOverlay.fabricCanvas().add(newShape);
-          break;
-
-        /**
-         * Arrow
-         */
-        case 'arrow':
-          newShape = {};
-          newShape.arrowBody = new fabric.Line(
-            [pointer.x, pointer.y, pointer.x, pointer.y],
-            {
-              fill: shapeOptions.color,
-              originX: 'center',
-              originY: 'center',
-              stroke: shapeOptions.color,
-              strokeWidth: 20,
-            }
-          );
-          let centerX = (newShape.arrowBody.x1 + newShape.arrowBody.x2) / 2;
-          let centerY = (newShape.arrowBody.y1 + newShape.arrowBody.y2) / 2;
-          let deltaX = newShape.arrowBody.left - centerX;
-          let deltaY = newShape.arrowBody.top - centerY;
-
-          newShape.arrowHead = new fabric.Triangle({
-            left: newShape.arrowBody.get('x1') + deltaX,
-            top: newShape.arrowBody.get('y1') + deltaY,
-            originX: 'center',
-            originY: 'center',
-            selectable: false,
-            pointType: 'arrow_start',
-            angle: -45,
-            width: 100,
-            height: 100,
-            fill: shapeOptions.color,
-          });
-          newShape.deltas = {
-            deltaX,
-            deltaY,
-          };
-          fabricOverlay
-            .fabricCanvas()
-            .add(newShape.arrowBody, newShape.arrowHead);
-          break;
-
         /**
          * Square
          */
@@ -220,28 +147,6 @@ function Shape({ isActive }) {
           fabricOverlay.fabricCanvas().add(newShape);
           break;
 
-        /**
-         * Triangle
-         */
-        case 'triangle':
-          newShape = new fabric.Triangle({
-            ...shapeOptions,
-            ...fillProps,
-          });
-          fabricOverlay.fabricCanvas().add(newShape);
-          break;
-
-        /**
-         * Star
-         */
-        case 'star':
-          let points = starPolygonPoints(5, 150, 75);
-          newShape = new fabric.Polygon(points, {
-            ...shapeOptions,
-            ...fillProps,
-          });
-          fabricOverlay.fabricCanvas().add(newShape);
-          break;
         default:
           break;
       }
@@ -275,7 +180,7 @@ function Shape({ isActive }) {
       // Dynamically drag size element to the canvas
       const pointer = fabricOverlay.fabricCanvas().getPointer(options.e);
 
-      if (['square', 'star', 'triangle'].indexOf(c.activeShape.name) > -1) {
+      if (['square'].indexOf(c.activeShape.name) > -1) {
         /**
          * Rectangle or Triangle
          */
@@ -315,34 +220,6 @@ function Shape({ isActive }) {
         } else {
           c.currentDragShape.set({ originY: 'top' });
         }
-      } else if (c.activeShape.name === 'line') {
-        /**
-         * Line
-         */
-        c.currentDragShape.set({
-          x2: pointer.x,
-          y2: pointer.y,
-        });
-      } else if (c.activeShape.name === 'arrow') {
-        /**
-         * Arrow
-         */
-        // TODO: Either wire this up or use a polygon arrow?
-        let { arrowBody, arrowHead, deltas } = c.currentDragShape;
-        arrowBody.set({
-          x2: pointer.x,
-          y2: pointer.y,
-        });
-        arrowHead.set({
-          left: pointer.x + deltas.deltaX,
-          top: pointer.y + deltas.deltaY,
-          angle: fabricCalcArrowAngle(
-            arrowBody.x1,
-            arrowBody.y1,
-            arrowBody.x2,
-            arrowBody.y2
-          ),
-        });
       }
 
       fabricOverlay.fabricCanvas().renderAll();
@@ -359,21 +236,9 @@ function Shape({ isActive }) {
         return;
       }
 
-      // Make newly created object "active"
-      if (myStateRef.current.activeShape.name === 'arrow') {
-        // Handle an arrow differently since it's composed of
-        // 2 different shape objects
-        const { arrowBody, arrowHead } = myStateRef.current.currentDragShape;
-        let group = new fabric.Group([arrowBody, arrowHead]);
-        fabricOverlay.fabricCanvas().remove([arrowBody, arrowHead]);
-        fabricOverlay.fabricCanvas().add(group);
-        fabricOverlay.fabricCanvas().setActiveObject(group);
-      } else {
-        // All other shapes
-        fabricOverlay
-          .fabricCanvas()
-          .setActiveObject(myStateRef.current.currentDragShape);
-      }
+      fabricOverlay
+        .fabricCanvas()
+        .setActiveObject(myStateRef.current.currentDragShape);
 
       fabricOverlay.fabricCanvas().renderAll();
 
@@ -432,10 +297,6 @@ function Shape({ isActive }) {
     };
   }, [fabricOverlay]);
 
-  const handleFillSelect = value => {
-    setMyState({ ...myState, isFill: value });
-  };
-
   const handleShapeSelect = shape => {
     setMyState({ ...myState, activeShape: shape });
   };
@@ -457,9 +318,7 @@ function Shape({ isActive }) {
           <ShapePicker
             activeShape={myState.activeShape}
             color={color}
-            handleFillSelect={handleFillSelect}
             handleShapeSelect={handleShapeSelect}
-            isFill={myState.isFill}
           />
         </ToolbarOptionsPanel>
       )}
