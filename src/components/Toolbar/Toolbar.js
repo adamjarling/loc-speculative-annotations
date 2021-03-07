@@ -23,6 +23,10 @@ function Toolbar() {
     <Box pt={3} position="relative">
       <Wrap spacing="2" as="nav" direction="column" align="center">
         <WrapItem>
+          <ToolbarColor isActive={activeTool === 'COLOR'} />
+        </WrapItem>
+
+        <WrapItem>
           <ToolbarPointer isActive={activeTool === 'POINTER'} />
         </WrapItem>
 
@@ -52,10 +56,6 @@ function Toolbar() {
 
         <WrapItem>
           <Divider />
-        </WrapItem>
-
-        <WrapItem>
-          <ToolbarColor isActive={activeTool === 'COLOR'} />
         </WrapItem>
       </Wrap>
     </Box>
