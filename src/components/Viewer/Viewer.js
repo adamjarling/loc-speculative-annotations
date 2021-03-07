@@ -4,7 +4,7 @@ import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
 import { Box } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
-import ViewerZoomBar from 'components/Viewer/ZoomBar';
+import ViewerControls from 'components/Viewer/Controls';
 import { isBrowser } from 'react-device-detect';
 
 const minZoomLevel = isBrowser ? 0.4 : 0.8;
@@ -70,7 +70,7 @@ export default function Viewer({ tile }) {
 
   return (
     <Box ref={ref} w="100%">
-      {isBrowser && <ViewerZoomBar />}
+      {isBrowser && <ViewerControls />}
     </Box>
   );
 }
