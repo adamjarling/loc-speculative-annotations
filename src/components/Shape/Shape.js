@@ -10,7 +10,6 @@ import {
 } from 'context/fabric-overlay-context';
 import ShapePicker from 'components/Shape/Picker';
 import OptionsBar from 'components/OptionsBar/OptionsBar';
-import { fabricCalcArrowAngle } from 'services/fabric-helpers';
 
 // Default size for height / width for new shapes
 const OBJECT_SIZE = 200;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Tooltip } from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -23,15 +23,17 @@ function ToolbarColor({ isActive }) {
 
   return (
     <>
-      <Box
-        key={color.label}
-        as="button"
-        bg={color.hex}
-        w={colorBoxSizes}
-        h={colorBoxSizes}
-        onClick={handleToolbarClick}
-        borderRadius={3}
-      ></Box>
+      <Tooltip label="Change color" aria-label="Change color" placement="right">
+        <Box
+          key={color.label}
+          as="button"
+          bg={color.hex}
+          w={colorBoxSizes}
+          h={colorBoxSizes}
+          onClick={handleToolbarClick}
+          borderRadius={3}
+        ></Box>
+      </Tooltip>
 
       {isActive && (
         <ToolbarColorOptionsPanel

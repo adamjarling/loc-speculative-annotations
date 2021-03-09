@@ -13,6 +13,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -59,12 +60,14 @@ export default function MyAnnotationsSave() {
 
   return (
     <>
-      <IconButton
-        onClick={onOpen}
-        icon={<FaSave />}
-        aria-label="Save"
-        size={buttonSize}
-      />
+      <Tooltip label="Save" aria-label="Save">
+        <IconButton
+          onClick={onOpen}
+          icon={<FaSave />}
+          aria-label="Save"
+          size={buttonSize}
+        />
+      </Tooltip>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

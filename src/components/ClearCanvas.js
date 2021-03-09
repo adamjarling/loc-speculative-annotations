@@ -8,6 +8,7 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   Button,
+  Tooltip,
 } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
@@ -26,9 +27,11 @@ function ClearCanvas(props) {
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)} size={buttonSize}>
-        Clear all
-      </Button>
+      <Tooltip label="Clear the canvas" aria-label="Clear the canvas">
+        <Button onClick={() => setIsOpen(true)} size={buttonSize}>
+          Clear all
+        </Button>
+      </Tooltip>
 
       <AlertDialog
         isOpen={isOpen}
