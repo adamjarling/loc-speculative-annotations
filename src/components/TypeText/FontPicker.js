@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import {
-  Button,
-  Input,
   Link,
   VStack,
   Wrap,
@@ -11,7 +9,6 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import FontFaceObserver from 'fontfaceobserver';
-import { previewDefaultText } from 'components/TypeText/TypeText';
 
 export const fonts = [
   {
@@ -28,12 +25,7 @@ export const fonts = [
   },
 ];
 
-function TypeTextFontPicker({
-  activeFont,
-  handleFontChange,
-  handlePreviewTextChange,
-  previewText,
-}) {
+function TypeTextFontPicker({ activeFont, handleFontChange }) {
   const { fabricOverlay } = useFabricOverlayState();
 
   const activeClasses = {
@@ -68,14 +60,6 @@ function TypeTextFontPicker({
 
   return (
     <VStack spacing={3}>
-      <Input
-        placeholder={previewDefaultText}
-        onChange={handlePreviewTextChange}
-        value={previewText}
-        fontSize="sm"
-        fontFamily="Open Sans"
-      />
-
       <Wrap direction="column" justify="flex-start">
         {fonts.map(font => (
           <WrapItem key={font.id}>
@@ -94,7 +78,7 @@ function TypeTextFontPicker({
               {...(activeFont &&
                 activeFont.id === font.id && { ...activeClasses })}
             >
-              {previewText || font.fontFamily}
+              {font.fontFamily}
             </Link>
           </WrapItem>
         ))}
@@ -107,7 +91,6 @@ TypeTextFontPicker.propTypes = {
   activeFont: PropTypes.object,
   handleFontChange: PropTypes.func,
   handlePreviewTextChange: PropTypes.func,
-  previewText: PropTypes.string,
 };
 
 export default TypeTextFontPicker;

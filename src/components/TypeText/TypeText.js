@@ -25,7 +25,6 @@ function TypeText({ isActive }) {
     isActive, // Is the main Type tool active
     isEditing: false,
     isSelectedOnCanvas: false,
-    previewText: '',
     selectedCoords: { top: 0, left: 0 },
   });
   const myStateRef = React.useRef(myState);
@@ -101,7 +100,7 @@ function TypeText({ isActive }) {
       }
 
       // Create new Textbox instance and add it to canvas
-      const textbox = new fabric.IText(myStateRef.current.previewText, {
+      const textbox = new fabric.IText('', {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
         //editingBorderColor: 'white',
@@ -117,7 +116,6 @@ function TypeText({ isActive }) {
       setMyState({
         ...myStateRef.current,
         isEditing: true,
-        previewText: '',
       });
     }
 
@@ -178,10 +176,6 @@ function TypeText({ isActive }) {
     //loadAndUse(font.fontFamily);
   };
 
-  const handlePreviewTextChange = e => {
-    setMyState({ ...myState, previewText: e.target.value });
-  };
-
   const handleToolbarButtonClick = e => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'TYPE' });
   };
@@ -220,8 +214,6 @@ function TypeText({ isActive }) {
           <TypeTextFontPicker
             activeFont={myState.activeFont}
             handleFontChange={handleFontChange}
-            handlePreviewTextChange={handlePreviewTextChange}
-            previewText={myState.previewText}
           />
         </ToolbarOptionsPanel>
       )}

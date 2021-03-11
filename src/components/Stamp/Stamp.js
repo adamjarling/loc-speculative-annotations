@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaStamp } from 'react-icons/fa';
+import { GiStamper } from 'react-icons/gi';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
@@ -110,7 +110,7 @@ function Stamp({ isActive }) {
     <div>
       <ToolbarButton
         onClick={handleToolbarButtonClick}
-        icon={<FaStamp />}
+        icon={<GiStamper />}
         isActive={isActive}
         label="Stamp"
         disabled={false}
