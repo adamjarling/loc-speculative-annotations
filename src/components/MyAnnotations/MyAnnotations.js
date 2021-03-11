@@ -94,7 +94,7 @@ function MyAnnotations() {
           leftIcon={<FaPencilAlt />}
           rightIcon={<ChevronDownIcon />}
           size={buttonSize}
-          disabled={true}
+          disabled={false}
         >
           {(isTablet || isBrowser) && <>My Annotations</>}
         </MenuButton>

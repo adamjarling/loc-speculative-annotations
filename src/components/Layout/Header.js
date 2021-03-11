@@ -5,6 +5,7 @@ import { Link as RRLink, useHistory, useLocation } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import useButtonSize from 'hooks/use-button-size';
 import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
+import { BiPencil } from 'react-icons/bi';
 
 function LayoutHeader() {
   const location = useLocation();
@@ -31,11 +32,15 @@ function LayoutHeader() {
           <Link as={RRLink} to="/about#teach">
             Teach
           </Link>
-          {location.pathname === '/about' ? (
-            <Button onClick={() => history.push('/')}>My Annotations</Button>
+          <Button leftIcon={<BiPencil />} onClick={() => history.push('/')}>
+            Annotate
+          </Button>
+          {/* My Annotations - Saving and navigating to saved annotations functionality */}
+          {/* {location.pathname === '/about' ? (
+            <Button onClick={() => history.push('/')}>Annotate</Button>
           ) : (
             <MyAnnotations />
-          )}
+          )} */}
         </HStack>
       </Flex>
     </Box>
