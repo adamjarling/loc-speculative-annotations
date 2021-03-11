@@ -55,7 +55,7 @@ function ViewerControls() {
             size={buttonSize}
           />
         </Tooltip>
-        <Tooltip label="Undo" aria-label="Undo">
+        {/* <Tooltip label="Undo" aria-label="Undo">
           <IconButton
             icon={<RiArrowGoBackFill />}
             aria-label="Undo"
@@ -70,7 +70,7 @@ function ViewerControls() {
             size={buttonSize}
             disabled
           />
-        </Tooltip>
+        </Tooltip> */}
       </ButtonGroup>
     </Box>
   );

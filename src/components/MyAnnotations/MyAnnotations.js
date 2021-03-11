@@ -94,7 +94,7 @@ function MyAnnotations() {
           leftIcon={<AddIcon />}
           size="sm"
           textTransform="uppercase"
-          disabled={true}
+          disabled={false}
         >
           {(isTablet || isBrowser) && <>New Annotation</>}
         </MenuButton>
