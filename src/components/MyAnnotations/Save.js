@@ -24,6 +24,7 @@ import {
 } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
 import { useParams } from 'react-router-dom';
+import AltButton from 'components/AltButton';
 
 export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -60,14 +61,9 @@ export default function MyAnnotationsSave() {
 
   return (
     <>
-      <Tooltip label="Save" aria-label="Save">
-        <IconButton
-          onClick={onOpen}
-          icon={<FaSave />}
-          aria-label="Save"
-          size={buttonSize}
-        />
-      </Tooltip>
+      <AltButton onClick={onOpen} leftIcon={<FaSave />} disabled>
+        Save
+      </AltButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

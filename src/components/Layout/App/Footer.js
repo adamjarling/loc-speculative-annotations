@@ -1,14 +1,12 @@
 import React from 'react';
-import { ButtonGroup, Flex } from '@chakra-ui/react';
+import { Flex, HStack } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
-import ClearCanvas from 'components/ClearCanvas';
-import Share from 'components/Share/Share';
-import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import { ColorModeSwitcher } from 'ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
 import { isBrowser, isTablet } from 'react-device-detect';
-import Download from 'components/Download';
+import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
+import Metadata from 'components/Metadata/Metadata';
 
 function LayoutAppFooter() {
   const buttonSize = useButtonSize();
@@ -28,13 +26,11 @@ function LayoutAppFooter() {
         {isBrowser && <ShowHideAnnotations />}
       </Flex>
 
-      <ButtonGroup>
-        <ClearCanvas />
-        <Share />
-        <MyAnnotationsSave />
-        {isBrowser && <Download />}
+      <HStack>
+        <Metadata />
+        <MyAnnotations />
         <ColorModeSwitcher size={buttonSize} />
-      </ButtonGroup>
+      </HStack>
     </Flex>
   );
 }

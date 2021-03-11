@@ -82,7 +82,7 @@ export default function ShowHideAnnotations() {
     <Stack spacing={5} direction="row" ml={6} align="center">
       <Flex alignItems="center">
         <BiOutline />
-        <Text ml={2} fontFamily="ocrAStd">
+        <Text ml={2} fontFamily="ocrAStd" fontSize="sm">
           Change Display:{' '}
         </Text>
       </Flex>

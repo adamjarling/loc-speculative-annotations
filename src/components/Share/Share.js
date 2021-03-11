@@ -6,12 +6,15 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Portal,
   useToast,
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import { RiShareForwardFill } from 'react-icons/ri';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ShareLinkDisplay from 'components/Share/LinkDisplay';
 import useButtonSize from 'hooks/use-button-size';
+import useColorModeColors from 'hooks/use-color-mode-colors';
 
 var codec = require('json-url')('lzma');
 
@@ -23,6 +26,7 @@ function Share(props) {
   const [showLink, setShowLink] = React.useState();
   const [linkUrl, setLinkUrl] = React.useState('');
   const buttonSize = useButtonSize();
+  const { bg } = useColorModeColors();
 
   const handleSharableLinkClick = () => {
     if (showLink) {
@@ -59,16 +63,21 @@ function Share(props) {
 
   return (
     <div>
-      <Menu>
+      <Menu placement="left-end">
         <MenuButton
           as={Button}
-          rightIcon={<ChevronDownIcon />}
-          size={buttonSize}
+          leftIcon={<RiShareForwardFill />}
+          size="sm"
+          textTransform="uppercase"
+          variant="ghost"
+          // rightIcon={<ChevronDownIcon />}
         >
           Share
         </MenuButton>
-        <MenuList>
-          <MenuItem>#LOCAnnotations</MenuItem>
+        <MenuList position="relative" zIndex="10000">
+          <MenuItem position="relative" zIndex="10000">
+            #LOCAnnotations
+          </MenuItem>
           <MenuItem>Instagram</MenuItem>
           <MenuItem onClick={handleSharableLinkClick}>Shareable link</MenuItem>
         </MenuList>

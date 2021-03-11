@@ -10,7 +10,7 @@ import Div100vh from 'react-div-100vh';
 import ShareQueryParamHandler from 'components/Share/QueryParamHandler';
 import useKeyboardEvents from 'hooks/use-keyboard-events';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import Metadata from 'components/Metadata/Metadata';
+import AdjustmentBar from 'components/AdjustmentBar/AdjustmentBar';
 function LayoutApp() {
   const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
   const { handleEvent } = useKeyboardEvents();
@@ -24,14 +24,12 @@ function LayoutApp() {
     <Flex as={Div100vh} h="100vh" direction="column" onKeyDown={handleEvent}>
       <ShareQueryParamHandler />
       <LayoutHeader />
+      <AdjustmentBar />
       <LayoutAppBody>
         <LayoutAppSidebar>
           {isToolbarVisible && (
             <>
               <Toolbar />
-              <Box>
-                <Metadata />
-              </Box>
             </>
           )}
         </LayoutAppSidebar>

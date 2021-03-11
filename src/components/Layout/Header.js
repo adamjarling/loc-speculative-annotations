@@ -4,8 +4,8 @@ import SALogo from 'components/SALogo';
 import { Link as RRLink, useHistory, useLocation } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import useButtonSize from 'hooks/use-button-size';
-import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
 import { BiPencil } from 'react-icons/bi';
+import { ColorModeSwitcher } from 'ColorModeSwitcher';
 
 function LayoutHeader() {
   const location = useLocation();
@@ -35,12 +35,6 @@ function LayoutHeader() {
           <Button leftIcon={<BiPencil />} onClick={() => history.push('/')}>
             Annotate
           </Button>
-          {/* My Annotations - Saving and navigating to saved annotations functionality */}
-          {/* {location.pathname === '/about' ? (
-            <Button onClick={() => history.push('/')}>Annotate</Button>
-          ) : (
-            <MyAnnotations />
-          )} */}
         </HStack>
       </Flex>
     </Box>

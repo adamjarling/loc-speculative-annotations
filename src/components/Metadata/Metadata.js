@@ -59,12 +59,7 @@ function Metadata() {
 
   return (
     <>
-      <Tooltip
-        label="Info"
-        aria-label="Info"
-        placement="right-end"
-        openDelay={500}
-      >
+      <Tooltip label="Info" aria-label="Info" openDelay={500}>
         <IconButton
           icon={<FaInfoCircle />}
           onClick={handleToolbarClick}

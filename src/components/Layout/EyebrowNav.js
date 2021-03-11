@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import useColorModeColors from 'hooks/use-color-mode-colors';
 
 export default function EyebrowNav() {
-  const bg = useColorModeValue('gray.200', 'gray.700');
+  const { bg } = useColorModeColors();
 
   return (
     <Box bgColor={bg} py={['0px', '2px']}>

@@ -38,6 +38,8 @@ export default function Download() {
           icon={<DownloadIcon />}
           onClick={handleClick}
           aria-label="Download as an image"
+          variant="ghost"
+          mr={2}
         />
       </Tooltip>
 

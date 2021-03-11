@@ -5,6 +5,7 @@ import {
   Button,
   ButtonGroup,
   IconButton,
+  Portal,
   Tooltip,
 } from '@chakra-ui/react';
 import { FiZoomIn, FiZoomOut } from 'react-icons/fi';
@@ -38,8 +39,7 @@ function ViewerControls() {
   };
 
   return (
-    //TODO: Figure out the Z-Index in relation to Annotation button dropdown
-    <Box position="absolute" right="20px" top="20px" zIndex="10">
+    <Box position="absolute" right="20px" top="20px" zIndex="1">
       <ButtonGroup spacing="3" size="lg">
         <Tooltip label="Zoom in" aria-label="Zoom in">
           <IconButton

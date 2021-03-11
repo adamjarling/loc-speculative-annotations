@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { AddIcon } from '@chakra-ui/icons';
 import { FaPencilAlt } from 'react-icons/fa';
 import {
   useFabricOverlayDispatch,
@@ -91,12 +91,12 @@ function MyAnnotations() {
       <Menu>
         <MenuButton
           as={Button}
-          leftIcon={<FaPencilAlt />}
-          rightIcon={<ChevronDownIcon />}
-          size={buttonSize}
-          disabled={false}
+          leftIcon={<AddIcon />}
+          size="sm"
+          textTransform="uppercase"
+          disabled={true}
         >
-          {(isTablet || isBrowser) && <>My Annotations</>}
+          {(isTablet || isBrowser) && <>New Annotation</>}
         </MenuButton>
         <MenuList>
           <MenuItem onClick={handleNewAnnotation}>New Annotation</MenuItem>
