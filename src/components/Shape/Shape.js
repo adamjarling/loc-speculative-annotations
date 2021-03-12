@@ -167,7 +167,7 @@ function Shape({ isActive }) {
      */
     function handleMouseMove(options) {
       if (
-        options.target ||
+        //options.target ||
         !myStateRef.current.activeShape ||
         !myStateRef.current.isActive ||
         !myStateRef.current.currentDragShape

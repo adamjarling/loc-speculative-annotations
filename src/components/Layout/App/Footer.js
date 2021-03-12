@@ -4,7 +4,7 @@ import WorksListModal from 'components/WorksListModal';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
 import { ColorModeSwitcher } from 'ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
-import { isBrowser, isTablet } from 'react-device-detect';
+import { isBrowser, isTablet, isMobile } from 'react-device-detect';
 import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
 import Metadata from 'components/Metadata/Metadata';
 
@@ -21,7 +21,9 @@ function LayoutAppFooter() {
       boxShadow="base"
       zIndex="1"
     >
-      <Flex direction="row">{isBrowser && <ShowHideAnnotations />}</Flex>
+      <Flex direction="row">
+        {(isTablet || isBrowser) && <ShowHideAnnotations />}
+      </Flex>
 
       <HStack>
         <Metadata />

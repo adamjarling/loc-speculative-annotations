@@ -8,7 +8,7 @@ import {
 import { useParams } from 'react-router-dom';
 import useLocImages from 'hooks/use-loc-images';
 
-const fontSize = 'sm';
+const fontSize = ['xs', 'xs', 'xs', 'sm'];
 
 export default function ShowHideAnnotations() {
   const { fabricOverlay, viewer } = useFabricOverlayState();
@@ -79,10 +79,10 @@ export default function ShowHideAnnotations() {
   };
 
   return (
-    <Stack spacing={5} direction="row" ml={6} align="center">
+    <Stack spacing={3} direction="row" ml={6} align="center">
       <Flex alignItems="center">
         <BiOutline />
-        <Text ml={2} fontFamily="ocrAStd" fontSize="sm">
+        <Text ml={2} fontFamily="ocrAStd" fontSize={fontSize}>
           Change Display:{' '}
         </Text>
       </Flex>

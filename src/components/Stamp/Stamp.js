@@ -9,10 +9,12 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import StampPicker from 'components/Stamp/Picker';
+import { useToast } from '@chakra-ui/react';
 
 function Stamp({ isActive }) {
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
+  const toast = useToast();
 
   const [myState, _setMyState] = React.useState({
     activeStamp: null,
@@ -30,6 +32,16 @@ function Stamp({ isActive }) {
    */
   React.useEffect(() => {
     setMyState({ ...myState, color, isActive });
+
+    if (isActive) {
+      toast({
+        title: 'Stamps Hint!',
+        description: 'Drag and drop a stamp onto the canvas',
+        status: 'info',
+        duration: 5000,
+        isClosable: true,
+      });
+    }
   }, [color, isActive]);
 
   /**
@@ -53,7 +65,7 @@ function Stamp({ isActive }) {
 
     function handleDrop(o) {
       if (
-        o.target ||
+        //o.target ||
         !myStateRef.current.activeStamp ||
         !myStateRef.current.isActive
       ) {
@@ -116,13 +128,15 @@ function Stamp({ isActive }) {
         disabled={false}
       />
       {isActive && (
-        <ToolbarOptionsPanel>
-          <StampPicker
-            activeStamp={myState.activeStamp}
-            color={color}
-            handleStampChange={handleStampChange}
-          />
-        </ToolbarOptionsPanel>
+        <>
+          <ToolbarOptionsPanel>
+            <StampPicker
+              activeStamp={myState.activeStamp}
+              color={color}
+              handleStampChange={handleStampChange}
+            />
+          </ToolbarOptionsPanel>
+        </>
       )}
     </div>
   );

@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, VStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, HStack } from '@chakra-ui/react';
 import { brandColors } from 'styles/brandPalette';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
-function ToolbarColorOptionsPanel({ color, handleColorSelect }) {
-  const bg = useColorModeValue('white', 'gray.700');
+import { Fade, ScaleFade, Slide, SlideFade } from '@chakra-ui/react';
+
+function ColorOptionsPanel({ color, handleColorSelect, isVisible }) {
+  // if (!isVisible) return null;
 
   return (
-    <Box bg={bg} p={3} position="absolute" left="90px" top="20px" shadow="lg">
-      <VStack>
+    <Fade in={isVisible}>
+      <HStack spacing={3}>
         {brandColors.map(brandColor => (
           <ToolbarBorderBox
             key={brandColor.label}
@@ -21,14 +23,15 @@ function ToolbarColorOptionsPanel({ color, handleColorSelect }) {
             ></ToolbarBorderBoxInner>
           </ToolbarBorderBox>
         ))}
-      </VStack>
-    </Box>
+      </HStack>
+    </Fade>
   );
 }
 
-ToolbarColorOptionsPanel.propTypes = {
+ColorOptionsPanel.propTypes = {
   color: PropTypes.object,
   handleColorSelect: PropTypes.func,
+  isVisible: PropTypes.bool,
 };
 
-export default ToolbarColorOptionsPanel;
+export default ColorOptionsPanel;

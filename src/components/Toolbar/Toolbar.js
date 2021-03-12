@@ -10,7 +10,7 @@ import { FaHighlighter } from 'react-icons/fa';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
-import ToolbarColor from 'components/Toolbar/Color';
+import Color from 'components/Color/Color';
 
 import 'styles/styles.css';
 
@@ -20,9 +20,9 @@ function Toolbar() {
   return (
     <Box pt={3} position="relative">
       <Wrap spacing="2" as="nav" direction="column" align="center">
-        <WrapItem>
-          <ToolbarColor isActive={activeTool === 'COLOR'} />
-        </WrapItem>
+        {/* <WrapItem>
+          <Color isActive={activeTool === 'COLOR'} />
+        </WrapItem> */}
 
         <WrapItem>
           <ToolbarPointer isActive={activeTool === 'POINTER'} />
