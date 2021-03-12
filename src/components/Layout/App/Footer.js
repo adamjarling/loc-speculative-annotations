@@ -21,14 +21,12 @@ function LayoutAppFooter() {
       boxShadow="base"
       zIndex="1"
     >
-      <Flex direction="row">
-        <WorksListModal />
-        {isBrowser && <ShowHideAnnotations />}
-      </Flex>
+      <Flex direction="row">{isBrowser && <ShowHideAnnotations />}</Flex>
 
       <HStack>
         <Metadata />
-        <MyAnnotations />
+        <WorksListModal />
+        {/* <MyAnnotations /> */}
         <ColorModeSwitcher size={buttonSize} />
       </HStack>
     </Flex>

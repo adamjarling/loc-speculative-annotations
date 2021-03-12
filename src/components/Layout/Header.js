@@ -22,6 +22,7 @@ function LayoutHeader() {
         boxShadow="md"
         zIndex="1"
         px={4}
+        my={1}
         fontSize={fontSizes}
       >
         <SALogo />

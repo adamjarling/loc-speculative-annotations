@@ -21,6 +21,7 @@ import {
 import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
 import { useHistory } from 'react-router-dom';
+import AltButton from 'components/AltButton';
 
 const activeStyles = {
   border: '4px',
@@ -44,20 +45,9 @@ function WorksListModal() {
 
   return (
     <Box>
-      <Tooltip
-        label="Select another item"
-        aria-label="Select another item"
-        placement="right-end"
-        openDelay={500}
-      >
-        <IconButton
-          icon={<AddIcon />}
-          onClick={() => onOpen()}
-          size={iconButtonSize}
-          fontSize={['2xl', '3xl']}
-          variant="ghost"
-        />
-      </Tooltip>
+      <AltButton onClick={() => onOpen()} leftIcon={<AddIcon />}>
+        New Annotation
+      </AltButton>
 
       <Modal
         isOpen={isOpen}

@@ -91,12 +91,11 @@ function MyAnnotations() {
       <Menu>
         <MenuButton
           as={Button}
-          leftIcon={<AddIcon />}
           size="sm"
           textTransform="uppercase"
           disabled={false}
         >
-          {(isTablet || isBrowser) && <>New Annotation</>}
+          {(isTablet || isBrowser) && <>My Annotations</>}
         </MenuButton>
         <MenuList>
           <MenuItem onClick={handleNewAnnotation}>New Annotation</MenuItem>
