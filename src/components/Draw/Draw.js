@@ -113,7 +113,7 @@ function Draw({ isActive }) {
     canvas.freeDrawingBrush.color = color.hex;
     canvas.freeDrawingBrush.width = brushWidth;
     canvas.freeDrawingCursor = createFreeDrawingCursor(brushWidth, color.hex);
-  }, [width]);
+  }, [color, width]);
 
   const handleToolbarClick = () => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'DRAW' });

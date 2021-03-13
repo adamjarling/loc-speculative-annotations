@@ -49,7 +49,6 @@ function fabricOverlayReducer(state, action) {
       return {
         ...state,
         color: action.color,
-        activeTool: '',
       };
     }
     case 'updateOverlay': {

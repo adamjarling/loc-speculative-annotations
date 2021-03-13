@@ -9,10 +9,7 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import ShapePicker from 'components/Shape/Picker';
-import OptionsBar from 'components/OptionsBar/OptionsBar';
 
-// Default size for height / width for new shapes
-const OBJECT_SIZE = 200;
 const FABRIC_SHAPE_TYPES = ['circle', 'rect'];
 
 function Shape({ isActive }) {
@@ -24,7 +21,6 @@ function Shape({ isActive }) {
     currentDragShape: null,
     isActive, // Is the Shape tool itself active
     isMouseDown: false,
-    isSelectedOnCanvas: false, // Is a shape on canvas selected,
     origX: null, // starting X point for drag creating an object
     origY: null, // starting Y point for drag creating an object
   });
@@ -54,6 +50,7 @@ function Shape({ isActive }) {
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
+    console.log('myState.activeShape', myState.activeShape);
 
     if (myState.activeShape) {
       canvas.defaultCursor = 'crosshair';
@@ -249,15 +246,10 @@ function Shape({ isActive }) {
     }
 
     function handleSelectionCleared(options) {
-      if (
-        !myStateRef.current.isActive ||
-        !myStateRef.current.isSelectedOnCanvas
-      )
-        return;
+      if (!myStateRef.current.isActive) return;
 
       setMyState({
         ...myStateRef.current,
-        isSelectedOnCanvas: false,
       });
     }
 
@@ -273,7 +265,6 @@ function Shape({ isActive }) {
 
       setMyState({
         ...myStateRef.current,
-        isSelectedOnCanvas: true,
       });
     }
 
@@ -321,11 +312,6 @@ function Shape({ isActive }) {
           />
         </ToolbarOptionsPanel>
       )}
-      {/* {myState.isSelectedOnCanvas && (
-        <OptionsBar left={175}>
-          Options for selected shape object go here
-        </OptionsBar>
-      )} */}
     </>
   );
 }
