@@ -10,9 +10,10 @@ export default function useCanvasHelpers() {
     setCanvas(fabricOverlay.fabricCanvas());
   }, [fabricOverlay]);
 
+  // Deselect all Fabric canvas objects
   const deselectAll = () => {
     if (!canvas) return;
-    console.log('deselectAll');
+
     canvas.discardActiveObject();
     canvas.requestRenderAll();
   };

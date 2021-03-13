@@ -25,6 +25,8 @@ function Toolbar() {
     deselectAll();
   }, [activeTool]);
 
+  console.log('activeTool', activeTool);
+
   return (
     <Box pt={3} position="relative">
       <Wrap spacing="2" as="nav" direction="column" align="center">

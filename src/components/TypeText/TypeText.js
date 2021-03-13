@@ -11,9 +11,6 @@ import TypeTextFontPicker from 'components/TypeText/FontPicker';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
-import OptionsBar from 'components/OptionsBar/OptionsBar';
-
-export const previewDefaultText = 'Type to see preview of text';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
@@ -24,7 +21,6 @@ function TypeText({ isActive }) {
     color,
     isActive, // Is the main Type tool active
     isEditing: false,
-    isSelectedOnCanvas: false,
     selectedCoords: { top: 0, left: 0 },
   });
   const myStateRef = React.useRef(myState);
@@ -60,9 +56,6 @@ function TypeText({ isActive }) {
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
-
-    // Update state here so the event listener callbacks can access accurate values
-    //setMyState({ ...myState, isActive, isSelectedOnCanvas: false });
 
     if (myState.activeFont) {
       // Disable OSD mouseclicks
@@ -103,7 +96,6 @@ function TypeText({ isActive }) {
       const textbox = new fabric.IText('', {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
-        //editingBorderColor: 'white',
         fontFamily: myStateRef.current.activeFont.fontFamily,
         fontSize: 100,
         selectionBackgroundColor: 'rgba(255, 255, 255, 0.5)',
@@ -124,7 +116,6 @@ function TypeText({ isActive }) {
 
       setMyState({
         ...myStateRef.current,
-        isSelectedOnCanvas: false,
         selectedCoords: { top: 0, left: 0 },
       });
     }
@@ -132,17 +123,8 @@ function TypeText({ isActive }) {
     function handleSelected(options) {
       if (options.target.get('type') !== 'textbox') return;
 
-      const canvas = fabricOverlay.fabricCanvas();
-      const activeObject = canvas.getActiveObject();
-
       setMyState({
         ...myStateRef.current,
-        isSelectedOnCanvas: true,
-        // TODO: Figure out how to center place this w/ coords on canvas
-        // selectedCoords: {
-        //   top: options.e.y,
-        //   left: options.e.x,
-        // },
       });
     }
 
@@ -160,16 +142,6 @@ function TypeText({ isActive }) {
       canvas.off('selection:cleared', handleSelectionCleared);
     };
   }, [fabricOverlay]);
-
-  /**
-   * Update a selected textbox
-   */
-  // React.useEffect(() => {
-  //   console.log('useEffect()', myState);
-  //   if (!myState.isSelectedOnCanvas || !fabricOverlay) return;
-  //   const canvas = fabricOverlay.fabricCanvas();
-  //   //canvas.requestRenderAll();
-  // }, [myState.activeFont]);
 
   const handleFontChange = font => {
     setMyState({ ...myState, activeFont: font });
@@ -217,9 +189,6 @@ function TypeText({ isActive }) {
           />
         </ToolbarOptionsPanel>
       )}
-      {/* {myState.isSelectedOnCanvas && (
-        <OptionsBar left={340}>Type tool options go here</OptionsBar>
-      )} */}
     </div>
   );
 }
