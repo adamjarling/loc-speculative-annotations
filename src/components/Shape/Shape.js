@@ -9,15 +9,18 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import ShapePicker from 'components/Shape/Picker';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 const FABRIC_SHAPE_TYPES = ['circle', 'rect'];
 
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
+  const { deselectAll } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeShape: null, // active shape in Options Panel
+    color,
     currentDragShape: null,
     isActive, // Is the Shape tool itself active
     isMouseDown: false,
@@ -50,7 +53,6 @@ function Shape({ isActive }) {
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
-    console.log('myState.activeShape', myState.activeShape);
 
     if (myState.activeShape) {
       canvas.defaultCursor = 'crosshair';
@@ -60,8 +62,7 @@ function Shape({ isActive }) {
       viewer.outerTracker.setTracking(false);
 
       // Deselect all Fabric Canvas objects
-      canvas.discardActiveObject();
-      canvas.requestRenderAll();
+      deselectAll();
     } else {
       canvas.defaultCursor = 'auto';
 

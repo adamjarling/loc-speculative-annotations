@@ -45,16 +45,6 @@ function Stamp({ isActive }) {
   }, [color, isActive]);
 
   /**
-   * Update mouse cursor styles based on toolbar option selected
-   */
-  React.useEffect(() => {
-    if (!fabricOverlay) return;
-    fabricOverlay.fabricCanvas().defaultCursor = myState.activeStamp
-      ? 'crosshair'
-      : 'auto';
-  }, [myState.activeStamp]);
-
-  /**
    * Handle mouse events to interact with Fabric canvas
    */
   React.useEffect(() => {

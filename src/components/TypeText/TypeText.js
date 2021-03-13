@@ -11,16 +11,19 @@ import TypeTextFontPicker from 'components/TypeText/FontPicker';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
+  const { deselectAll } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
     color,
     isActive, // Is the main Type tool active
     isEditing: false,
+    // TODO: Remove selectedCoords?
     selectedCoords: { top: 0, left: 0 },
   });
   const myStateRef = React.useRef(myState);
@@ -63,8 +66,7 @@ function TypeText({ isActive }) {
       viewer.outerTracker.setTracking(false);
 
       // Deselect all Fabric Canvas objects
-      canvas.discardActiveObject();
-      canvas.requestRenderAll();
+      deselectAll();
     } else {
       // Enable OSD mouseclicks
       viewer.setMouseNavEnabled(true);
@@ -87,7 +89,7 @@ function TypeText({ isActive }) {
 
       // Was user previously editing text?
       if (myStateRef.current.isEditing) {
-        canvas.discardActiveObject();
+        deselectAll();
         setMyState({ ...myStateRef.current, isEditing: false });
         return;
       }

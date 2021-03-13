@@ -1,17 +1,13 @@
 import React from 'react';
 import { Box, Button, Flex, HStack, Link } from '@chakra-ui/react';
 import SALogo from 'components/SALogo';
-import { Link as RRLink, useHistory, useLocation } from 'react-router-dom';
+import { Link as RRLink, useHistory } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
-import useButtonSize from 'hooks/use-button-size';
 import { BiPencil } from 'react-icons/bi';
-import { ColorModeSwitcher } from 'ColorModeSwitcher';
 
 function LayoutHeader() {
-  const location = useLocation();
   const history = useHistory();
   const fontSizes = ['xs', 'sm', 'md'];
-  const buttonSize = useButtonSize();
 
   return (
     <Box as="header">
@@ -19,10 +15,9 @@ function LayoutHeader() {
       <Flex
         justifyContent="space-between"
         alignItems="center"
-        boxShadow="md"
         zIndex="1"
         px={4}
-        my={1}
+        py={1}
         fontSize={fontSizes}
       >
         <SALogo />

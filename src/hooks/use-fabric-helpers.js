@@ -2,7 +2,7 @@ import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 export default function useCanvasHelpers() {
-  const { fabricOverlay } = useFabricOverlayState();
+  const { activeTool, fabricOverlay } = useFabricOverlayState();
   const [canvas, setCanvas] = React.useState();
 
   React.useEffect(() => {
@@ -18,7 +18,15 @@ export default function useCanvasHelpers() {
     canvas.requestRenderAll();
   };
 
+  const updateCursor = () => {
+    if (!canvas) return;
+
+    canvas.defaultCursor = 'auto';
+    canvas.hoverCursor = 'move';
+  };
+
   return {
     deselectAll,
+    updateCursor,
   };
 }

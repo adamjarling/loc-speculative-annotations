@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Center, Divider, Flex, HStack } from '@chakra-ui/react';
 import useColorModeColors from 'hooks/use-color-mode-colors';
 import ClearCanvas from 'components/ClearCanvas';
@@ -13,14 +12,8 @@ function AdjustmentBar(props) {
   const { bg } = useColorModeColors();
 
   return (
-    <Flex
-      bgColor={bg}
-      py={1}
-      my={1}
-      justifyContent="space-between"
-      alignItems="center"
-    >
-      <Box ml={2}>
+    <Flex bgColor={bg} justifyContent="space-between" alignItems="center">
+      <Box ml={2} py={2}>
         <Color />
       </Box>
       <HStack spacing={2}>

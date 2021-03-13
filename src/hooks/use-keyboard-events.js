@@ -9,7 +9,6 @@ export default function useKeyboardEvents() {
     if (e.repeat) {
       return;
     }
-    e.preventDefault();
 
     var key = e.key;
     const canvas = fabricOverlay.fabricCanvas();

@@ -10,22 +10,21 @@ import { FaHighlighter } from 'react-icons/fa';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
-import useCanvasHelpers from 'hooks/use-canvas-helpers';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 import 'styles/styles.css';
 
 function Toolbar() {
   const { activeTool } = useFabricOverlayState();
-  const { deselectAll } = useCanvasHelpers();
+  const { deselectAll, updateCursor } = useFabricHelpers();
 
   /**
    * Deselect all Fabric objects when a new tool is selected
    */
   React.useEffect(() => {
     deselectAll();
+    updateCursor();
   }, [activeTool]);
-
-  console.log('activeTool', activeTool);
 
   return (
     <Box pt={3} position="relative">
