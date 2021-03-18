@@ -29,21 +29,15 @@
 -->
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="https://github.com/adamjarling/loc-speculative-annotations">
     <img src="public/logo.png" alt="Logo" width="534" height="367">
   </a>
+</div>
 
-  <h1 align="center">Speculative Annotations</h1>
+# Speculative Annotations
 
-  <p>
-    Speculative Annotations is a dynamic website, presenting items from the Library’s collections for students, teachers, and other users to annotate through captions, drawings, and other types of markmaking.  Working with curators at the Library of Congress and students and teachers in the classroom, Innovator in Residence Courtney McClellan will develop tools that support the types of conversations students and educators want to have with historical objects.
-  </p>
-
-  <p>
-   The website will include unique design features such as watermarks and/or visual layers to distinguish items annotated with this tool. The experimental application will premier in the summer of 2021, along with lessons plans and example annotations from Library curators. You can read a conversation about annotation and its role in the classroom with Courtney here. If you are an educator interested in collaborating on the project, please email LC-Labs@loc.gov
-    <br />
+  <!-- <p>
     <a href="https://labs.loc.gov/work/experiments/annotation/?loclr=blogsig"><strong>More info »</strong></a>
     <br />
     <br />
@@ -51,8 +45,8 @@
     ·
     <a href="https://github.com/adamjarling/loc-speculative-annotations/issues">Report Bug</a>
     ·
-    <a href="https://github.com/adamjarling/loc-speculative-annotations/issues">Request Feature</a></p>
-</div>
+    <a href="https://github.com/adamjarling/loc-speculative-annotations/issues">Request Feature</a>
+  </p> -->
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -61,6 +55,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#view-demo">Demo</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -69,9 +64,16 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#running-the-application-locally">Running the application locally</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#update-source-images">Update source images</a></li>
+         <li><a href="#custom-theme">Custom theme</a></li>
+      </ul>
+    </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -84,7 +86,19 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Speculative Annotations is a dynamic website, presenting items from the Library’s collections for students, teachers, and other users to annotate through captions, drawings, and other types of markmaking.
+
+Working with curators at the Library of Congress and students and teachers in the classroom, Innovator in Residence Courtney McClellan will develop tools that support the types of conversations students and educators want to have with historical objects.
+
+The website will include unique design features such as watermarks and/or visual layers to distinguish items annotated with this tool. The experimental application will premier in the summer of 2021, along with lessons plans and example annotations from Library curators. You can read a conversation about annotation and its role in the classroom with Courtney here.
+
+If you are an educator interested in collaborating on the project, please email LC-Labs@loc.gov
+
+[Visit Library of Congress Labs for more information](https://labs.loc.gov/work/experiments/annotation/)
+
+### Demo
+
+[Test drive the application](https://nervous-gates-006218.netlify.app/)
 
 ### Built With
 
@@ -120,15 +134,35 @@ You must be running a local copy of NodeJS, and the install either `npm` or `yar
    yarn install
    ```
 
-<!-- USAGE EXAMPLES -->
+### Running the application locally
+
+To run the application locally in your development environment:
+
+```sh
+yarn start
+```
+
+To run tests (coming soon...)
+
+```sh
+yarn test
+```
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Update source images
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Source images are currently defined in the following project file:
 
-<!-- ROADMAP -->
+`src/services/loc-images.js`
+
+The application uses the OpenSeadragon Viewer to render images, so your source images can be a combination of locally hosted images (within the application), or externally hosted images (for example, served from a IIIF image server).
+
+This is currently where you'd update the application's source image definitions.
+
+### Custom theme
+
+If you'd like to update the UI with your own custom colors, fonts, etc. this is possible via Style Props and custom theming. This app uses the wonderful Chakra UI package, and see [Chakra UI Customize Theme](https://chakra-ui.com/docs/theming/customize-theme) for details.
 
 ## Roadmap
 
