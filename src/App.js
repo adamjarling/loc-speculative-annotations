@@ -2,7 +2,6 @@ import React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import brandPalette from 'styles/brandPalette';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import KonvaWrapper from 'components/Konva/KonvaWrapper';
 import OsdFabricWrapper from 'components/OsdFabricWrapper';
 import { Fonts } from 'components/TypeText/Fonts';
 import LayoutApp from 'components/Layout/App/App';
