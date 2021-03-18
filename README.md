@@ -86,15 +86,19 @@
 
 ## About The Project
 
-Speculative Annotations is a dynamic website, presenting items from the Library’s collections for students, teachers, and other users to annotate through captions, drawings, and other types of markmaking.
+**Speculative Annotations** is a dynamic website, presenting items from the Library’s collections for students, teachers, and other users to annotate through captions, drawings, and other types of markmaking.
 
 Working with curators at the Library of Congress and students and teachers in the classroom, Innovator in Residence Courtney McClellan will develop tools that support the types of conversations students and educators want to have with historical objects.
 
-The website will include unique design features such as watermarks and/or visual layers to distinguish items annotated with this tool. The experimental application will premier in the summer of 2021, along with lessons plans and example annotations from Library curators. You can read a conversation about annotation and its role in the classroom with Courtney here.
+The web application will include unique design features such as watermarks and/or visual layers to distinguish items annotated with this tool. The experimental application will premier in the summer of 2021, along with lessons plans and example annotations from Library curators. You can read a conversation about annotation and its role in the classroom with Courtney here.
 
 If you are an educator interested in collaborating on the project, please email LC-Labs@loc.gov
 
-[Visit Library of Congress Labs for more information](https://labs.loc.gov/work/experiments/annotation/)
+Visit [Library of Congress Labs](https://labs.loc.gov/work/experiments/annotation/) for more information.
+
+<a href="https://labs.loc.gov/">
+  <img src="public/social-media-logos-Labs.svg" alt="Logo" style="height: 200px; width: auto;" />
+</a>
 
 ### Demo
 
@@ -116,12 +120,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-You must be running a local copy of NodeJS, and the install either `npm` or `yarn`. We'll use `yarn` in these examples:
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+You must be running a local copy of NodeJS and `npm` or `yarn` for package management. We'll use `yarn` in these examples:
 
 ### Installation
 
@@ -190,11 +189,19 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Adam J. Arling - [@twitter_handle](https://twitter.com/twitter_handle) - aarling@gmail.com
+### Library of Congress Labs
 
-Project Link: [https://github.com/adamjarling/loc-speculative-annotations](https://github.com/adamjarling/loc-speculative-annotations)
+Jaime Mears - Innovator in Residence Program Manager
 
-<!-- ACKNOWLEDGEMENTS -->
+Courtney McClellan - Artist in Residency
+
+### Developer
+
+Adam J. Arling
+
+Senior UI Developer - Northwestern University Libraries :: Repository and Digital Curation
+
+[adamarling.com](https://adamarling.com)
 
 ## Acknowledgements
 
