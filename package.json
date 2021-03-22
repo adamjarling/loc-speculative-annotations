@@ -1,7 +1,6 @@
 {
   "name": "loc-speculative-annotations",
   "version": "0.1.0",
-  "homepage": "http://adamjarling.github.io/loc-speculative-annotations",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^1.0.1",
