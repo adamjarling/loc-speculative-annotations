@@ -309,7 +309,7 @@
       ]
     },
     {
-      "id": "https://speculative-annotations.org/iiif/zora-neil-hurston/manifest",
+      "id": "iiif/zora-neil-hurston/manifest",
       "type": "Manifest",
       "label": {
         "en": [
@@ -382,28 +382,28 @@
       ],
       "items": [
         {
-          "id": "https://speculative-annotations.org/iiif/zora-neil-hurston/canvas/1",
+          "id": "iiif/zora-neil-hurston/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Zora Neil Hurston image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "https://speculative-annotations.org/iiif/zora-neil-hurston/page/1",
+              "id": "iiif/zora-neil-hurston/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "https://speculative-annotations.org/iiif/zora-neil-hurston/annotation/1",
+                  "id": "iiif/zora-neil-hurston/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "https://speculative-annotations.org/iiif/zora-neil-hurston/page/full/max/0/default.jpg",
+                    "id": "iiif/zora-neil-hurston/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2000,
                     "width": 1500
                   },
-                  "target": "https://speculative-annotations.org/iiif/zora-neil-hurston/canvas/1"
+                  "target": "iiif/zora-neil-hurston/canvas/1"
                 }
               ]
             }
@@ -412,7 +412,7 @@
       ]
     },
     {
-      "id": "https://speculative-annotations.org/iiif/ice-cream-soda/manifest",
+      "id": "iiif/ice-cream-soda/manifest",
       "type": "Manifest",
       "label": {
         "en": [
@@ -489,28 +489,28 @@
       ],
       "items": [
         {
-          "id": "https://speculative-annotations.org/iiif/ice-cream-soda/canvas/1",
+          "id": "iiif/ice-cream-soda/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Zora Neil Hurston image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "https://speculative-annotations.org/iiif/ice-cream-soda/page/1",
+              "id": "iiif/ice-cream-soda/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "https://speculative-annotations.org/iiif/ice-cream-soda/annotation/1",
+                  "id": "iiif/ice-cream-soda/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "https://speculative-annotations.org/iiif/ice-cream-soda/page/full/max/0/default.jpg",
+                    "id": "iiif/ice-cream-soda/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2000,
                     "width": 1500
                   },
-                  "target": "https://speculative-annotations.org/iiif/ice-cream-soda/canvas/1"
+                  "target": "iiif/ice-cream-soda/canvas/1"
                 }
               ]
             }

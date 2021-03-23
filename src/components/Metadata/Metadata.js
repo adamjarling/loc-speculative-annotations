@@ -43,49 +43,54 @@ function Metadata() {
   const [manifest, setManifest] = React.useState();
   const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
-  React.useEffect(() => {
-    async function getManifestData() {
-      try {
-        const m = await loadManifest(
-          'iiif/speculative-annotations-manifest.json'
-        );
-        const manifests = parseManifest(m).getManifests();
+  async function getManifestData() {
+    try {
+      const m = await loadManifest(
+        'iiif/speculative-annotations-manifest.json'
+      );
+      const manifests = parseManifest(m).getManifests();
 
-        // Find current work manifest
-        const currentManifest = manifests.find(manifest => {
-          const id = manifest.id.split('/')[1];
-          return params.id === id;
-        });
+      // Find current work manifest
+      const currentManifest = manifests.find(manifest => {
+        const id = manifest.id.split('/')[1];
+        return params.id === id;
+      });
 
-        if (!currentManifest) return;
+      if (!currentManifest) return;
 
-        // Build up the parsed metadata into an object we feed to the component for display
-        const obj = {
-          contact: currentManifest.getProperty('provider')[0].id,
-          label: currentManifest.getLabel().getValue(),
-          metadata: currentManifest.getMetadata(),
-          summary: currentManifest.getProperty('summary')['en'][0],
-          workUrl: currentManifest.getProperty('homepage')[0].id,
+      // Build up the parsed metadata into an object we feed to the component for display
+      const obj = {
+        contact: currentManifest.getProperty('provider')[0].id,
+        label: currentManifest.getLabel().getValue(),
+        metadata: currentManifest.getMetadata(),
+        summary: currentManifest.getProperty('summary')['en'][0],
+        workUrl: currentManifest.getProperty('homepage')[0].id,
+      };
+
+      const collectionManifest = await loadManifest(
+        currentManifest.getProperty('partOf')[0].id
+      );
+
+      if (collectionManifest) {
+        const parsed = parseManifest(collectionManifest);
+        obj.collection = {
+          label: parsed.getLabel().getValue(),
+          url: parsed.getProperty('homepage')[0].id,
         };
-
-        const collectionManifest = await loadManifest(
-          currentManifest.getProperty('partOf')[0].id
-        );
-
-        obj.collectionUrl = collectionManifest
-          ? parseManifest(collectionManifest).getProperty('homepage')[0].id
-          : '';
-
-        setManifest(obj);
-      } catch (e) {
-        console.error('Error loading / parsing IIIF manifest', e);
-        toast({
-          title: `Error loading IIIF manifest`,
-          status: 'error',
-          isClosable: true,
-        });
       }
+
+      setManifest(obj);
+    } catch (e) {
+      console.error('Error loading / parsing IIIF manifest', e);
+      toast({
+        title: `Error loading IIIF manifest`,
+        status: 'error',
+        isClosable: true,
+      });
     }
+  }
+
+  React.useEffect(() => {
     getManifestData();
   }, [params.id]);
 
@@ -140,51 +145,23 @@ function Metadata() {
                   </Link>
                 </MetadataBody>
 
-                <MetadataBody>
-                  <Link href={manifest.collectionUrl} isExternal>
-                    View Collection <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </MetadataBody>
+                {manifest.collection && (
+                  <>
+                    <MetadataHeading>Collection</MetadataHeading>
+                    <MetadataBody>
+                      <Link href={manifest.collection?.url} isExternal>
+                        {manifest.collection?.label}{' '}
+                        <ExternalLinkIcon mx="2px" />
+                      </Link>
+                    </MetadataBody>
+                  </>
+                )}
 
                 <MetadataBody>
                   <Link href={manifest.workUrl} isExternal>
-                    View Image <ExternalLinkIcon mx="2px" />
+                    View image <ExternalLinkIcon mx="2px" />
                   </Link>
                 </MetadataBody>
-
-                {/* <MetadataHeading>Creator</MetadataHeading>
-                <MetadataBody>{currentWork.creator}</MetadataBody>
-
-                <MetadataHeading>Date</MetadataHeading>
-                <MetadataBody>{currentWork.date}</MetadataBody>
-
-                <MetadataHeading>Questions</MetadataHeading>
-                <MetadataBody>
-                  <Wrap>
-                    {currentWork.questions.map((question, i) => (
-                      <WrapItem key={i}>{question}</WrapItem>
-                    ))}
-                  </Wrap>
-                </MetadataBody>
-
-                <MetadataHeading>Contact</MetadataHeading>
-                <MetadataBody>
-                  <Link href={currentWork.contact} isExternal>
-                    {currentWork.contact} <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </MetadataBody>
-
-                <MetadataBody>
-                  <Link href={currentWork.seeCollection} isExternal>
-                    View Collection <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </MetadataBody>
-
-                <MetadataBody>
-                  <Link href={currentWork.seeImage} isExternal>
-                    View Image <ExternalLinkIcon mx="2px" />
-                  </Link>
-                </MetadataBody> */}
               </DrawerBody>
 
               <DrawerFooter>
