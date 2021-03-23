@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/3/context.json",
-  "id": "https://speculative-annotations.org/iiif/collection/top",
+  "id": "iiif/collection/top",
   "type": "Collection",
   "label": {
     "en": ["Collection of Speculative Annotation Library of Congress Works"]
@@ -13,7 +13,7 @@
 
   "items": [
     {
-      "id": "https://speculative-annotations.org/iiif/national-park/manifest",
+      "id": "iiif/national-park/manifest",
       "type": "Manifest",
       "label": { "en": ["Yellowstone National Park poster"] },
       "metadata": [
@@ -76,34 +76,34 @@
       ],
       "partOf": [
         {
-          "id": "http://localhost:3001/iiif/wpa-posters/info.json",
+          "id": "iiif/wpa-posters/info.json",
           "type": "Collection"
         }
       ],
       "items": [
         {
-          "id": "http://localhost:3001/iiif/national-park/canvas/info.json",
+          "id": "iiif/national-park/canvas/info.json",
           "type": "Canvas",
           "label": { "none": ["National Park image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "http://localhost:3001/iiif/national-park/page/1",
+              "id": "iiif/national-park/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "http://localhost:3001/iiif/national-park/annotation/1",
+                  "id": "iiif/national-park/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "http://localhost:3001/iiif/national-park/image/default.jpg",
+                    "id": "iiif/national-park/image/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2000,
                     "width": 1500
                   },
-                  "target": "http://localhost:3001/iiif/national-park/canvas/1"
+                  "target": "iiif/national-park/canvas/1"
                 }
               ]
             }
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "id": "https://speculative-annotations.org/iiif/walt-whitman/manifest",
+      "id": "iiif/walt-whitman/manifest",
       "type": "Manifest",
       "label": { "en": ["Walt Whitman on Leaves of Grass themes"] },
       "metadata": [
@@ -170,34 +170,34 @@
       ],
       "partOf": [
         {
-          "id": "http://localhost:3001/iiif/feinberg-whitman/info.json",
+          "id": "iiif/feinberg-whitman/info.json",
           "type": "Collection"
         }
       ],
       "items": [
         {
-          "id": "https://speculative-annotations.org/iiif/walt-whitman/canvas/1",
+          "id": "iiif/walt-whitman/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Walt Whitman image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "https://speculative-annotations.org/iiif/walt-whitman/page/1",
+              "id": "iiif/walt-whitman/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "https://speculative-annotations.org/iiif/walt-whitman/annotation/1",
+                  "id": "iiif/walt-whitman/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "https://speculative-annotations.org/iiif/walt-whitman/page/full/max/0/default.jpg",
+                    "id": "iiif/walt-whitman/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2000,
                     "width": 1500
                   },
-                  "target": "https://speculative-annotations.org/iiif/walt-whitman/canvas/1"
+                  "target": "iiif/walt-whitman/canvas/1"
                 }
               ]
             }
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "id": "https://speculative-annotations.org/iiif/duchess/manifest",
+      "id": "iiif/duchess/manifest",
       "type": "Manifest",
       "label": {
         "en": [
@@ -273,34 +273,34 @@
       ],
       "partOf": [
         {
-          "id": "http://localhost:3001/iiif/federal-theatre-project/info.json",
+          "id": "iiif/federal-theatre-project/info.json",
           "type": "Collection"
         }
       ],
       "items": [
         {
-          "id": "https://speculative-annotations.org/iiif/duchess/canvas/1",
+          "id": "iiif/duchess/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Duchess image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "https://speculative-annotations.org/iiif/duchess/page/1",
+              "id": "iiif/duchess/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "https://speculative-annotations.org/iiif/duchess/annotation/1",
+                  "id": "iiif/duchess/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "https://speculative-annotations.org/iiif/duchess/page/full/max/0/default.jpg",
+                    "id": "iiif/duchess/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2000,
                     "width": 1500
                   },
-                  "target": "https://speculative-annotations.org/iiif/duchess/canvas/1"
+                  "target": "iiif/duchess/canvas/1"
                 }
               ]
             }
@@ -376,7 +376,7 @@
       ],
       "partOf": [
         {
-          "id": "http://localhost:3001/iiif/folk-musicians/info.json",
+          "id": "iiif/folk-musicians/info.json",
           "type": "Collection"
         }
       ],
@@ -483,7 +483,7 @@
       ],
       "partOf": [
         {
-          "id": "http://localhost:3001/iiif/japanese-american-farm-workers/info.json",
+          "id": "iiif/japanese-american-farm-workers/info.json",
           "type": "Collection"
         }
       ],

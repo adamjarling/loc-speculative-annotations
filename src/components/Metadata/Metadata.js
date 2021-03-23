@@ -16,6 +16,7 @@ import {
   Tooltip,
   useBreakpointValue,
   useDisclosure,
+  useToast,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { useParams } from 'react-router-dom';
@@ -35,6 +36,7 @@ function MetadataBody({ children }) {
 }
 
 function Metadata() {
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [currentWork, setCurrentWork] = React.useState();
@@ -43,38 +45,46 @@ function Metadata() {
 
   React.useEffect(() => {
     async function getManifestData() {
-      const m = await loadManifest(
-        'iiif/speculative-annotations-manifest.json'
-      );
-      const manifests = parseManifest(m).getManifests();
-
-      // Find current work manifest
-      const currentManifest = manifests.find(manifest => {
-        const arr = manifest.id.split(
-          'https://speculative-annotations.org/iiif/'
+      try {
+        const m = await loadManifest(
+          'iiif/speculative-annotations-manifest.json'
         );
-        // Grab the work id out of the URI, which is the "id" of the local image slug
-        // Workaround since the images are hosted locally instead of via a IIIF Image service
-        const id = arr[1].slice(0, arr[1].indexOf('/'));
-        return params.id === id;
-      });
+        const manifests = parseManifest(m).getManifests();
 
-      const obj = {
-        contact: currentManifest.getProperty('provider')[0].id,
-        label: currentManifest.getLabel().getValue(),
-        metadata: currentManifest.getMetadata(),
-        summary: currentManifest.getProperty('summary')['en'][0],
-        workUrl: currentManifest.getProperty('homepage')[0].id,
-      };
+        // Find current work manifest
+        const currentManifest = manifests.find(manifest => {
+          const id = manifest.id.split('/')[1];
+          return params.id === id;
+        });
 
-      const collectionManifest = await loadManifest(
-        currentManifest.getProperty('partOf')[0].id
-      );
-      obj.collectionUrl = collectionManifest
-        ? parseManifest(collectionManifest).getProperty('homepage')[0].id
-        : '';
+        if (!currentManifest) return;
 
-      setManifest(obj);
+        // Build up the parsed metadata into an object we feed to the component for display
+        const obj = {
+          contact: currentManifest.getProperty('provider')[0].id,
+          label: currentManifest.getLabel().getValue(),
+          metadata: currentManifest.getMetadata(),
+          summary: currentManifest.getProperty('summary')['en'][0],
+          workUrl: currentManifest.getProperty('homepage')[0].id,
+        };
+
+        const collectionManifest = await loadManifest(
+          currentManifest.getProperty('partOf')[0].id
+        );
+
+        obj.collectionUrl = collectionManifest
+          ? parseManifest(collectionManifest).getProperty('homepage')[0].id
+          : '';
+
+        setManifest(obj);
+      } catch (e) {
+        console.error('Error loading / parsing IIIF manifest', e);
+        toast({
+          title: `Error loading IIIF manifest`,
+          status: 'error',
+          isClosable: true,
+        });
+      }
     }
     getManifestData();
   }, [params.id]);
