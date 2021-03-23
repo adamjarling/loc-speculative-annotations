@@ -13,10 +13,7 @@ import {
   Heading,
   IconButton,
   Link,
-  Text,
   Tooltip,
-  Wrap,
-  WrapItem,
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -24,7 +21,6 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { useParams } from 'react-router-dom';
 import { locImages } from 'services/loc-images';
 import { loadManifest, parseManifest } from 'manifesto.js';
-import { m } from 'framer-motion';
 
 function MetadataHeading({ children }) {
   return (
@@ -51,20 +47,23 @@ function Metadata() {
         'iiif/speculative-annotations-manifest.json'
       );
       const manifests = parseManifest(m).getManifests();
+
+      // Find current work manifest
       const currentManifest = manifests.find(manifest => {
         const arr = manifest.id.split(
           'https://speculative-annotations.org/iiif/'
         );
+        // Grab the work id out of the URI, which is the "id" of the local image slug
+        // Workaround since the images are hosted locally instead of via a IIIF Image service
         const id = arr[1].slice(0, arr[1].indexOf('/'));
         return params.id === id;
       });
-      console.log(`currentManifest`, currentManifest.getLabel().getValue());
 
       const obj = {
         contact: currentManifest.getProperty('provider')[0].id,
         label: currentManifest.getLabel().getValue(),
         metadata: currentManifest.getMetadata(),
-        summary: currentManifest.getDescription(),
+        summary: currentManifest.getProperty('summary')['en'][0],
         workUrl: currentManifest.getProperty('homepage')[0].id,
       };
 

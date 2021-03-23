@@ -71,7 +71,8 @@
       <a href="#usage">Usage</a>
       <ul>
         <li><a href="#update-source-images">Update source images</a></li>
-         <li><a href="#custom-theme">Custom theme</a></li>
+        <li><a href="#iiif-manifests">IIIF Manifests</a></li>
+        <li><a href="#custom-theme">Custom theme</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -108,8 +109,8 @@ Visit [Library of Congress Labs](https://labs.loc.gov/work/experiments/annotatio
 
 - [React](https://reactjs.org/)
 - [FabricJS](http://fabricjs.com/)
-- [OpenSeadragon](https://openseadragon.github.io/)
 - [IIIF](https://iiif.io/)
+- [OpenSeadragon](https://openseadragon.github.io/)
 - [Chakra UI](https://chakra-ui.com/)
 
 <!-- GETTING STARTED -->
@@ -151,13 +152,19 @@ yarn test
 
 ### Update source images
 
-Source images are currently defined in the following project file:
+Source images are currently hosted locally and defined in the following file:
 
 `src/services/loc-images.js`
 
 The application uses the OpenSeadragon Viewer to render images, so your source images can be a combination of locally hosted images (within the application), or externally hosted images (for example, served from a IIIF image server).
 
-This is currently where you'd update the application's source image definitions.
+### IIIF Manifests
+
+Application metadata is represented by IIIF Presentation API 3.0 manifest files. The organization is as follows (currently):
+
+- Top level **Collection** manifest resource which contains information about the Speculative Annotation works as a collection.
+- Individual manifests which each represent a Work and it's metadata.
+- Placeholder Library of Congress Collection manifests which contain metadata about the containing Collection for each Work.
 
 ### Custom theme
 
