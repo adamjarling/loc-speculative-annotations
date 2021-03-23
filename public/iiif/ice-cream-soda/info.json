@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "http://localhost:3001/iiif/ice-cream-soda/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Japanese American Farm Workers"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/search/?fa=partof:lot+292",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Japanese American Farm Workers search"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

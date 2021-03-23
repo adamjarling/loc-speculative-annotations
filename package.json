@@ -18,6 +18,7 @@
     "html2canvas": "^1.0.0-rc.7",
     "json-url": "^2.6.0",
     "lodash.debounce": "^4.0.8",
+    "manifesto.js": "^4.2.3",
     "openseadragon": "^2.4.2",
     "openseadragon-fabricjs-overlay": "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git",
     "react": "^17.0.1",

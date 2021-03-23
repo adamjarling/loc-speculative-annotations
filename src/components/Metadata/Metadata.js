@@ -23,6 +23,8 @@ import {
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { useParams } from 'react-router-dom';
 import { locImages } from 'services/loc-images';
+import { loadManifest, parseManifest } from 'manifesto.js';
+import { m } from 'framer-motion';
 
 function MetadataHeading({ children }) {
   return (
@@ -40,7 +42,43 @@ function Metadata() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [currentWork, setCurrentWork] = React.useState();
+  const [manifest, setManifest] = React.useState();
   const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
+
+  React.useEffect(() => {
+    async function getManifestData() {
+      const m = await loadManifest(
+        'iiif/speculative-annotations-manifest.json'
+      );
+      const manifests = parseManifest(m).getManifests();
+      const currentManifest = manifests.find(manifest => {
+        const arr = manifest.id.split(
+          'https://speculative-annotations.org/iiif/'
+        );
+        const id = arr[1].slice(0, arr[1].indexOf('/'));
+        return params.id === id;
+      });
+      console.log(`currentManifest`, currentManifest.getLabel().getValue());
+
+      const obj = {
+        contact: currentManifest.getProperty('provider')[0].id,
+        label: currentManifest.getLabel().getValue(),
+        metadata: currentManifest.getMetadata(),
+        summary: currentManifest.getDescription(),
+        workUrl: currentManifest.getProperty('homepage')[0].id,
+      };
+
+      const collectionManifest = await loadManifest(
+        currentManifest.getProperty('partOf')[0].id
+      );
+      obj.collectionUrl = collectionManifest
+        ? parseManifest(collectionManifest).getProperty('homepage')[0].id
+        : '';
+
+      setManifest(obj);
+    }
+    getManifestData();
+  }, [params.id]);
 
   const handleClose = () => {
     onClose();
@@ -74,12 +112,38 @@ function Metadata() {
           {currentWork && (
             <DrawerContent>
               <DrawerCloseButton />
-              <DrawerHeader>{currentWork.title}</DrawerHeader>
+              <DrawerHeader>{manifest.label || ''}</DrawerHeader>
 
               <DrawerBody>
-                <MetadataBody>{currentWork.info}</MetadataBody>
+                <MetadataBody>{manifest.summary || ''}</MetadataBody>
 
-                <MetadataHeading>Creator</MetadataHeading>
+                {manifest.metadata.map((m, i) => (
+                  <div key={i}>
+                    <MetadataHeading>{m.getLabel()}</MetadataHeading>
+                    <MetadataBody>{m.getValue()}</MetadataBody>
+                  </div>
+                ))}
+
+                <MetadataHeading>Contact</MetadataHeading>
+                <MetadataBody>
+                  <Link href={manifest.contact} isExternal>
+                    {manifest.contact} <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </MetadataBody>
+
+                <MetadataBody>
+                  <Link href={manifest.collectionUrl} isExternal>
+                    View Collection <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </MetadataBody>
+
+                <MetadataBody>
+                  <Link href={manifest.workUrl} isExternal>
+                    View Image <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </MetadataBody>
+
+                {/* <MetadataHeading>Creator</MetadataHeading>
                 <MetadataBody>{currentWork.creator}</MetadataBody>
 
                 <MetadataHeading>Date</MetadataHeading>
@@ -111,7 +175,7 @@ function Metadata() {
                   <Link href={currentWork.seeImage} isExternal>
                     View Image <ExternalLinkIcon mx="2px" />
                   </Link>
-                </MetadataBody>
+                </MetadataBody> */}
               </DrawerBody>
 
               <DrawerFooter>

@@ -1,0 +1,18 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "http://localhost:3001/iiif/walt-whitman/manifest",
+  "type": "Manifest",
+  "label": { "en": ["WPA Posters"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/feinberg-whitman/about-this-collection",
+      "type": "Text",
+      "label": {
+        "en": [
+          "Home page for Walt Whitman Papers in the Charles E. Feinberg Collection"
+        ]
+      },
+      "format": "text/html"
+    }
+  ]
+}
