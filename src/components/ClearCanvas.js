@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   AlertDialog,
   AlertDialogBody,
@@ -8,21 +7,18 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   Button,
-  Tooltip,
 } from '@chakra-ui/react';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import useButtonSize from 'hooks/use-button-size';
 import AltButton from 'components/AltButton';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
-function ClearCanvas(props) {
-  const { fabricOverlay } = useFabricOverlayState();
+function ClearCanvas() {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
-  const buttonSize = useButtonSize();
+  const { clearUserObjects } = useFabricHelpers();
 
   const handleClearCanvas = () => {
-    fabricOverlay.fabricCanvas().clear();
+    clearUserObjects();
     onClose();
   };
 

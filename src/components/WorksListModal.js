@@ -22,6 +22,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
 import { useHistory } from 'react-router-dom';
 import AltButton from 'components/AltButton';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 const activeStyles = {
   border: '4px',
@@ -33,12 +34,14 @@ function WorksListModal() {
   const [activeWork, setActiveWork] = React.useState();
   const history = useHistory();
   const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
+  const { clearCanvas } = useFabricHelpers();
 
   const handleImageClick = image => {
     setActiveWork(image);
   };
 
   const handleSelectItem = () => {
+    clearCanvas();
     onClose();
     history.push(`/${activeWork.id}`);
   };

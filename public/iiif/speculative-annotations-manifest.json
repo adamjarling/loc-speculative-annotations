@@ -109,6 +109,18 @@
             }
           ]
         }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/national-park/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/national-park/annotation/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        }
       ]
     },
     {
@@ -306,6 +318,18 @@
             }
           ]
         }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/duchess/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/duchess/annotation/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        }
       ]
     },
     {
@@ -406,6 +430,18 @@
                   "target": "iiif/zora-neil-hurston/canvas/1"
                 }
               ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/zora-neil-hurston/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/zora-neil-hurston/annotation/curator001/info.json",
+              "type": "Annotation"
             }
           ]
         }

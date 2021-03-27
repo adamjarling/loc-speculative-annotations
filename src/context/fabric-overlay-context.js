@@ -30,6 +30,9 @@ function fabricOverlayReducer(state, action) {
     case 'toggleToolbarVisible': {
       return {
         ...state,
+        ...(!action.isVisible && {
+          activeTool: '',
+        }),
         isToolbarVisible: action.isVisible,
       };
     }
