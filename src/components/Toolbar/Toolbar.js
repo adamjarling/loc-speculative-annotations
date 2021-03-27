@@ -6,7 +6,7 @@ import Draw from 'components/Draw/Draw';
 import Shape from 'components/Shape/Shape';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import TypeText from 'components/TypeText/TypeText';
-import { FaHighlighter } from 'react-icons/fa';
+import Highlighter from 'components/Highlighter/Highlighter';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
@@ -50,7 +50,7 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
-          <ToolbarButton icon={<FaHighlighter />} label="Highlight" disabled />
+          <Highlighter isActive={activeTool === 'HIGHLIGHTER'} />
         </WrapItem>
 
         <WrapItem>
