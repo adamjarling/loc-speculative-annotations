@@ -1,15 +1,19 @@
 import React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import brandPalette from 'styles/brandPalette';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import OsdFabricWrapper from 'components/OsdFabricWrapper';
 import { Fonts } from 'components/TypeText/Fonts';
 import LayoutApp from 'components/Layout/App/App';
 import LayoutSite from 'components/Layout/Site/Site';
+import brandPalette from 'styles/brandPalette';
 
-const theme = extendTheme({
+export const theme = extendTheme({
   colors: {
     brand: brandPalette,
+  },
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
   },
   fonts: {
     heading: 'ocr-a-std',
@@ -20,6 +24,7 @@ const theme = extendTheme({
     openSans: 'Open Sans',
     reenieBeanie: 'Reenie Beanie',
   },
+
   styles: {
     global: {
       button: {
