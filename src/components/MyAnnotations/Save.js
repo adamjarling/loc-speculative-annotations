@@ -61,7 +61,7 @@ export default function MyAnnotationsSave() {
 
   return (
     <>
-      <AltButton onClick={onOpen} leftIcon={<FaSave />}>
+      <AltButton disabled={true} onClick={onOpen} leftIcon={<FaSave />}>
         Save
       </AltButton>
 

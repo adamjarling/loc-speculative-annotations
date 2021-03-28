@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Box,
   Button,
   IconButton,
   Image,
@@ -13,6 +12,7 @@ import {
   ModalCloseButton,
   Tooltip,
   useDisclosure,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons';
 import html2canvas from 'html2canvas';
@@ -20,10 +20,11 @@ import html2canvas from 'html2canvas';
 export default function Download() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [img, setImg] = React.useState();
+  const html2CanvasBg = useColorModeValue('#ffffff', '#1A202C');
 
   const handleClick = () => {
     html2canvas(document.querySelector('.openseadragon-canvas'), {
-      backgroundColor: null,
+      backgroundColor: html2CanvasBg,
       logging: true,
     }).then(canvas => {
       setImg(canvas.toDataURL('image/png'));
