@@ -5,6 +5,7 @@ export default function useKeyboardEvents() {
   const { fabricOverlay } = useFabricOverlayState();
 
   function handleEvent(e) {
+    console.log(`e`, e);
     if (e.repeat) {
       return;
     }
@@ -90,5 +91,26 @@ export default function useKeyboardEvents() {
     }
   }
 
-  return { handleEvent };
+  function handleKeyUp(e) {
+    const canvas = fabricOverlay.fabricCanvas();
+    console.log(`handleKeyUp`, e);
+    const { keyCode, ctrlKey } = e;
+
+    // Check Ctrl key is pressed.
+    if (!ctrlKey) {
+      return;
+    }
+
+    // Check pressed button is Z - Ctrl+Z.
+    if (keyCode === 90) {
+      canvas.undo();
+    }
+
+    // Check pressed button is Y - Ctrl+Y.
+    if (keyCode === 89) {
+      canvas.redo();
+    }
+  }
+
+  return { handleEvent, handleKeyUp };
 }
