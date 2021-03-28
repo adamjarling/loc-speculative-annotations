@@ -1,16 +1,8 @@
 import React from 'react';
 import { useZoom } from 'use-open-seadragon';
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  IconButton,
-  Portal,
-  Tooltip,
-} from '@chakra-ui/react';
+import { Box, ButtonGroup, IconButton, Tooltip } from '@chakra-ui/react';
 import { FiZoomIn, FiZoomOut } from 'react-icons/fi';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
 import useButtonSize from 'hooks/use-button-size';
 
 function ViewerControls() {
@@ -55,22 +47,6 @@ function ViewerControls() {
             size={buttonSize}
           />
         </Tooltip>
-        {/* <Tooltip label="Undo" aria-label="Undo">
-          <IconButton
-            icon={<RiArrowGoBackFill />}
-            aria-label="Undo"
-            size={buttonSize}
-            disabled
-          />
-        </Tooltip>
-        <Tooltip label="Redo" aria-label="Redo">
-          <IconButton
-            icon={<RiArrowGoForwardLine />}
-            aria-label="Redo"
-            size={buttonSize}
-            disabled
-          />
-        </Tooltip> */}
       </ButtonGroup>
     </Box>
   );

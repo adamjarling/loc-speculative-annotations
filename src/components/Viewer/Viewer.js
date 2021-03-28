@@ -26,7 +26,7 @@ const osdOptions = {
     scrollToZoom: true,
   },
   // minZoomLevel: minZoomLevel,
-  // maxZoomLevel: 2,
+  maxZoomLevel: 4,
   showNavigationControl: true,
   springStiffness: isBrowser ? 20 : 10,
   viewportMargin: {
