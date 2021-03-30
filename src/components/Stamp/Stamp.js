@@ -10,16 +10,21 @@ import {
 } from 'context/fabric-overlay-context';
 import StampPicker from 'components/Stamp/Picker';
 import { useToast } from '@chakra-ui/react';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 function Stamp({ isActive }) {
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
-  const toast = useToast();
+  const { deselectAll } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeStamp: null,
     color,
-    isActive, // Is the Shape tool itself active
+    currentDragShape: null,
+    isActive, // Is the Stamp tool itself active
+    isMouseDown: false,
+    origX: null, // starting X point for drag creating an object
+    origY: null, // starting Y point for drag creating an object
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -32,71 +37,197 @@ function Stamp({ isActive }) {
    */
   React.useEffect(() => {
     setMyState({ ...myState, color, isActive });
-
-    if (isActive) {
-      toast({
-        title: 'Stamps Hint!',
-        description: 'Drag and drop a stamp onto the canvas',
-        status: 'info',
-        duration: 5000,
-        isClosable: true,
-      });
-    }
   }, [color, isActive]);
 
   /**
-   * Handle mouse events to interact with Fabric canvas
+   * Handle an individual stamp being selected
    */
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
 
-    function handleDragEnter(o) {}
+    if (myState.activeStamp) {
+      canvas.defaultCursor = 'crosshair';
 
-    function handleDrop(o) {
+      // Disable OSD mouseclicks
+      viewer.setMouseNavEnabled(false);
+      viewer.outerTracker.setTracking(false);
+
+      // Deselect all Fabric Canvas objects
+      deselectAll();
+    } else {
+      canvas.defaultCursor = 'auto';
+
+      // Enable OSD mouseclicks
+      viewer.setMouseNavEnabled(true);
+      viewer.outerTracker.setTracking(true);
+    }
+  }, [myState.activeStamp]);
+
+  /**
+   * Add stamp object and handle mouse events
+   */
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
+    const canvas = fabricOverlay.fabricCanvas();
+
+    /**
+     * Mouse down
+     */
+    function handleMouseDown(options) {
       if (
-        //o.target ||
+        options.target ||
         !myStateRef.current.activeStamp ||
         !myStateRef.current.isActive
       ) {
         return;
       }
 
-      const c = myStateRef.current;
-      const pointer = canvas.getPointer(o.e);
+      // Save starting mouse down coordinates
+      let pointer = canvas.getPointer(options.e);
+      let origX = pointer.x;
+      let origY = pointer.y;
 
-      // In case we need to reference the draggable element in the future...
-      const dragEl = document.getElementById(myStateRef.current.activeStamp.id);
+      // REMEMBER: SVG elements don't support the "width" and "height" properties directly
+      // Must use scaleToWidth() and scaleToHeight() FabricJS methods
+      const shapeOptions = {
+        left: origX,
+        top: origY,
+        perPixelTargetFind: true,
+      };
 
-      fabric.loadSVGFromURL(c.activeStamp.src, function (objects, options) {
-        const shape = fabric.util.groupSVGElements(objects, options);
+      let shape = null;
 
-        if (shape.type === 'group') {
-          // The SVG file has multiple objects
-          const shapeObjects = shape.getObjects();
-          shapeObjects.forEach((obj, i) => (shape.item(i).fill = c.color.hex));
-          shape.addWithUpdate();
-        } else {
-          // SVG file only has one solid object
-          shape.fill = c.color.hex;
+      fabric.loadSVGFromURL(
+        myStateRef.current.activeStamp.src,
+        function (objects, options) {
+          shape = fabric.util.groupSVGElements(objects, options);
+
+          if (shape.type === 'group') {
+            // The SVG file has multiple objects
+            const shapeObjects = shape.getObjects();
+            shapeObjects.forEach(
+              (obj, i) => (shape.item(i).fill = myStateRef.current.color.hex)
+            );
+            shape.addWithUpdate();
+          } else {
+            // SVG file only has one solid object
+            shape.fill = myStateRef.current.color.hex;
+          }
+
+          shape.set(shapeOptions);
+          canvas.add(shape).renderAll();
+
+          setMyState({
+            ...myStateRef.current,
+            currentDragShape: shape,
+            isMouseDown: true,
+            origX,
+            origY,
+          });
         }
+      );
+    }
 
-        shape.set({
-          left: pointer.x,
-          top: pointer.y,
+    /**
+     * Mouse move
+     */
+    function handleMouseMove(options) {
+      if (
+        //options.target ||
+        !myStateRef.current.activeStamp ||
+        !myStateRef.current.isActive ||
+        !myStateRef.current.currentDragShape
+      ) {
+        return;
+      }
+      const c = myStateRef.current;
+
+      // Dynamically drag size element to the canvas
+      const pointer = fabricOverlay.fabricCanvas().getPointer(options.e);
+      const width = Math.abs(c.origX - pointer.x);
+      const height = Math.abs(c.origY - pointer.y);
+
+      /**
+       * Drag size
+       */
+      if (c.origX > pointer.x) {
+        c.currentDragShape.set({
+          left: Math.abs(pointer.x),
         });
-        canvas.add(shape).renderAll();
+      }
+      if (c.origY > pointer.y) {
+        c.currentDragShape.set({ top: Math.abs(pointer.y) });
+      }
+      c.currentDragShape.scaleToWidth(width);
+      c.currentDragShape.scaleToHeight(height);
+
+      fabricOverlay.fabricCanvas().renderAll();
+    }
+
+    /**
+     * Mouse up
+     */
+    function handleMouseUp(options) {
+      if (
+        !myStateRef.current.isActive ||
+        !myStateRef.current.currentDragShape
+      ) {
+        return;
+      }
+
+      fabricOverlay
+        .fabricCanvas()
+        .setActiveObject(myStateRef.current.currentDragShape);
+
+      fabricOverlay.fabricCanvas().renderAll();
+
+      setMyState({
+        ...myStateRef.current,
+        currentDragShape: null,
+        isMouseDown: false,
+      });
+    }
+
+    function handleSelectionCleared(options) {
+      if (!myStateRef.current.isActive) return;
+
+      setMyState({
+        ...myStateRef.current,
+      });
+    }
+
+    function handleSelected(options) {
+      if (!myStateRef.current.isActive) return;
+
+      // Filter out any non-stamp selections
+      const optionsTargetType = options.target.get('type');
+      // if (
+      //   !FABRIC_SHAPE_TYPES.find(shapeType => shapeType === optionsTargetType)
+      // )
+      //   return;
+
+      setMyState({
+        ...myStateRef.current,
       });
     }
 
     // Add click handlers
-    canvas.on('dragenter', handleDragEnter);
-    canvas.on('drop', handleDrop);
+    canvas.on('mouse:down', handleMouseDown);
+    canvas.on('mouse:move', handleMouseMove);
+    canvas.on('mouse:up', handleMouseUp);
+    canvas.on('selection:created', handleSelected);
+    canvas.on('selection:updated', handleSelected);
+    canvas.on('selection:cleared', handleSelectionCleared);
 
     // Remove handler
     return function clearFabricEventHandlers() {
-      canvas.off('dragenter', handleDragEnter);
-      canvas.off('drop', handleDrop);
+      canvas.off('mouse:down', handleMouseDown);
+      canvas.off('mouse:move', handleMouseMove);
+      canvas.off('mouse:up', handleMouseUp);
+      canvas.off('selection:created', handleSelected);
+      canvas.off('selection:updated', handleSelected);
+      canvas.off('selection:cleared', handleSelectionCleared);
     };
   }, [fabricOverlay]);
 
