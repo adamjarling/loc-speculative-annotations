@@ -10,12 +10,19 @@ export default function useCanvasHelpers() {
     setCanvas(fabricOverlay.fabricCanvas());
   }, [fabricOverlay]);
 
-  // Remove all Fabric canvas objects
+  /**
+   * Remove all Fabric canvas objects
+   * @returns void
+   */
   const clearCanvas = () => {
     if (!canvas) return;
     canvas.clear();
   };
 
+  /**
+   * Remove all user objects from canvas
+   * @returns void
+   */
   const clearUserObjects = () => {
     if (!canvas) return;
     const userObjects = getUserObjects();
@@ -24,7 +31,10 @@ export default function useCanvasHelpers() {
     }
   };
 
-  // Deselect all Fabric canvas objects
+  /**
+   * Deselect all Fabric canvas objects
+   * @returns void
+   */
   const deselectAll = () => {
     if (!canvas) return;
 
@@ -32,6 +42,23 @@ export default function useCanvasHelpers() {
     canvas.requestRenderAll();
   };
 
+  /**
+   * Get all non-selectable objects
+   * @returns {Array}
+   */
+  const getNonSelectableObjects = () => {
+    if (!canvas) return;
+    const objects = canvas.getObjects();
+    const nonSelectableObjects = objects.filter(
+      obj => obj.selectable === false
+    );
+    return nonSelectableObjects;
+  };
+
+  /**
+   * Get all user added objects
+   * @returns {Array}
+   */
   const getUserObjects = () => {
     if (!canvas) return;
     const objects = canvas.getObjects();
@@ -55,6 +82,26 @@ export default function useCanvasHelpers() {
     canvas.renderAll();
   };
 
+  /**
+   * Remove an array of Fabric canvas objects
+   * @param {Array} objects Fabric JS objects
+   * @returns void
+   */
+  const removeObjectsFromCanvas = (objects = []) => {
+    if (!canvas) return;
+    objects.forEach(obj => canvas.remove(obj));
+  };
+
+  const setDefaultCursor = (defaultCursor = 'auto') => {
+    if (!canvas) return;
+    canvas.defaultCursor = defaultCursor;
+  };
+
+  const setHoverCursor = (hoverCursor = 'move') => {
+    if (!canvas) return;
+    canvas.hoverCursor = hoverCursor;
+  };
+
   const updateCursor = () => {
     if (!canvas) return;
 
@@ -66,9 +113,13 @@ export default function useCanvasHelpers() {
     clearCanvas,
     clearUserObjects,
     deselectAll,
+    getNonSelectableObjects,
     getUserObjects,
     makeObjectsInvisible,
     makeObjectsVisible,
+    removeObjectsFromCanvas,
+    setDefaultCursor,
+    setHoverCursor,
     updateCursor,
   };
 }

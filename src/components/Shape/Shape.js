@@ -125,7 +125,6 @@ function Shape({ isActive }) {
             width: pointer.x - origX,
             height: pointer.y - origY,
           });
-          console.log(`newShape`, newShape);
           fabricOverlay.fabricCanvas().add(newShape);
           break;
 

@@ -8,6 +8,7 @@ import {
 import { useParams } from 'react-router-dom';
 import useIIIFManifests from 'hooks/use-iiif-manifests';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
+import { fabric } from 'openseadragon-fabricjs-overlay';
 
 const fontSize = ['xs', 'xs', 'xs', 'sm'];
 const defaultState = {
@@ -20,13 +21,15 @@ export default function ShowHideAnnotations() {
   const dispatch = useFabricOverlayDispatch();
   const params = useParams();
   const [state, setState] = React.useState(defaultState);
-  const [curatorKlassObjects, setCuratorKlassObjects] = React.useState();
+  const [curatorObjects, setCuratorObjects] = React.useState();
   const { findManifest, getCuratorAnnotation } = useIIIFManifests();
   const {
     deselectAll,
+    getNonSelectableObjects,
     getUserObjects,
     makeObjectsInvisible,
     makeObjectsVisible,
+    removeObjectsFromCanvas,
   } = useFabricHelpers();
 
   async function getManifestData() {
@@ -40,14 +43,9 @@ export default function ShowHideAnnotations() {
     // Make curator annotation objects uneditable
     curatorObj.objects.forEach(obj => {
       obj.selectable = false;
-      obj.opacity = 0;
     });
 
-    // Load invisible curator annotion onto screen
-    fabricOverlay.fabricCanvas().loadFromJSON(curatorObj);
-
-    // Save curator klass objects so we can easily reference them to show/hide
-    setCuratorKlassObjects(fabricOverlay.fabricCanvas().getObjects());
+    setCuratorObjects(curatorObj.objects);
   }
 
   React.useEffect(() => {
@@ -58,8 +56,8 @@ export default function ShowHideAnnotations() {
   // Handle a new or changed Work
   React.useEffect(() => {
     setState(defaultState);
-    if (curatorKlassObjects) {
-      setCuratorKlassObjects(null);
+    if (curatorObjects) {
+      setCuratorObjects(null);
     }
     getManifestData();
   }, [params.id]);
@@ -85,11 +83,14 @@ export default function ShowHideAnnotations() {
   const handleCuratorCheckboxChange = () => {
     if (state.isCuratorVisible) {
       // Disable Curator
-      makeObjectsInvisible(curatorKlassObjects);
+      const curatorObjects = getNonSelectableObjects();
+      removeObjectsFromCanvas(curatorObjects);
       setState({ ...state, isCuratorVisible: false });
     } else {
       // Enable Curator
-      makeObjectsVisible(curatorKlassObjects);
+      fabric.util.enlivenObjects(curatorObjects, objects => {
+        fabricOverlay.fabricCanvas().add(...objects);
+      });
       setState({ ...state, isCuratorVisible: true });
     }
   };
@@ -109,7 +110,7 @@ export default function ShowHideAnnotations() {
       >
         <Text fontSize={fontSize}>Your Annotations</Text>
       </Checkbox>
-      {curatorKlassObjects && (
+      {curatorObjects && (
         <Checkbox
           isChecked={state.isCuratorVisible}
           onChange={handleCuratorCheckboxChange}
