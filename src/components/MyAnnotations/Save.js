@@ -4,7 +4,6 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  IconButton,
   Input,
   Modal,
   ModalOverlay,
@@ -13,16 +12,13 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
-import PropTypes from 'prop-types';
 import { FaSave } from 'react-icons/fa';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
-import useButtonSize from 'hooks/use-button-size';
 import { useParams } from 'react-router-dom';
 import AltButton from 'components/AltButton';
 
@@ -36,7 +32,6 @@ export default function MyAnnotationsSave() {
     userCanvases,
   } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
-  const buttonSize = useButtonSize();
 
   React.useEffect(() => {
     setTitle(activeUserCanvas);

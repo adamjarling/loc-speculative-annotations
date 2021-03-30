@@ -9,7 +9,6 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import StampPicker from 'components/Stamp/Picker';
-import { useToast } from '@chakra-ui/react';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 function Stamp({ isActive }) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Divider, Wrap, WrapItem } from '@chakra-ui/react';
 import Stamp from 'components/Stamp/Stamp';
 import Draw from 'components/Draw/Draw';
@@ -7,7 +6,6 @@ import Shape from 'components/Shape/Shape';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import TypeText from 'components/TypeText/TypeText';
 import Highlighter from 'components/Highlighter/Highlighter';
-import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
 import useFabricHelpers from 'hooks/use-fabric-helpers';

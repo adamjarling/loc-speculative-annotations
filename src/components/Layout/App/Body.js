@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 function LayoutAppBody({ children }) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Divider, IconButton, Text, VStack } from '@chakra-ui/react';
+import { IconButton, Text, VStack } from '@chakra-ui/react';
 import { BsCircle, BsSquare } from 'react-icons/bs';
 import { useWindowHeight } from '@react-hook/window-size';
 import { isMobile, isTablet } from 'react-device-detect';

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, HStack } from '@chakra-ui/react';
+import { HStack } from '@chakra-ui/react';
 import { brandColors } from 'styles/brandPalette';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
-import { Fade, ScaleFade, Slide, SlideFade } from '@chakra-ui/react';
+import { Fade } from '@chakra-ui/react';
 
 function ColorOptionsPanel({ color, handleColorSelect, isVisible }) {
   // if (!isVisible) return null;

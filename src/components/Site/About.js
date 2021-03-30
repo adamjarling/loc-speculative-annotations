@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Divider, Heading, Stack, Text } from '@chakra-ui/react';
 
-function SiteAbout(props) {
+function SiteAbout() {
   return (
     <Box as="section" mt={6}>
       <Stack spacing={6}>
@@ -41,7 +40,5 @@ function SiteAbout(props) {
     </Box>
   );
 }
-
-SiteAbout.propTypes = {};
 
 export default SiteAbout;

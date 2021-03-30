@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Container, Divider } from '@chakra-ui/react';
 import LayoutHeader from 'components/Layout/Header';
 import SiteAbout from 'components/Site/About';
 import SiteTeach from 'components/Site/Teach';
 import { useLocation } from 'react-router-dom';
 
-function LayoutSite(props) {
+function LayoutSite() {
   const teachRef = React.useRef(null);
   const location = useLocation();
 
@@ -29,7 +28,5 @@ function LayoutSite(props) {
     </Box>
   );
 }
-
-LayoutSite.propTypes = {};
 
 export default LayoutSite;

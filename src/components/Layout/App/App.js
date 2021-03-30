@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Toolbar from 'components/Toolbar/Toolbar';
 import ViewerContainer from 'components/Viewer/Container';
 import LayoutHeader from 'components/Layout/Header';

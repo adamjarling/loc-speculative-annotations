@@ -2,7 +2,7 @@ import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 export default function useCanvasHelpers() {
-  const { activeTool, fabricOverlay } = useFabricOverlayState();
+  const { fabricOverlay } = useFabricOverlayState();
   const [canvas, setCanvas] = React.useState();
 
   React.useEffect(() => {

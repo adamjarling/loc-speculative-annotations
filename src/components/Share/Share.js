@@ -1,32 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  Portal,
   useToast,
 } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
 import { RiShareForwardFill } from 'react-icons/ri';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ShareLinkDisplay from 'components/Share/LinkDisplay';
-import useButtonSize from 'hooks/use-button-size';
-import useColorModeColors from 'hooks/use-color-mode-colors';
 
 var codec = require('json-url')('lzma');
 
 // Url parameter key to use when appending data to the url
 const queryURLParam = 'sharedCanvas';
-function Share(props) {
+function Share() {
   const toast = useToast();
   const { fabricOverlay } = useFabricOverlayState();
   const [showLink, setShowLink] = React.useState();
   const [linkUrl, setLinkUrl] = React.useState('');
-  const buttonSize = useButtonSize();
-  const { bg } = useColorModeColors();
 
   const handleSharableLinkClick = () => {
     if (showLink) {
@@ -90,7 +83,5 @@ function Share(props) {
     </div>
   );
 }
-
-Share.propTypes = {};
 
 export default Share;

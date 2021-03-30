@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
@@ -7,7 +6,7 @@ import {
 } from 'context/fabric-overlay-context';
 import ColorOptionsPanel from 'components/Color/OptionsPanel';
 
-function Color(props) {
+function Color() {
   const dispatch = useFabricOverlayDispatch();
   const { activeTool, color, fabricOverlay } = useFabricOverlayState();
 
@@ -68,7 +67,5 @@ function Color(props) {
     </Box>
   );
 }
-
-Color.propTypes = {};
 
 export default Color;

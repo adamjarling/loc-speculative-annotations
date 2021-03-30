@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { DeleteIcon } from '@chakra-ui/icons';
 import ToolbarButton from 'components/Toolbar/Button';

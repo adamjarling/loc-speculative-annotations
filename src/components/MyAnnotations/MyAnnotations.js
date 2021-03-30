@@ -1,16 +1,13 @@
 import React from 'react';
 import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
-import { AddIcon } from '@chakra-ui/icons';
-import { FaPencilAlt } from 'react-icons/fa';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
-import useButtonSize from 'hooks/use-button-size';
 import MyAnnotationsList from 'components/MyAnnotations/List';
 import MyAnnotationsDelete from 'components/MyAnnotations/Delete';
 import { useHistory } from 'react-router-dom';
-import { isBrowser, isMobile, isTablet } from 'react-device-detect';
+import { isBrowser, isTablet } from 'react-device-detect';
 
 function MyAnnotations() {
   const history = useHistory();
@@ -23,8 +20,6 @@ function MyAnnotations() {
   const [selectedCanvas, setSelectedCanvas] = React.useState();
   const [isListOpen, setIsListOpen] = React.useState();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false);
-
-  const buttonSize = useButtonSize();
 
   const handleChangeCanvas = canvasTitle => {
     setSelectedCanvas(canvasTitle);

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaPaintBrush } from 'react-icons/fa';
-import { Box, Divider } from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -9,8 +8,6 @@ import DrawWidthPicker from 'components/Draw/WidthPicker';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { widths } from 'components/Draw/WidthPicker';
-import logo from 'images/logo.png';
-import useHexRGB from 'hooks/use-hex-rgb';
 
 const getDrawCursor = (brushSize, brushColor) => {
   brushSize = brushSize < 12 ? 8 : brushSize;
@@ -43,7 +40,6 @@ function Draw({ isActive }) {
   const [width, setWidth] = React.useState(widths[0]);
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
-  const { hexToRGBA } = useHexRGB();
 
   const [myState, _setMyState] = React.useState({
     isActive,

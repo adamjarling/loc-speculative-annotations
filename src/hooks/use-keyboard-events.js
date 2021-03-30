@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 // https://stackoverflow.com/questions/44320104/fabricjs-how-to-move-the-selected-object-by-keyboard
@@ -34,6 +33,8 @@ export default function useKeyboardEvents() {
           case 'DOWN':
             activeObject.top = activeObject.top + STEP;
             break;
+          default:
+            break;
         }
         activeObject.setCoords();
         canvas.renderAll();
@@ -52,6 +53,8 @@ export default function useKeyboardEvents() {
             break;
           case direction.DOWN:
             activeGroup.top = activeGroup.top + STEP;
+            break;
+          default:
             break;
         }
         activeGroup.setCoords();
