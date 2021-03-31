@@ -4,58 +4,34 @@ import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
 import useButtonSize from 'hooks/use-button-size';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { useParams } from 'react-router-dom';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 import 'fabric-history/src/index';
 function UndoRedo() {
   const buttonSize = useButtonSize();
   const { fabricOverlay } = useFabricOverlayState();
   const [canvas, setCanvas] = React.useState();
   const params = useParams();
+  const { clearCanvas } = useFabricHelpers();
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
     const canvasLocal = fabricOverlay.fabricCanvas();
     setCanvas(canvasLocal);
     canvasLocal.clearHistory();
-
-    function handleHistoryAppend(e) {
-      console.log(`e`, e);
-    }
-
-    function handleHistoryUndo(e) {
-      console.log(`e`, e);
-    }
-
-    function handleHistoryRedo(e) {
-      console.log(`e`, e);
-    }
-
-    // Add click handlers
-    canvasLocal.on('history:append', handleHistoryAppend);
-    canvasLocal.on('history:undo', handleHistoryUndo);
-    canvasLocal.on('history:redo', handleHistoryRedo);
-
-    // Remove handler
-    return function clearFabricEventHandlers() {
-      canvasLocal.off('history:append', handleHistoryAppend);
-      canvasLocal.off('history:undo', handleHistoryUndo);
-      canvasLocal.off('history:redo', handleHistoryRedo);
-    };
   }, [fabricOverlay]);
 
   React.useEffect(() => {
     if (!params || !canvas) return;
-    console.log(`useEffect params.id`, canvas);
-    canvas.clearHistory();
+    fabricOverlay.fabricCanvas().clearHistory();
+    fabricOverlay.fabricCanvas().clear();
   }, [params.id]);
 
   const handleUndo = () => {
-    console.log(`canvas`, canvas);
-    canvas.undo();
+    fabricOverlay.fabricCanvas().undo();
   };
 
   const handleRedo = () => {
-    console.log(`canvas`, canvas);
-    canvas.redo();
+    fabricOverlay.fabricCanvas().redo();
   };
 
   return (

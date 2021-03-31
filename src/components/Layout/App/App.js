@@ -21,12 +21,7 @@ function LayoutApp() {
   }, [fabricOverlay]);
 
   return (
-    <Flex
-      as={Div100vh}
-      h="100vh"
-      direction="column"
-      //onKeyDown={handleEvent}
-    >
+    <Flex as={Div100vh} h="100vh" direction="column">
       <ShareQueryParamHandler />
       <LayoutHeader />
       <AdjustmentBar />

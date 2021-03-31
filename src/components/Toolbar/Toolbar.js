@@ -21,7 +21,7 @@ function Toolbar() {
    */
   React.useEffect(() => {
     deselectAll();
-    updateCursor();
+    //updateCursor();
   }, [activeTool]);
 
   return (

@@ -21,11 +21,6 @@ import { useHistory } from 'react-router-dom';
 import AltButton from 'components/AltButton';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 
-const activeStyles = {
-  border: '4px',
-  borderColor: 'brand.green.500',
-};
-
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeWork, setActiveWork] = React.useState();
@@ -37,7 +32,7 @@ function WorksListModal() {
   };
 
   const handleSelectItem = () => {
-    clearCanvas();
+    //clearCanvas();
     onClose();
     history.push(`/${activeWork.id}`);
   };
@@ -69,12 +64,7 @@ function WorksListModal() {
                     href="#"
                     onClick={() => handleImageClick(image)}
                   >
-                    <Image
-                      src={image.url}
-                      alt={image.alt}
-                      {...(activeWork &&
-                        activeWork.id === image.id && { ...activeStyles })}
-                    />
+                    <Image src={image.url} alt={image.alt} />
                   </Link>
                 </WrapItem>
               ))}

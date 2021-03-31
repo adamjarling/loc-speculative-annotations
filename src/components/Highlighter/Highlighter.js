@@ -6,6 +6,7 @@ import {
 } from 'context/fabric-overlay-context';
 import ToolbarButton from 'components/Toolbar/Button';
 import useHexRGB from 'hooks/use-hex-rgb';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 const brushWidth = 100;
 
@@ -13,6 +14,7 @@ function Highlighter({ isActive }) {
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const { hexToRGBA } = useHexRGB();
+  const { setDefaultCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     isActive,
@@ -25,6 +27,9 @@ function Highlighter({ isActive }) {
 
   React.useEffect(() => {
     setMyState({ isActive });
+    if (isActive) {
+      setDefaultCursor('crosshair');
+    }
   }, [isActive]);
 
   React.useEffect(() => {
