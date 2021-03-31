@@ -20,6 +20,7 @@
     "json-url": "^2.6.0",
     "lodash.debounce": "^4.0.8",
     "manifesto.js": "^4.2.3",
+    "mousetrap": "^1.6.5",
     "openseadragon": "^2.4.2",
     "openseadragon-fabricjs-overlay": "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git",
     "react": "^17.0.1",

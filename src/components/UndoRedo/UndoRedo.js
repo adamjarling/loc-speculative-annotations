@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { IconButton, Tooltip } from '@chakra-ui/react';
 import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
 import useButtonSize from 'hooks/use-button-size';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { useParams } from 'react-router-dom';
 import 'fabric-history/src/index';
-
-function UndoRedo(props) {
+function UndoRedo() {
   const buttonSize = useButtonSize();
   const { fabricOverlay } = useFabricOverlayState();
   const [canvas, setCanvas] = React.useState();
@@ -15,7 +13,6 @@ function UndoRedo(props) {
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
-    console.log(`useEffect fabricOverlay`, fabricOverlay.fabricCanvas());
     const canvasLocal = fabricOverlay.fabricCanvas();
     setCanvas(canvasLocal);
     canvasLocal.clearHistory();
@@ -24,12 +21,24 @@ function UndoRedo(props) {
       console.log(`e`, e);
     }
 
+    function handleHistoryUndo(e) {
+      console.log(`e`, e);
+    }
+
+    function handleHistoryRedo(e) {
+      console.log(`e`, e);
+    }
+
     // Add click handlers
     canvasLocal.on('history:append', handleHistoryAppend);
+    canvasLocal.on('history:undo', handleHistoryUndo);
+    canvasLocal.on('history:redo', handleHistoryRedo);
 
     // Remove handler
     return function clearFabricEventHandlers() {
       canvasLocal.off('history:append', handleHistoryAppend);
+      canvasLocal.off('history:undo', handleHistoryUndo);
+      canvasLocal.off('history:redo', handleHistoryRedo);
     };
   }, [fabricOverlay]);
 

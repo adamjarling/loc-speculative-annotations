@@ -1,25 +1,30 @@
+import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
+const Mousetrap = require('mousetrap');
+
+// Distance value when moving a selected item
+const STEP = 10;
 
 // https://stackoverflow.com/questions/44320104/fabricjs-how-to-move-the-selected-object-by-keyboard
 export default function useKeyboardEvents() {
   const { fabricOverlay } = useFabricOverlayState();
 
-  function handleEvent(e) {
-    console.log(`e`, e);
-    if (e.repeat) {
-      return;
-    }
-
-    var key = e.key;
+  React.useEffect(() => {
+    if (!fabricOverlay) return;
     const canvas = fabricOverlay.fabricCanvas();
-    const activeObject = canvas.getActiveObject();
-    //const activeGroup = canvas.getActiveGroup();
-    let activeGroup;
-    if (!activeObject) return;
 
-    const STEP = 10;
-
+    /**
+     * Helper function to handle arrow keyboard events
+     * @param {String} direction Move direction ["LEFT", "TOP", "RIGHT", "DOWN"]
+     * @returns void
+     */
     function moveSelected(direction) {
+      const activeObject = canvas.getActiveObject();
+      //const activeGroup = canvas.getActiveGroup();
+      let activeGroup;
+      if (!activeObject) return;
+
       if (activeObject) {
         switch (direction) {
           case 'LEFT':
@@ -66,20 +71,59 @@ export default function useKeyboardEvents() {
       }
     }
 
-    if (key === 'ArrowLeft') {
-      // handle Left key
+    /**
+     * Handle keyboard events
+     */
+
+    /**
+     * Undo and Redo
+     */
+    Mousetrap.bind(['command+z', 'ctrl+z', 'alt+backspace'], function () {
+      console.log('undo');
+      canvas.undo();
+    });
+
+    /**
+     * Redo
+     */
+    Mousetrap.bind(['command+shift+z', 'ctrl+y', 'ctrl+shift+z'], function () {
+      console.log('redo');
+      canvas.redo();
+    });
+
+    /**
+     * Move left
+     */
+    Mousetrap.bind(['left'], function () {
       moveSelected('LEFT');
-    } else if (key === 'ArrowUp') {
-      // handle Up key
+    });
+
+    /**
+     * Move up
+     */
+    Mousetrap.bind(['up'], function () {
       moveSelected('UP');
-    } else if (key === 'ArrowRight') {
-      // handle Right key
+    });
+
+    /**
+     * Move right
+     */
+    Mousetrap.bind(['right'], function () {
       moveSelected('RIGHT');
-    } else if (key === 'ArrowDown') {
-      // handle Down key
+    });
+
+    /**
+     * Move down
+     */
+    Mousetrap.bind(['down'], function () {
       moveSelected('DOWN');
-    } else if (key === 'Backspace' || key === 'Clear') {
-      // Handle Delete key
+    });
+
+    /**
+     * Delete
+     */
+    Mousetrap.bind(['backspace', 'del'], function () {
+      const activeObject = canvas.getActiveObject();
       // Object has children (ie. arrow has children objects triangle and line)
       if (activeObject.getObjects) {
         let objs = activeObject.getObjects();
@@ -88,29 +132,6 @@ export default function useKeyboardEvents() {
         }
       }
       canvas.remove(activeObject);
-    }
-  }
-
-  function handleKeyUp(e) {
-    const canvas = fabricOverlay.fabricCanvas();
-    console.log(`handleKeyUp`, e);
-    const { keyCode, ctrlKey } = e;
-
-    // Check Ctrl key is pressed.
-    if (!ctrlKey) {
-      return;
-    }
-
-    // Check pressed button is Z - Ctrl+Z.
-    if (keyCode === 90) {
-      canvas.undo();
-    }
-
-    // Check pressed button is Y - Ctrl+Y.
-    if (keyCode === 89) {
-      canvas.redo();
-    }
-  }
-
-  return { handleEvent, handleKeyUp };
+    });
+  }, [fabricOverlay]);
 }

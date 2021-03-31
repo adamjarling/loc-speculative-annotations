@@ -13,7 +13,7 @@ import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import AdjustmentBar from 'components/AdjustmentBar/AdjustmentBar';
 function LayoutApp() {
   const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
-  const { handleEvent } = useKeyboardEvents();
+  useKeyboardEvents();
 
   React.useEffect(() => {
     if (!fabricOverlay) return;
@@ -21,7 +21,12 @@ function LayoutApp() {
   }, [fabricOverlay]);
 
   return (
-    <Flex as={Div100vh} h="100vh" direction="column" onKeyDown={handleEvent}>
+    <Flex
+      as={Div100vh}
+      h="100vh"
+      direction="column"
+      //onKeyDown={handleEvent}
+    >
       <ShareQueryParamHandler />
       <LayoutHeader />
       <AdjustmentBar />
