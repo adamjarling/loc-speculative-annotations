@@ -4,10 +4,13 @@ import SALogo from 'components/SALogo';
 import { Link as RRLink, useHistory } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import { BiPencil } from 'react-icons/bi';
+import { useLocation, useParams } from 'react-router-dom';
 
 function LayoutHeader() {
   const history = useHistory();
   const fontSizes = ['xs', 'sm', 'md'];
+  const params = useParams();
+  console.log(`params`, params);
 
   return (
     <Box as="header">
@@ -28,7 +31,11 @@ function LayoutHeader() {
           <Link as={RRLink} to="/about#teach">
             Teach
           </Link>
-          <Button leftIcon={<BiPencil />} onClick={() => history.push('/')}>
+          <Button
+            leftIcon={<BiPencil />}
+            onClick={() => history.push('/')}
+            disabled={params.id}
+          >
             Annotate
           </Button>
         </HStack>
