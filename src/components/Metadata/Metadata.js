@@ -13,7 +13,10 @@ import {
   Heading,
   IconButton,
   Link,
+  Text,
   Tooltip,
+  Wrap,
+  WrapItem,
   useBreakpointValue,
   useDisclosure,
   useToast,
@@ -22,6 +25,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { useParams } from 'react-router-dom';
 import { locImages } from 'services/loc-images';
 import { loadManifest, parseManifest } from 'manifesto.js';
+import useIIIFManifests from 'hooks/use-iiif-manifests';
 
 function MetadataHeading({ children }) {
   return (
@@ -40,33 +44,33 @@ function Metadata() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [currentWork, setCurrentWork] = React.useState();
-  const [manifest, setManifest] = React.useState();
+  const [metadata, setMetadata] = React.useState();
   const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
+  const { filterMetadata, findManifest, getQuestions } = useIIIFManifests();
 
   async function getManifestData() {
     try {
-      const m = await loadManifest(
-        'iiif/speculative-annotations-manifest.json'
-      );
-      const manifests = parseManifest(m).getManifests();
-
-      // Find current work manifest
-      const currentManifest = manifests.find(manifest => {
-        const id = manifest.id.split('/')[1];
-        return params.id === id;
-      });
-
+      const currentManifest = await findManifest(params.id);
       if (!currentManifest) return;
 
+      // Fetch the Library of Congress hosted manifest for a work
+      const locManifestResponse = await loadManifest(currentManifest.id);
+      const locManifest = parseManifest(locManifestResponse);
+
       // Build up the parsed metadata into an object we feed to the component for display
+      // Start with applying Library of Congress manifest info
       const obj = {
-        contact: currentManifest.getProperty('provider')[0].id,
-        label: currentManifest.getLabel().getValue(),
-        metadata: currentManifest.getMetadata(),
-        summary: currentManifest.getProperty('summary')['en'][0],
-        workUrl: currentManifest.getProperty('homepage')[0].id,
+        label: locManifest.getLabel().getValue(),
+        metadata: filterMetadata(locManifest.getMetadata()),
       };
 
+      // And then apply the application's supplemental information
+      obj.contact = currentManifest.getProperty('provider')[0].id;
+      obj.questions = getQuestions(currentManifest);
+      obj.summary = currentManifest.getProperty('summary')['en'][0];
+      obj.workUrl = currentManifest.getProperty('homepage')[0].id;
+
+      // Fetch work's collection information
       const collectionManifest = await loadManifest(
         currentManifest.getProperty('partOf')[0].id
       );
@@ -79,7 +83,7 @@ function Metadata() {
         };
       }
 
-      setManifest(obj);
+      setMetadata(obj);
     } catch (e) {
       console.error('Error loading / parsing IIIF manifest', e);
       toast({
@@ -126,39 +130,49 @@ function Metadata() {
           {currentWork && (
             <DrawerContent>
               <DrawerCloseButton />
-              <DrawerHeader>{manifest.label || ''}</DrawerHeader>
+              <DrawerHeader>{metadata.label || ''}</DrawerHeader>
 
               <DrawerBody>
-                <MetadataBody>{manifest.summary || ''}</MetadataBody>
+                <MetadataBody>{metadata.summary || ''}</MetadataBody>
 
-                {manifest.metadata.map((m, i) => (
+                {metadata.metadata.map((m, i) => (
                   <div key={i}>
                     <MetadataHeading>{m.getLabel()}</MetadataHeading>
                     <MetadataBody>{m.getValue()}</MetadataBody>
                   </div>
                 ))}
 
+                <MetadataHeading>Questions</MetadataHeading>
+                <MetadataBody>
+                  <Wrap direction="column">
+                    {metadata.questions.map((q, i) => (
+                      <WrapItem key={i}>{q}</WrapItem>
+                    ))}
+                  </Wrap>
+                </MetadataBody>
+
                 <MetadataHeading>Contact</MetadataHeading>
                 <MetadataBody>
-                  <Link href={manifest.contact} isExternal>
-                    {manifest.contact} <ExternalLinkIcon mx="2px" />
+                  <Link href={metadata.contact} isExternal>
+                    {metadata.contact} <ExternalLinkIcon mx="2px" />
                   </Link>
                 </MetadataBody>
 
-                {manifest.collection && (
+                {metadata.collection && (
                   <>
                     <MetadataHeading>Collection</MetadataHeading>
                     <MetadataBody>
-                      <Link href={manifest.collection?.url} isExternal>
-                        {manifest.collection?.label}{' '}
+                      <Link href={metadata.collection?.url} isExternal>
+                        {metadata.collection?.label}{' '}
                         <ExternalLinkIcon mx="2px" />
                       </Link>
                     </MetadataBody>
                   </>
                 )}
 
+                <MetadataHeading>LOC Image</MetadataHeading>
                 <MetadataBody>
-                  <Link href={manifest.workUrl} isExternal>
+                  <Link href={metadata.workUrl} isExternal>
                     View image <ExternalLinkIcon mx="2px" />
                   </Link>
                 </MetadataBody>

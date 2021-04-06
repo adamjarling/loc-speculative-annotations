@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/3/context.json",
-  "id": "http://localhost:3001/iiif/wpa-posters/manifest",
+  "id": "iiif/wpa-posters/manifest",
   "type": "Manifest",
   "label": { "en": ["WPA Posters"] },
   "homepage": [

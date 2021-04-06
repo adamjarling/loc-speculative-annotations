@@ -13,32 +13,9 @@
 
   "items": [
     {
-      "id": "iiif/national-park/manifest",
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/2007676133/manifest.json",
       "type": "Manifest",
-      "label": { "en": ["Yellowstone National Park poster"] },
-      "metadata": [
-        {
-          "label": { "en": ["Creator"] },
-          "value": { "en": ["Don C. (Chester) Powell"] }
-        },
-        {
-          "label": { "en": ["Date"] },
-          "value": { "en": ["1938?"] }
-        },
-        {
-          "label": { "en": ["Questions"] },
-          "value": {
-            "en": [
-              "Why do you think this poster was made?",
-              "What do the artists want people to do or learn?"
-            ]
-          }
-        },
-        {
-          "label": { "en": ["Library of Congress Collection"] },
-          "value": { "en": ["1938?"] }
-        }
-      ],
       "summary": {
         "en": [
           "This poster shows Old Faithful erupting at Yellowstone National Park. At first, posters were created by hand, individually painted and lettered. Later on, the divisions' artists usually used the silkscreen process, which was adapted and refined for the mass production of posters by project artist Anthony Velonis in 1936. The printing of a poster was a collaborative effort. Artists were responsible for the poster's design, color selection, and sometimes the cutting of the stencils used to print the poster. The workshop's technical staff screened the posters. With this silkscreening process, as many as six hundred posters were printed in a day."
@@ -82,28 +59,28 @@
       ],
       "items": [
         {
-          "id": "iiif/national-park/canvas/info.json",
+          "id": "iiif/2007676133/canvas/info.json",
           "type": "Canvas",
           "label": { "none": ["National Park image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/national-park/page/1",
+              "id": "iiif/2007676133/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/national-park/annotation/1",
+                  "id": "iiif/2007676133/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/national-park/image/default.jpg",
+                    "id": "iiif/2007676133/image/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2000,
                     "width": 1500
                   },
-                  "target": "iiif/national-park/canvas/1"
+                  "target": "iiif/2007676133/canvas/1"
                 }
               ]
             }
@@ -112,12 +89,40 @@
       ],
       "annotations": [
         {
-          "id": "iiif/national-park/page/1",
+          "id": "iiif/2007676133/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/national-park/annotation/curator001/info.json",
+              "id": "iiif/2007676133/annotations/curator/curator001/info.json",
               "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/2007676133/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2007676133/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "Why do you think this poster was made?",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2007676133/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "What do the artists want people to do or learn?",
+                "format": "text/html",
+                "language": "en"
+              }
             }
           ]
         }
