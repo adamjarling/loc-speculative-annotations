@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/3/context.json",
-  "id": "http://localhost:3001/iiif/walt-whitman/manifest",
+  "id": "iiif/mss1863001302/manifest",
   "type": "Manifest",
   "label": { "en": ["Feinberg Whitman Collection"] },
   "homepage": [

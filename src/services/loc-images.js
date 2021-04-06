@@ -15,14 +15,14 @@ export const locImages = [
     url: nationalPark,
   },
   {
-    id: 'walt-whitman',
+    id: 'mss1863001302',
     alt: 'Walt Whitman on Leaves of Grass themes',
     title: 'Walt Whitman on Leaves of Grass themes',
     type: 'image',
     url: waltWhitman,
   },
   {
-    id: 'duchess',
+    id: 'ihas.200218724',
     alt:
       'The Duchess costume from "The Tragical History of Doctor Faustus" play',
     title:
@@ -31,7 +31,7 @@ export const locImages = [
     url: duchess,
   },
   {
-    id: 'zora-neil-hurston',
+    id: '2007660344',
     alt:
       'Zora Neale Hurston and other African Americans, probably at a recording site in Belle Glade, Florida',
     title:
@@ -40,7 +40,7 @@ export const locImages = [
     url: filmstrip,
   },
   {
-    id: 'ice-cream-soda',
+    id: '2017819414',
     alt:
       'Japanese-American farm workers have an ice cream soda on weekly trip to town',
     date: 'July 1942',
