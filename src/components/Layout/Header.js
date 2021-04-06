@@ -10,7 +10,6 @@ function LayoutHeader() {
   const history = useHistory();
   const fontSizes = ['xs', 'sm', 'md'];
   const params = useParams();
-  console.log(`params`, params);
 
   return (
     <Box as="header">

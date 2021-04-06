@@ -77,7 +77,9 @@ function Stamp({ isActive }) {
       if (
         options.target ||
         !myStateRef.current.activeStamp ||
-        !myStateRef.current.isActive
+        !myStateRef.current.isActive ||
+        // Block the extra touchstart event fired for touch devices
+        options.e.type === 'touchstart'
       ) {
         return;
       }

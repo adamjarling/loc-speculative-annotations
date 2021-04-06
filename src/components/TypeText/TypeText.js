@@ -16,7 +16,7 @@ import useFabricHelpers from 'hooks/use-fabric-helpers';
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
-  const { deselectAll } = useFabricHelpers();
+  const { deselectAll, setDefaultCursor, setHoverCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
@@ -39,11 +39,12 @@ function TypeText({ isActive }) {
     setMyState({ ...myState, color, isActive });
 
     if (!fabricOverlay) return;
-    fabricOverlay.fabricCanvas().defaultCursor = isActive ? 'text' : 'auto';
+    setDefaultCursor(isActive ? 'text' : 'auto');
   }, [color, isActive]);
 
   React.useEffect(() => {
     if (!isActive) return;
+
     if (myState.isEditing) {
       fabricOverlay.fabricCanvas().defaultCursor = 'auto';
       fabricOverlay.fabricCanvas().hoverCursor = 'text';
@@ -83,7 +84,12 @@ function TypeText({ isActive }) {
 
     function handleMouseDown(options) {
       // Selected an existing object OR not in Type Tool mode
-      if (options.target || !myStateRef.current.isActive) {
+      if (
+        options.target ||
+        !myStateRef.current.isActive ||
+        // Block the extra touchstart event fired for touch devices
+        options.e.type === 'touchstart'
+      ) {
         return;
       }
 
@@ -100,7 +106,9 @@ function TypeText({ isActive }) {
         top: options.absolutePointer.y,
         fontFamily: myStateRef.current.activeFont.fontFamily,
         fontSize: 100,
+        padding: 20,
         selectionBackgroundColor: 'rgba(255, 255, 255, 0.5)',
+        width: 200,
       });
       fabricOverlay.fabricCanvas().add(textbox);
       textbox.set({ fill: myStateRef.current.color.hex });
