@@ -7,14 +7,14 @@ import {
 import ToolbarButton from 'components/Toolbar/Button';
 import useHexRGB from 'hooks/use-hex-rgb';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
-
-const brushWidth = 100;
+import { useBreakpointValue } from '@chakra-ui/react';
 
 function Highlighter({ isActive }) {
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const { hexToRGBA } = useHexRGB();
   const { setDefaultCursor } = useFabricHelpers();
+  const brushWidth = useBreakpointValue({ base: 40, md: 60, lg: 100 });
 
   const [myState, _setMyState] = React.useState({
     isActive,

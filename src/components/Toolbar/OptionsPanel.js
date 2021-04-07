@@ -10,7 +10,7 @@ function ToolbarOptionsPanel({ children }) {
       backgroundColor={bg}
       position="absolute"
       top="3"
-      left={['16', '24']}
+      left={['56px', '64px', '72px', '84px']}
       p={[1, 2]}
       boxShadow="xl"
     >
