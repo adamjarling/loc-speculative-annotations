@@ -4,14 +4,12 @@ import { RiArrowGoBackFill, RiArrowGoForwardLine } from 'react-icons/ri';
 import useButtonSize from 'hooks/use-button-size';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import { useParams } from 'react-router-dom';
-import useFabricHelpers from 'hooks/use-fabric-helpers';
 import 'fabric-history/src/index';
 function UndoRedo() {
   const buttonSize = useButtonSize();
   const { fabricOverlay } = useFabricOverlayState();
   const [canvas, setCanvas] = React.useState();
   const params = useParams();
-  const { clearCanvas } = useFabricHelpers();
 
   React.useEffect(() => {
     if (!fabricOverlay) return;

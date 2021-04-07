@@ -4,7 +4,7 @@ import SALogo from 'components/SALogo';
 import { Link as RRLink, useHistory } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import { BiPencil } from 'react-icons/bi';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function LayoutHeader() {
   const history = useHistory();

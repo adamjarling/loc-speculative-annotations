@@ -14,7 +14,7 @@ import 'styles/styles.css';
 
 function Toolbar() {
   const { activeTool } = useFabricOverlayState();
-  const { deselectAll, updateCursor } = useFabricHelpers();
+  const { deselectAll } = useFabricHelpers();
 
   /**
    * Deselect all Fabric objects when a new tool is selected

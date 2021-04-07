@@ -19,20 +19,17 @@ import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
 import { useHistory } from 'react-router-dom';
 import AltButton from 'components/AltButton';
-import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeWork, setActiveWork] = React.useState();
   const history = useHistory();
-  const { clearCanvas } = useFabricHelpers();
 
   const handleImageClick = image => {
     setActiveWork(image);
   };
 
   const handleSelectItem = () => {
-    //clearCanvas();
     onClose();
     history.push(`/${activeWork.id}`);
   };

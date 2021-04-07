@@ -16,12 +16,7 @@ const FABRIC_SHAPE_TYPES = ['circle', 'rect'];
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
-  const {
-    deselectAll,
-    setDefaultCursor,
-    setHoverCursor,
-    updateCursor,
-  } = useFabricHelpers();
+  const { deselectAll, setDefaultCursor, updateCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeShape: null, // active shape in Options Panel
@@ -58,7 +53,6 @@ function Shape({ isActive }) {
    */
   React.useEffect(() => {
     if (!fabricOverlay) return;
-    const canvas = fabricOverlay.fabricCanvas();
 
     if (myState.activeShape) {
       setDefaultCursor('crosshair');

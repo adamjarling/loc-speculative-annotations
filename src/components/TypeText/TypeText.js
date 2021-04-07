@@ -16,7 +16,7 @@ import useFabricHelpers from 'hooks/use-fabric-helpers';
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
-  const { deselectAll, setDefaultCursor, setHoverCursor } = useFabricHelpers();
+  const { deselectAll, setDefaultCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
@@ -59,7 +59,6 @@ function TypeText({ isActive }) {
    */
   React.useEffect(() => {
     if (!fabricOverlay) return;
-    const canvas = fabricOverlay.fabricCanvas();
 
     if (myState.activeFont) {
       // Disable OSD mouseclicks

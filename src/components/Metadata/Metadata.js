@@ -13,7 +13,6 @@ import {
   Heading,
   IconButton,
   Link,
-  Text,
   Tooltip,
   Wrap,
   WrapItem,
@@ -98,6 +97,14 @@ function Metadata() {
     getManifestData();
   }, [params.id]);
 
+  const createMarkup = value => {
+    if (value.split('<br/>').length > 0) {
+      // return dangerously set inner HTML
+      return <div dangerouslySetInnerHTML={{ __html: value }} />;
+    }
+    return value;
+  };
+
   const handleClose = () => {
     onClose();
   };
@@ -138,7 +145,7 @@ function Metadata() {
                 {metadata.metadata.map((m, i) => (
                   <div key={i}>
                     <MetadataHeading>{m.getLabel()}</MetadataHeading>
-                    <MetadataBody>{m.getValue()}</MetadataBody>
+                    <MetadataBody>{createMarkup(m.getValue())}</MetadataBody>
                   </div>
                 ))}
 
