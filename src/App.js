@@ -36,6 +36,9 @@ export const theme = extendTheme({
       nav: {
         fontFamily: 'ocr-a-std',
       },
+      p: {
+        marginBottom: '1rem',
+      },
     },
   },
 });

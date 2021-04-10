@@ -11,6 +11,8 @@ import ShareQueryParamHandler from 'components/Share/QueryParamHandler';
 import useKeyboardEvents from 'hooks/use-keyboard-events';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import AdjustmentBar from 'components/AdjustmentBar/AdjustmentBar';
+import IntroMessage from 'components/IntroMessage';
+
 function LayoutApp() {
   const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
   useKeyboardEvents();
@@ -23,6 +25,7 @@ function LayoutApp() {
   return (
     <Flex as={Div100vh} h="100vh" direction="column">
       <ShareQueryParamHandler />
+      <IntroMessage />
       <LayoutHeader />
       <AdjustmentBar />
       <LayoutAppBody>
