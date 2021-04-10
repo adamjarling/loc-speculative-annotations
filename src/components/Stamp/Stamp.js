@@ -94,6 +94,8 @@ function Stamp({ isActive }) {
       const shapeOptions = {
         left: origX,
         top: origY,
+        // TODO: Extend this across to other shapes
+        // http://fabricjs.com/fabric-intro-part-4
         perPixelTargetFind: true,
       };
 

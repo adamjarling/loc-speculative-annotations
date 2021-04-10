@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import { fabric } from 'openseadragon-fabricjs-overlay';
 
 export default function useCanvasHelpers() {
   const { fabricOverlay } = useFabricOverlayState();
@@ -109,6 +110,17 @@ export default function useCanvasHelpers() {
     canvas.hoverCursor = 'move';
   };
 
+  const updateControlStyle = (colorMode = 'dark') => {
+    if (!canvas) return;
+
+    const options = {
+      cornerStrokeColor: colorMode === 'dark' ? 'white' : '#22a2f8',
+    };
+    // Customize Fabric selection handles
+    fabric.Object.prototype.set(options);
+    canvas.renderAll();
+  };
+
   return {
     clearCanvas,
     clearUserObjects,
@@ -121,5 +133,6 @@ export default function useCanvasHelpers() {
     setDefaultCursor,
     setHoverCursor,
     updateCursor,
+    updateControlStyle,
   };
 }
