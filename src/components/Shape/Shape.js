@@ -100,6 +100,7 @@ function Shape({ isActive }) {
       let newShape = null;
       const shapeOptions = {
         color: myStateRef.current.color.hex,
+        perPixelTargetFind: true,
         left: origX,
         top: origY,
         width: 0,
@@ -148,6 +149,8 @@ function Shape({ isActive }) {
           break;
       }
 
+      canvas.setActiveObject(newShape);
+
       setMyState({
         ...myStateRef.current,
         currentDragShape: newShape,
@@ -155,9 +158,6 @@ function Shape({ isActive }) {
         origX,
         origY,
       });
-
-      // Add new shape to the canvas
-      //newShape && fabricOverlay.fabricCanvas().add(newShape);
     }
 
     /**
@@ -233,11 +233,15 @@ function Shape({ isActive }) {
         return;
       }
 
-      fabricOverlay
-        .fabricCanvas()
-        .setActiveObject(myStateRef.current.currentDragShape);
-
-      fabricOverlay.fabricCanvas().renderAll();
+      // Render a minimum height in case the new shape hasn't been drag-sized yet
+      if (myStateRef.current.currentDragShape.width < 10) {
+        const setProps =
+          options.target.type === 'ellipse'
+            ? { rx: 100, ry: 100 }
+            : { height: 100, width: 100 };
+        myStateRef.current.currentDragShape.set(setProps);
+        fabricOverlay.fabricCanvas().renderAll();
+      }
 
       setMyState({
         ...myStateRef.current,

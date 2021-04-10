@@ -119,7 +119,7 @@ function Stamp({ isActive }) {
           }
 
           shape.set(shapeOptions);
-          canvas.add(shape).renderAll();
+          canvas.add(shape).setActiveObject(shape).renderAll();
 
           setMyState({
             ...myStateRef.current,
@@ -140,7 +140,8 @@ function Stamp({ isActive }) {
         //options.target ||
         !myStateRef.current.activeStamp ||
         !myStateRef.current.isActive ||
-        !myStateRef.current.currentDragShape
+        !myStateRef.current.currentDragShape ||
+        !myStateRef.current.isMouseDown
       ) {
         return;
       }
@@ -172,6 +173,15 @@ function Stamp({ isActive }) {
      * Mouse up
      */
     function handleMouseUp(options) {
+      if (!myStateRef.current.isActive) {
+        return;
+      }
+
+      setMyState({
+        ...myStateRef.current,
+        isMouseDown: false,
+      });
+
       // NOTE: this setTimeout function is a patch to handle a timing condition in the compiled code
       // when a user clicks on the canvas (mousedown and immediate mouseup), instead dragging out the Stamp size.
       // The mouseup event was firing before Fabric's loadSVGFromUrl callback function fired.
@@ -184,17 +194,9 @@ function Stamp({ isActive }) {
           return;
         }
 
-        // Make current object active
-        fabricOverlay
-          .fabricCanvas()
-          .setActiveObject(myStateRef.current.currentDragShape);
-
-        fabricOverlay.fabricCanvas().renderAll();
-
         setMyState({
           ...myStateRef.current,
           currentDragShape: null,
-          isMouseDown: false,
         });
       }, 100);
     }
