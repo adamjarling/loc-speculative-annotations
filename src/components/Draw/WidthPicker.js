@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 import { VStack } from '@chakra-ui/react';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
+import { isMobile, isTablet } from 'react-device-detect';
 
 export const widths = [
   {
-    pixelWidth: 2,
+    pixelWidth: isMobile && !isTablet ? 6 : 10,
     size: 'Sm',
   },
   {
-    pixelWidth: 12,
+    pixelWidth: isMobile && !isTablet ? 12 : 24,
     size: 'Md',
   },
-  { pixelWidth: 24, size: 'Lg' },
+  { pixelWidth: isMobile && !isTablet ? 24 : 48, size: 'Lg' },
 ];
 
 function DrawWidthPicker({ color, handleWidthSelect, width }) {

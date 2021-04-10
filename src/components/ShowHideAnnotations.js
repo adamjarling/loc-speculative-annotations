@@ -99,7 +99,7 @@ export default function ShowHideAnnotations() {
     <Stack spacing={3} direction="row" ml={6} align="center">
       <Flex alignItems="center">
         <BiOutline />
-        <Text ml={2} fontFamily="ocrAStd" fontSize={fontSize}>
+        <Text ml={2} mb={0} fontFamily="ocrAStd" fontSize={fontSize}>
           Change Display:{' '}
         </Text>
       </Flex>
@@ -108,14 +108,18 @@ export default function ShowHideAnnotations() {
         isChecked={state.isMyVisible}
         onChange={handleUserCheckboxChange}
       >
-        <Text fontSize={fontSize}>Your Annotations</Text>
+        <Text fontSize={fontSize} mb={0}>
+          Your Annotations
+        </Text>
       </Checkbox>
       {curatorObjects && (
         <Checkbox
           isChecked={state.isCuratorVisible}
           onChange={handleCuratorCheckboxChange}
         >
-          <Text fontSize={fontSize}>Curators Annotations</Text>
+          <Text fontSize={fontSize} mb={0}>
+            Curators Annotations
+          </Text>
         </Checkbox>
       )}
     </Stack>
