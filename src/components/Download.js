@@ -41,6 +41,7 @@ export default function Download() {
           aria-label="Download as an image"
           variant="ghost"
           mr={2}
+          data-testid="download-link"
         />
       </Tooltip>
 

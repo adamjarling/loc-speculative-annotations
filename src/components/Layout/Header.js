@@ -37,6 +37,7 @@ function LayoutHeader() {
             onClick={() => history.push('/')}
             disabled={params.id}
             size={buttonSize}
+            data-testid="app-link"
           >
             Annotate
           </Button>

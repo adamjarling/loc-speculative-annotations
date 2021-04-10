@@ -4,7 +4,7 @@ import saLogo from 'images/logo.png';
 
 function SALogo() {
   return (
-    <Box>
+    <Box data-testid="logo">
       <Image
         src={saLogo}
         alt="Speculative Annotations"

@@ -30,6 +30,7 @@ function AdjustmentBar(props) {
       justifyContent="space-between"
       alignItems="center"
       direction={flexDirection}
+      data-testid="adjustment-bar"
     >
       <Box
         ml={2}

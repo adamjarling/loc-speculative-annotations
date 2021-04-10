@@ -63,7 +63,7 @@ function Share() {
           size="sm"
           textTransform="uppercase"
           variant="ghost"
-          // rightIcon={<ChevronDownIcon />}
+          data-testid="share-link"
         >
           Share
         </MenuButton>

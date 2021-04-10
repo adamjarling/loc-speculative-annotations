@@ -38,7 +38,8 @@
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,5 +60,7 @@
     "use-open-seadragon/react": "^17.0.1",
     "use-open-seadragon/react-dom": "^17.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cypress": "^7.0.1"
+  }
 }
