@@ -1,8 +1,7 @@
 import React from 'react';
-import { Flex, HStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, HStack, useColorModeValue } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
-import { ColorModeSwitcher } from 'ColorModeSwitcher';
 import useButtonSize from 'hooks/use-button-size';
 import { isBrowser, isTablet } from 'react-device-detect';
 import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
@@ -23,15 +22,12 @@ function LayoutAppFooter() {
       boxShadow="base"
       zIndex="1"
     >
-      <Flex direction="row">
-        {(isTablet || isBrowser) && <ShowHideAnnotations />}
-      </Flex>
+      <Box>{(isTablet || isBrowser) && <ShowHideAnnotations />}</Box>
 
       <HStack>
         <Metadata />
         <WorksListModal />
         {/* <MyAnnotations /> */}
-        <ColorModeSwitcher size={buttonSize} />
       </HStack>
     </Flex>
   );

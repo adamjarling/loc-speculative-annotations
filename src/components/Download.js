@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons';
 import html2canvas from 'html2canvas';
+import AltButton from 'components/AltButton';
 
 export default function Download() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -34,15 +35,17 @@ export default function Download() {
 
   return (
     <>
-      <Tooltip label="Download" aria-label="Download">
-        <IconButton
-          icon={<DownloadIcon />}
+      <Tooltip label="Save" aria-label="Save">
+        <AltButton
+          leftIcon={<DownloadIcon />}
           onClick={handleClick}
           aria-label="Download as an image"
           variant="ghost"
           mr={2}
           data-testid="download-link"
-        />
+        >
+          Save
+        </AltButton>
       </Tooltip>
 
       <Modal isOpen={isOpen} onClose={onClose}>

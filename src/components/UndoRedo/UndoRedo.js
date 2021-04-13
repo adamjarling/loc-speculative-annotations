@@ -40,6 +40,7 @@ function UndoRedo() {
           aria-label="Undo"
           size={buttonSize}
           onClick={handleUndo}
+          variant="ghost"
         />
       </Tooltip>
       <Tooltip label="Redo" aria-label="Redo">
@@ -48,6 +49,7 @@ function UndoRedo() {
           aria-label="Redo"
           size={buttonSize}
           onClick={handleRedo}
+          variant="ghost"
         />
       </Tooltip>
     </>

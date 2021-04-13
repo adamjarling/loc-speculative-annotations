@@ -15,6 +15,7 @@ import Download from 'components/Download';
 import { isBrowser } from 'react-device-detect';
 import Color from 'components/Color/Color';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import UndoRedo from 'components/UndoRedo/UndoRedo';
 
 function AdjustmentBar(props) {
   const { bg } = useColorModeColors();
@@ -41,12 +42,13 @@ function AdjustmentBar(props) {
       </Box>
       <HStack spacing={2} pt={[2, 0]}>
         <ClearCanvas />
+        <UndoRedo />
         <Center height="20px">
           <Divider orientation="vertical" />
         </Center>
 
         <Share />
-        <MyAnnotationsSave />
+        {/* <MyAnnotationsSave /> */}
         {isBrowser && <Download />}
       </HStack>
     </Flex>

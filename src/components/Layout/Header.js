@@ -13,7 +13,6 @@ function LayoutHeader() {
   const params = useParams();
   const buttonSize = useButtonSize();
   const location = useLocation();
-  console.log(`location`, location);
 
   const activeStyles = {
     borderBottom: '2px solid',

@@ -72,7 +72,7 @@ export default function Viewer({ tile }) {
   }, [dispatch, viewer]);
 
   return (
-    <Box ref={ref} w="90%" h="90%" bgColor={bgColor}>
+    <Box ref={ref} w="80%" h="90%" bgColor={bgColor}>
       {isBrowser && <ViewerControls />}
     </Box>
   );

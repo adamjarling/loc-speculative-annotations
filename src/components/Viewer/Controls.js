@@ -5,8 +5,6 @@ import { FiZoomIn, FiZoomOut } from 'react-icons/fi';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
 
-import UndoRedo from 'components/UndoRedo/UndoRedo';
-
 function ViewerControls() {
   const { viewer } = useFabricOverlayState();
   const { zoomIn, zoomOut } = useZoom();
@@ -49,7 +47,6 @@ function ViewerControls() {
             size={buttonSize}
           />
         </Tooltip>
-        <UndoRedo />
       </ButtonGroup>
     </Box>
   );

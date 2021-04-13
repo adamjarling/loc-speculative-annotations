@@ -25,7 +25,7 @@ function ClearCanvas() {
   return (
     <>
       <AltButton onClick={() => setIsOpen(true)} data-testid="clear-all-link">
-        Clear all
+        Clear canvas
       </AltButton>
 
       <AlertDialog
