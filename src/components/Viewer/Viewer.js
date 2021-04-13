@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
-import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import ViewerControls from 'components/Viewer/Controls';
@@ -42,6 +42,7 @@ const osdOptions = {
 export default function Viewer({ tile }) {
   const dispatch = useFabricOverlayDispatch();
   const colorMode = useColorModeValue('light', 'dark');
+  const bgColor = useColorModeValue('gray.200', 'gray.800');
 
   // Customize Fabric selection handles
   fabric.Object.prototype.set({
@@ -71,7 +72,7 @@ export default function Viewer({ tile }) {
   }, [dispatch, viewer]);
 
   return (
-    <Box ref={ref} w="100%">
+    <Box ref={ref} w="90%" h="90%" bgColor={bgColor}>
       {isBrowser && <ViewerControls />}
     </Box>
   );

@@ -1,32 +1,24 @@
 import React from 'react';
-import { Box, Container, Divider } from '@chakra-ui/react';
+import { Box, Container, Flex, useColorModeValue } from '@chakra-ui/react';
 import LayoutHeader from 'components/Layout/Header';
-import SiteAbout from 'components/Site/About';
-import SiteTeach from 'components/Site/Teach';
-import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Div100vh from 'react-div-100vh';
 
-function LayoutSite() {
-  const teachRef = React.useRef(null);
-  const location = useLocation();
-
-  React.useEffect(() => {
-    if (location.hash === '#teach') {
-      teachRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [location.hash]);
+function LayoutSite({ children }) {
+  const bgColor = useColorModeValue('white', 'gray.700');
 
   return (
-    <Box>
+    <Flex as={Div100vh} h="100vh" direction="column">
       <LayoutHeader />
-      <Container>
-        <SiteAbout />
-        <Divider />
-        <div ref={teachRef}>
-          <SiteTeach />
-        </div>
-      </Container>
-    </Box>
+      <Box bgColor={bgColor} as="main" flexGrow={1} pt={6}>
+        <Container maxW="container.lg">{children}</Container>
+      </Box>
+    </Flex>
   );
 }
+
+LayoutSite.propTypes = {
+  childrend: PropTypes.node,
+};
 
 export default LayoutSite;

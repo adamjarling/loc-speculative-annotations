@@ -6,6 +6,8 @@ import { Fonts } from 'components/TypeText/Fonts';
 import LayoutApp from 'components/Layout/App/App';
 import LayoutSite from 'components/Layout/Site/Site';
 import brandPalette from 'styles/brandPalette';
+import SiteAbout from 'components/Site/About';
+import SiteTeach from 'components/Site/Teach';
 
 export const theme = extendTheme({
   colors: {
@@ -51,7 +53,14 @@ function App() {
           <Fonts />
           <Switch>
             <Route exact path="/about">
-              <LayoutSite />
+              <LayoutSite>
+                <SiteAbout />
+              </LayoutSite>
+            </Route>
+            <Route exact path="/teach">
+              <LayoutSite>
+                <SiteTeach />
+              </LayoutSite>
             </Route>
             <Route path="/:id?">
               <LayoutApp />

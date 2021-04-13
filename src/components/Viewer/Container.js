@@ -7,6 +7,7 @@ import {
   AlertTitle,
   AlertDescription,
   Box,
+  Flex,
 } from '@chakra-ui/react';
 import { locImages } from 'services/loc-images';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
@@ -47,7 +48,7 @@ export default function ViewerContainer() {
   // Grab the LOC work from supplied id
   const targetImage = locImages.find(locImage => locImage.id === id);
 
-  // Handle no match
+  // Display error message for no match
   if (!targetImage) {
     return (
       <Box w="100%" p={8}>
@@ -61,5 +62,9 @@ export default function ViewerContainer() {
   }
 
   // Success
-  return <Viewer tile={targetImage} />;
+  return (
+    <Flex flexGrow={1} justifyContent="center" alignItems="center">
+      <Viewer tile={targetImage} />
+    </Flex>
+  );
 }

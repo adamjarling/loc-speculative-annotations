@@ -12,6 +12,7 @@ import useKeyboardEvents from 'hooks/use-keyboard-events';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import AdjustmentBar from 'components/AdjustmentBar/AdjustmentBar';
 import IntroMessage from 'components/IntroMessage';
+import LayoutAppMain from 'components/Layout/App/Main';
 
 function LayoutApp() {
   const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
@@ -36,9 +37,11 @@ function LayoutApp() {
             </>
           )}
         </LayoutAppSidebar>
-        <ViewerContainer />
+        <LayoutAppMain>
+          <ViewerContainer />
+          <LayoutAppFooter />
+        </LayoutAppMain>
       </LayoutAppBody>
-      <LayoutAppFooter />
     </Flex>
   );
 }

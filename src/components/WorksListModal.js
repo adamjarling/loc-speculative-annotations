@@ -36,9 +36,20 @@ function WorksListModal() {
 
   return (
     <Box>
-      <AltButton onClick={() => onOpen()} leftIcon={<AddIcon />}>
+      {/* <AltButton
+        onClick={() => onOpen()}
+        leftIcon={<AddIcon />}
+        colorScheme="brand.pink"
+      >
         New Annotation
-      </AltButton>
+      </AltButton> */}
+      <Button
+        onClick={() => onOpen()}
+        leftIcon={<AddIcon />}
+        colorScheme="brand.pink"
+      >
+        New Annotation
+      </Button>
 
       <Modal
         isOpen={isOpen}

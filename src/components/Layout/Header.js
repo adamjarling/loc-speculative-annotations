@@ -4,7 +4,7 @@ import SALogo from 'components/SALogo';
 import { Link as RRLink, useHistory } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import { BiPencil } from 'react-icons/bi';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useButtonSize from 'hooks/use-button-size';
 
 function LayoutHeader() {
@@ -12,6 +12,22 @@ function LayoutHeader() {
   const fontSizes = ['xs', 'sm', 'md'];
   const params = useParams();
   const buttonSize = useButtonSize();
+  const location = useLocation();
+  console.log(`location`, location);
+
+  const activeStyles = {
+    borderBottom: '2px solid',
+    borderColor: 'brand.pink.500',
+    fontWeight: 'bold',
+  };
+
+  function isApp() {
+    return ['/about', '/teach'].indexOf(location.pathname) === -1;
+  }
+
+  function isCurrentLink(route) {
+    return route === location.pathname;
+  }
 
   return (
     <Box as="header">
@@ -24,15 +40,26 @@ function LayoutHeader() {
         py={1}
         fontSize={fontSizes}
       >
-        <SALogo />
         <HStack spacing={[4, 6, 10]}>
-          <Link as={RRLink} to="/about">
+          <SALogo />
+          <Link
+            as={RRLink}
+            to="/about"
+            {...(isCurrentLink('/about') && { ...activeStyles })}
+          >
             About
           </Link>
-          <Link as={RRLink} to="/about#teach">
+          <Link
+            as={RRLink}
+            to="/teach"
+            {...(isCurrentLink('/teach') && { ...activeStyles })}
+          >
             Teach
           </Link>
+        </HStack>
+        {!isApp() && (
           <Button
+            colorScheme="brand.pink"
             leftIcon={<BiPencil />}
             onClick={() => history.push('/')}
             disabled={params.id}
@@ -41,7 +68,7 @@ function LayoutHeader() {
           >
             Annotate
           </Button>
-        </HStack>
+        )}
       </Flex>
     </Box>
   );

@@ -1,5 +1,11 @@
 import React from 'react';
-import { Checkbox, Flex, Stack, Text } from '@chakra-ui/react';
+import {
+  Checkbox,
+  Flex,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { BiOutline } from 'react-icons/bi';
 import {
   useFabricOverlayDispatch,
@@ -31,6 +37,7 @@ export default function ShowHideAnnotations() {
     makeObjectsVisible,
     removeObjectsFromCanvas,
   } = useFabricHelpers();
+  const bgColor = useColorModeValue('gray.200', 'gray.700');
 
   async function getManifestData() {
     if (!params.id || !fabricOverlay) return;
@@ -96,7 +103,16 @@ export default function ShowHideAnnotations() {
   };
 
   return (
-    <Stack spacing={3} direction="row" ml={6} align="center">
+    <Stack
+      spacing={3}
+      direction="row"
+      ml={6}
+      align="center"
+      bgColor={bgColor}
+      borderRadius="10px"
+      px={4}
+      py={3}
+    >
       <Flex alignItems="center">
         <BiOutline />
         <Text ml={2} mb={0} fontFamily="ocrAStd" fontSize={fontSize}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, HStack } from '@chakra-ui/react';
+import { Flex, HStack, useColorModeValue } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
 import { ColorModeSwitcher } from 'ColorModeSwitcher';
@@ -10,10 +10,12 @@ import Metadata from 'components/Metadata/Metadata';
 
 function LayoutAppFooter() {
   const buttonSize = useButtonSize();
+  const bgColor = useColorModeValue('gray.200', 'gray.600');
 
   return (
     <Flex
       as="footer"
+      bgColor={bgColor}
       justifyContent="space-between"
       alignItems="center"
       px={isBrowser || isTablet ? 3 : '2px'}
