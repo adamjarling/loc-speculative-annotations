@@ -8,10 +8,10 @@ function ToolbarBorderBoxInner({ ...restProps }) {
     <Box
       as="button"
       w="100%"
-      height="100%"
+      h="100%"
       borderRadius={3}
-      borderWidth="2px"
-      borderColor={bg}
+      //borderWidth="2px"
+      //borderColor={bg}
       _focus={{
         // outline: `lightgray auto 1px`,
         outline: `none`,

@@ -16,7 +16,7 @@ function LayoutAppFooter() {
       as="footer"
       bgColor={bgColor}
       justifyContent="space-between"
-      alignItems="center"
+      alignItems={isTablet ? 'flex-end' : 'center'}
       px={isBrowser || isTablet ? 3 : '2px'}
       py={2}
       boxShadow="base"

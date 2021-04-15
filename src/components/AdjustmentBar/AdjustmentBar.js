@@ -49,7 +49,7 @@ function AdjustmentBar(props) {
 
         <Share />
         {/* <MyAnnotationsSave /> */}
-        {isBrowser && <Download />}
+        {<Download />}
       </HStack>
     </Flex>
   );

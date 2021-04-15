@@ -15,7 +15,7 @@ import { useParams } from 'react-router-dom';
 import useIIIFManifests from 'hooks/use-iiif-manifests';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { fabric } from 'openseadragon-fabricjs-overlay';
-import { isBrowser, isTablet } from 'react-device-detect';
+import { isTablet } from 'react-device-detect';
 
 const fontSize = ['xs', 'xs', 'xs', 'sm'];
 const defaultState = {
@@ -108,7 +108,7 @@ export default function ShowHideAnnotations() {
       spacing={3}
       direction={isTablet ? 'column' : 'row'}
       ml={6}
-      align="center"
+      align={isTablet ? 'left' : 'center'}
       bgColor={bgColor}
       borderRadius="10px"
       px={4}

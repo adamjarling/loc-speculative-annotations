@@ -8,9 +8,10 @@ const borderRadius = 3;
 
 function ToolbarBorderBox({ children, isActive, ...restProps }) {
   const activeStyles = {
-    borderWidth: '1px',
-    padding: '0px',
-    borderColor: useColorModeValue('gray.300', 'white'),
+    borderWidth: '0px',
+    padding: '2px',
+    //borderColor: useColorModeValue('gray.300', 'white'),
+    bg: useColorModeValue('gray.300', 'gray.800'),
   };
 
   return (
