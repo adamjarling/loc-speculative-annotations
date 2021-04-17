@@ -39,15 +39,15 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
+          <Highlighter isActive={activeTool === 'HIGHLIGHTER'} />
+        </WrapItem>
+
+        <WrapItem>
           <Shape isActive={activeTool === 'SHAPE'} />
         </WrapItem>
 
         <WrapItem>
           <Stamp isActive={activeTool === 'STAMP'} />
-        </WrapItem>
-
-        <WrapItem>
-          <Highlighter isActive={activeTool === 'HIGHLIGHTER'} />
         </WrapItem>
 
         <WrapItem>

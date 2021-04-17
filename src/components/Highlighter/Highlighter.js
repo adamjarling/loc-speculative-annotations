@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHighlighter } from 'react-icons/fa';
+import { BiHighlight } from 'react-icons/bi';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -93,7 +93,7 @@ function Highlighter({ isActive }) {
     <>
       <ToolbarButton
         onClick={handleToolbarClick}
-        icon={<FaHighlighter />}
+        icon={<BiHighlight />}
         isActive={isActive}
         label="Highlighter"
       />
