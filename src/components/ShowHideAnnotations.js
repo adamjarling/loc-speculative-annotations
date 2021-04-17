@@ -126,7 +126,7 @@ export default function ShowHideAnnotations() {
         onChange={handleUserCheckboxChange}
       >
         <Text fontSize={fontSize} mb={0}>
-          Your Annotations
+          My Annotation
         </Text>
       </Checkbox>
       {curatorObjects && (
@@ -135,7 +135,7 @@ export default function ShowHideAnnotations() {
           onChange={handleCuratorCheckboxChange}
         >
           <Text fontSize={fontSize} mb={0}>
-            Curators Annotations
+            Librarian Annotation
           </Text>
         </Checkbox>
       )}
