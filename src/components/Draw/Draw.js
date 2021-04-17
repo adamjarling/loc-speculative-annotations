@@ -13,10 +13,10 @@ const getDrawCursor = (brushSize, brushColor) => {
   brushSize = brushSize < 12 ? 8 : brushSize;
   const circle = `
 		<svg
-			height="${brushSize}"
+			height="${brushSize * 0.8}"
 			fill="${brushColor}"
 			viewBox="0 0 ${brushSize * 2} ${brushSize * 2}"
-			width="${brushSize}"
+			width="${brushSize * 0.8}"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<circle

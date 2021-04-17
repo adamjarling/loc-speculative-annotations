@@ -11,10 +11,10 @@ export const widths = [
     size: 'Sm',
   },
   {
-    pixelWidth: isMobile && !isTablet ? 12 : 24,
+    pixelWidth: isMobile && !isTablet ? 12 : 18,
     size: 'Md',
   },
-  { pixelWidth: isMobile && !isTablet ? 24 : 48, size: 'Lg' },
+  { pixelWidth: isMobile && !isTablet ? 24 : 40, size: 'Lg' },
 ];
 
 function DrawWidthPicker({ color, handleWidthSelect, width }) {
