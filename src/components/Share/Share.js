@@ -71,7 +71,6 @@ function Share() {
           <MenuItem position="relative" zIndex="10000">
             #LOCAnnotations
           </MenuItem>
-          <MenuItem>Instagram</MenuItem>
           <MenuItem onClick={handleSharableLinkClick}>Shareable link</MenuItem>
         </MenuList>
       </Menu>
