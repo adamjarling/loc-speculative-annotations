@@ -12,7 +12,6 @@ function ColorOptionsPanel({ color, handleColorSelect, isVisible }) {
     base: { height: '24px', width: '24px' },
     lg: { height: '30px', width: '30px' },
   });
-  console.log(`buttonSize`, buttonSize);
 
   return (
     <Fade in={isVisible}>

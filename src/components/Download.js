@@ -35,18 +35,16 @@ export default function Download() {
 
   return (
     <>
-      <Tooltip label="Save" aria-label="Save">
-        <AltButton
-          leftIcon={<DownloadIcon />}
-          onClick={handleClick}
-          aria-label="Download as an image"
-          variant="ghost"
-          mr={2}
-          data-testid="download-link"
-        >
-          Save
-        </AltButton>
-      </Tooltip>
+      <AltButton
+        leftIcon={<DownloadIcon />}
+        onClick={handleClick}
+        aria-label="Download as an image"
+        variant="ghost"
+        mr={2}
+        data-testid="download-link"
+      >
+        Save
+      </AltButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
