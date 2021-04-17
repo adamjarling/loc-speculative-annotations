@@ -65,13 +65,14 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#running-the-application-locally">Running the application locally</a></li>
+        <li><a href="#styleguide">Styleguide</a></li>
       </ul>
     </li>
     <li>
       <a href="#usage">Usage</a>
       <ul>
         <li><a href="#source-images">Source Images</a></li>
-        <li><a href="#iiif-manifests">Curator Annnotations</a></li>
+        <li><a href="#librarian-annotations">Librarian Annnotations</a></li>
         <li><a href="#iiif-manifests">IIIF Manifests</a></li>
         <li><a href="#custom-theme">Custom Theme</a></li>
       </ul>
@@ -149,6 +150,10 @@ To run tests (coming soon...)
 yarn test
 ```
 
+### Styleguide
+
+[View styleguide](https://www.figma.com/file/laNqMbfi7FSeHweqgyH8Jn/Speculative-Annotation-Style-Guide?node-id=0%3A1)
+
 ## Usage
 
 ### Source images
@@ -159,7 +164,7 @@ Source images are currently hosted locally and defined in the following file:
 
 The application uses the OpenSeadragon Viewer to render images, so your source images can be a combination of locally hosted images (within the application), or externally hosted images (for example, served from a IIIF image server).
 
-### Curator annotations
+### Librarian annotations
 
 Curator annotations are saved as Fabric JS canvas objects. The data is referenced, stored and retrieved through `annotations` property of a Library of Congress Work's IIIF Manifest (see below). Curator annotations (for now), must be manually created and added to a Work's manifest file.
 
@@ -207,11 +212,11 @@ Jaime Mears - Innovator in Residence Program Manager
 
 Courtney McClellan - Artist in Residency
 
-### Developer
+### Developers / Designers
 
-Adam J. Arling
+Adam J. Arling - UI Developer - Northwestern University Libraries :: Repository and Digital Curation
 
-Senior UI Developer - Northwestern University Libraries :: Repository and Digital Curation
+Jessica Vu - contact info here
 
 [adamarling.com](https://adamarling.com)
 
