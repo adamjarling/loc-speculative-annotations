@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image } from '@chakra-ui/react';
-import saLogo from 'images/logo.png';
+import saLogo from 'images/logo2.png';
 
 function SALogo() {
   return (

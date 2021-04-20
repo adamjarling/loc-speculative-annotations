@@ -31,7 +31,7 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a href="https://github.com/adamjarling/loc-speculative-annotations">
-    <img src="public/logo.png" alt="Logo" width="534" height="367">
+    <img src="public/logo2.png" alt="Logo" width="534" height="367">
   </a>
 </div>
 
