@@ -4,9 +4,9 @@ import { VStack } from '@chakra-ui/react';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 import { isMobile, isTablet } from 'react-device-detect';
-import { ReactComponent as PenSm } from 'images/pen-weight-icons/penSm.svg';
-import { ReactComponent as PenMd } from 'images/pen-weight-icons/penMd.svg';
-import { ReactComponent as PenLg } from 'images/pen-weight-icons/penLg.svg';
+import { ReactComponent as PenSm } from 'images/pen-weight-icons/SmallStroke.svg';
+import { ReactComponent as PenMd } from 'images/pen-weight-icons/MediumStroke.svg';
+import { ReactComponent as PenLg } from 'images/pen-weight-icons/ThickStroke.svg';
 
 export const widths = [
   {
