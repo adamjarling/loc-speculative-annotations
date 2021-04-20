@@ -69,7 +69,7 @@ function Share() {
         </MenuButton>
         <MenuList position="relative" zIndex="10000">
           <MenuItem position="relative" zIndex="10000">
-            #LOCAnnotations
+            #annotateLOC
           </MenuItem>
           <MenuItem onClick={handleSharableLinkClick}>Shareable link</MenuItem>
         </MenuList>
