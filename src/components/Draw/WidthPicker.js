@@ -27,7 +27,6 @@ function DrawWidthPicker({ color, handleWidthSelect, width }) {
   return (
     <VStack spacing={3} px={1}>
       {widths.map(widthObj => {
-        //let imgSrc = require(`images/pen-weight-icons/${color.label}${widthObj.size}.png`);
         return (
           <ToolbarBorderBox
             key={widthObj.size}

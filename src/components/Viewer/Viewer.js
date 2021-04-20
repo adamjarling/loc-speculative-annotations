@@ -43,6 +43,7 @@ export default function Viewer({ tile }) {
   const dispatch = useFabricOverlayDispatch();
   const colorMode = useColorModeValue('light', 'dark');
   const bgColor = useColorModeValue('gray.200', 'gray.800');
+  const { isCuratorAnnotationVisible } = useFabricOverlayState();
 
   // Customize Fabric selection handles
   fabric.Object.prototype.set({

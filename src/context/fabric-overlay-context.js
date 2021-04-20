@@ -19,6 +19,7 @@ const defaultState = {
   activeUserCanvas: '',
   color: brandColors[0],
   fabricOverlay: null,
+  isCuratorAnnotationVisible: false,
   isToolbarVisible: true,
   isToolSettingsVisible: false,
   userCanvases: getLocalUserCanvases(),
@@ -52,6 +53,12 @@ function fabricOverlayReducer(state, action) {
       return {
         ...state,
         color: action.color,
+      };
+    }
+    case 'updateCuratorAnnotationVisible': {
+      return {
+        ...state,
+        isCuratorAnnotationVisible: action.isCuratorAnnotationVisible,
       };
     }
     case 'updateOverlay': {

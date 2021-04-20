@@ -94,12 +94,20 @@ export default function ShowHideAnnotations() {
       const curatorObjects = getNonSelectableObjects();
       removeObjectsFromCanvas(curatorObjects);
       setState({ ...state, isCuratorVisible: false });
+      dispatch({
+        type: 'updateCuratorAnnotationVisible',
+        isCuratorAnnotationVisible: false,
+      });
     } else {
       // Enable Curator
       fabric.util.enlivenObjects(curatorObjects, objects => {
         fabricOverlay.fabricCanvas().add(...objects);
       });
       setState({ ...state, isCuratorVisible: true });
+      dispatch({
+        type: 'updateCuratorAnnotationVisible',
+        isCuratorAnnotationVisible: true,
+      });
     }
   };
 
