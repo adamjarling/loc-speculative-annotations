@@ -4,9 +4,10 @@ import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
-import { isBrowser } from 'react-device-detect';
+import { isBrowser, isTablet } from 'react-device-detect';
 
 const minZoomLevel = isBrowser ? 0.4 : 0.8;
+const viewerHeight = isBrowser ? '90%' : '70%';
 
 const osdOptions = {
   constrainDuringPan: isBrowser ? true : false,
@@ -70,7 +71,7 @@ export default function Viewer({ tile }) {
     });
   }, [dispatch, viewer]);
 
-  return <Box ref={ref} w="80%" h="90%" bgColor={bgColor}></Box>;
+  return <Box ref={ref} w="80%" h={viewerHeight} bgColor={bgColor}></Box>;
 }
 
 Viewer.propTypes = {

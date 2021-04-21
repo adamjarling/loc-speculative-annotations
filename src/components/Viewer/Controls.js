@@ -17,7 +17,7 @@ function ViewerControls() {
   const buttonSize = useButtonSize();
 
   const handleReset = e => {
-    console.log(`reset`);
+    viewer.viewport.goHome();
   };
 
   const handleZoomIn = e => {

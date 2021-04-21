@@ -71,8 +71,9 @@ export default function ViewerContainer() {
       justifyContent="center"
       alignItems="center"
       position="relative"
+      pt="20px"
     >
-      {isBrowser && <ViewerControls />}
+      <ViewerControls />
       <Viewer tile={targetImage} />
     </Flex>
   );
