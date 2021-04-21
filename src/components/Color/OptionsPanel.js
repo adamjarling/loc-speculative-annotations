@@ -6,8 +6,6 @@ import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 import { Fade } from '@chakra-ui/react';
 
-console.log(`brandColors`, brandColors);
-
 function ColorOptionsPanel({ color, handleColorSelect, isVisible }) {
   // if (!isVisible) return null;
   const buttonSize = useBreakpointValue({

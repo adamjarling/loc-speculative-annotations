@@ -1,7 +1,13 @@
 import React from 'react';
 import { useZoom } from 'use-open-seadragon';
-import { Box, ButtonGroup, IconButton, Tooltip } from '@chakra-ui/react';
-import { FiZoomIn, FiZoomOut } from 'react-icons/fi';
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  IconButton,
+  Tooltip,
+} from '@chakra-ui/react';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
 
@@ -9,6 +15,10 @@ function ViewerControls() {
   const { viewer } = useFabricOverlayState();
   const { zoomIn, zoomOut } = useZoom();
   const buttonSize = useButtonSize();
+
+  const handleReset = e => {
+    console.log(`reset`);
+  };
 
   const handleZoomIn = e => {
     try {
@@ -31,21 +41,28 @@ function ViewerControls() {
   };
 
   return (
-    <Box position="absolute" right="20px" top="20px" zIndex="1">
-      <ButtonGroup spacing="3" size="lg">
-        <Tooltip label="Zoom in" aria-label="Zoom in">
+    <Box position="absolute" right="10px" top="10px" zIndex="1">
+      <ButtonGroup spacing="1" size="sm">
+        <Tooltip label="Zoom out" aria-label="Zoom out">
           <IconButton
-            icon={<FiZoomIn />}
-            onClick={handleZoomIn}
-            size={buttonSize}
+            icon={<FaMinus />}
+            onClick={handleZoomOut}
+            size="sm"
+            variant="ghost"
           />
         </Tooltip>
         <Tooltip label="Zoom out" aria-label="Zoom out">
-          <IconButton
-            icon={<FiZoomOut />}
-            onClick={handleZoomOut}
-            size={buttonSize}
-          />
+          <Button
+            onClick={handleReset}
+            size="sm"
+            variant="ghost"
+            fontFamily="Open Sans"
+          >
+            100%
+          </Button>
+        </Tooltip>
+        <Tooltip label="Zoom in" aria-label="Zoom in">
+          <IconButton icon={<FaPlus />} onClick={handleZoomIn} size="sm" />
         </Tooltip>
       </ButtonGroup>
     </Box>

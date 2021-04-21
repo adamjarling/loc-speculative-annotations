@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
-import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Box, useColorModeValue } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
-import ViewerControls from 'components/Viewer/Controls';
 import { isBrowser } from 'react-device-detect';
 
 const minZoomLevel = isBrowser ? 0.4 : 0.8;
@@ -71,11 +70,7 @@ export default function Viewer({ tile }) {
     });
   }, [dispatch, viewer]);
 
-  return (
-    <Box ref={ref} w="80%" h="90%" bgColor={bgColor}>
-      {isBrowser && <ViewerControls />}
-    </Box>
-  );
+  return <Box ref={ref} w="80%" h="90%" bgColor={bgColor}></Box>;
 }
 
 Viewer.propTypes = {

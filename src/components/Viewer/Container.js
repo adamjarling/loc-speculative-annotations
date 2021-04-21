@@ -6,11 +6,14 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  AspectRatio,
   Box,
   Flex,
 } from '@chakra-ui/react';
 import { locImages } from 'services/loc-images';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import ViewerControls from 'components/Viewer/Controls';
+import { isBrowser } from 'react-device-detect';
 
 export default function ViewerContainer() {
   const params = useParams();
@@ -63,7 +66,13 @@ export default function ViewerContainer() {
 
   // Success
   return (
-    <Flex flexGrow={1} justifyContent="center" alignItems="center">
+    <Flex
+      flexGrow={1}
+      justifyContent="center"
+      alignItems="center"
+      position="relative"
+    >
+      {isBrowser && <ViewerControls />}
       <Viewer tile={targetImage} />
     </Flex>
   );
