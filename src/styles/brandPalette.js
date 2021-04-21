@@ -1,5 +1,16 @@
-
 const brandPalette = {
+  blue: {
+    50: '#def3ff',
+    100: '#b0d9ff',
+    200: '#80bfff',
+    300: '#50a6fe',
+    400: '#258cfc',
+    500: '#1373e4',
+    600: '#0859b2',
+    700: '#004080', // the color
+    800: '#00264f',
+    900: '#000e1f',
+  },
   green: {
     50: '#deffde',
     100: '#afffaf',
@@ -12,8 +23,7 @@ const brandPalette = {
     800: '#004e00',
     900: '#001c00',
   },
-  pastelBlue: 
-  {
+  pastelBlue: {
     50: '#e2f8ff',
     100: '#bae7f8', // the color
     200: '#90d5f1',
@@ -25,8 +35,7 @@ const brandPalette = {
     800: '#073445',
     900: '#00121a',
   },
-  pastelGreen: 
-  {
+  pastelGreen: {
     50: '#e4fdf5',
     100: '#bff2e4', // the color
     200: '#99e8d2',
@@ -38,8 +47,7 @@ const brandPalette = {
     800: '#0d4032',
     900: '#001611',
   },
-  pastelPurple: 
-  {
+  pastelPurple: {
     50: '#efe8ff',
     100: '#cdbef4', // the color
     200: '#ab92ea',
@@ -51,8 +59,7 @@ const brandPalette = {
     800: '#1a0b41',
     900: '#0a0319',
   },
-  pink: 
-  {
+  pink: {
     50: '#ffe2ff',
     100: '#ffb1f9',
     200: '#ff7ff1',
@@ -64,8 +71,7 @@ const brandPalette = {
     800: '#4f0045',
     900: '#1f001a',
   },
-  rust: 
-  {
+  rust: {
     50: '#ffe9e0',
     100: '#ffc3b5',
     200: '#f99d86',
@@ -77,8 +83,7 @@ const brandPalette = {
     800: '#4a0f01',
     900: '#1f0200',
   },
-  teal: 
-  {
+  teal: {
     50: '#dcfff4',
     100: '#afffe2',
     200: '#80fdd0',
@@ -90,8 +95,7 @@ const brandPalette = {
     800: '#004c30',
     900: '#001b0d',
   },
-  yellow: 
-  {
+  yellow: {
     50: '#fffeda',
     100: '#fffaad',
     200: '#fff67d',
@@ -117,6 +121,10 @@ export const brandColors = [
   {
     label: 'rust',
     hex: brandPalette.rust['400'],
+  },
+  {
+    label: 'blue',
+    hex: brandPalette.blue['700'],
   },
   {
     label: 'teal',
