@@ -11,14 +11,25 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Wrap,
-  WrapItem,
+  Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
 import { useHistory } from 'react-router-dom';
-import AltButton from 'components/AltButton';
+
+import Slider from 'react-slick';
+// Import css files
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+var settings = {
+  arrows: true,
+  dots: true,
+  infinite: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+};
 
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,13 +47,6 @@ function WorksListModal() {
 
   return (
     <Box>
-      {/* <AltButton
-        onClick={() => onOpen()}
-        leftIcon={<AddIcon />}
-        colorScheme="brand.pink"
-      >
-        New Annotation
-      </AltButton> */}
       <Button
         onClick={() => onOpen()}
         leftIcon={<AddIcon />}
@@ -64,27 +68,41 @@ function WorksListModal() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Wrap spacing="20px">
-              {locImages.map(image => (
-                <WrapItem key={image.id} w="200px" h="auto">
-                  <Link
-                    key={image.id}
-                    href="#"
-                    onClick={() => handleImageClick(image)}
-                  >
-                    <Image src={image.url} alt={image.alt} />
-                  </Link>
-                </WrapItem>
-              ))}
-            </Wrap>
+            <Box px={4}>
+              <Slider {...settings}>
+                {locImages.map((image, index) => (
+                  <Box className="slick-sa-item-wrapper" key={image.id}>
+                    <Text
+                      pr={2}
+                      fontSize="2xl"
+                      fontFamily="ocr-a-std"
+                      color="brand.pink.300"
+                    >
+                      {index + 1}
+                    </Text>
+                    <Link
+                      key={image.id}
+                      href="#"
+                      onClick={() => handleImageClick(image)}
+                    >
+                      <Image src={image.url} alt={image.alt} />
+                    </Link>
+                  </Box>
+                ))}
+              </Slider>
+            </Box>
           </ModalBody>
 
           <ModalFooter>
-            <Button mr={3} onClick={handleSelectItem} disabled={!activeWork}>
-              Select Item
+            <Button onClick={onClose} variant="ghost" mr={3}>
+              Cancel
             </Button>
-            <Button onClick={onClose} variant="ghost">
-              Close
+            <Button
+              onClick={handleSelectItem}
+              disabled={!activeWork}
+              colorScheme="brand.pink"
+            >
+              Annotate
             </Button>
           </ModalFooter>
         </ModalContent>

@@ -1,3 +1,33 @@
 .activeButton {
   border: 1px solid green;
 }
+
+.slick-initialized .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.slick-slide {
+  text-align: center;
+}
+
+/* Custom class we're adding, not overriding like the rest */
+.slick-sa-item-wrapper {
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.slick-slide img {
+  max-height: 500px;
+  display: inline-block !important;
+}
+
+.slick-dots li button:before {
+  color: white !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white !important;
+}
