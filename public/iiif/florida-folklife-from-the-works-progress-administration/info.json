@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/florida-folklife-from-the-works-progress-administration/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Florida Folklife from the WPA Collections, 1937 to 1942"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/florida-folklife-from-the-works-progress-administration/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Florida Folklife from the WPA Collections, 1937 to 1942"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

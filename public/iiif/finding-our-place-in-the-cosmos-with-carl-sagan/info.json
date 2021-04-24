@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/finding-our-place-in-the-cosmos-with-carl-sagan/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Finding Our Place in the Cosmos: From Galileo to Sagan and Beyond"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/finding-our-place-in-the-cosmos-with-carl-sagan/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Finding Our Place in the Cosmos: From Galileo to Sagan and Beyond"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

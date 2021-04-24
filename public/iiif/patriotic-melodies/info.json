@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/patriotic-melodies/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Patriotic Melodies"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/patriotic-melodies/",
+      "type": "Text",
+      "label": { "en": ["Home page for Patriotic Melodies"] },
+      "format": "text/html"
+    }
+  ]
+}

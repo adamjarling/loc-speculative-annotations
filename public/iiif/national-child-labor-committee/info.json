@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/national-child-labor-committee/manifest",
+  "type": "Manifest",
+  "label": { "en": ["National Child Labor Committee Collection"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/national-child-labor-committee/",
+      "type": "Text",
+      "label": { "en": ["Home page for National Child Labor Committee Collection"] },
+      "format": "text/html"
+    }
+  ]
+}

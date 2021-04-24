@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/carol-m-highsmith/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Highsmith (Carol M.) Archive"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/carol-m-highsmith/about-this-collection/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Highsmith (Carol M.) Archive"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

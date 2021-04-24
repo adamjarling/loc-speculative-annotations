@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/wm-oland-bourne-papers/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Wm. Oland Bourne Papers"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/wm-oland-bourne-papers/",
+      "type": "Text",
+      "label": { "en": ["Home page for Wm. Oland Bourne Papers"] },
+      "format": "text/html"
+    }
+  ]
+}

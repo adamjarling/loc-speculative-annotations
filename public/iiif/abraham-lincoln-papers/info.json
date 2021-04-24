@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/abraham-lincoln-papers/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Abraham Lincoln Papers at the Library of Congress"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/abraham-lincoln-papers/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Abraham Lincoln Papers at the Library of Congress"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

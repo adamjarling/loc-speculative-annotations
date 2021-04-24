@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/works-progress-administration-posters/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Posters: WPA Posters"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/works-progress-administration-posters/",
+      "type": "Text",
+      "label": { "en": ["Home page for Posters: WPA Posters"] },
+      "format": "text/html"
+    }
+  ]
+}

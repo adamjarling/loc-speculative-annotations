@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/web-cultures-web-archive/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Web Cultures Web Archive"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/web-cultures-web-archive/",
+      "type": "Text",
+      "label": { "en": ["Home page for Web Cultures Web Archive"] },
+      "format": "text/html"
+    }
+  ]
+}

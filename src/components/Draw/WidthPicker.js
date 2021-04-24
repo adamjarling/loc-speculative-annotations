@@ -23,7 +23,6 @@ export const widths = [
 ];
 
 function DrawWidthPicker({ color, handleWidthSelect, width }) {
-  console.log(`color`, color);
   return (
     <VStack spacing={3} px={1}>
       {widths.map(widthObj => {

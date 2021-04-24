@@ -48,6 +48,17 @@ function Metadata() {
   const { filterMetadata, findManifest, getQuestions } = useIIIFManifests();
 
   async function getManifestData() {
+    const obj = await getWorkMetadata();
+
+    if (obj) {
+      const collection = await getCollection();
+      obj.collection = collection;
+    }
+
+    setMetadata(obj);
+  }
+
+  async function getWorkMetadata() {
     try {
       const currentManifest = await findManifest(params.id);
       if (!currentManifest) return;
@@ -69,20 +80,7 @@ function Metadata() {
       obj.summary = currentManifest.getProperty('summary')['en'][0];
       obj.workUrl = currentManifest.getProperty('homepage')[0].id;
 
-      // Fetch work's collection information
-      const collectionManifest = await loadManifest(
-        currentManifest.getProperty('partOf')[0].id
-      );
-
-      if (collectionManifest) {
-        const parsed = parseManifest(collectionManifest);
-        obj.collection = {
-          label: parsed.getLabel().getValue(),
-          url: parsed.getProperty('homepage')[0].id,
-        };
-      }
-
-      setMetadata(obj);
+      return obj;
     } catch (e) {
       console.error('Error loading / parsing IIIF manifest', e);
       toast({
@@ -90,6 +88,38 @@ function Metadata() {
         status: 'error',
         isClosable: true,
       });
+      return;
+    }
+  }
+
+  async function getCollection() {
+    try {
+      const currentManifest = await findManifest(params.id);
+      if (!currentManifest) return;
+
+      // Fetch work's collection information
+      const collectionManifest = await loadManifest(
+        currentManifest.getProperty('partOf')[0].id
+      );
+
+      if (collectionManifest) {
+        const parsed = parseManifest(collectionManifest);
+        return {
+          label: parsed.getLabel().getValue(),
+          url: parsed.getProperty('homepage')[0].id,
+        };
+      }
+    } catch (e) {
+      console.error(
+        'Error loading / parsing Collection from Work in manifest',
+        e
+      );
+      toast({
+        title: `Error loading the Work Collection`,
+        status: 'error',
+        isClosable: true,
+      });
+      return;
     }
   }
 
@@ -129,6 +159,7 @@ function Metadata() {
           size={iconButtonSize}
           fontSize={['2xl', '3xl']}
           variant="ghost"
+          disabled={!metadata}
         />
       </Tooltip>
 

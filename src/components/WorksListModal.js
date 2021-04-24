@@ -29,6 +29,7 @@ var settings = {
   infinite: false,
   slidesToShow: 4,
   slidesToScroll: 1,
+  swipeToSlide: true,
 };
 
 function WorksListModal() {

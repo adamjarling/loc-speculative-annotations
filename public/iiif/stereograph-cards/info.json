@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/stereograph-cards/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Stereograph Cards"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/stereograph-cards/",
+      "type": "Text",
+      "label": { "en": ["Home page for Stereograph Cards"] },
+      "format": "text/html"
+    }
+  ]
+}

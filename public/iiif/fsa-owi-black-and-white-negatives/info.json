@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/fsa-owi-black-and-white-negatives/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Farm Security Administration/Office of War Information Black-and-White Negatives"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/fsa-owi-black-and-white-negatives/",
+      "type": "Text",
+      "label": { "en": ["Home page for Farm Security Administration/Office of War Information Black-and-White Negatives"] },
+      "format": "text/html"
+    }
+  ]
+}

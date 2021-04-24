@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/alexander-hamilton-papers/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Alexander Hamilton Papers"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/alexander-hamilton-papers/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Alexander Hamilton Papers"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

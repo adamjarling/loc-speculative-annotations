@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/general-maps/manifest",
+  "type": "Manifest",
+  "label": { "en": ["General Maps"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/general-maps/",
+      "type": "Text",
+      "label": { "en": ["Home page for Rare Book Selections"] },
+      "format": "text/html"
+    }
+  ]
+}

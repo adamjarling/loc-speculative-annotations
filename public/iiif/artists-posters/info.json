@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/artists-posters/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Posters: Artist Posters"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/artists-posters",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Posters: Artist Posters"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

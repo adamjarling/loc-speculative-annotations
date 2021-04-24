@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/rare-book-selections/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Rare Book Selections"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/rare-book-selections/",
+      "type": "Text",
+      "label": { "en": ["Home page for Rare Book Selections"] },
+      "format": "text/html"
+    }
+  ]
+}
