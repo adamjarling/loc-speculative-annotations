@@ -16,26 +16,27 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 
 import Slider from 'react-slick';
 // Import css files
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-var settings = {
-  arrows: true,
-  dots: true,
-  infinite: false,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  swipeToSlide: true,
+const activeStyle = {
+  border: '2px solid',
+  borderColor: 'brand.pink.500',
 };
 
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [activeWork, setActiveWork] = React.useState();
   const history = useHistory();
+  const params = useParams();
+  const sliderRef = React.useRef();
+  const [activeWork, setActiveWork] = React.useState(
+    locImages.find(image => image.id === params.id)
+  );
 
   const handleImageClick = image => {
     setActiveWork(image);
@@ -44,6 +45,16 @@ function WorksListModal() {
   const handleSelectItem = () => {
     onClose();
     history.push(`/${activeWork.id}`);
+  };
+
+  const settings = {
+    centerMode: true,
+    dots: true,
+    infinite: true,
+    initialSlide: locImages.findIndex(image => image.id === params.id),
+    slidesToShow: isMobile ? 1 : 4,
+    slidesToScroll: 1,
+    swipeToSlide: true,
   };
 
   return (
@@ -70,7 +81,7 @@ function WorksListModal() {
           <ModalCloseButton />
           <ModalBody>
             <Box px={4}>
-              <Slider {...settings}>
+              <Slider ref={sliderRef} {...settings}>
                 {locImages.map((image, index) => (
                   <Box className="slick-sa-item-wrapper" key={image.id}>
                     <Text
@@ -85,6 +96,8 @@ function WorksListModal() {
                       key={image.id}
                       href="#"
                       onClick={() => handleImageClick(image)}
+                      {...(activeWork &&
+                        activeWork.id === image.id && { ...activeStyle })}
                     >
                       <Image src={image.url} alt={image.alt} />
                     </Link>

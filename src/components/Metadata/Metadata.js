@@ -128,6 +128,7 @@ function Metadata() {
   }, [params.id]);
 
   const createMarkup = value => {
+    if (!value) return '';
     if (value.split('<br/>').length > 0) {
       // return dangerously set inner HTML
       return <div dangerouslySetInnerHTML={{ __html: value }} />;
