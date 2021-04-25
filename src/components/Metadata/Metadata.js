@@ -166,7 +166,7 @@ function Metadata() {
 
       <Drawer isOpen={isOpen} placement="right" onClose={handleClose}>
         <DrawerOverlay>
-          {currentWork && (
+          {currentWork && metadata && (
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader>{metadata.label || ''}</DrawerHeader>

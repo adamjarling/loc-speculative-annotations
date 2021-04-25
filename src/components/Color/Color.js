@@ -23,7 +23,9 @@ function Color() {
   React.useEffect(() => {
     setMyState({
       ...myState,
-      isActiveTool: Boolean(activeTool && activeTool !== 'POINTER'),
+      isActiveTool: Boolean(
+        activeTool && ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) === -1
+      ),
     });
   }, [activeTool]);
 

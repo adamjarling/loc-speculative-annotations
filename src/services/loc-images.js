@@ -24,6 +24,9 @@ import bournePapers from 'images/loc-images/mss13375003.jpg';
 import saveTheOctopus from 'images/loc-images/lcwaN0010826.jpg';
 import puebloAcoma from 'images/loc-images/nm0095.sheet.00005a.jpg';
 import statueOfLiberty from 'images/loc-images/ny1251.sheet.00037a.jpg';
+import votesForWomen from 'images/loc-images/mm2079013698.jpg';
+import earlWarrenPapers from 'images/loc-images/mm2082052258.jpg';
+import harryBlackmunPapers from 'images/loc-images/mm2099084430.jpg';
 
 const duchessUrl =
   'https://tile.loc.gov/image-services/iiif/service:music:vaultscan.15:200218724:0001/full/pct:100/0/default.jpg';
@@ -166,6 +169,24 @@ export const locImages = [
       'Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)',
     type: 'image',
     url: lincolnPapers,
+  },
+  {
+    id: 'mm2079013698',
+    alt: 'Votes For Women',
+    type: 'image',
+    url: votesForWomen,
+  },
+  {
+    id: 'mm2082052258',
+    alt: 'Earl Warren papers, 1864-1974',
+    type: 'image',
+    url: earlWarrenPapers,
+  },
+  {
+    id: 'mm2099084430',
+    alt: 'Harry A Blackmun papers, 1913-2001',
+    type: 'image',
+    url: harryBlackmunPapers,
   },
   {
     id: 'mss24612.021_0064_0079',

@@ -8,6 +8,7 @@ import TypeText from 'components/TypeText/TypeText';
 import Highlighter from 'components/Highlighter/Highlighter';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
+import StampQuestion from 'components/StampQuestion/StampQuestion';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 import 'styles/styles.css';
@@ -26,6 +27,10 @@ function Toolbar() {
   return (
     <Box pt={3} position="relative">
       <Wrap spacing="2" as="nav" direction="column" align="center">
+        <WrapItem>
+          <StampQuestion isActive={activeTool === 'STAMP_QUESTION'} />
+        </WrapItem>
+
         <WrapItem>
           <ToolbarPointer isActive={activeTool === 'POINTER'} />
         </WrapItem>

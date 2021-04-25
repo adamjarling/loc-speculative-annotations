@@ -12,7 +12,6 @@ import ClearCanvas from 'components/ClearCanvas';
 import Share from 'components/Share/Share';
 import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import Download from 'components/Download';
-import { isBrowser } from 'react-device-detect';
 import Color from 'components/Color/Color';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import UndoRedo from 'components/UndoRedo/UndoRedo';
@@ -36,7 +35,11 @@ function AdjustmentBar(props) {
       <Box
         ml={2}
         py={2}
-        h={!activeTool || activeTool === 'POINTER' ? 0 : '100%'}
+        h={
+          !activeTool || ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) > -1
+            ? 0
+            : '100%'
+        }
       >
         <Color />
       </Box>
