@@ -30,8 +30,12 @@ function Color() {
   }, [activeTool]);
 
   /**
-   * Handle mouse events
+   * Handle FabricJS object selection / deselection events
+   * NOTE: The code below handles when a user selects or deselects a FabricJS
+   * object. It could be used to show/hide controls in the Adjustment bar, if
+   * a user was updating an existing object (say changing it's color, or font size, etc.)
    */
+  /*
   React.useEffect(() => {
     if (!fabricOverlay) return;
 
@@ -54,6 +58,7 @@ function Color() {
       canvas.off('selection:updated', handleSelectionUpdated);
     };
   }, [fabricOverlay]);
+  */
 
   const handleColorSelect = color => {
     dispatch({ type: 'updateColor', color });
@@ -64,7 +69,7 @@ function Color() {
       <ColorOptionsPanel
         color={color}
         handleColorSelect={handleColorSelect}
-        isVisible={myState.isObjectSelected || myState.isActiveTool}
+        isVisible={myState.isActiveTool}
       />
     </Box>
   );
