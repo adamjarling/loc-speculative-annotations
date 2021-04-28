@@ -1,4 +1,4 @@
-import zoopraxiscope from 'images/loc-images/00650866.jpg';
+import zoopraxiscope from 'images/loc-images/00650866.png';
 import floridaExpedition from 'images/loc-images/flwpa000213.jpg';
 import candide from 'images/loc-images/ihas200218413.jpg';
 import browniesBook from 'images/loc-images/22001351.jpg';
@@ -27,6 +27,7 @@ import statueOfLiberty from 'images/loc-images/ny1251.sheet.00037a.jpg';
 import votesForWomen from 'images/loc-images/mm2079013698.jpg';
 import earlWarrenPapers from 'images/loc-images/mm2082052258.jpg';
 import harryBlackmunPapers from 'images/loc-images/mm2099084430.jpg';
+import patsyMinkPapers from 'images/loc-images/2011660380.jpg';
 
 const duchessUrl =
   'https://tile.loc.gov/image-services/iiif/service:music:vaultscan.15:200218724:0001/full/pct:100/0/default.jpg';
@@ -106,6 +107,12 @@ export const locImages = [
       'Mural painting "Entry into the Forest" by Candido Portinari, on the vestibule wall of the Hispanic Reading room, Library of Congress, Thomas Jefferson Building, Washington, D.C.',
     type: 'image',
     url: entryIntoTheForest,
+  },
+  {
+    id: '2011660380',
+    alt: 'Visual materials from the Patsy T. Mink papers',
+    type: 'image',
+    url: patsyMinkPapers,
   },
   {
     id: '2014563896',
