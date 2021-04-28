@@ -17,9 +17,28 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import { stamps } from 'components/Stamp/Picker';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+
+import bubble1 from 'images/speech-bubble/New-trial-stamp1-embedded.svg';
+import bubble2 from 'images/speech-bubble/New-trial-stamp2-embedded.svg';
+import { ReactComponent as Bubble1 } from 'images/speech-bubble/New-trial-stamp1-embedded.svg';
+import { ReactComponent as Bubble2 } from 'images/speech-bubble/New-trial-stamp2-embedded.svg';
+
+export const speechBubbles = [
+  {
+    id: 'bubble1',
+    label: 'Speech bubble',
+    src: bubble1,
+    StampSVG: Bubble1,
+  },
+  {
+    id: 'bubble2',
+    label: 'Speech bubble',
+    src: bubble2,
+    StampSVG: Bubble2,
+  },
+];
 
 const activeStyle = {
   border: '2px solid',
@@ -90,7 +109,7 @@ export default function StampQuestion({ isActive }) {
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid columns={3}>
-              {stamps.slice(0, 6).map(stampObj => (
+              {speechBubbles.slice(0, 6).map(stampObj => (
                 <Link
                   key={stampObj.id}
                   p={6}

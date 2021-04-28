@@ -7,7 +7,7 @@ const brandPalette = {
     400: '#258cfc',
     500: '#1373e4',
     600: '#0859b2',
-    700: '#004080', // the color
+    700: '#003366', // the color
     800: '#00264f',
     900: '#000e1f',
   },
@@ -17,7 +17,7 @@ const brandPalette = {
     200: '#7dff7e',
     300: '#4bff4c',
     400: '#1aff1a',
-    500: '#00e600', // the color
+    500: '#00F700', // the color
     600: '#00b300',
     700: '#008000',
     800: '#004e00',
@@ -25,7 +25,7 @@ const brandPalette = {
   },
   pastelBlue: {
     50: '#e2f8ff',
-    100: '#bae7f8', // the color
+    100: '#A7E0F6', // the color
     200: '#90d5f1',
     300: '#67c5eb',
     400: '#44b5e5',
@@ -37,7 +37,7 @@ const brandPalette = {
   },
   pastelGreen: {
     50: '#e4fdf5',
-    100: '#bff2e4', // the color
+    100: '#BAF1E2', // the color
     200: '#99e8d2',
     300: '#72e0c2',
     400: '#4ed7b0',
@@ -49,7 +49,7 @@ const brandPalette = {
   },
   pastelPurple: {
     50: '#efe8ff',
-    100: '#cdbef4', // the color
+    100: '#D7CBF6', // the color
     200: '#ab92ea',
     300: '#8a68e2',
     400: '#6a3dd9',
@@ -65,7 +65,7 @@ const brandPalette = {
     200: '#ff7ff1',
     300: '#ff4ceb',
     400: '#ff1ae4',
-    500: '#e600ca', // the color
+    500: '#ED00D1', // the color
     600: '#b4009e',
     700: '#810071',
     800: '#4f0045',
@@ -76,7 +76,7 @@ const brandPalette = {
     100: '#ffc3b5',
     200: '#f99d86',
     300: '#f47657',
-    400: '#f05129', // the color
+    400: '#F05129', // the color
     500: '#d6370f',
     600: '#a82a0b',
     700: '#781d06',
@@ -87,7 +87,7 @@ const brandPalette = {
     50: '#dcfff4',
     100: '#afffe2',
     200: '#80fdd0',
-    300: '#4ffcbe', // the color
+    300: '#45FCBA', // the color
     400: '#25fbac',
     500: '#12e293',
     600: '#03b071',
@@ -101,7 +101,7 @@ const brandPalette = {
     200: '#fff67d',
     300: '#fff24b',
     400: '#ffef1a',
-    500: '#e6d500', // the color
+    500: '#FFED00', // the color
     600: '#b3a600',
     700: '#807700',
     800: '#4d4700',
@@ -115,36 +115,36 @@ export const brandColors = [
     hex: brandPalette.green['500'],
   },
   {
-    label: 'pink',
-    hex: brandPalette.pink['500'],
+    label: 'yellow',
+    hex: brandPalette.yellow['500'],
   },
   {
-    label: 'rust',
-    hex: brandPalette.rust['400'],
+    label: 'teal',
+    hex: brandPalette.teal['300'],
+  },
+  {
+    label: 'pink',
+    hex: brandPalette.pink['500'],
   },
   {
     label: 'blue',
     hex: brandPalette.blue['700'],
   },
   {
-    label: 'teal',
-    hex: brandPalette.teal['500'],
-  },
-  {
-    label: 'yellow',
-    hex: brandPalette.yellow['500'],
+    label: 'pastelGreen',
+    hex: brandPalette.pastelGreen['100'],
   },
   {
     label: 'pastelBlue',
     hex: brandPalette.pastelBlue['100'],
   },
   {
-    label: 'pastelGreen',
-    hex: brandPalette.pastelGreen['100'],
-  },
-  {
     label: 'pastelPurple',
     hex: brandPalette.pastelPurple['100'],
+  },
+  {
+    label: 'rust',
+    hex: brandPalette.rust['400'],
   },
 ];
 
