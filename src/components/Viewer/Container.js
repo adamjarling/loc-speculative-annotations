@@ -12,11 +12,13 @@ import {
 import { locImages } from 'services/loc-images';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ViewerControls from 'components/Viewer/Controls';
+import { isBrowser, isMobile, isTablet } from 'react-device-detect';
 
 export default function ViewerContainer() {
   const params = useParams();
   const location = useLocation();
   const { fabricOverlay, userCanvases } = useFabricOverlayState();
+  const viewerPadding = `50px ${isBrowser ? '80px' : '20px'} 10px`;
 
   const newCanvasTitle =
     location.state && location.state.canvasTitle
@@ -64,13 +66,7 @@ export default function ViewerContainer() {
 
   // Success
   return (
-    <Flex
-      flexGrow={1}
-      justifyContent="center"
-      alignItems="center"
-      position="relative"
-      pt="20px"
-    >
+    <Flex flexGrow={1} position="relative" p={viewerPadding}>
       <ViewerControls />
       <Viewer tile={targetImage} />
     </Flex>

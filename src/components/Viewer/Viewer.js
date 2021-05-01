@@ -71,7 +71,7 @@ export default function Viewer({ tile }) {
     });
   }, [dispatch, viewer]);
 
-  return <Box ref={ref} w="80%" h={viewerHeight} bgColor={bgColor}></Box>;
+  return <Box ref={ref} flexGrow="1" bgColor={bgColor}></Box>;
 }
 
 Viewer.propTypes = {

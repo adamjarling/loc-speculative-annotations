@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
+import useButtonSize from 'hooks/use-button-size';
 
 import bubble1 from 'images/speech-bubble/New-trial-stamp1-embedded.svg';
 import bubble2 from 'images/speech-bubble/New-trial-stamp2-embedded.svg';
@@ -92,7 +93,7 @@ export default function StampQuestion({ isActive }) {
     <div>
       <ToolbarButton
         onClick={handleToolbarButtonClick}
-        icon={<StampQuestionIcon height="2rem" width="2rem" />}
+        icon={<StampQuestionIcon height={`30px`} width={`30px`} />}
         isActive={isActive}
         label="Quick question stamp"
       />
