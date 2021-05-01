@@ -85,6 +85,7 @@ function Draw({ isActive }) {
       canvas.isDrawingMode = true;
       canvas.freeDrawingBrush.color = color.hex;
       canvas.freeDrawingBrush.width = brushWidth;
+      canvas.perPixelTargetFind = true;
 
       canvas.renderAll();
 

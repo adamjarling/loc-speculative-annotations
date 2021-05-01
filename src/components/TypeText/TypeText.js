@@ -16,7 +16,7 @@ import useFabricHelpers from 'hooks/use-fabric-helpers';
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { color, fabricOverlay, viewer } = useFabricOverlayState();
-  const { deselectAll, setDefaultCursor } = useFabricHelpers();
+  const { deselectAll, setDefaultCursor, setHoverCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
@@ -40,17 +40,18 @@ function TypeText({ isActive }) {
 
     if (!fabricOverlay) return;
     setDefaultCursor(isActive ? 'text' : 'auto');
+    setHoverCursor(isActive ? 'text' : 'move');
   }, [color, isActive]);
 
   React.useEffect(() => {
     if (!isActive) return;
 
     if (myState.isEditing) {
-      fabricOverlay.fabricCanvas().defaultCursor = 'auto';
-      fabricOverlay.fabricCanvas().hoverCursor = 'text';
+      setDefaultCursor('auto');
+      setHoverCursor('text');
     } else {
-      fabricOverlay.fabricCanvas().defaultCursor = 'text';
-      fabricOverlay.fabricCanvas().hoverCursor = 'move';
+      setDefaultCursor('text');
+      setHoverCursor('text');
     }
   }, [myState.isEditing]);
 
@@ -84,7 +85,7 @@ function TypeText({ isActive }) {
     function handleMouseDown(options) {
       // Selected an existing object OR not in Type Tool mode
       if (
-        options.target ||
+        //options.target || // NOTE: this code blocks adding text onto an existing Fabric object
         !myStateRef.current.isActive ||
         // Block the extra touchstart event fired for touch devices
         options.e.type === 'touchstart'
