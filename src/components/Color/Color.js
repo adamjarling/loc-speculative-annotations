@@ -1,18 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '@chakra-ui/react';
-import {
-  useFabricOverlayDispatch,
-  useFabricOverlayState,
-} from 'context/fabric-overlay-context';
+import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ColorOptionsPanel from 'components/Color/OptionsPanel';
+import {
+  useToolbarOptionsDispatch,
+  useToolbarOptionsState,
+} from 'context/toolbar-options-context';
 
-function Color() {
-  const dispatch = useFabricOverlayDispatch();
-  const { activeTool, color, fabricOverlay } = useFabricOverlayState();
+function Color({ buttonSize }) {
+  const toolbarDispatch = useToolbarOptionsDispatch();
+  const { color } = useToolbarOptionsState();
+  const { activeTool, fabricOverlay } = useFabricOverlayState();
 
   const [myState, _setMyState] = React.useState({
     isObjectSelected: false,
-    isActiveTool: false,
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -23,9 +25,6 @@ function Color() {
   React.useEffect(() => {
     setMyState({
       ...myState,
-      isActiveTool: Boolean(
-        activeTool && ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) === -1
-      ),
     });
   }, [activeTool]);
 
@@ -61,18 +60,22 @@ function Color() {
   */
 
   const handleColorSelect = color => {
-    dispatch({ type: 'updateColor', color });
+    toolbarDispatch({ type: 'updateColor', color });
   };
 
   return (
     <Box pl={3}>
       <ColorOptionsPanel
+        buttonSize={buttonSize}
         color={color}
         handleColorSelect={handleColorSelect}
-        isVisible={myState.isActiveTool}
       />
     </Box>
   );
 }
+
+Color.propTypes = {
+  buttonSize: PropTypes.object,
+};
 
 export default Color;

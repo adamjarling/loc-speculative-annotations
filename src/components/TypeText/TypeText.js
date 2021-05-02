@@ -12,10 +12,12 @@ import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
+import { useToolbarOptionsState } from 'context/toolbar-options-context';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
-  const { color, fabricOverlay, viewer } = useFabricOverlayState();
+  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const { color } = useToolbarOptionsState();
   const { deselectAll, setDefaultCursor, setHoverCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({

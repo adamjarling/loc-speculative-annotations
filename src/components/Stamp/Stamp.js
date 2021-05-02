@@ -10,9 +10,11 @@ import {
 } from 'context/fabric-overlay-context';
 import StampPicker from 'components/Stamp/Picker';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
+import { useToolbarOptionsState } from 'context/toolbar-options-context';
 
 function Stamp({ isActive }) {
-  const { color, fabricOverlay, viewer } = useFabricOverlayState();
+  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const { color } = useToolbarOptionsState();
   const dispatch = useFabricOverlayDispatch();
   const { deselectAll } = useFabricHelpers();
 

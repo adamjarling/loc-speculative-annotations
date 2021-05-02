@@ -7,6 +7,7 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   Button,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import AltButton from 'components/AltButton';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
@@ -16,6 +17,7 @@ function ClearCanvas() {
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef();
   const { clearUserObjects } = useFabricHelpers();
+  const buttonLabel = useBreakpointValue({ base: 'Clear', lg: 'Clear Canvas' });
 
   const handleClearCanvas = () => {
     clearUserObjects();
@@ -25,7 +27,7 @@ function ClearCanvas() {
   return (
     <>
       <AltButton onClick={() => setIsOpen(true)} data-testid="clear-all-link">
-        Clear canvas
+        {buttonLabel}
       </AltButton>
 
       <AlertDialog

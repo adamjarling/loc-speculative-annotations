@@ -10,12 +10,14 @@ import {
 } from 'context/fabric-overlay-context';
 import ShapePicker from 'components/Shape/Picker';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
+import { useToolbarOptionsState } from 'context/toolbar-options-context';
 
 const FABRIC_SHAPE_TYPES = ['circle', 'rect'];
 
 function Shape({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
-  const { color, fabricOverlay, viewer } = useFabricOverlayState();
+  const { fabricOverlay, viewer } = useFabricOverlayState();
+  const { color } = useToolbarOptionsState();
   const { deselectAll, setDefaultCursor, updateCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({

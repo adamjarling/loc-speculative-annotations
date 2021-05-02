@@ -13,6 +13,7 @@ import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import AdjustmentBar from 'components/AdjustmentBar/AdjustmentBar';
 import IntroMessage from 'components/IntroMessage';
 import LayoutAppMain from 'components/Layout/App/Main';
+import { ToolbarOptionsProvider } from 'context/toolbar-options-context';
 
 function LayoutApp() {
   const { fabricOverlay, isToolbarVisible } = useFabricOverlayState();
@@ -28,20 +29,22 @@ function LayoutApp() {
       <ShareQueryParamHandler />
       <IntroMessage />
       <LayoutHeader />
-      <AdjustmentBar />
-      <LayoutAppBody>
-        <LayoutAppSidebar>
-          {isToolbarVisible && (
-            <>
-              <Toolbar />
-            </>
-          )}
-        </LayoutAppSidebar>
-        <LayoutAppMain>
-          <ViewerContainer />
-          <LayoutAppFooter />
-        </LayoutAppMain>
-      </LayoutAppBody>
+      <ToolbarOptionsProvider>
+        <AdjustmentBar />
+        <LayoutAppBody>
+          <LayoutAppSidebar>
+            {isToolbarVisible && (
+              <>
+                <Toolbar />
+              </>
+            )}
+          </LayoutAppSidebar>
+          <LayoutAppMain>
+            <ViewerContainer />
+            <LayoutAppFooter />
+          </LayoutAppMain>
+        </LayoutAppBody>
+      </ToolbarOptionsProvider>
     </Flex>
   );
 }

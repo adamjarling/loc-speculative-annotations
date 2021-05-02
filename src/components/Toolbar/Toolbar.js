@@ -5,7 +5,6 @@ import Draw from 'components/Draw/Draw';
 import Shape from 'components/Shape/Shape';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import TypeText from 'components/TypeText/TypeText';
-import Highlighter from 'components/Highlighter/Highlighter';
 import ToolbarPointer from 'components/Toolbar/PointerControl';
 import RemoveObject from 'components/RemoveObject';
 import StampQuestion from 'components/StampQuestion/StampQuestion';
@@ -44,7 +43,7 @@ function Toolbar() {
         </WrapItem>
 
         <WrapItem>
-          <Highlighter isActive={activeTool === 'HIGHLIGHTER'} />
+          <Draw isActive={activeTool === 'HIGHLIGHTER'} isHighlighter />
         </WrapItem>
 
         <WrapItem>
