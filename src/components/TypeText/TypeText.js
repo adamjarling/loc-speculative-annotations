@@ -42,7 +42,6 @@ function TypeText({ isActive }) {
 
     if (!fabricOverlay) return;
     setDefaultCursor(isActive ? 'text' : 'auto');
-    setHoverCursor(isActive ? 'text' : 'move');
   }, [color, isActive]);
 
   React.useEffect(() => {
@@ -53,7 +52,7 @@ function TypeText({ isActive }) {
       setHoverCursor('text');
     } else {
       setDefaultCursor('text');
-      setHoverCursor('text');
+      setHoverCursor('move');
     }
   }, [myState.isEditing]);
 
@@ -87,7 +86,7 @@ function TypeText({ isActive }) {
     function handleMouseDown(options) {
       // Selected an existing object OR not in Type Tool mode
       if (
-        //options.target || // NOTE: this code blocks adding text onto an existing Fabric object
+        options.target || // NOTE: this code blocks adding text onto an existing Fabric object
         !myStateRef.current.isActive ||
         // Block the extra touchstart event fired for touch devices
         options.e.type === 'touchstart'
