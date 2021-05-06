@@ -18,6 +18,7 @@ import Color from 'components/Color/Color';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import UndoRedo from 'components/UndoRedo/UndoRedo';
 import AdjustmentBarWidthPicker from 'components/AdjustmentBar/WidthPicker';
+import Decompressor from 'components/Decompressor';
 
 function AdjustmentBar(props) {
   const { bg } = useColorModeColors();
@@ -74,6 +75,7 @@ function AdjustmentBar(props) {
         )}
       </HStack>
       <HStack spacing={itemSpacingNarrow} pt={[2, 0]}>
+        {/* <Decompressor /> */}
         <ClearCanvas />
         <UndoRedo />
         <Center height="20px">
