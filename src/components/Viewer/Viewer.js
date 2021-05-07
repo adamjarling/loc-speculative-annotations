@@ -6,13 +6,13 @@ import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import { isBrowser, isTablet } from 'react-device-detect';
 
-const minZoomLevel = isBrowser ? 0.4 : 0.8;
+const minZoomLevel = isBrowser ? 0.5 : 0.8;
 const viewerHeight = isBrowser ? '90%' : '70%';
 
 const osdOptions = {
-  constrainDuringPan: isBrowser ? true : false,
+  //constrainDuringPan: isBrowser ? true : false,
   debugMode: false,
-  //defaultZoomLevel: minZoomLevel,
+  defaultZoomLevel: minZoomLevel,
   gestureSettingsMouse: {
     clickToZoom: false,
     flickEnabled: true,
@@ -25,9 +25,9 @@ const osdOptions = {
     pinchToZoom: true,
     scrollToZoom: true,
   },
-  // minZoomLevel: minZoomLevel,
+  minZoomLevel: minZoomLevel,
   maxZoomLevel: 4,
-  showNavigationControl: true,
+  //showNavigationControl: true,
   springStiffness: isBrowser ? 20 : 10,
   viewportMargin: {
     left: 100,
@@ -35,7 +35,8 @@ const osdOptions = {
     right: 100,
     bottom: 100,
   },
-  visibilityRatio: isBrowser ? 1 : 0.5,
+  //visibilityRatio: isBrowser ? 1 : 0.5,
+  visibilityRatio: 0.5,
   zoomPerClick: 1.0,
 };
 

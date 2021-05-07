@@ -13,13 +13,12 @@ import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { useToolbarOptionsState } from 'context/toolbar-options-context';
-import { useBreakpointValue } from '@chakra-ui/react';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const { color } = useToolbarOptionsState();
-  const { deselectAll, setDefaultCursor, setHoverCursor } = useFabricHelpers();
+  const { deselectAll, setDefaultCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
@@ -42,6 +41,14 @@ function TypeText({ isActive }) {
     setMyState({ ...myState, color, isActive });
 
     if (!fabricOverlay) return;
+
+    // User is leaving tool, re-enable OSD mouse interactions
+    if (!isActive) {
+      // Enable OSD mouseclicks
+      viewer.setMouseNavEnabled(true);
+      viewer.outerTracker.setTracking(true);
+    }
+
     setDefaultCursor(isActive ? 'text' : 'auto');
   }, [color, isActive]);
 
@@ -49,11 +56,7 @@ function TypeText({ isActive }) {
     if (!isActive) return;
 
     if (myState.isEditing) {
-      setDefaultCursor('auto');
-      setHoverCursor('text');
-    } else {
-      setDefaultCursor('text');
-      setHoverCursor('move');
+      setDefaultCursor(myState.isEditing ? 'auto' : 'text');
     }
   }, [myState.isEditing]);
 
@@ -70,10 +73,6 @@ function TypeText({ isActive }) {
 
       // Deselect all Fabric Canvas objects
       deselectAll();
-    } else {
-      // Enable OSD mouseclicks
-      viewer.setMouseNavEnabled(true);
-      viewer.outerTracker.setTracking(true);
     }
   }, [myState.activeFont]);
 

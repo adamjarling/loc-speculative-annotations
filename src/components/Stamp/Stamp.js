@@ -16,7 +16,7 @@ function Stamp({ isActive }) {
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const { color } = useToolbarOptionsState();
   const dispatch = useFabricOverlayDispatch();
-  const { deselectAll } = useFabricHelpers();
+  const { deselectAll, setDefaultCursor } = useFabricHelpers();
 
   const [myState, _setMyState] = React.useState({
     activeStamp: null,
@@ -37,7 +37,17 @@ function Stamp({ isActive }) {
    * Handle state change for active toolbar, and color change
    */
   React.useEffect(() => {
+    if (!fabricOverlay) return;
     setMyState({ ...myState, color, isActive });
+
+    // Leaving Stamp tool, re-enable OSD interactions
+    if (!isActive) {
+      setDefaultCursor('auto');
+
+      // Enable OSD mouseclicks
+      viewer.setMouseNavEnabled(true);
+      viewer.outerTracker.setTracking(true);
+    }
   }, [color, isActive]);
 
   /**
@@ -56,12 +66,6 @@ function Stamp({ isActive }) {
 
       // Deselect all Fabric Canvas objects
       deselectAll();
-    } else {
-      canvas.defaultCursor = 'auto';
-
-      // Enable OSD mouseclicks
-      viewer.setMouseNavEnabled(true);
-      viewer.outerTracker.setTracking(true);
     }
   }, [myState.activeStamp]);
 
