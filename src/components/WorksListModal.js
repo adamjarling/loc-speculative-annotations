@@ -64,7 +64,7 @@ function WorksListModal() {
         leftIcon={<AddIcon />}
         colorScheme="brand.pink"
       >
-        New Annotation
+        Select from the Collection
       </Button>
 
       <Modal
@@ -108,9 +108,6 @@ function WorksListModal() {
           </ModalBody>
 
           <ModalFooter>
-            <Button onClick={onClose} variant="ghost" mr={3}>
-              Cancel
-            </Button>
             <Button
               onClick={handleSelectItem}
               disabled={!activeWork}

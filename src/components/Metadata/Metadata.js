@@ -217,11 +217,7 @@ function Metadata() {
                 </MetadataBody>
               </DrawerBody>
 
-              <DrawerFooter>
-                <Button variant="outline" onClick={handleClose}>
-                  Close
-                </Button>
-              </DrawerFooter>
+              <DrawerFooter></DrawerFooter>
             </DrawerContent>
           )}
         </DrawerOverlay>

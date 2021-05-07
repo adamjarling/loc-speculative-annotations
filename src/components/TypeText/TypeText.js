@@ -13,6 +13,7 @@ import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { useToolbarOptionsState } from 'context/toolbar-options-context';
+import { useBreakpointValue } from '@chakra-ui/react';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
@@ -106,7 +107,7 @@ function TypeText({ isActive }) {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
         fontFamily: myStateRef.current.activeFont.fontFamily,
-        fontSize: 100,
+        fontSize: 50,
         padding: 20,
         selectionBackgroundColor: 'rgba(255, 255, 255, 0.5)',
         width: 200,
