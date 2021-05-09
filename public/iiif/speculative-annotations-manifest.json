@@ -3355,7 +3355,6 @@
         }
       ]
     },
-  
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
       "id": "https://www.loc.gov/item/2011660380/manifest.json",
@@ -3460,6 +3459,1050 @@
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
               "id": "iiif/2011660380/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/2004664436/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/2004664436/",
+          "type": "Text",
+          "label": { "en": ["Home page for Robert Cornelius, self-portrait"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/daguerreotypes/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/2004664436/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Robert Cornelius, self-portrait image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/2004664436/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/2004664436/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/2004664436/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/2004664436/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/2004664436/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/2004664436/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/2004664436/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2004664436/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2004664436/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/copland.corr0781/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/copland.corr0781/",
+          "type": "Text",
+          "label": { "en": ["Home page for Letter from Aaron Copland to Harold Spivacke, July 30, 1944"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/__COLLECTION/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/copland.corr0781/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Letter from Aaron Copland to Harold Spivacke, July 30, 1944 image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/copland.corr0781/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/copland.corr0781/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/copland.corr0781/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/copland.corr0781/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/copland.corr0781/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/copland.corr0781/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/copland.corr0781/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/copland.corr0781/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/copland.corr0781/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/master-pnp-ppmsca-02900-02935u/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "__URL__",
+          "type": "Text",
+          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/__COLLECTION/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/master-pnp-ppmsca-02900-02935u/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["__WORK_NAME__ image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/master-pnp-ppmsca-02900-02935u/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/master-pnp-ppmsca-02900-02935u/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/master-pnp-ppmsca-02900-02935u/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/master-pnp-ppmsca-02900-02935u/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/master-pnp-ppmsca-09500-09504u/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "__URL__",
+          "type": "Text",
+          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/__COLLECTION/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/master-pnp-ppmsca-09500-09504u/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["__WORK_NAME__ image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/master-pnp-ppmsca-09500-09504u/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/master-pnp-ppmsca-09500-09504u/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/master-pnp-ppmsca-09500-09504u/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/master-pnp-ppmsca-09500-09504u/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/mbrs00056792/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/mbrs00056792/",
+          "type": "Text",
+          "label": { "en": ["Home page for A Special Report on Polio"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/national-screening-room/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/mbrs00056792/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["A Special Report on Polio image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/mbrs00056792/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/mbrs00056792/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/mbrs00056792/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/mbrs00056792/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/mbrs00056792/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/mbrs00056792/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/mbrs00056792/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mbrs00056792/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mbrs00056792/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/mss454430217/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/mss454430217/",
+          "type": "Text",
+          "label": { "en": ["Home page for Thomas Biggs Harned Collection of the Papers of Walt Whitman"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/harned-whitman-collection/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/mss454430217/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Thomas Biggs Harned Collection of the Papers of Walt Whitman image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/mss454430217/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/mss454430217/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/mss454430217/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/mss454430217/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/mss454430217/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/mss454430217/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/mss454430217/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mss454430217/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mss454430217/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/ppmsca-51500-51533u/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "__URL__",
+          "type": "Text",
+          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/__COLLECTION/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/ppmsca-51500-51533u/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["__WORK_NAME__ image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/ppmsca-51500-51533u/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/ppmsca-51500-51533u/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/ppmsca-51500-51533u/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/ppmsca-51500-51533u/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/ppmsca-51500-51533u/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/ppmsca-51500-51533u/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/ppmsca-51500-51533u/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/ppmsca-51500-51533u/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/ppmsca-51500-51533u/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/ihas200218413/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "__URL__",
+          "type": "Text",
+          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/__COLLECTION/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/ihas200218413/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["__WORK_NAME__ image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/ihas200218413/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/ihas200218413/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/ihas200218413/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/ihas200218413/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/ihas200218413/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/ihas200218413/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/ihas200218413/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/ihas200218413/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/ihas200218413/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/49039040/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/49039040/",
+          "type": "Text",
+          "label": { "en": ["Home page for Ars memorandi per figuras Evangelistarum"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/lessing-j-rosenwald/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/49039040/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Ars memorandi per figuras Evangelistarum image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/49039040/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/49039040/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/49039040/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/49039040/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/49039040/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/49039040/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/49039040/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/49039040/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/49039040/annotations/questions/question002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3589,6 +4632,7 @@
         }
       ]
     }
+  
     
   ]
 }

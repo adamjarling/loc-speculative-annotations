@@ -28,6 +28,16 @@ import votesForWomen from 'images/loc-images/mm2079013698.jpg';
 import earlWarrenPapers from 'images/loc-images/mm2082052258.jpg';
 import harryBlackmunPapers from 'images/loc-images/mm2099084430.jpg';
 import patsyMinkPapers from 'images/loc-images/2011660380.jpg';
+import robertCornelius from 'images/loc-images/2004664436.jpg';
+import coplandLetter from 'images/loc-images/copland.corr0781.jpg';
+import unknown1 from 'images/loc-images/master-pnp-ppmsca-02900-02935u.jpg';
+import unknown2 from 'images/loc-images/master-pnp-ppmsca-09500-09504u.jpg';
+import unknown3 from 'images/loc-images/ms019027.jpg';
+import unknown4 from 'images/loc-images/ppmsca-51500-51533u.jpg';
+import unknown5 from 'images/loc-images/sn83045462-19571104.jpg';
+import vaccination from 'images/loc-images/mbrs00056792.jpg';
+import butterflyNotebook from 'images/loc-images/mss454430217.jpg';
+import evangelistarum from 'images/loc-images/49039040.jpg';
 
 const duchessUrl =
   'https://tile.loc.gov/image-services/iiif/service:music:vaultscan.15:200218724:0001/full/pct:100/0/default.jpg';
@@ -220,5 +230,67 @@ export const locImages = [
     alt: '',
     type: 'image',
     url: statueOfLiberty,
+  },
+  // New images added May 9, 2021
+  {
+    id: '2004664436',
+    alt:
+      'Robert Cornelius, self-portrait; believed to be the earliest extant American portrait photo',
+    type: 'image',
+    url: robertCornelius,
+  },
+  {
+    id: 'copland.corr0781',
+    alt: 'Letter from Aaron Copland to Harold Spivacke, July 30, 1944',
+    type: 'image',
+    url: coplandLetter,
+  },
+  {
+    id: 'master-pnp-ppmsca-02900-02935u',
+    alt: '',
+    type: 'image',
+    url: unknown1,
+  },
+  {
+    id: 'master-pnp-ppmsca-09500-09504u',
+    alt: '',
+    type: 'image',
+    url: unknown2,
+  },
+  {
+    id: 'mbrs00056792',
+    alt: '',
+    type: 'image',
+    url: vaccination,
+  },
+  {
+    id: 'ms019027',
+    alt: '',
+    type: 'image',
+    url: unknown3,
+  },
+  {
+    id: 'mss454430217',
+    alt: '',
+    type: 'image',
+    url: butterflyNotebook,
+  },
+  {
+    id: 'ppmsca-51500-51533u',
+    alt: '',
+    type: 'image',
+    url: unknown4,
+  },
+  {
+    id: 'sn83045462-19571104',
+    alt: '',
+    type: 'image',
+    url: unknown5,
+  },
+  {
+    id: '49039040',
+    alt: 'Ars memorandi per figuras Evangelistarum',
+    type: 'image',
+    url: evangelistarum,
   },
 ];

@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/aaron-copland/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Aaron Copland Collection"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/aaron-copland/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Aaron Copland Collection Collection"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/daguerreotypes/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Daguerreotypes"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/daguerreotypes/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Daguerreotypes Collection"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

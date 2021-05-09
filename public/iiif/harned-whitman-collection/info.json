@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/harned-whitman-collection/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Thomas Biggs Harned Collection of Walt Whitman Papers"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/harned-whitman-collection/",
+      "type": "Text",
+      "label": { "en": ["Home page for Thomas Biggs Harned Collection of Walt Whitman Papers Collection"] },
+      "format": "text/html"
+    }
+  ]
+}

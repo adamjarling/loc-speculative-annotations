@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/lessing-j-rosenwald/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Lessing J. Rosenwald Collection Collection"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/lessing-j-rosenwald/",
+      "type": "Text",
+      "label": { "en": ["Home page for Lessing J. Rosenwald Collection Collection"] },
+      "format": "text/html"
+    }
+  ]
+}

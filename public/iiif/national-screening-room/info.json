@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/national-screening-room/manifest",
+  "type": "Manifest",
+  "label": { "en": ["National Screening Room Collection"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/collections/national-screening-room/",
+      "type": "Text",
+      "label": { "en": ["Home page for National Screening Room Collection"] },
+      "format": "text/html"
+    }
+  ]
+}
