@@ -21,11 +21,22 @@ import {
 import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
 import { useHistory, useParams } from 'react-router-dom';
+import imgPlaceholder from 'images/img-placeholder.png';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const activeStyle = {
   border: '2px solid',
   borderColor: 'brand.pink.500',
 };
+
+function ErrorFallback({ error, resetErrorBoundary }) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+    </div>
+  );
+}
 
 function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -79,29 +90,31 @@ function WorksListModal() {
             <Wrap spacing="30px" justify="center">
               {locImages.map((image, index) => (
                 <WrapItem key={image.id}>
-                  <Flex alignItems="flex-end">
-                    <Text
-                      pr={2}
-                      fontSize="2xl"
-                      fontFamily="ocr-a-std"
-                      color="brand.pink.300"
-                    >
-                      {index + 1}
-                    </Text>
-                    <Link
-                      key={image.id}
-                      href="#"
-                      onClick={() => handleImageClick(image)}
-                      {...(activeWork &&
-                        activeWork.id === image.id && { ...activeStyle })}
-                    >
-                      <Image
-                        src={image.url}
-                        alt={image.alt}
-                        maxH={maxImageHeight}
-                      />
-                    </Link>
-                  </Flex>
+                  <ErrorBoundary FallbackComponent={ErrorFallback}>
+                    <Flex alignItems="flex-end">
+                      <Text
+                        pr={2}
+                        fontSize="2xl"
+                        fontFamily="ocr-a-std"
+                        color="brand.pink.300"
+                      >
+                        {index + 1}
+                      </Text>
+                      <Link
+                        key={image.id}
+                        href="#"
+                        onClick={() => handleImageClick(image)}
+                        {...(activeWork &&
+                          activeWork.id === image.id && { ...activeStyle })}
+                      >
+                        <Image
+                          src={image.thumbUrl || imgPlaceholder}
+                          alt={image.alt}
+                          maxH={maxImageHeight}
+                        />
+                      </Link>
+                    </Flex>
+                  </ErrorBoundary>
                 </WrapItem>
               ))}
             </Wrap>
