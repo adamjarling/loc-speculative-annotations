@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box,
   Button,
+  Flex,
   Image,
   Link,
   Modal,
@@ -12,17 +13,14 @@ import {
   ModalBody,
   ModalCloseButton,
   Text,
+  Wrap,
+  WrapItem,
+  useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { locImages } from 'services/loc-images';
 import { useHistory, useParams } from 'react-router-dom';
-import { isMobile } from 'react-device-detect';
-
-import Slider from 'react-slick';
-// Import css files
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const activeStyle = {
   border: '2px solid',
@@ -33,10 +31,18 @@ function WorksListModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
   const params = useParams();
-  const sliderRef = React.useRef();
   const [activeWork, setActiveWork] = React.useState(
     locImages.find(image => image.id === params.id)
   );
+  const maxImageHeight = useBreakpointValue({
+    base: '100px',
+    md: '180px',
+    lg: '240px',
+  });
+  const buttonLabel = useBreakpointValue({
+    base: 'Select',
+    md: 'Select from the Collection',
+  });
 
   const handleImageClick = image => {
     setActiveWork(image);
@@ -47,16 +53,6 @@ function WorksListModal() {
     history.push(`/${activeWork.id}`);
   };
 
-  const settings = {
-    centerMode: true,
-    dots: true,
-    infinite: true,
-    initialSlide: locImages.findIndex(image => image.id === params.id),
-    slidesToShow: isMobile ? 1 : 4,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-  };
-
   return (
     <Box>
       <Button
@@ -64,7 +60,7 @@ function WorksListModal() {
         leftIcon={<AddIcon />}
         colorScheme="brand.pink"
       >
-        Select from the Collection
+        {buttonLabel}
       </Button>
 
       <Modal
@@ -80,10 +76,10 @@ function WorksListModal() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box px={4}>
-              <Slider ref={sliderRef} {...settings}>
-                {locImages.map((image, index) => (
-                  <Box className="slick-sa-item-wrapper" key={image.id}>
+            <Wrap spacing="30px" justify="center">
+              {locImages.map((image, index) => (
+                <WrapItem key={image.id}>
+                  <Flex alignItems="flex-end">
                     <Text
                       pr={2}
                       fontSize="2xl"
@@ -99,12 +95,16 @@ function WorksListModal() {
                       {...(activeWork &&
                         activeWork.id === image.id && { ...activeStyle })}
                     >
-                      <Image src={image.url} alt={image.alt} />
+                      <Image
+                        src={image.url}
+                        alt={image.alt}
+                        maxH={maxImageHeight}
+                      />
                     </Link>
-                  </Box>
-                ))}
-              </Slider>
-            </Box>
+                  </Flex>
+                </WrapItem>
+              ))}
+            </Wrap>
           </ModalBody>
 
           <ModalFooter>
