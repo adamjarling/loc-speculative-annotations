@@ -102,14 +102,15 @@ function TypeText({ isActive }) {
       }
 
       // Create new Textbox instance and add it to canvas
-      const textbox = new fabric.IText('', {
+      const textbox = new fabric.Textbox('', {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
         fontFamily: myStateRef.current.activeFont.fontFamily,
         fontSize: 50,
-        padding: 20,
-        selectionBackgroundColor: 'rgba(255, 255, 255, 0.5)',
-        width: 200,
+        height: 50,
+        padding: 10,
+        selectionBackgroundColor: 'rgba(255, 255, 255, 0.2)',
+        width: 500,
       });
       fabricOverlay.fabricCanvas().add(textbox);
       textbox.set({ fill: myStateRef.current.color.hex });
