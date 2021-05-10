@@ -5,6 +5,7 @@ import { ReactComponent as StampQuestionIcon } from 'images/Question-Stamp-02.sv
 import {
   Box,
   Button,
+  Image,
   Link,
   Modal,
   ModalOverlay,
@@ -31,6 +32,7 @@ import { ReactComponent as Bubble2 } from 'images/speech-bubble/stamp-18.svg';
 import { ReactComponent as Bubble3 } from 'images/speech-bubble/stamp-35.svg';
 import { ReactComponent as Bubble4 } from 'images/speech-bubble/stamp-38.svg';
 import { ReactComponent as Bubble5 } from 'images/speech-bubble/stamp-53.svg';
+import png1 from 'images/speech-bubble/stamps-02.png';
 
 export const speechBubbles = [
   {
@@ -84,26 +86,45 @@ export default function StampQuestion({ isActive }) {
     onClose();
 
     // Put the stamp on the Canvas
-    fabric.loadSVGFromURL(activeBubble.src, function (objects, options) {
-      let shape = fabric.util.groupSVGElements(objects, options);
+    // fabric.loadSVGFromURL(activeBubble.src, function (objects, options) {
+    //   let shape = fabric.util.groupSVGElements(objects, options);
 
-      if (shape.type === 'group') {
-        // The SVG file has multiple objects
-        shape.addWithUpdate();
-      }
+    //   if (shape.type === 'group') {
+    //     // The SVG file has multiple objects
+    //     shape.addWithUpdate();
+    //   }
 
-      shape.set({
+    //   shape.set({
+    //     top: 90,
+    //     left: 90,
+    //     originX: 'center',
+    //     originY: 'center',
+    //     perPixelTargetFind: true,
+    //   });
+    //   fabricOverlay
+    //     .fabricCanvas()
+    //     .add(shape)
+    //     .centerObject(shape)
+    //     .setActiveObject(shape)
+    //     .renderAll();
+    // });
+
+    fabric.Image.fromURL(png1, function (myImg) {
+      let shape = myImg.set({
         top: 90,
         left: 90,
-        originX: 'center',
-        originY: 'center',
+        // width: 200,
+        // height: 200,
+        // originX: 'center',
+        // originY: 'center',
         perPixelTargetFind: true,
       });
+
       fabricOverlay
         .fabricCanvas()
         .add(shape)
-        .centerObject(shape)
-        .setActiveObject(shape)
+        //.centerObject(shape)
+        //.setActiveObject(shape)
         .renderAll();
     });
   };
@@ -134,7 +155,7 @@ export default function StampQuestion({ isActive }) {
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid columns={3}>
-              {speechBubbles.slice(0, 6).map(stampObj => (
+              {/* {speechBubbles.map(stampObj => (
                 <Link
                   key={stampObj.id}
                   p={6}
@@ -145,7 +166,10 @@ export default function StampQuestion({ isActive }) {
                 >
                   <stampObj.StampSVG height="90%" width="90%" />
                 </Link>
-              ))}
+              ))} */}
+              <Link p={6} tabIndex="0" onClick={() => handleBubbleClick()}>
+                <Image src={png1} />
+              </Link>
             </SimpleGrid>
           </ModalBody>
 
