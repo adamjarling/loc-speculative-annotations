@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Input, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 import { borderBoxPixelSizes } from 'components/Toolbar/BorderBox';
@@ -243,60 +243,31 @@ function StampPicker({ activeStamp, color, handleStampChange }) {
   const optionsPanelHeight = stampButtonSize * 10;
   const optionsPanelWidth = stampButtonSize * 2;
 
-  const [filteredStamps, setFilteredStamps] = React.useState([...stamps]);
-
-  const handleTextChange = e => {
-    if (!e.target.value) {
-      setFilteredStamps([...stamps]);
-    } else {
-      const filtered = stamps.filter(stamp =>
-        stamp.label.toLowerCase().includes(e.target.value.toLowerCase())
-      );
-      setFilteredStamps(filtered);
-    }
-  };
-
   return (
-    <Box>
-      <Input
-        onChange={handleTextChange}
-        size="xs"
-        fontSize="xs"
-        mb="4px"
-        variant="filled"
-        placeholder="Search..."
-      />
-      <Box overflowY="scroll" h={optionsPanelHeight} minW={optionsPanelWidth}>
-        {filteredStamps.length === 0 && (
-          <Text as="p" fontSize="xs" my={4}>
-            No results
-          </Text>
-        )}
-
-        <SimpleGrid columns={2} spacing={`${gridSpacing}px`}>
-          {filteredStamps.map(stampObj => {
-            return (
-              <ToolbarBorderBox
-                key={stampObj.id}
-                isActive={activeStamp && stampObj.id === activeStamp.id}
-                draggable="false"
-                id={stampObj.id}
-                title={stampObj.label}
+    <Box overflowY="scroll" h={optionsPanelHeight} minW={optionsPanelWidth}>
+      <SimpleGrid columns={2} spacing={`${gridSpacing}px`}>
+        {stamps.map(stampObj => {
+          return (
+            <ToolbarBorderBox
+              key={stampObj.id}
+              isActive={activeStamp && stampObj.id === activeStamp.id}
+              draggable="false"
+              id={stampObj.id}
+              title={stampObj.label}
+            >
+              <ToolbarBorderBoxInner
+                onClick={() => handleStampChange(stampObj)}
               >
-                <ToolbarBorderBoxInner
-                  onClick={() => handleStampChange(stampObj)}
-                >
-                  <stampObj.StampSVG
-                    fill={color.hex}
-                    height="100%"
-                    width="100%"
-                  />
-                </ToolbarBorderBoxInner>
-              </ToolbarBorderBox>
-            );
-          })}
-        </SimpleGrid>
-      </Box>
+                <stampObj.StampSVG
+                  fill={color.hex}
+                  height="100%"
+                  width="100%"
+                />
+              </ToolbarBorderBoxInner>
+            </ToolbarBorderBox>
+          );
+        })}
+      </SimpleGrid>
     </Box>
   );
 }
