@@ -21,10 +21,16 @@ import { fabric } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import useButtonSize from 'hooks/use-button-size';
 
-import bubble1 from 'images/speech-bubble/New-trial-stamp1-embedded.svg';
-import bubble2 from 'images/speech-bubble/New-trial-stamp2-embedded.svg';
-import { ReactComponent as Bubble1 } from 'images/speech-bubble/New-trial-stamp1-embedded.svg';
-import { ReactComponent as Bubble2 } from 'images/speech-bubble/New-trial-stamp2-embedded.svg';
+import bubble1 from 'images/speech-bubble/stamp-10.svg';
+import bubble2 from 'images/speech-bubble/stamp-18.svg';
+import bubble3 from 'images/speech-bubble/stamp-35.svg';
+import bubble4 from 'images/speech-bubble/stamp-38.svg';
+import bubble5 from 'images/speech-bubble/stamp-53.svg';
+import { ReactComponent as Bubble1 } from 'images/speech-bubble/stamp-10.svg';
+import { ReactComponent as Bubble2 } from 'images/speech-bubble/stamp-18.svg';
+import { ReactComponent as Bubble3 } from 'images/speech-bubble/stamp-35.svg';
+import { ReactComponent as Bubble4 } from 'images/speech-bubble/stamp-38.svg';
+import { ReactComponent as Bubble5 } from 'images/speech-bubble/stamp-53.svg';
 
 export const speechBubbles = [
   {
@@ -38,6 +44,24 @@ export const speechBubbles = [
     label: 'Speech bubble',
     src: bubble2,
     StampSVG: Bubble2,
+  },
+  {
+    id: 'bubble3',
+    label: 'Speech bubble',
+    src: bubble3,
+    StampSVG: Bubble3,
+  },
+  {
+    id: 'bubble4',
+    label: 'Speech bubble',
+    src: bubble4,
+    StampSVG: Bubble4,
+  },
+  {
+    id: 'bubble5',
+    label: 'Speech bubble',
+    src: bubble5,
+    StampSVG: Bubble5,
   },
 ];
 
