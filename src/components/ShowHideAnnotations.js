@@ -143,7 +143,7 @@ export default function ShowHideAnnotations() {
           onChange={handleCuratorCheckboxChange}
         >
           <Text fontSize={fontSize} mb={0}>
-            Librarian Annotation
+            LC Staff Annotation
           </Text>
         </Checkbox>
       )}

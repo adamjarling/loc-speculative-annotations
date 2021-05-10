@@ -109,13 +109,15 @@ function TypeText({ isActive }) {
         fontSize: 50,
         height: 50,
         padding: 10,
-        selectionBackgroundColor: 'rgba(255, 255, 255, 0.2)',
+        //selectionBackgroundColor: 'rgba(255, 255, 255, 0.2)',
         width: 500,
       });
       fabricOverlay.fabricCanvas().add(textbox);
       textbox.set({ fill: myStateRef.current.color.hex });
       canvas.setActiveObject(textbox);
       textbox.enterEditing();
+      // Make the border of active edited text white instead of light blue
+      textbox.borderColor = '#ffffff';
 
       setMyState({
         ...myStateRef.current,
