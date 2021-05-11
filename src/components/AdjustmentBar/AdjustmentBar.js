@@ -83,7 +83,7 @@ function AdjustmentBar(props) {
         </Center>
 
         <Share />
-        {/* <MyAnnotationsSave /> */}
+        <MyAnnotationsSave />
         {<Download />}
       </HStack>
     </Flex>

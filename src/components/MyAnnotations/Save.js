@@ -57,12 +57,12 @@ export default function MyAnnotationsSave() {
   return (
     <>
       <AltButton
-        disabled={true}
+        disabled={false}
         onClick={onOpen}
         leftIcon={<FaSave />}
         data-testid="save-link"
       >
-        Save
+        My
       </AltButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>

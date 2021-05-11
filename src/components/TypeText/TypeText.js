@@ -13,12 +13,15 @@ import { fonts } from 'components/TypeText/FontPicker';
 import FontFaceObserver from 'fontfaceobserver';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { useToolbarOptionsState } from 'context/toolbar-options-context';
+import { useBreakpointValue } from '@chakra-ui/react';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const { color } = useToolbarOptionsState();
   const { deselectAll, setDefaultCursor } = useFabricHelpers();
+  const textBoxWidth = useBreakpointValue({ base: 300, lg: 500 });
+  const textBoxFontSize = useBreakpointValue({ base: 40, lg: 50 });
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
@@ -106,11 +109,12 @@ function TypeText({ isActive }) {
         left: options.absolutePointer.x,
         top: options.absolutePointer.y,
         fontFamily: myStateRef.current.activeFont.fontFamily,
-        fontSize: 50,
+        fontSize: textBoxFontSize,
         height: 50,
         padding: 10,
+        // The config option below puts a light, white opacity as background
         //selectionBackgroundColor: 'rgba(255, 255, 255, 0.2)',
-        width: 500,
+        width: textBoxWidth,
       });
       fabricOverlay.fabricCanvas().add(textbox);
       textbox.set({ fill: myStateRef.current.color.hex });
