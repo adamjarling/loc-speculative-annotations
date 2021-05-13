@@ -13,7 +13,7 @@ const minZoomLevel = isBrowser ? 0.5 : 0.8;
 const osdOptions = {
   //constrainDuringPan: isBrowser ? true : false,
   debugMode: false,
-  defaultZoomLevel: minZoomLevel,
+  //defaultZoomLevel: minZoomLevel,
   gestureSettingsMouse: {
     clickToZoom: false,
     flickEnabled: true,
@@ -26,7 +26,7 @@ const osdOptions = {
     pinchToZoom: true,
     scrollToZoom: true,
   },
-  minZoomLevel: minZoomLevel,
+  //minZoomLevel: minZoomLevel,
   maxZoomLevel: 4,
   springStiffness: isBrowser ? 20 : 10,
   viewportMargin: {
