@@ -16,54 +16,49 @@ import {
   ModalCloseButton,
   SimpleGrid,
   Text,
+  useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import useButtonSize from 'hooks/use-button-size';
 
-import bubble1 from 'images/speech-bubble/stamp-10.svg';
-import bubble2 from 'images/speech-bubble/stamp-18.svg';
-import bubble3 from 'images/speech-bubble/stamp-35.svg';
-import bubble4 from 'images/speech-bubble/stamp-38.svg';
-import bubble5 from 'images/speech-bubble/stamp-53.svg';
-import { ReactComponent as Bubble1 } from 'images/speech-bubble/stamp-10.svg';
-import { ReactComponent as Bubble2 } from 'images/speech-bubble/stamp-18.svg';
-import { ReactComponent as Bubble3 } from 'images/speech-bubble/stamp-35.svg';
-import { ReactComponent as Bubble4 } from 'images/speech-bubble/stamp-38.svg';
-import { ReactComponent as Bubble5 } from 'images/speech-bubble/stamp-53.svg';
 import png1 from 'images/speech-bubble/stamps-02.png';
+import stamp10 from 'images/speech-bubble/stamp-10.png';
+import stamp18 from 'images/speech-bubble/stamp-18.png';
+import stamp35 from 'images/speech-bubble/stamp-35.png';
+import stamp38 from 'images/speech-bubble/stamp-38.png';
+import stamp53 from 'images/speech-bubble/stamp-53.png';
 
 export const speechBubbles = [
   {
     id: 'bubble1',
     label: 'Speech bubble',
-    src: bubble1,
-    StampSVG: Bubble1,
+    src: png1,
   },
   {
-    id: 'bubble2',
+    id: 'stamp10',
     label: 'Speech bubble',
-    src: bubble2,
-    StampSVG: Bubble2,
+    src: stamp10,
   },
   {
-    id: 'bubble3',
+    id: 'stamp18',
     label: 'Speech bubble',
-    src: bubble3,
-    StampSVG: Bubble3,
+    src: stamp18,
   },
   {
-    id: 'bubble4',
+    id: 'stamp35',
     label: 'Speech bubble',
-    src: bubble4,
-    StampSVG: Bubble4,
+    src: stamp35,
   },
   {
-    id: 'bubble5',
+    id: 'stamp38',
     label: 'Speech bubble',
-    src: bubble5,
-    StampSVG: Bubble5,
+    src: stamp38,
+  },
+  {
+    id: 'stamp53',
+    label: 'Speech bubble',
+    src: stamp53,
   },
 ];
 
@@ -77,6 +72,13 @@ export default function StampQuestion({ isActive }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeBubble, setActiveBubble] = React.useState();
   const { fabricOverlay } = useFabricOverlayState();
+  const numColumns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
+  const shapeSize = useBreakpointValue({
+    base: 150,
+    sm: 175,
+    md: 200,
+    lg: 300,
+  });
 
   const handleBubbleClick = obj => {
     setActiveBubble(obj);
@@ -86,46 +88,16 @@ export default function StampQuestion({ isActive }) {
     onClose();
 
     // Put the stamp on the Canvas
-    // fabric.loadSVGFromURL(activeBubble.src, function (objects, options) {
-    //   let shape = fabric.util.groupSVGElements(objects, options);
-
-    //   if (shape.type === 'group') {
-    //     // The SVG file has multiple objects
-    //     shape.addWithUpdate();
-    //   }
-
-    //   shape.set({
-    //     top: 90,
-    //     left: 90,
-    //     originX: 'center',
-    //     originY: 'center',
-    //     perPixelTargetFind: true,
-    //   });
-    //   fabricOverlay
-    //     .fabricCanvas()
-    //     .add(shape)
-    //     .centerObject(shape)
-    //     .setActiveObject(shape)
-    //     .renderAll();
-    // });
-
-    fabric.Image.fromURL(png1, function (myImg) {
+    fabric.Image.fromURL(activeBubble.src, function (myImg) {
       let shape = myImg.set({
         top: 90,
         left: 90,
-        // width: 200,
-        // height: 200,
-        // originX: 'center',
-        // originY: 'center',
         perPixelTargetFind: true,
       });
+      shape.scaleToHeight(shapeSize);
+      shape.scaleToWidth(shapeSize);
 
-      fabricOverlay
-        .fabricCanvas()
-        .add(shape)
-        //.centerObject(shape)
-        //.setActiveObject(shape)
-        .renderAll();
+      fabricOverlay.fabricCanvas().add(shape).renderAll();
     });
   };
 
@@ -154,8 +126,8 @@ export default function StampQuestion({ isActive }) {
           <ModalHeader>Select question</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <SimpleGrid columns={3}>
-              {/* {speechBubbles.map(stampObj => (
+            <SimpleGrid columns={numColumns}>
+              {speechBubbles.map(stampObj => (
                 <Link
                   key={stampObj.id}
                   p={6}
@@ -164,12 +136,9 @@ export default function StampQuestion({ isActive }) {
                   {...(activeBubble &&
                     activeBubble.id === stampObj.id && { ...activeStyle })}
                 >
-                  <stampObj.StampSVG height="90%" width="90%" />
+                  <Image src={stampObj.src} />
                 </Link>
-              ))} */}
-              <Link p={6} tabIndex="0" onClick={() => handleBubbleClick()}>
-                <Image src={png1} />
-              </Link>
+              ))}
             </SimpleGrid>
           </ModalBody>
 
