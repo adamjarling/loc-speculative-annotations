@@ -18,8 +18,7 @@ function LayoutAppFooter() {
       justifyContent="space-between"
       alignItems={isTablet ? 'flex-end' : 'center'}
       px={isBrowser || isTablet ? 3 : '2px'}
-      py={2}
-      boxShadow="base"
+      py={1}
       zIndex="1"
     >
       <Box>{(isTablet || isBrowser) && <ShowHideAnnotations />}</Box>

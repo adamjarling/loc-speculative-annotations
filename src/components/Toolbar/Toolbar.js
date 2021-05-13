@@ -12,6 +12,14 @@ import useFabricHelpers from 'hooks/use-fabric-helpers';
 
 import 'styles/styles.css';
 
+function ToolBarDivider() {
+  return (
+    <WrapItem w="100%">
+      <Divider />
+    </WrapItem>
+  );
+}
+
 function Toolbar() {
   const { activeTool } = useFabricOverlayState();
   const { deselectAll } = useFabricHelpers();
@@ -29,6 +37,8 @@ function Toolbar() {
         <WrapItem>
           <StampQuestion isActive={activeTool === 'STAMP_QUESTION'} />
         </WrapItem>
+
+        <ToolBarDivider />
 
         <WrapItem>
           <ToolbarPointer isActive={activeTool === 'POINTER'} />
@@ -54,9 +64,7 @@ function Toolbar() {
           <Stamp isActive={activeTool === 'STAMP'} />
         </WrapItem>
 
-        <WrapItem>
-          <Divider />
-        </WrapItem>
+        <ToolBarDivider />
 
         <WrapItem>
           <RemoveObject />

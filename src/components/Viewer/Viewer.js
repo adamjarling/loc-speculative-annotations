@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
+import { useOpenSeadragon, OpenSeadragon, Overlay } from 'use-open-seadragon';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import { isBrowser, isTablet } from 'react-device-detect';
+import ViewerContactInfo from 'components/Viewer/ContactInfo';
+import ViewerWatermarkLogo from 'components/Viewer/WatermarkLogo';
 
 const minZoomLevel = isBrowser ? 0.5 : 0.8;
-const viewerHeight = isBrowser ? '90%' : '70%';
 
 const osdOptions = {
   //constrainDuringPan: isBrowser ? true : false,
@@ -71,7 +72,12 @@ export default function Viewer({ tile }) {
     });
   }, [dispatch, viewer]);
 
-  return <Box ref={ref} flexGrow="1" bgColor={bgColor}></Box>;
+  return (
+    <Box ref={ref} flexGrow="1" bgColor={bgColor} id="download-wrapper">
+      <ViewerContactInfo />
+      <ViewerWatermarkLogo />
+    </Box>
+  );
 }
 
 Viewer.propTypes = {

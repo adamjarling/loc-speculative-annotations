@@ -6,7 +6,7 @@ import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 import { borderBoxPixelSizes } from 'components/Toolbar/BorderBox';
 import { isMobile } from 'react-device-detect';
 
-import stamp1 from 'images/stamps/stamp-01.svg';
+import stamp1 from 'images/stamps/Adam-test-stamp1a.svg';
 import stamp2 from 'images/stamps/stamp-02.svg';
 import stamp3 from 'images/stamps/stamp3.svg';
 import stamp4 from 'images/stamps/stamp4.svg';
@@ -34,7 +34,7 @@ import stamp22_5 from 'images/stamps/stamp22_5.svg';
 import stamp23 from 'images/stamps/stamp23.svg';
 import stamp24 from 'images/stamps/stamp24.svg';
 import stamp25 from 'images/stamps/stamp25.svg';
-import { ReactComponent as Stamp1 } from 'images/stamps/stamp-01.svg';
+import { ReactComponent as Stamp1 } from 'images/stamps/Adam-test-stamp1a.svg';
 import { ReactComponent as Stamp2 } from 'images/stamps/stamp-02.svg';
 import { ReactComponent as Stamp3 } from 'images/stamps/stamp3.svg';
 import { ReactComponent as Stamp4 } from 'images/stamps/stamp4.svg';

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Button,
-  IconButton,
   Image,
   Modal,
   ModalOverlay,
@@ -10,7 +9,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Tooltip,
   useDisclosure,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -24,7 +22,7 @@ export default function Download() {
   const html2CanvasBg = useColorModeValue('#ffffff', '#1A202C');
 
   const handleClick = () => {
-    html2canvas(document.querySelector('.openseadragon-canvas'), {
+    html2canvas(document.querySelector('#download-wrapper'), {
       backgroundColor: html2CanvasBg,
       logging: true,
     }).then(canvas => {
