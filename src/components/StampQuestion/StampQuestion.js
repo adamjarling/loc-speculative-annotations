@@ -22,7 +22,6 @@ import {
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
-import png1 from 'images/speech-bubble/stamps-02.png';
 import stamp10 from 'images/speech-bubble/stamp-10.png';
 import stamp18 from 'images/speech-bubble/stamp-18.png';
 import stamp35 from 'images/speech-bubble/stamp-35.png';
@@ -30,11 +29,6 @@ import stamp38 from 'images/speech-bubble/stamp-38.png';
 import stamp53 from 'images/speech-bubble/stamp-53.png';
 
 export const speechBubbles = [
-  {
-    id: 'bubble1',
-    label: 'Speech bubble',
-    src: png1,
-  },
   {
     id: 'stamp10',
     label: 'Speech bubble',
@@ -46,14 +40,14 @@ export const speechBubbles = [
     src: stamp18,
   },
   {
-    id: 'stamp35',
-    label: 'Speech bubble',
-    src: stamp35,
-  },
-  {
     id: 'stamp38',
     label: 'Speech bubble',
     src: stamp38,
+  },
+  {
+    id: 'stamp35',
+    label: 'Speech bubble',
+    src: stamp35,
   },
   {
     id: 'stamp53',
