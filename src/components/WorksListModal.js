@@ -23,6 +23,12 @@ import { locImages } from 'services/loc-images';
 import { useHistory, useParams } from 'react-router-dom';
 import imgPlaceholder from 'images/img-placeholder.png';
 import { ErrorBoundary } from 'react-error-boundary';
+import useFabricHelpers from 'hooks/use-fabric-helpers';
+import {
+  useFabricOverlayState,
+  useFabricOverlayDispatch,
+} from 'context/fabric-overlay-context';
+import ChangeWorkWarning from 'components/ChangeWorkWarning';
 
 const activeStyle = {
   border: '2px solid',
@@ -45,6 +51,12 @@ function WorksListModal() {
   const [activeWork, setActiveWork] = React.useState(
     locImages.find(image => image.id === params.id)
   );
+  const { getUserObjects } = useFabricHelpers();
+  const { activeUserCanvas, userCanvases } = useFabricOverlayState();
+  const [isChangeWorkWarningVisible, setIsChangeWorkWarningVisible] =
+    React.useState();
+  const dispatch = useFabricOverlayDispatch();
+
   const maxImageHeight = useBreakpointValue({
     base: '100px',
     md: '180px',
@@ -59,15 +71,55 @@ function WorksListModal() {
     setActiveWork(image);
   };
 
+  const handleChangeWorkWarningCancel = () => {
+    setIsChangeWorkWarningVisible(false);
+    onOpen();
+  };
+
+  const handleChangeWorkWarningSave = () => {
+    setIsChangeWorkWarningVisible(false);
+    document.getElementById('save-my-annotations').click();
+  };
+
+  const handleOpenModal = () => {
+    const objects = getUserObjects();
+
+    // User is on an un-saved user canvas with no annotations
+    if (objects.length > 0 && !activeUserCanvas) {
+      setIsChangeWorkWarningVisible(true);
+      return;
+    }
+    // User is on a saved user canvas, with additional annotations
+    if (
+      activeUserCanvas &&
+      userCanvases[activeUserCanvas].fabricCanvas.objects.length !==
+        objects.length
+    ) {
+      setIsChangeWorkWarningVisible(true);
+      return;
+    }
+    onOpen();
+  };
+
   const handleSelectItem = () => {
     onClose();
+    dispatch({
+      type: 'updateActiveUserCanvas',
+      activeUserCanvas: '',
+    });
     history.push(`/${activeWork.id}`);
   };
 
   return (
     <Box>
+      <ChangeWorkWarning
+        isVisible={isChangeWorkWarningVisible}
+        handleCancel={handleChangeWorkWarningCancel}
+        handleSave={handleChangeWorkWarningSave}
+      />
+
       <Button
-        onClick={() => onOpen()}
+        onClick={handleOpenModal}
         leftIcon={<AddIcon />}
         colorScheme="brand.pink"
       >

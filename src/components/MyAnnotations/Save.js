@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button,
+  Flex,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -12,6 +13,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
 import { FaSave } from 'react-icons/fa';
@@ -21,17 +23,17 @@ import {
 } from 'context/fabric-overlay-context';
 import { useParams } from 'react-router-dom';
 import AltButton from 'components/AltButton';
+import MyAnnotationsList from 'components/MyAnnotations/List';
+import { useHistory } from 'react-router-dom';
 
 export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const params = useParams;
+  const params = useParams();
   const [title, setTitle] = React.useState('');
-  const {
-    activeUserCanvas,
-    fabricOverlay,
-    userCanvases,
-  } = useFabricOverlayState();
+  const { activeUserCanvas, fabricOverlay, userCanvases } =
+    useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
+  const history = useHistory();
 
   React.useEffect(() => {
     setTitle(activeUserCanvas);
@@ -54,6 +56,35 @@ export default function MyAnnotationsSave() {
     onClose();
   };
 
+  const handleDeleteClick = canvasTitle => {
+    console.log('handleDelete');
+
+    const newUserCanvases = { ...userCanvases };
+    delete newUserCanvases[canvasTitle];
+
+    dispatch({
+      type: 'updateUserCanvases',
+      activeUserCanvas: '',
+      userCanvases: newUserCanvases,
+    });
+
+    onClose();
+  };
+
+  const handleChangeCanvas = canvasTitle => {
+    if (canvasTitle) {
+      dispatch({
+        type: 'updateActiveUserCanvas',
+        activeUserCanvas: canvasTitle,
+      });
+      history.push(`/${userCanvases[canvasTitle]['locWorkId']}`, {
+        canvasTitle,
+      });
+    }
+
+    onClose();
+  };
+
   return (
     <>
       <AltButton
@@ -61,6 +92,7 @@ export default function MyAnnotationsSave() {
         onClick={onOpen}
         leftIcon={<FaSave />}
         data-testid="save-link"
+        id="save-my-annotations"
       >
         My
       </AltButton>
@@ -68,7 +100,7 @@ export default function MyAnnotationsSave() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Save annotation</ModalHeader>
+          <ModalHeader>My Annotations</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FormControl
@@ -84,12 +116,24 @@ export default function MyAnnotationsSave() {
               onChange={e => setTitle(e.target.value)}
             />
             <FormErrorMessage>Value can't be empty</FormErrorMessage>
+            <Flex pt={3} pb={6} justifyContent="flex-end">
+              <Button
+                onClick={handleSaveCanvas}
+                size="sm"
+                isDisabled={title === ''}
+              >
+                Save
+              </Button>
+            </Flex>
+
+            <MyAnnotationsList
+              activeUserCanvas={activeUserCanvas}
+              handleDeleteClick={handleDeleteClick}
+              handleChangeCanvas={handleChangeCanvas}
+              userCanvases={userCanvases}
+            />
           </ModalBody>
-          <ModalFooter>
-            <Button mr={3} onClick={handleSaveCanvas} isDisabled={title === ''}>
-              Save
-            </Button>
-          </ModalFooter>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>

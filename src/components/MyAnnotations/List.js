@@ -2,19 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
-  Button,
-  Editable,
-  EditableInput,
-  EditablePreview,
   Flex,
   IconButton,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
   Stack,
+  Text,
+  Tooltip,
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
@@ -36,61 +28,46 @@ function MyAnnotationsList({
 }) {
   const userCanvasTitles = Object.keys(userCanvases);
 
-  const handleEditSubmit = (prevValue, nextValue) => {
-    if (prevValue !== nextValue) {
-      handleUpdateSavedCanvasTitle({ prevValue, nextValue });
-    }
-  };
-
   return (
     <>
-      <Modal isOpen={isOpen} onClose={handleCloseClick}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Your Saved Annotations</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <Wrap direction="column">
-              {userCanvasTitles.map(uc => (
-                <WrapItem
-                  key={uc}
-                  {...(uc === activeUserCanvas && { ...activeStyles })}
+      {/* <Heading size="sm">Work in progress</Heading> */}
+      <Wrap direction="column">
+        {userCanvasTitles.map(uc => (
+          <WrapItem key={uc}>
+            <Flex
+              width="100%"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Flex alignItems="center">
+                <Box bg="brand.pink.500" w="20px" h="20px" mr={4}></Box>
+                <Box>{uc}</Box>
+              </Flex>
+
+              <Stack direction="row" alignItems="center">
+                <Tooltip label="Go to saved work" aria-label="Go to saved work">
+                  <IconButton
+                    icon={<TiArrowForward />}
+                    variant="ghost"
+                    onClick={() => handleChangeCanvas(uc)}
+                  />
+                </Tooltip>
+
+                <Tooltip
+                  label="Delete saved work"
+                  aria-label="Delete saved work"
                 >
-                  <Flex width="100%" alignItems="center">
-                    <Box flex="1">
-                      <Box bg="tomato" w="100px" h="75px"></Box>
-                    </Box>
-                    <Box flex="auto" pl={1}>
-                      <Editable
-                        defaultValue={uc}
-                        onSubmit={nextValue => handleEditSubmit(uc, nextValue)}
-                      >
-                        <EditablePreview />
-                        <EditableInput />
-                      </Editable>
-                    </Box>
-                    <Stack direction="row" alignItems="center">
-                      <IconButton
-                        icon={<TiArrowForward />}
-                        variant="ghost"
-                        onClick={() => handleChangeCanvas(uc)}
-                      />
-                      <IconButton
-                        icon={<DeleteIcon />}
-                        variant="ghost"
-                        onClick={() => handleDeleteClick(uc)}
-                      />
-                      <Button size="xs" variant="ghost">
-                        Edit
-                      </Button>
-                    </Stack>
-                  </Flex>
-                </WrapItem>
-              ))}
-            </Wrap>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+                  <IconButton
+                    icon={<DeleteIcon />}
+                    variant="ghost"
+                    onClick={() => handleDeleteClick(uc)}
+                  />
+                </Tooltip>
+              </Stack>
+            </Flex>
+          </WrapItem>
+        ))}
+      </Wrap>
     </>
   );
 }

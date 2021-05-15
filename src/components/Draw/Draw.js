@@ -102,7 +102,6 @@ function Draw({ isActive, isHighlighter }) {
         ? hexToRGBA(color.hex, 0.5)
         : color.hex;
       canvas.freeDrawingBrush.width = brushWidth.pixelWidth;
-      canvas.perPixelTargetFind = true;
 
       canvas.renderAll();
 
