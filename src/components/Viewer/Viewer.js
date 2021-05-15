@@ -12,7 +12,7 @@ const minZoomLevel = isBrowser ? 0.5 : 0.8;
 
 const osdOptions = {
   //constrainDuringPan: isBrowser ? true : false,
-  debugMode: false,
+  debugMode: true,
   //defaultZoomLevel: minZoomLevel,
   gestureSettingsMouse: {
     clickToZoom: false,
@@ -28,13 +28,14 @@ const osdOptions = {
   },
   //minZoomLevel: minZoomLevel,
   maxZoomLevel: 4,
+  //preserveImageSizeOnResize: true,
   springStiffness: isBrowser ? 20 : 10,
-  viewportMargin: {
-    left: 100,
-    top: 100,
-    right: 100,
-    bottom: 100,
-  },
+  // viewportMargin: {
+  //   left: 100,
+  //   top: 100,
+  //   right: 100,
+  //   bottom: 100,
+  // },
   //visibilityRatio: isBrowser ? 1 : 0.5,
   visibilityRatio: 0.5,
   zoomPerClick: 1.0,
