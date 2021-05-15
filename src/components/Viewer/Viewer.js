@@ -12,7 +12,7 @@ const minZoomLevel = isBrowser ? 0.5 : 0.8;
 
 const osdOptions = {
   //constrainDuringPan: isBrowser ? true : false,
-  debugMode: true,
+  debugMode: false,
   //defaultZoomLevel: minZoomLevel,
   gestureSettingsMouse: {
     clickToZoom: false,
