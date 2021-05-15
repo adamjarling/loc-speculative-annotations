@@ -13,7 +13,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
 import { FaSave } from 'react-icons/fa';
@@ -57,8 +56,6 @@ export default function MyAnnotationsSave() {
   };
 
   const handleDeleteClick = canvasTitle => {
-    console.log('handleDelete');
-
     const newUserCanvases = { ...userCanvases };
     delete newUserCanvases[canvasTitle];
 

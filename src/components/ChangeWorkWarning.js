@@ -37,6 +37,10 @@ function ChangeWorkWarning({ isVisible, handleCancel, handleSave }) {
   );
 }
 
-ChangeWorkWarning.propTypes = {};
+ChangeWorkWarning.propTypes = {
+  isVisible: PropTypes.bool,
+  handleCancel: PropTypes.func,
+  handleSave: PropTypes.func,
+};
 
 export default ChangeWorkWarning;
