@@ -86,7 +86,6 @@ export default function StampQuestion({ isActive }) {
       let shape = myImg.set({
         top: 90,
         left: 90,
-        perPixelTargetFind: true,
       });
       shape.scaleToHeight(shapeSize);
       shape.scaleToWidth(shapeSize);

@@ -102,7 +102,6 @@ function Shape({ isActive }) {
       let newShape = null;
       const shapeOptions = {
         color: myStateRef.current.color.hex,
-        perPixelTargetFind: true, // When true, hover activated only on actual shape, not bounding box
         left: origX,
         top: origY,
         width: 0,

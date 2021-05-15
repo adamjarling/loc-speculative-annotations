@@ -56,6 +56,11 @@ export default function Viewer({ tile }) {
     transparentCorners: false,
   });
 
+  fabric.Canvas.prototype.set({
+    // When true, hover activated only on actual shape, not bounding box
+    perPixelTargetFind: true,
+  });
+
   // Add Fabric support to OSD via the plugin "OpenseadragonFabricjsOverlay"
   initFabricJSOverlay(OpenSeadragon, fabric);
 
