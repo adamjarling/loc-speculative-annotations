@@ -122,6 +122,8 @@ function Stamp({ isActive }) {
           }
 
           shape.set(shapeOptions);
+          shape.scaleToWidth(50);
+          //shape.scaleToHeight(100);
           canvas.add(shape).setActiveObject(shape).renderAll();
 
           setMyState({
