@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Checkbox,
   Flex,
+  Link,
   Stack,
   Text,
   useColorModeValue,
@@ -16,6 +17,8 @@ import useIIIFManifests from 'hooks/use-iiif-manifests';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { fabric } from 'openseadragon-fabricjs-overlay';
 import { isTablet } from 'react-device-detect';
+import curatorImg from 'images/curator-annotations/curator-png-test.png';
+import useLocImages from 'hooks/use-loc-images';
 
 const fontSize = ['xs', 'xs', 'xs', 'sm'];
 const defaultState = {
@@ -39,6 +42,8 @@ export default function ShowHideAnnotations() {
     removeObjectsFromCanvas,
   } = useFabricHelpers();
   const bgColor = useColorModeValue('gray.200', 'gray.700');
+  const { findImage } = useLocImages();
+  const locImageObj = findImage(params.id);
 
   async function getManifestData() {
     if (!params.id || !fabricOverlay) return;
@@ -70,6 +75,8 @@ export default function ShowHideAnnotations() {
     getManifestData();
   }, [params.id]);
 
+  // TODO: If we're not saving Curator annotations in Work's IIIF manifest,
+  // then remove the code supporting that method of displaying Curator annotations.
   const handleUserCheckboxChange = () => {
     const userObjects = getUserObjects();
 
@@ -137,7 +144,7 @@ export default function ShowHideAnnotations() {
           My Annotation
         </Text>
       </Checkbox>
-      {curatorObjects && (
+      {/* {curatorObjects && (
         <Checkbox
           isChecked={state.isCuratorVisible}
           onChange={handleCuratorCheckboxChange}
@@ -146,6 +153,11 @@ export default function ShowHideAnnotations() {
             LC Staff Annotation
           </Text>
         </Checkbox>
+      )} */}
+      {locImageObj?.curatorImageSrc && (
+        <Link href={curatorImg} target="_blank" fontSize="xs">
+          Curator Img
+        </Link>
       )}
     </Stack>
   );

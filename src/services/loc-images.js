@@ -1,3 +1,4 @@
+// Import LOC images and thumbnails
 import zoopraxiscope from 'images/loc-images/00650866.png';
 import zoopraxiscope_thumb from 'images/loc-images/thumbnails/00650866_thumbnail.jpg';
 import floridaExpedition from 'images/loc-images/flwpa000213.jpg';
@@ -8,7 +9,6 @@ import browniesBook from 'images/loc-images/22001351.jpg';
 import browniesBook_thumb from 'images/loc-images/thumbnails/22001351_thumbnail.jpg';
 import margarita from 'images/loc-images/48038600.jpg';
 import margarita_thumb from 'images/loc-images/thumbnails/48038600_thumbnail.jpg';
-
 import americasMap from 'images/loc-images/78694920.jpg';
 import americasMap_thumb from 'images/loc-images/thumbnails/78694920_thumbnail.jpg';
 import vietnamMemorial from 'images/loc-images/97505164.jpg';
@@ -16,7 +16,7 @@ import vietnamMemorial_thumb from 'images/loc-images/thumbnails/97505164_thumbna
 import civilRightsMarch from 'images/loc-images/2003654395.jpg';
 import civilRightsMarch_thumb from 'images/loc-images/thumbnails/2003654395_thumbnail.jpg';
 import gospelTemperance from 'images/loc-images/2004633094.jpg';
-import gospelTemperance_thumb from 'images/loc-images/thumbnails/2004664436_thumbnail.jpg';
+import gospelTemperance_thumb from 'images/loc-images/thumbnails/2004633094_thumbnail.jpg';
 import nyMovingPictureTheater from 'images/loc-images/2005676198.jpg';
 import nyMovingPictureTheater_thumb from 'images/loc-images/thumbnails/2005676198_thumbnail.jpg';
 import frederickDouglass from 'images/loc-images/2006682742.jpg';
@@ -80,6 +80,11 @@ import butterflyNotebook_thumb from 'images/loc-images/thumbnails/mss454430217_t
 import evangelistarum from 'images/loc-images/49039040.jpg';
 import evangelistarum_thumb from 'images/loc-images/thumbnails/49039040_thumbnail.jpg';
 
+// Import curator annotation images
+import gospelTemperance_curator1 from 'images/curator-annotations/curator-png-test.png';
+
+// Test LOC image hosted via LOC IIIF Image server.
+// NOTE: Not all application images are hosted via IIIF Image server, so opting for local image reference
 const duchessUrl =
   'https://tile.loc.gov/image-services/iiif/service:music:vaultscan.15:200218724:0001/full/pct:100/0/default.jpg';
 
@@ -90,6 +95,7 @@ export const locImages = [
     type: 'image',
     url: zoopraxiscope,
     thumbUrl: zoopraxiscope_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '22001351',
@@ -97,6 +103,7 @@ export const locImages = [
     type: 'image',
     url: browniesBook,
     thumbUrl: browniesBook_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '48038600',
@@ -104,6 +111,7 @@ export const locImages = [
     type: 'image',
     url: margarita,
     thumbUrl: margarita_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '78694920',
@@ -111,6 +119,7 @@ export const locImages = [
     type: 'image',
     url: americasMap,
     thumbUrl: americasMap_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '97505164',
@@ -118,6 +127,7 @@ export const locImages = [
     type: 'image',
     url: vietnamMemorial,
     thumbUrl: vietnamMemorial_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2003654395',
@@ -125,6 +135,7 @@ export const locImages = [
     type: 'image',
     url: civilRightsMarch,
     thumbUrl: civilRightsMarch_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2004633094',
@@ -132,6 +143,7 @@ export const locImages = [
     type: 'image',
     url: gospelTemperance,
     thumbUrl: gospelTemperance_thumb,
+    curatorImageSrc: gospelTemperance_curator1,
   },
   {
     id: '2005676198',
@@ -139,6 +151,7 @@ export const locImages = [
     type: 'image',
     url: nyMovingPictureTheater,
     thumbUrl: nyMovingPictureTheater_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2006682742',
@@ -146,6 +159,7 @@ export const locImages = [
     type: 'image',
     url: frederickDouglass,
     thumbUrl: frederickDouglass_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2007676131',
@@ -153,6 +167,7 @@ export const locImages = [
     type: 'image',
     url: grandCanyon,
     thumbUrl: grandCanyon_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2008401028',
@@ -160,6 +175,7 @@ export const locImages = [
     type: 'image',
     url: suwar,
     thumbUrl: suwar_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2011631432',
@@ -167,6 +183,7 @@ export const locImages = [
     type: 'image',
     url: entryIntoTheForest,
     thumbUrl: entryIntoTheForest_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2011660380',
@@ -174,6 +191,7 @@ export const locImages = [
     type: 'image',
     url: patsyMinkPapers,
     thumbUrl: patsyMinkPapers_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2014563896',
@@ -181,6 +199,7 @@ export const locImages = [
     type: 'image',
     url: starSpangledBanner,
     thumbUrl: starSpangledBanner_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2014646807',
@@ -188,6 +207,7 @@ export const locImages = [
     type: 'image',
     url: voteChisholm,
     thumbUrl: voteChisholm_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2017782708',
@@ -195,6 +215,7 @@ export const locImages = [
     type: 'image',
     url: pecanShells,
     thumbUrl: pecanShells_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2017878364',
@@ -202,6 +223,7 @@ export const locImages = [
     type: 'image',
     url: locomotive,
     thumbUrl: locomotive_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2018677694',
@@ -209,6 +231,7 @@ export const locImages = [
     type: 'image',
     url: exhibitPanel,
     thumbUrl: exhibitPanel_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '2019641349',
@@ -216,6 +239,7 @@ export const locImages = [
     type: 'image',
     url: napoleansBedroom,
     thumbUrl: napoleansBedroom_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'flwpa000213',
@@ -223,6 +247,7 @@ export const locImages = [
     type: 'image',
     url: floridaExpedition,
     thumbUrl: floridaExpedition_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'ihas200218413',
@@ -230,6 +255,7 @@ export const locImages = [
     type: 'image',
     url: candide,
     thumbUrl: candide_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'lcwaN0010826',
@@ -237,6 +263,7 @@ export const locImages = [
     type: 'image',
     url: saveTheOctopus,
     thumbUrl: saveTheOctopus_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mal.0773800',
@@ -244,6 +271,7 @@ export const locImages = [
     type: 'image',
     url: lincolnPapers,
     thumbUrl: lincolnPapers_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mm2079013698',
@@ -251,6 +279,7 @@ export const locImages = [
     type: 'image',
     url: votesForWomen,
     thumbUrl: votesForWomen_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mm2082052258',
@@ -258,6 +287,7 @@ export const locImages = [
     type: 'image',
     url: earlWarrenPapers,
     thumbUrl: earlWarrenPapers_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mm2099084430',
@@ -265,6 +295,7 @@ export const locImages = [
     type: 'image',
     url: harryBlackmunPapers,
     thumbUrl: harryBlackmunPapers_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mss24612.021_0064_0079',
@@ -272,6 +303,7 @@ export const locImages = [
     type: 'image',
     url: hamiltonPapers,
     thumbUrl: hamiltonPapers_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mss13375003',
@@ -279,6 +311,7 @@ export const locImages = [
     type: 'image',
     url: bournePapers,
     thumbUrl: bournePapers_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'nm0095.sheet.00005a',
@@ -286,6 +319,7 @@ export const locImages = [
     type: 'image',
     url: puebloAcoma,
     thumbUrl: puebloAcoma_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'ny1251.sheet.00037a',
@@ -293,6 +327,7 @@ export const locImages = [
     type: 'image',
     url: statueOfLiberty,
     thumbUrl: statueOfLiberty_thumb,
+    curatorImageSrc: '',
   },
   // New images added May 9, 2021
   {
@@ -301,6 +336,7 @@ export const locImages = [
     type: 'image',
     url: robertCornelius,
     thumbUrl: robertCornelius_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'copland.corr0781',
@@ -308,6 +344,7 @@ export const locImages = [
     type: 'image',
     url: coplandLetter,
     thumbUrl: coplandLetter_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'master-pnp-ppmsca-02900-02935u',
@@ -315,6 +352,7 @@ export const locImages = [
     type: 'image',
     url: unknown1,
     thumbUrl: unknown1_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'master-pnp-ppmsca-09500-09504u',
@@ -322,6 +360,7 @@ export const locImages = [
     type: 'image',
     url: unknown2,
     thumbUrl: unknown2_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mbrs00056792',
@@ -329,6 +368,7 @@ export const locImages = [
     type: 'image',
     url: vaccination,
     thumbUrl: vaccination_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'ms019027',
@@ -336,6 +376,7 @@ export const locImages = [
     type: 'image',
     url: unknown3,
     thumbUrl: unknown3_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'mss454430217',
@@ -343,6 +384,7 @@ export const locImages = [
     type: 'image',
     url: butterflyNotebook,
     thumbUrl: butterflyNotebook_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'ppmsca-51500-51533u',
@@ -350,6 +392,7 @@ export const locImages = [
     type: 'image',
     url: unknown4,
     thumbUrl: unknown4_thumb,
+    curatorImageSrc: '',
   },
   {
     id: 'sn83045462-19571104',
@@ -357,6 +400,7 @@ export const locImages = [
     type: 'image',
     url: unknown5,
     thumbUrl: unknown5_thumb,
+    curatorImageSrc: '',
   },
   {
     id: '49039040',
@@ -364,5 +408,6 @@ export const locImages = [
     type: 'image',
     url: evangelistarum,
     thumbUrl: evangelistarum_thumb,
+    curatorImageSrc: '',
   },
 ];
