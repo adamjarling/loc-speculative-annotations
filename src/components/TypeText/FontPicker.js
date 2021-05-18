@@ -72,13 +72,13 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
                 fontFamily={font.fontFamily}
                 id={font.id}
                 onClick={() => handleFontClick(font)}
-                fontSize="24px"
-                w="250px"
+                fontSize={['18px', '24px']}
+                w={['175px', '250px']}
                 whiteSpace="nowrap"
                 overflow="hidden"
                 textOverflow="ellipsis"
                 borderWidth="1px"
-                p={3}
+                p={[1, 2, 3]}
                 borderRadius={8}
                 {...(activeFont &&
                   activeFont.id === font.id && { ...activeClasses })}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 function ViewerContactInfo() {
@@ -8,9 +8,10 @@ function ViewerContactInfo() {
     top: '10px',
     left: '10px',
   };
+  const isMobile = useBreakpointValue({ base: true, sm: false });
 
   // Prevent this component from displaying through the Type Tool font selection UI
-  if (activeTool === 'TYPE') {
+  if (activeTool === 'TYPE' || isMobile) {
     return null;
   }
 

@@ -20,8 +20,8 @@ function TypeText({ isActive }) {
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const { color } = useToolbarOptionsState();
   const { deselectAll, setDefaultCursor } = useFabricHelpers();
-  const textBoxWidth = useBreakpointValue({ base: 300, lg: 500 });
-  const textBoxFontSize = useBreakpointValue({ base: 40, lg: 50 });
+  const textBoxWidth = useBreakpointValue({ base: 200, sm: 300, lg: 500 });
+  const textBoxFontSize = useBreakpointValue({ base: 20, sm: 30, lg: 50 });
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],

@@ -1,11 +1,19 @@
 import React from 'react';
-import { Box, Button, Flex, HStack, Link } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Link,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import SALogo from 'components/SALogo';
 import { Link as RRLink, useHistory } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import { BiPencil } from 'react-icons/bi';
 import { useLocation, useParams } from 'react-router-dom';
 import useButtonSize from 'hooks/use-button-size';
+import { ColorModeSwitcher } from 'ColorModeSwitcher';
 
 function LayoutHeader() {
   const history = useHistory();
@@ -13,6 +21,7 @@ function LayoutHeader() {
   const params = useParams();
   const buttonSize = useButtonSize();
   const location = useLocation();
+  const isMobile = useBreakpointValue({ base: true, sm: false });
 
   const activeStyles = {
     borderBottom: '2px solid',
@@ -68,6 +77,7 @@ function LayoutHeader() {
             Annotate
           </Button>
         )}
+        {isMobile && <ColorModeSwitcher />}
       </Flex>
     </Box>
   );

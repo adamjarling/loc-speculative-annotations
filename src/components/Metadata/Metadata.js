@@ -28,7 +28,7 @@ import useIIIFManifests from 'hooks/use-iiif-manifests';
 
 function MetadataHeading({ children }) {
   return (
-    <Heading as="h2" size="md" pt={3}>
+    <Heading as="h2" size={['sm', 'md']} pt={3}>
       {children}
     </Heading>
   );
@@ -169,7 +169,9 @@ function Metadata() {
           {currentWork && metadata && (
             <DrawerContent>
               <DrawerCloseButton />
-              <DrawerHeader>{metadata.label || ''}</DrawerHeader>
+              <DrawerHeader fontSize={['sm', 'md']}>
+                {metadata.label || ''}
+              </DrawerHeader>
 
               <DrawerBody>
                 <MetadataBody>{metadata.summary || ''}</MetadataBody>

@@ -1,17 +1,15 @@
 import React from 'react';
-import { Image, useColorModeValue } from '@chakra-ui/react';
-import logoLightMode from 'images/loc-sa-logo__light-mode.png';
-import logoDarkMode from 'images/loc-sa-logo__dark-mode.png';
+import { Image, useBreakpointValue } from '@chakra-ui/react';
 import saLogo from 'images/logo2.png';
 
 function ViewerWatermarkLogo() {
-  const logo = useColorModeValue(logoLightMode, logoDarkMode);
+  const maxW = useBreakpointValue({ base: '90px', sm: '120px' });
 
   return (
     <Image
-      maxW="120px"
+      maxW={maxW}
       src={saLogo}
-      alt="Structural Annotation Library of Congress Labs logo"
+      alt="Speculative Annotation logo"
       position="absolute"
       bottom={`10px`}
       right={`10px`}

@@ -1,19 +1,17 @@
 import React from 'react';
-import { Box, Flex, Link } from '@chakra-ui/react';
+import { Flex, Link, useBreakpointValue } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import useColorModeColors from 'hooks/use-color-mode-colors';
 import { ColorModeSwitcher } from 'ColorModeSwitcher';
-import useButtonSize from 'hooks/use-button-size';
 
 export default function EyebrowNav() {
   const { bg } = useColorModeColors();
-  const buttonSize = useButtonSize();
+  const isVisible = useBreakpointValue({ base: false, sm: true });
 
-  return (
+  return !isVisible ? null : (
     <Flex
       bgColor={bg}
       pr={2}
-      // py={['0px', '2px']}
       alignItems="center"
       justifyContent="space-between"
       data-testid="eyebrow-row"

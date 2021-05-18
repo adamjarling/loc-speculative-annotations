@@ -14,7 +14,7 @@ import 'styles/styles.css';
 
 function ToolBarDivider() {
   return (
-    <WrapItem w="100%">
+    <WrapItem w="80%">
       <Divider />
     </WrapItem>
   );

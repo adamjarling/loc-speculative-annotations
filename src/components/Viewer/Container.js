@@ -13,6 +13,7 @@ import {
 import { locImages } from 'services/loc-images';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import ViewerControls from 'components/Viewer/Controls';
+import ViewerDisclaimer from 'components/Viewer/Disclaimer';
 
 export default function ViewerContainer() {
   const params = useParams();
@@ -73,6 +74,7 @@ export default function ViewerContainer() {
     <Flex flexGrow={1} position="relative" p={newViewerPadding}>
       <ViewerControls />
       <Viewer tile={targetImage} />
+      <ViewerDisclaimer />
     </Flex>
   );
 }

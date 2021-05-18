@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Flex,
+  IconButton,
   Image,
   Link,
   Modal,
@@ -63,9 +64,10 @@ function WorksListModal() {
     lg: '240px',
   });
   const buttonLabel = useBreakpointValue({
-    base: 'Select',
+    base: '',
     md: 'Select from the Collection',
   });
+  const isMobile = useBreakpointValue({ base: true, sm: false });
 
   const handleImageClick = image => {
     setActiveWork(image);
@@ -118,13 +120,22 @@ function WorksListModal() {
         handleSave={handleChangeWorkWarningSave}
       />
 
-      <Button
-        onClick={handleOpenModal}
-        leftIcon={<AddIcon />}
-        colorScheme="brand.pink"
-      >
-        {buttonLabel}
-      </Button>
+      {isMobile ? (
+        <IconButton
+          icon={<AddIcon />}
+          onClick={handleOpenModal}
+          colorScheme="brand.pink"
+          mr={2}
+        />
+      ) : (
+        <Button
+          onClick={handleOpenModal}
+          leftIcon={<AddIcon />}
+          colorScheme="brand.pink"
+        >
+          {buttonLabel}
+        </Button>
+      )}
 
       <Modal
         isOpen={isOpen}
