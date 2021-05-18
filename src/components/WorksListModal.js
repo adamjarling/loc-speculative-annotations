@@ -172,7 +172,7 @@ function WorksListModal() {
             </Wrap>
           </ModalBody>
 
-          <ModalFooter>
+          <ModalFooter mb="60px">
             <Button
               onClick={handleSelectItem}
               disabled={!activeWork}

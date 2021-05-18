@@ -135,16 +135,14 @@ export const locImages = [
   },
   {
     id: '2005676198',
-    alt:
-      '"American", Conton [i.e., Canton], N.Y. $70,000 moving picture theater erected by Byron H. Rogers, 1921',
+    alt: '"American", Conton [i.e., Canton], N.Y. $70,000 moving picture theater erected by Byron H. Rogers, 1921',
     type: 'image',
     url: nyMovingPictureTheater,
     thumbUrl: nyMovingPictureTheater_thumb,
   },
   {
     id: '2006682742',
-    alt:
-      'Frederick Douglass, 1818-1895, head and shoulders, facing slightly right',
+    alt: 'Frederick Douglass, 1818-1895, head and shoulders, facing slightly right',
     type: 'image',
     url: frederickDouglass,
     thumbUrl: frederickDouglass_thumb,
@@ -165,8 +163,7 @@ export const locImages = [
   },
   {
     id: '2011631432',
-    alt:
-      'Mural painting "Entry into the Forest" by Candido Portinari, on the vestibule wall of the Hispanic Reading room, Library of Congress, Thomas Jefferson Building, Washington, D.C.',
+    alt: 'Mural painting "Entry into the Forest" by Candido Portinari, on the vestibule wall of the Hispanic Reading room, Library of Congress, Thomas Jefferson Building, Washington, D.C.',
     type: 'image',
     url: entryIntoTheForest,
     thumbUrl: entryIntoTheForest_thumb,
@@ -194,16 +191,14 @@ export const locImages = [
   },
   {
     id: '2017782708',
-    alt:
-      'Mexican pecan shellers cracking nuts. Union plant. San Antonio, Texas',
+    alt: 'Mexican pecan shellers cracking nuts. Union plant. San Antonio, Texas',
     type: 'image',
     url: pecanShells,
     thumbUrl: pecanShells_thumb,
   },
   {
     id: '2017878364',
-    alt:
-      'Mrs. Viola Sievers, one of the wipers at the roundhouse giving a giant "H" class locomotive a bath of live steam, Clinton, Iowa. Mrs. Sievers is the sole support of her mother and has a son-in-law in the Army',
+    alt: 'Mrs. Viola Sievers, one of the wipers at the roundhouse giving a giant "H" class locomotive a bath of live steam, Clinton, Iowa. Mrs. Sievers is the sole support of her mother and has a son-in-law in the Army',
     type: 'image',
     url: locomotive,
     thumbUrl: locomotive_thumb,
@@ -245,8 +240,7 @@ export const locImages = [
   },
   {
     id: 'mal.0773800',
-    alt:
-      'Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)',
+    alt: 'Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)',
     type: 'image',
     url: lincolnPapers,
     thumbUrl: lincolnPapers_thumb,
@@ -274,16 +268,14 @@ export const locImages = [
   },
   {
     id: 'mss24612.021_0064_0079',
-    alt:
-      'Alexander Hamilton Papers: Speeches and Writings File, 1778-1804; 1787; Constitutional Convention; [June 18] , "Notes for Speech in the Convention proposing a Plan of Government"',
+    alt: 'Alexander Hamilton Papers: Speeches and Writings File, 1778-1804; 1787; Constitutional Convention; [June 18] , "Notes for Speech in the Convention proposing a Plan of Government"',
     type: 'image',
     url: hamiltonPapers,
     thumbUrl: hamiltonPapers_thumb,
   },
   {
     id: 'mss13375003',
-    alt:
-      'Wm. Oland Bourne Papers: Left-hand Penmanship contest; Broadsides, 1866-1867',
+    alt: 'Wm. Oland Bourne Papers: Left-hand Penmanship contest; Broadsides, 1866-1867',
     type: 'image',
     url: bournePapers,
     thumbUrl: bournePapers_thumb,
@@ -305,8 +297,7 @@ export const locImages = [
   // New images added May 9, 2021
   {
     id: '2004664436',
-    alt:
-      'Robert Cornelius, self-portrait; believed to be the earliest extant American portrait photo',
+    alt: 'Robert Cornelius, self-portrait; believed to be the earliest extant American portrait photo',
     type: 'image',
     url: robertCornelius,
     thumbUrl: robertCornelius_thumb,
