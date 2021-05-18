@@ -55,7 +55,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#view-demo">Demo</a></li>
+        <li><a href="#demo">Demo</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -163,10 +163,6 @@ Source images are currently hosted locally and defined in the following file:
 `src/services/loc-images.js`
 
 The application uses the OpenSeadragon Viewer to render images, so your source images can be a combination of locally hosted images (within the application), or externally hosted images (for example, served from a IIIF image server).
-
-### Librarian annotations
-
-Curator annotations are saved as Fabric JS canvas objects. The data is referenced, stored and retrieved through `annotations` property of a Library of Congress Work's IIIF Manifest (see below). Curator annotations (for now), must be manually created and added to a Work's manifest file.
 
 ### IIIF Manifests
 
