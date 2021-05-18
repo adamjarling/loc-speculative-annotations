@@ -1,6 +1,6 @@
 // Import LOC images and thumbnails
 import zoopraxiscope from 'images/loc-images/00650866.png';
-import zoopraxiscope_thumb from 'images/loc-images/thumbnails/00650866_thumbnail.jpg';
+import zoopraxiscope_thumb from 'images/loc-images/thumbnails/00650866_thumbnail.png';
 import floridaExpedition from 'images/loc-images/flwpa000213.jpg';
 import floridaExpedition_thumb from 'images/loc-images/thumbnails/flwpa000213_thumbnail.jpg';
 import candide from 'images/loc-images/ihas200218413.jpg';
@@ -63,8 +63,6 @@ import robertCornelius from 'images/loc-images/2004664436.jpg';
 import robertCornelius_thumb from 'images/loc-images/thumbnails/2004664436_thumbnail.jpg';
 import coplandLetter from 'images/loc-images/copland.corr0781.jpg';
 import coplandLetter_thumb from 'images/loc-images/thumbnails/copland.corr0781_thumbnail.jpg';
-import unknown1 from 'images/loc-images/master-pnp-ppmsca-02900-02935u.jpg';
-import unknown1_thumb from 'images/loc-images/thumbnails/master-pnp-ppmsca-02900-02935u_thumbnail.jpg';
 import unknown2 from 'images/loc-images/master-pnp-ppmsca-09500-09504u.jpg';
 import unknown2_thumb from 'images/loc-images/thumbnails/master-pnp-ppmsca-09500-09504u_thumbnail.jpg';
 import unknown3 from 'images/loc-images/ms019027.jpg';
@@ -344,14 +342,6 @@ export const locImages = [
     type: 'image',
     url: coplandLetter,
     thumbUrl: coplandLetter_thumb,
-    curatorImageSrc: '',
-  },
-  {
-    id: 'master-pnp-ppmsca-02900-02935u',
-    alt: '',
-    type: 'image',
-    url: unknown1,
-    thumbUrl: unknown1_thumb,
     curatorImageSrc: '',
   },
   {
