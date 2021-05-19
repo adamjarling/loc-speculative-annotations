@@ -135,7 +135,7 @@ export default function StampQuestion({ isActive }) {
             </SimpleGrid>
           </ModalBody>
 
-          <ModalFooter>
+          <ModalFooter mb="60px">
             <Button onClick={onClose} variant="ghost" mr={3}>
               Cancel
             </Button>
