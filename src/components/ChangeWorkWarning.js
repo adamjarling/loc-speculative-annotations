@@ -18,11 +18,7 @@ function ChangeWorkWarning({ isVisible, handleCancel, handleSave }) {
       <AlertDialogContent>
         <AlertDialogHeader>Save Work</AlertDialogHeader>
         <AlertDialogCloseButton />
-        <AlertDialogBody>
-          By selecting a new image to annotate you will lose the annotations you
-          previously made. Would you like to save your annotations before
-          selecting a new image?
-        </AlertDialogBody>
+        <AlertDialogBody>Do you want to save first?</AlertDialogBody>
 
         <AlertDialogFooter>
           <Button mr={3} onClick={handleCancel}>
