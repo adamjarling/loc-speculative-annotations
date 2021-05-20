@@ -7,7 +7,6 @@ import {
   Link,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import SALogo from 'components/SALogo';
 import { Link as RRLink, useHistory } from 'react-router-dom';
 import EyebrowNav from 'components/Layout/EyebrowNav';
 import { BiPencil } from 'react-icons/bi';
@@ -45,11 +44,10 @@ function LayoutHeader() {
         alignItems="center"
         zIndex="1"
         px={4}
-        py={1}
+        py={3}
         fontSize={fontSizes}
       >
         <HStack spacing={[4, 6, 10]}>
-          <SALogo />
           <Link
             as={RRLink}
             to="/about"
