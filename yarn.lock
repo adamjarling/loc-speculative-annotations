@@ -9416,7 +9416,7 @@ open@^7.0.2:
 
 "openseadragon-fabricjs-overlay@https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git":
   version "0.2.0"
-  resolved "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git#2edaeac8e1d6df744533a8d7af0c216732ace2d7"
+  resolved "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git#303fd33e13fd9f2b4cc2e71bdc0b38baf949a842"
   dependencies:
     openseadragon "^2.0.0"
 
