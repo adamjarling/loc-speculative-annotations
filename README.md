@@ -107,6 +107,8 @@ Visit [Library of Congress Labs](https://labs.loc.gov/work/experiments/annotatio
 
 [Test drive the application](https://nervous-gates-006218.netlify.app/)
 
+The staging environment is currently hosted with [Netlify](https://www.netlify.com/), and builds are synced with Github pushes to https://github.com/adamjarling/loc-speculative-annotations `main` branch.
+
 ### Built With
 
 - [React](https://reactjs.org/)
@@ -166,7 +168,10 @@ The application uses the OpenSeadragon Viewer to render images, so your source i
 
 ### IIIF Manifests
 
-Application metadata is represented by IIIF Presentation API 3.0 manifest files. The organization is as follows (currently):
+Application metadata is represented by a combination of local IIIF Presentation API 3.0 manifest files, and Library of Congress hosted IIIF manifest files. The organization of local files is as follows:
+
+_Top level manifest:_
+`public/iiif/speculative-annotations-manifest.json`
 
 - Top level **Collection** type manifest resource which contains information about the Speculative Annotation works as a collection.
 - Individual **Manifest** type manifests which each represent a Work, its metadata, annotations, containing LOC Collection, and more.

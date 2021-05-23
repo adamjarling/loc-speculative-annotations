@@ -3241,122 +3241,6 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/mm2099084430/manifest.json",
-      "type": "Manifest",
-      "summary": {
-        "en": [
-          "Generic description"
-        ]
-      },
-      "provider": [
-        {
-          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
-          "type": "Agent",
-          "label": { "en": ["Library of Congress"] },
-          "homepage": [
-            {
-              "id": "https://ask.loc.gov",
-              "type": "Text",
-              "label": { "en": ["Library of Congress Homepage"] },
-              "format": "text/html"
-            }
-          ],
-          "logo": [
-            {
-              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
-              "type": "Image",
-              "format": "image/svg"
-            }
-          ]
-        }
-      ],
-      "homepage": [
-        {
-          "id": "https://catalog.loc.gov/vwebv/search?searchCode=LCCN&searchArg=mm%2099084430&searchType=1&permalink=y",
-          "type": "Text",
-          "label": { "en": ["Home page for Harry A Blackmun papers, 1913-2001"] },
-          "format": "text/html"
-        }
-      ],
-      "partOf": [
-        {
-          "id": "iiif/generic-collection/info.json",
-          "type": "Collection"
-        }
-      ],
-      "items": [
-        {
-          "id": "iiif/mm2099084430/canvas/1",
-          "type": "Canvas",
-          "label": { "none": ["Harry A Blackmun papers, 1913-2001 image"] },
-          "width": "",
-          "height": "",
-          "items": [
-            {
-              "id": "iiif/mm2099084430/page/1",
-              "type": "AnnotationPage",
-              "items": [
-                {
-                  "id": "iiif/mm2099084430/annotation/1",
-                  "type": "Annotation",
-                  "motivation": "painting",
-                  "body": {
-                    "id": "iiif/mm2099084430/page/full/max/0/default.jpg",
-                    "type": "Image",
-                    "format": "image/jpeg",
-                    "height": 2250,
-                    "width": 1500
-                  },
-                  "target": "iiif/mm2099084430/canvas/1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "annotations": [
-        {
-          "id": "iiif/mm2099084430/annotations/curator",
-          "type": "AnnotationPage",
-          "items": [
-            {
-              "id": "iiif/mm2099084430/annotations/curator/curator001/info.json",
-              "type": "Annotation"
-            }
-          ]
-        },
-        {
-          "id": "iiif/mm2099084430/annotations/questions",
-          "type": "AnnotationPage",
-          "items": [
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2099084430/annotations/questions/question001",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2099084430/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "@context": "http://iiif.io/api/presentation/3/context.json",
       "id": "https://www.loc.gov/item/2011660380/manifest.json",
       "type": "Manifest",
       "summary": {
@@ -4515,7 +4399,239 @@
         }
       ]
     },
-
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/03012768/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/03012768/",
+          "type": "Text",
+          "label": { "en": ["Home page for Maria Mitchell : life, letters, and journals"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/collection-generic/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/03012768/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Maria Mitchell : life, letters, and journals image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/03012768/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/03012768/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/03012768/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/03012768/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/03012768/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/03012768/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/03012768/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/03012768/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/03012768/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/mss11049028/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          "Generic description"
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/mss11049028/",
+          "type": "Text",
+          "label": { "en": ["Home page for Susan B. Anthony Papers: Scrapbooks"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/collection-generic/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/mss11049028/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Susan B. Anthony Papers: Scrapbooks image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/mss11049028/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/mss11049028/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/mss11049028/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/mss11049028/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/mss11049028/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/mss11049028/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/mss11049028/annotations/questions",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mss11049028/annotations/questions/question001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mss11049028/annotations/questions/question002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "__GENERIC_QUESTION__",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
       "id": "https://www.loc.gov/item/ihas200218413/manifest.json",

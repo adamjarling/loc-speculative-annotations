@@ -55,16 +55,14 @@ import votesForWomen from 'images/loc-images/mm2079013698.jpg';
 import votesForWomen_thumb from 'images/loc-images/thumbnails/mm2079013698_thumbnail.jpg';
 import earlWarrenPapers from 'images/loc-images/mm2082052258.jpg';
 import earlWarrenPapers_thumb from 'images/loc-images/thumbnails/mm2082052258_thumbnail.jpg';
-import harryBlackmunPapers from 'images/loc-images/mm2099084430.jpg';
-import harryBlackmunPapers_thumb from 'images/loc-images/thumbnails/mm2099084430_thumbnail.jpg';
 import patsyMinkPapers from 'images/loc-images/2011660380.jpg';
 import patsyMinkPapers_thumb from 'images/loc-images/thumbnails/2011660380_thumbnail.jpg';
 import robertCornelius from 'images/loc-images/2004664436.jpg';
 import robertCornelius_thumb from 'images/loc-images/thumbnails/2004664436_thumbnail.jpg';
 import coplandLetter from 'images/loc-images/copland.corr0781.jpg';
 import coplandLetter_thumb from 'images/loc-images/thumbnails/copland.corr0781_thumbnail.jpg';
-import unknown2 from 'images/loc-images/master-pnp-ppmsca-09500-09504u.jpg';
-import unknown2_thumb from 'images/loc-images/thumbnails/master-pnp-ppmsca-09500-09504u_thumbnail.jpg';
+import mayaLin from 'images/loc-images/master-pnp-ppmsca-09500-09504u.jpg';
+import mayaLin_thumb from 'images/loc-images/thumbnails/master-pnp-ppmsca-09500-09504u_thumbnail.jpg';
 import unknown3 from 'images/loc-images/ms019027.jpg';
 import unknown3_thumb from 'images/loc-images/thumbnails/ms019027_thumbnail.jpg';
 import unknown4 from 'images/loc-images/ppmsca-51500-51533u.jpg';
@@ -77,6 +75,12 @@ import butterflyNotebook from 'images/loc-images/mss454430217.jpg';
 import butterflyNotebook_thumb from 'images/loc-images/thumbnails/mss454430217_thumbnail.jpg';
 import evangelistarum from 'images/loc-images/49039040.jpg';
 import evangelistarum_thumb from 'images/loc-images/thumbnails/49039040_thumbnail.jpg';
+import barton from 'images/loc-images/service-pnp-ppmsca-02900-02935v.jpg';
+import barton_thumb from 'images/loc-images/thumbnails/service-pnp-ppmsca-02900-02935v_thumbnail.jpg';
+import mitchell from 'images/loc-images/03012768.jpeg';
+import mitchell_thumb from 'images/loc-images/thumbnails/03012768_thumbnail.jpeg';
+import womensRights from 'images/loc-images/mss11049028.jpg';
+import womensRights_thumb from 'images/loc-images/thumbnails/mss11049028_thumbnail.jpg';
 
 // Import curator annotation images
 import gospelTemperance_curator1 from 'images/curator-annotations/curator-png-test.png';
@@ -288,14 +292,6 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'mm2099084430',
-    alt: 'Harry A Blackmun papers, 1913-2001',
-    type: 'image',
-    url: harryBlackmunPapers,
-    thumbUrl: harryBlackmunPapers_thumb,
-    curatorImageSrc: '',
-  },
-  {
     id: 'mss24612.021_0064_0079',
     alt: 'Alexander Hamilton Papers: Speeches and Writings File, 1778-1804; 1787; Constitutional Convention; [June 18] , "Notes for Speech in the Convention proposing a Plan of Government"',
     type: 'image',
@@ -345,13 +341,21 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'master-pnp-ppmsca-09500-09504u',
-    alt: '',
+    id: 'service-pnp-ppmsca-02900-02935v',
+    alt: 'Barton',
     type: 'image',
-    url: unknown2,
-    thumbUrl: unknown2_thumb,
+    url: barton,
+    thumbUrl: barton_thumb,
     curatorImageSrc: '',
   },
+  // {
+  //   id: 'master-pnp-ppmsca-09500-09504u',
+  //   alt: 'Maya Lin',
+  //   type: 'image',
+  //   url: mayaLin,
+  //   thumbUrl: mayaLin_thumb,
+  //   curatorImageSrc: '',
+  // },
   {
     id: 'mbrs00056792',
     alt: '',
@@ -398,6 +402,22 @@ export const locImages = [
     type: 'image',
     url: evangelistarum,
     thumbUrl: evangelistarum_thumb,
+    curatorImageSrc: '',
+  },
+  {
+    id: '03012768',
+    alt: 'Maria Mitchell : life, letters, and journals',
+    type: 'image',
+    url: mitchell,
+    thumbUrl: mitchell_thumb,
+    curatorImageSrc: '',
+  },
+  {
+    id: 'mss11049028',
+    alt: 'Declaration of womens rights',
+    type: 'image',
+    url: womensRights,
+    thumbUrl: womensRights_thumb,
     curatorImageSrc: '',
   },
 ];
