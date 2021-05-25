@@ -25,6 +25,7 @@ import { useParams } from 'react-router-dom';
 import { locImages } from 'services/loc-images';
 import { loadManifest, parseManifest } from 'manifesto.js';
 import useIIIFManifests from 'hooks/use-iiif-manifests';
+import useButtonSize from 'hooks/use-button-size';
 
 function MetadataHeading({ children }) {
   return (
@@ -46,6 +47,7 @@ function Metadata() {
   const [metadata, setMetadata] = React.useState();
   const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
   const { filterMetadata, findManifest, getQuestions } = useIIIFManifests();
+  const buttonSize = useButtonSize();
 
   async function getManifestData() {
     const obj = await getWorkMetadata();
@@ -154,14 +156,15 @@ function Metadata() {
   return (
     <>
       <Tooltip label="Info" aria-label="Info" openDelay={500}>
-        <IconButton
-          icon={<FaInfoCircle />}
+        <Button
+          leftIcon={<FaInfoCircle />}
           onClick={handleToolbarClick}
-          size={iconButtonSize}
-          fontSize={['2xl', '3xl']}
+          size={buttonSize}
           variant="ghost"
           disabled={!metadata}
-        />
+        >
+          Learn More
+        </Button>
       </Tooltip>
 
       <Drawer isOpen={isOpen} placement="right" onClose={handleClose}>

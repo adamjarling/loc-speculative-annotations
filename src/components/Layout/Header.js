@@ -63,6 +63,9 @@ function LayoutHeader() {
             Teach
           </Link>
         </HStack>
+        <Button bg="white" color="brand.pink.500">
+          My Saved Annotations
+        </Button>
         {!isApp() && (
           <Button
             colorScheme="brand.pink"

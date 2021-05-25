@@ -1,13 +1,15 @@
 import React from 'react';
 import {
-  Checkbox,
+  Box,
   Flex,
+  FormControl,
+  FormLabel,
   Link,
   Stack,
+  Switch,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { BiOutline } from 'react-icons/bi';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -119,46 +121,31 @@ export default function ShowHideAnnotations() {
   };
 
   return (
-    <Stack
-      spacing={3}
-      direction={isTablet ? 'column' : 'row'}
-      ml={6}
-      align={isTablet ? 'left' : 'center'}
-      bgColor={bgColor}
-      borderRadius="10px"
-      px={4}
-      py={3}
-    >
-      <Flex alignItems="center">
-        <BiOutline />
-        <Text ml={2} mb={0} fontFamily="ocrAStd" fontSize={fontSize}>
-          Change Display:{' '}
-        </Text>
-      </Flex>
+    <>
+      <Box pr="12px">
+        <FormControl display="flex" alignItems="center">
+          <FormLabel
+            htmlFor="email-alerts"
+            mb="0"
+            fontFamily="ocr-a-std"
+            fontSize="sm"
+          >
+            Hide Annotations
+          </FormLabel>
+          <Switch
+            id="hide-annotations"
+            colorScheme="brand.pink"
+            isChecked={!state.isMyVisible}
+            onChange={handleUserCheckboxChange}
+          />
+        </FormControl>
+      </Box>
 
-      <Checkbox
-        isChecked={state.isMyVisible}
-        onChange={handleUserCheckboxChange}
-      >
-        <Text fontSize={fontSize} mb={0}>
-          My Annotation
-        </Text>
-      </Checkbox>
-      {/* {curatorObjects && (
-        <Checkbox
-          isChecked={state.isCuratorVisible}
-          onChange={handleCuratorCheckboxChange}
-        >
-          <Text fontSize={fontSize} mb={0}>
-            LC Staff Annotation
-          </Text>
-        </Checkbox>
-      )} */}
-      {locImageObj?.curatorImageSrc && (
+      {/* {locImageObj?.curatorImageSrc && (
         <Link href={curatorImg} target="_blank" fontSize="xs">
           Curator Img
         </Link>
-      )}
-    </Stack>
+      )} */}
+    </>
   );
 }

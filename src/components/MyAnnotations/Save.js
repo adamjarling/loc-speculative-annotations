@@ -91,7 +91,7 @@ export default function MyAnnotationsSave() {
         data-testid="save-link"
         id="save-my-annotations"
       >
-        My
+        Save
       </AltButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>

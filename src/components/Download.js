@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button,
+  Flex,
   Image,
   Modal,
   ModalOverlay,
@@ -41,7 +42,7 @@ export default function Download() {
         mr={2}
         data-testid="download-link"
       >
-        Save
+        Download
       </AltButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -54,18 +55,22 @@ export default function Download() {
           </ModalBody>
 
           <ModalFooter>
-            <Button
-              as="a"
-              mr={3}
-              href={img}
-              download={'my-speculative-annotation'}
-              fontFamily="ocr-a-std"
-            >
-              Save
-            </Button>
-            <Button variant="ghost" onClick={onClose}>
-              Close
-            </Button>
+            <Flex>
+              <Button variant="ghost" flexGrow="1" onClick={onClose}>
+                Cancel
+              </Button>
+              <Button
+                as="a"
+                flexGrow="1"
+                colorScheme="brand.pink"
+                mr={3}
+                href={img}
+                download={'my-speculative-annotation'}
+                fontFamily="ocr-a-std"
+              >
+                Save
+              </Button>
+            </Flex>
           </ModalFooter>
         </ModalContent>
       </Modal>

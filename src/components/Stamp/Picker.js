@@ -61,6 +61,7 @@ import stamp52 from 'images/stamps/stamps-52.svg';
 import stamp53 from 'images/stamps/stamps-53.svg';
 import stamp54 from 'images/stamps/stamps-54.svg';
 import stamp55 from 'images/stamps/stamps-55.svg';
+
 import { ReactComponent as Stamp1 } from 'images/stamps/stamps-01.svg';
 import { ReactComponent as Stamp2 } from 'images/stamps/stamps-02.svg';
 import { ReactComponent as Stamp3 } from 'images/stamps/stamps-03.svg';

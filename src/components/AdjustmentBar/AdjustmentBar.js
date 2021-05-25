@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Center,
   Divider,
   Flex,
@@ -18,6 +19,7 @@ import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import UndoRedo from 'components/UndoRedo/UndoRedo';
 import AdjustmentBarWidthPicker from 'components/AdjustmentBar/WidthPicker';
 import Decompressor from 'components/Decompressor';
+import ShowHideAnnotations from 'components/ShowHideAnnotations';
 
 function AdjustmentBar(props) {
   const { bg } = useColorModeColors();
@@ -73,17 +75,27 @@ function AdjustmentBar(props) {
           />
         )}
       </HStack>
-      <HStack spacing={itemSpacingNarrow} pt={[2, 0]}>
+      <HStack
+        spacing={itemSpacingNarrow}
+        pt={[2, 0]}
+        divider={<StackDivider borderColor={dividerColor} />}
+      >
         {/* <Decompressor /> */}
-        <ClearCanvas />
-        <UndoRedo />
-        <Center height="20px">
+        <Box>
+          <ClearCanvas />
+          <UndoRedo />
+        </Box>
+
+        {/* <Center height="20px">
           <Divider orientation="vertical" />
-        </Center>
+        </Center> */}
 
         <Share />
-        <MyAnnotationsSave />
-        {<Download />}
+        <Box>
+          <MyAnnotationsSave />
+          <Download />
+        </Box>
+        <ShowHideAnnotations />
       </HStack>
     </Flex>
   );

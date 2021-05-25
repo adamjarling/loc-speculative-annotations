@@ -1,12 +1,13 @@
 import React from 'react';
-import { Image, useBreakpointValue } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 import saLogo from 'images/logo2.png';
+import { ReactComponent as Logo } from 'images/SALogo+Hashtag.svg';
 
 function ViewerWatermarkLogo() {
   const maxW = useBreakpointValue({ base: '90px', sm: '120px' });
 
   return (
-    <Image
+    <Box
       maxW={maxW}
       src={saLogo}
       alt="Speculative Annotation logo"
@@ -14,7 +15,9 @@ function ViewerWatermarkLogo() {
       bottom={`10px`}
       right={`10px`}
       zIndex="10"
-    />
+    >
+      <Logo />
+    </Box>
   );
 }
 

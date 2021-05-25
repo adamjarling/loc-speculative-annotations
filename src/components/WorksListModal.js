@@ -30,6 +30,7 @@ import {
   useFabricOverlayDispatch,
 } from 'context/fabric-overlay-context';
 import ChangeWorkWarning from 'components/ChangeWorkWarning';
+import useButtonSize from 'hooks/use-button-size';
 
 const activeStyle = {
   border: '2px solid',
@@ -57,6 +58,7 @@ function WorksListModal() {
   const [isChangeWorkWarningVisible, setIsChangeWorkWarningVisible] =
     React.useState();
   const dispatch = useFabricOverlayDispatch();
+  const buttonSize = useButtonSize();
 
   const maxImageHeight = useBreakpointValue({
     base: '100px',
@@ -132,6 +134,7 @@ function WorksListModal() {
           onClick={handleOpenModal}
           leftIcon={<AddIcon />}
           colorScheme="brand.pink"
+          size={buttonSize}
         >
           {buttonLabel}
         </Button>
