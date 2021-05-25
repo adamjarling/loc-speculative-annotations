@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  FormControl,
-  FormLabel,
-  Link,
-  Stack,
-  Switch,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, FormControl, FormLabel, Switch } from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -18,11 +8,7 @@ import { useParams } from 'react-router-dom';
 import useIIIFManifests from 'hooks/use-iiif-manifests';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { fabric } from 'openseadragon-fabricjs-overlay';
-import { isTablet } from 'react-device-detect';
-import curatorImg from 'images/curator-annotations/curator-png-test.png';
-import useLocImages from 'hooks/use-loc-images';
 
-const fontSize = ['xs', 'xs', 'xs', 'sm'];
 const defaultState = {
   isCuratorVisible: false,
   isMyVisible: true,
@@ -43,9 +29,6 @@ export default function ShowHideAnnotations() {
     makeObjectsVisible,
     removeObjectsFromCanvas,
   } = useFabricHelpers();
-  const bgColor = useColorModeValue('gray.200', 'gray.700');
-  const { findImage } = useLocImages();
-  const locImageObj = findImage(params.id);
 
   async function getManifestData() {
     if (!params.id || !fabricOverlay) return;
@@ -121,31 +104,23 @@ export default function ShowHideAnnotations() {
   };
 
   return (
-    <>
-      <Box pr="12px">
-        <FormControl display="flex" alignItems="center">
-          <FormLabel
-            htmlFor="email-alerts"
-            mb="0"
-            fontFamily="ocr-a-std"
-            fontSize="sm"
-          >
-            Hide Annotations
-          </FormLabel>
-          <Switch
-            id="hide-annotations"
-            colorScheme="brand.pink"
-            isChecked={!state.isMyVisible}
-            onChange={handleUserCheckboxChange}
-          />
-        </FormControl>
-      </Box>
-
-      {/* {locImageObj?.curatorImageSrc && (
-        <Link href={curatorImg} target="_blank" fontSize="xs">
-          Curator Img
-        </Link>
-      )} */}
-    </>
+    <Box pr="12px">
+      <FormControl display="flex" alignItems="center">
+        <FormLabel
+          htmlFor="email-alerts"
+          mb="0"
+          fontFamily="ocr-a-std"
+          fontSize="sm"
+        >
+          Hide Annotations
+        </FormLabel>
+        <Switch
+          id="hide-annotations"
+          colorScheme="brand.pink"
+          isChecked={!state.isMyVisible}
+          onChange={handleUserCheckboxChange}
+        />
+      </FormControl>
+    </Box>
   );
 }

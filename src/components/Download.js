@@ -55,20 +55,20 @@ export default function Download() {
           </ModalBody>
 
           <ModalFooter>
-            <Flex>
+            <Flex w="100%">
               <Button variant="ghost" flexGrow="1" onClick={onClose}>
                 Cancel
               </Button>
               <Button
                 as="a"
                 flexGrow="1"
-                colorScheme="brand.pink"
+                variant="saPink"
                 mr={3}
                 href={img}
                 download={'my-speculative-annotation'}
                 fontFamily="ocr-a-std"
               >
-                Save
+                Download
               </Button>
             </Flex>
           </ModalFooter>

@@ -126,14 +126,15 @@ function WorksListModal() {
         <IconButton
           icon={<AddIcon />}
           onClick={handleOpenModal}
-          colorScheme="brand.pink"
+          bg="brand.pink.500"
+          color="white"
           mr={2}
         />
       ) : (
         <Button
           onClick={handleOpenModal}
           leftIcon={<AddIcon />}
-          colorScheme="brand.pink"
+          variant="saPink"
           size={buttonSize}
         >
           {buttonLabel}

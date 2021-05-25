@@ -17,8 +17,7 @@ function LCStaffAnnotation({ curatorImageSrc }) {
       rightIcon={<ExternalLinkIcon />}
       isExternal
       size={buttonSize}
-      bg="brand.rust.400"
-      color="white"
+      variant="saRust"
     >
       LC Staff Annotations
     </Button>

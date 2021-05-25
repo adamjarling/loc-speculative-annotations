@@ -1,10 +1,8 @@
 import React from 'react';
-import { Box, Button, Flex, HStack, useColorModeValue } from '@chakra-ui/react';
+import { Flex, HStack, useColorModeValue } from '@chakra-ui/react';
 import WorksListModal from 'components/WorksListModal';
-import ShowHideAnnotations from 'components/ShowHideAnnotations';
 import { isBrowser, isTablet } from 'react-device-detect';
 import Metadata from 'components/Metadata/Metadata';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 import LCStaffAnnotation from 'components/LCStaffAnnotation';
 import useLocImages from 'hooks/use-loc-images';
 import { useParams } from 'react-router-dom';

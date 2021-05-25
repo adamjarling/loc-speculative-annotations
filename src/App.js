@@ -9,6 +9,32 @@ import brandPalette from 'styles/brandPalette';
 import SiteAbout from 'components/Site/About';
 import SiteTeach from 'components/Site/Teach';
 
+const Button = {
+  variants: {
+    saPink: {
+      bg: 'brand.pink.500',
+      color: 'white',
+      _hover: {
+        bg: 'brand.pink.400',
+      },
+    },
+    saRust: {
+      bg: 'brand.rust.400',
+      color: 'white',
+      _hover: {
+        bg: 'brand.rust.300',
+      },
+    },
+    saWhite: {
+      bg: 'white',
+      color: 'brand.pink.500',
+      _hover: {
+        bg: 'white.100',
+      },
+    },
+  },
+};
+
 export const theme = extendTheme({
   colors: {
     brand: brandPalette,
@@ -25,6 +51,9 @@ export const theme = extendTheme({
     ocrAStd: 'ocr-a-std',
     openSans: 'Open Sans',
     reenieBeanie: 'Reenie Beanie',
+  },
+  components: {
+    Button,
   },
 
   styles: {

@@ -13,6 +13,7 @@ import { BiPencil } from 'react-icons/bi';
 import { useLocation, useParams } from 'react-router-dom';
 import useButtonSize from 'hooks/use-button-size';
 import { ColorModeSwitcher } from 'ColorModeSwitcher';
+import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
 
 function LayoutHeader() {
   const history = useHistory();
@@ -63,9 +64,9 @@ function LayoutHeader() {
             Teach
           </Link>
         </HStack>
-        <Button bg="white" color="brand.pink.500">
-          My Saved Annotations
-        </Button>
+
+        <MyAnnotations />
+
         {!isApp() && (
           <Button
             colorScheme="brand.pink"
