@@ -15,6 +15,7 @@ export default function Disclaimer() {
       margin="auto"
       textAlign="center"
       textColor={textColor}
+      zIndex="10"
     >
       The original item can be found at the Library of Congress
     </Text>

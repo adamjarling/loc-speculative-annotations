@@ -1,20 +1,13 @@
 import React from 'react';
 import { useZoom } from 'use-open-seadragon';
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  IconButton,
-  Tooltip,
-} from '@chakra-ui/react';
+import { Box, ButtonGroup, IconButton, Tooltip } from '@chakra-ui/react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import useButtonSize from 'hooks/use-button-size';
+import { ReactComponent as MagnifyingIcon } from 'images/MagnifyingGlass.svg';
 
 function ViewerControls() {
   const { viewer } = useFabricOverlayState();
   const { zoomIn, zoomOut } = useZoom();
-  const buttonSize = useButtonSize();
 
   const handleReset = e => {
     viewer.viewport.goHome();
@@ -51,15 +44,12 @@ function ViewerControls() {
             variant="ghost"
           />
         </Tooltip>
-        <Tooltip label="Zoom out" aria-label="Zoom out">
-          <Button
+        <Tooltip label="Reset zoom" aria-label="Reset zoom">
+          <IconButton
+            icon={<MagnifyingIcon />}
             onClick={handleReset}
-            size="sm"
             variant="ghost"
-            fontFamily="Open Sans"
-          >
-            100%
-          </Button>
+          />
         </Tooltip>
         <Tooltip label="Zoom in" aria-label="Zoom in">
           <IconButton icon={<FaPlus />} onClick={handleZoomIn} size="sm" />

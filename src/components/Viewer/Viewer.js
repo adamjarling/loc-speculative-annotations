@@ -7,6 +7,7 @@ import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import { isBrowser, isTablet } from 'react-device-detect';
 import ViewerContactInfo from 'components/Viewer/ContactInfo';
 import ViewerWatermarkLogo from 'components/Viewer/WatermarkLogo';
+import ViewerDisclaimer from 'components/Viewer/Disclaimer';
 
 const minZoomLevel = isBrowser ? 0.5 : 0.8;
 
@@ -80,8 +81,9 @@ export default function Viewer({ tile }) {
 
   return (
     <Box ref={ref} flexGrow="1" bgColor={bgColor} id="download-wrapper">
-      <ViewerContactInfo />
+      {/* <ViewerContactInfo /> */}
       <ViewerWatermarkLogo />
+      <ViewerDisclaimer />
     </Box>
   );
 }

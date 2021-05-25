@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Stack, useBreakpointValue } from '@chakra-ui/react';
+import { Stack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 import ToolbarBorderBox from 'components/Toolbar/BorderBox';
 import ToolbarBorderBoxInner from 'components/Toolbar/BorderBoxInner';
 import {
@@ -13,6 +13,8 @@ function AdjustmentBarWidthPicker({ buttonSize }) {
   const { brushWidth, color } = useToolbarOptionsState();
   const dispatch = useToolbarOptionsDispatch();
   const stackSpacing = useBreakpointValue({ sm: '5px', md: '10px' });
+  const fillColor = useColorModeValue('#2D3748', '#EDF2F7');
+  console.log(`fillColor`, fillColor);
 
   return (
     <Stack direction="row" spacing={stackSpacing} px={1}>
@@ -29,7 +31,7 @@ function AdjustmentBarWidthPicker({ buttonSize }) {
                 dispatch({ type: 'updateBrushWidth', brushWidth: widthObj })
               }
             >
-              <widthObj.IconSVG fill={color.hex} height="100%" width="100%" />
+              <widthObj.IconSVG fill={fillColor} height="100%" width="100%" />
             </ToolbarBorderBoxInner>
           </ToolbarBorderBox>
         );

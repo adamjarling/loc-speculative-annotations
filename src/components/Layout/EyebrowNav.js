@@ -23,7 +23,7 @@ export default function EyebrowNav() {
         isExternal
         data-testid="loc-link"
       >
-        Back to LOC.gov <ExternalLinkIcon mx="2px" />
+        Visit LOC.gov <ExternalLinkIcon mx="2px" />
       </Link>
       <ColorModeSwitcher />
     </Flex>
