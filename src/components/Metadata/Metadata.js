@@ -11,12 +11,10 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Heading,
-  IconButton,
   Link,
   Tooltip,
   Wrap,
   WrapItem,
-  useBreakpointValue,
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
@@ -45,8 +43,8 @@ function Metadata() {
   const params = useParams();
   const [currentWork, setCurrentWork] = React.useState();
   const [metadata, setMetadata] = React.useState();
-  const iconButtonSize = useBreakpointValue({ base: 'md', md: 'lg' });
-  const { filterMetadata, findManifest, getQuestions } = useIIIFManifests();
+  const { filterMetadata, findManifest, getQuestions, getResearch } =
+    useIIIFManifests();
   const buttonSize = useButtonSize();
 
   async function getManifestData() {
@@ -79,6 +77,7 @@ function Metadata() {
       // And then apply the application's supplemental information
       obj.contact = currentManifest.getProperty('provider')[0].id;
       obj.questions = getQuestions(currentManifest);
+      obj.research = getResearch(currentManifest);
       obj.summary = currentManifest.getProperty('summary')['en'][0];
       obj.workUrl = currentManifest.getProperty('homepage')[0].id;
 
@@ -181,21 +180,40 @@ function Metadata() {
 
                 {metadata.metadata.map((m, i) => (
                   <div key={i}>
-                    <MetadataHeading>{m.getLabel()}</MetadataHeading>
+                    <MetadataHeading>
+                      {m.getLabel() === 'Contributors' ? 'By' : m.getLabel()}
+                    </MetadataHeading>
                     <MetadataBody>{createMarkup(m.getValue())}</MetadataBody>
                   </div>
                 ))}
 
-                <MetadataHeading>Questions</MetadataHeading>
-                <MetadataBody>
-                  <Wrap direction="column">
-                    {metadata.questions.map((q, i) => (
-                      <WrapItem key={i}>{q}</WrapItem>
-                    ))}
-                  </Wrap>
-                </MetadataBody>
+                {metadata.questions && metadata.questions.length > 0 && (
+                  <>
+                    <MetadataHeading>Questions</MetadataHeading>
+                    <MetadataBody>
+                      <Wrap direction="column">
+                        {metadata.questions?.map((q, i) => (
+                          <WrapItem key={i}>{q}</WrapItem>
+                        ))}
+                      </Wrap>
+                    </MetadataBody>
+                  </>
+                )}
 
-                <MetadataHeading>Contact</MetadataHeading>
+                {metadata.research && metadata.research.length > 0 && (
+                  <>
+                    <MetadataHeading>Research</MetadataHeading>
+                    <MetadataBody>
+                      <Wrap direction="column">
+                        {metadata.research?.map((q, i) => (
+                          <WrapItem key={i}>{q}</WrapItem>
+                        ))}
+                      </Wrap>
+                    </MetadataBody>
+                  </>
+                )}
+
+                <MetadataHeading>Ask a Librarian</MetadataHeading>
                 <MetadataBody>
                   <Link href={metadata.contact} isExternal>
                     {metadata.contact} <ExternalLinkIcon mx="2px" />
@@ -214,7 +232,12 @@ function Metadata() {
                   </>
                 )}
 
-                <MetadataHeading>LOC Image</MetadataHeading>
+                <MetadataHeading>
+                  See item on{' '}
+                  <Link href="https://loc.gov" isExternal>
+                    loc.gov
+                  </Link>
+                </MetadataHeading>
                 <MetadataBody>
                   <Link href={metadata.workUrl} isExternal>
                     View image <ExternalLinkIcon mx="2px" />

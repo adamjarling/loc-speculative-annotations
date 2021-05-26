@@ -80,9 +80,26 @@ export default function useIIIFManifests() {
   function getQuestions(manifest) {
     try {
       const annotations = manifest.getProperty('annotations');
-      const questionsPage = annotations.find(a => a.id.includes('/questions'));
-      return questionsPage.items.map(item => item.body.value);
+      const page = annotations.find(a => a.id.includes('/questions'));
+      return page?.items.map(item => item.body.value);
     } catch (e) {
+      console.error('Error parsing Questions metadata', e);
+      return;
+    }
+  }
+
+  /**
+   * Get annotation research metadata items
+   * @param {Object} manifest
+   * @returns {Array}
+   */
+  function getResearch(manifest) {
+    try {
+      const annotations = manifest.getProperty('annotations');
+      const page = annotations.find(a => a.id.includes('/research'));
+      return page?.items.map(item => item.body.value);
+    } catch (e) {
+      console.error('Error parsing Research metadata', e);
       return;
     }
   }
@@ -92,5 +109,6 @@ export default function useIIIFManifests() {
     findManifest,
     getCuratorAnnotation,
     getQuestions,
+    getResearch,
   };
 }

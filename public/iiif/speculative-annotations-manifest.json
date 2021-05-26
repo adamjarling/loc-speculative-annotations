@@ -3352,6 +3352,45 @@
               }
             }
           ]
+        },
+        {
+          "id": "iiif/2011660380/annotations/research",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2011660380/annotations/research/research001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://lccn.loc.gov/mm2003084957",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2011660380/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/rr/mss/mink/mink-home.html",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/2011660380/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/rr/mss/mink-transcript.html",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
         }
       ]
     },
