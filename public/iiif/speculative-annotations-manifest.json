@@ -99,27 +99,16 @@
           ]
         },
         {
-          "id": "iiif/00650866/annotations/questions",
+          "id": "iiif/00650866/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/00650866/annotations/questions/question001",
+              "id": "iiif/00650866/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "Generic question 1",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/00650866/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "Generic question 2?",
+                "value": "https://blogs.loc.gov/picturethis/2014/04/eadweard-muybridge-birth-of-a-photographic-pioneer/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -205,16 +194,16 @@
       ],
       "annotations": [
         {
-          "id": "iiif/flwpa000213/annotations/questions",
+          "id": "iiif/flwpa000213/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/flwpa000213/annotations/questions/question001",
+              "id": "iiif/flwpa000213/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "Generic question?",
+                "value": "https://www.loc.gov/collections/florida-folklife-from-the-works-progress-administration/?fa=contributor:hurston,+zora+neale",
                 "format": "text/html",
                 "language": "en"
               }
@@ -310,27 +299,16 @@
           ]
         },
         {
-          "id": "iiif/ihas200218413/annotations/questions",
+          "id": "iiif/ihas200218413/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/question001",
+              "id": "iiif/ihas200218413/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -426,27 +404,16 @@
           ]
         },
         {
-          "id": "iiif/22001351/annotations/questions",
+          "id": "iiif/22001351/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/22001351/annotations/questions/question001",
+              "id": "iiif/22001351/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/22001351/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "http://blogs.loc.gov/loc/2017/02/rare-book-of-the-month-w-e-b-du-bois-brownies/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -542,27 +509,16 @@
           ]
         },
         {
-          "id": "iiif/48038600/annotations/questions",
+          "id": "iiif/48038600/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/48038600/annotations/questions/question001",
+              "id": "iiif/48038600/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/48038600/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/rare-book-selections/?dates=1500/1509",
                 "format": "text/html",
                 "language": "en"
               }
@@ -658,27 +614,16 @@
           ]
         },
         {
-          "id": "iiif/78694920/annotations/questions",
+          "id": "iiif/78694920/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/78694920/annotations/questions/question001",
+              "id": "iiif/78694920/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/78694920/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/classroom-materials/united-states-history-primary-source-timeline/colonial-settlement-1600-1763/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -774,27 +719,27 @@
           ]
         },
         {
-          "id": "iiif/97505164/annotations/questions",
+          "id": "iiif/97505164/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/97505164/annotations/questions/question001",
+              "id": "iiif/97505164/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/architecture-and-design/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/97505164/annotations/questions/question002",
+              "id": "iiif/97505164/annotations/questions/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "http://blogs.loc.gov/loc/2017/05/my-job-at-the-library-building-the-architecture-design-and-engineering-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -890,27 +835,16 @@
           ]
         },
         {
-          "id": "iiif/2003654395/annotations/questions",
+          "id": "iiif/2003654395/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2003654395/annotations/questions/question001",
+              "id": "iiif/2003654395/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2003654395/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/exhibits/civil-rights-act/civil-rights-era-timeline.html",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1006,27 +940,16 @@
           ]
         },
         {
-          "id": "iiif/2004633094/annotations/questions",
+          "id": "iiif/2004633094/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2004633094/annotations/questions/question001",
+              "id": "iiif/2004633094/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2004633094/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://guides.loc.gov/alcoholic-beverage-industry/temperance-prohibition",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1122,27 +1045,16 @@
           ]
         },
         {
-          "id": "iiif/2005676198/annotations/questions",
+          "id": "iiif/2005676198/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2005676198/annotations/questions/question001",
+              "id": "iiif/2005676198/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2005676198/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/motion-picture-theaters/",
                 "format": "text/html",
                 "language": "en"
               }
