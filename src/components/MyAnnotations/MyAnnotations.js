@@ -8,6 +8,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
 import MyAnnotationsList from 'components/MyAnnotations/List';
@@ -22,6 +23,10 @@ function MyAnnotations(props) {
   const { activeUserCanvas, userCanvases } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const history = useHistory();
+  const buttonColor = {
+    bg: useColorModeValue('gray.500', 'white'),
+    text: useColorModeValue('white', 'brand.pink.500'),
+  };
 
   const handleDeleteClick = canvasTitle => {
     const newUserCanvases = { ...userCanvases };
@@ -52,7 +57,14 @@ function MyAnnotations(props) {
 
   return (
     <>
-      <Button onClick={onOpen} variant="saWhite">
+      <Button
+        onClick={onOpen}
+        bg={buttonColor.bg}
+        color={buttonColor.text}
+        _hover={{
+          bg: buttonColor.bg,
+        }}
+      >
         My Saved Annotations
       </Button>
 

@@ -65,7 +65,7 @@ function LayoutHeader() {
           </Link>
         </HStack>
 
-        <MyAnnotations />
+        {isApp() && <MyAnnotations />}
 
         {!isApp() && (
           <Button
