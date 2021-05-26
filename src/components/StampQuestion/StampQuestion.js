@@ -116,7 +116,6 @@ export default function StampQuestion({ isActive }) {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Select question</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid columns={numColumns}>
