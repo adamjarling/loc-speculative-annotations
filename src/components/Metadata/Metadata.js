@@ -86,11 +86,6 @@ function Metadata() {
       return obj;
     } catch (e) {
       console.error('Error loading / parsing IIIF manifest', e);
-      toast({
-        title: `Error loading IIIF manifest`,
-        status: 'error',
-        isClosable: true,
-      });
       return;
     }
   }
@@ -117,11 +112,6 @@ function Metadata() {
         'Error loading / parsing Collection from Work in manifest',
         e
       );
-      toast({
-        title: `Error loading the Work Collection`,
-        status: 'error',
-        isClosable: true,
-      });
       return;
     }
   }
@@ -214,8 +204,12 @@ function Metadata() {
                     <MetadataHeading>Research</MetadataHeading>
                     <MetadataBody>
                       <Wrap direction="column">
-                        {metadata.research?.map((q, i) => (
-                          <WrapItem key={i}>{q}</WrapItem>
+                        {metadata.research?.map((url, i) => (
+                          <WrapItem key={i}>
+                            <Link href={url} isExternal>
+                              {url}
+                            </Link>
+                          </WrapItem>
                         ))}
                       </Wrap>
                     </MetadataBody>
