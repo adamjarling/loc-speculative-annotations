@@ -214,7 +214,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/ihas200218413/manifest.json",
+      "id": "https://www.loc.gov/item/ihas.200218413/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -259,28 +259,28 @@
       ],
       "items": [
         {
-          "id": "iiif/ihas200218413/canvas/1",
+          "id": "iiif/ihas.200218413/canvas/1",
           "type": "Canvas",
           "label": { "none": ["__WORK_NAME__ image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/ihas200218413/page/1",
+              "id": "iiif/ihas.200218413/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/ihas200218413/annotation/1",
+                  "id": "iiif/ihas.200218413/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/ihas200218413/page/full/max/0/default.jpg",
+                    "id": "iiif/ihas.200218413/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/ihas200218413/canvas/1"
+                  "target": "iiif/ihas.200218413/canvas/1"
                 }
               ]
             }
@@ -289,22 +289,22 @@
       ],
       "annotations": [
         {
-          "id": "iiif/ihas200218413/annotations/curator",
+          "id": "iiif/ihas.200218413/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/ihas200218413/annotations/curator/curator001/info.json",
+              "id": "iiif/ihas.200218413/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/ihas200218413/annotations/research",
+          "id": "iiif/ihas.200218413/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/research/research001",
+              "id": "iiif/ihas.200218413/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3386,7 +3386,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/master-pnp-ppmsca-02900-02935u/manifest.json",
+      "id": "https://www.loc.gov/item/2002719342/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -3438,11 +3438,11 @@
           "height": "",
           "items": [
             {
-              "id": "iiif/master-pnp-ppmsca-02900-02935u/page/1",
+              "id": "iiif/2002719342/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/master-pnp-ppmsca-02900-02935u/annotation/1",
+                  "id": "iiif/2002719342/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
@@ -3452,7 +3452,7 @@
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/master-pnp-ppmsca-02900-02935u/canvas/1"
+                  "target": "iiif/2002719342/canvas/1"
                 }
               ]
             }
@@ -3461,37 +3461,37 @@
       ],
       "annotations": [
         {
-          "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/curator",
+          "id": "iiif/2002719342/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/curator/curator001/info.json",
+              "id": "iiif/2002719342/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/questions",
+          "id": "iiif/2002719342/annotations/questions",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/questions/question001",
+              "id": "iiif/2002719342/annotations/questions/question001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/exhibitions/women-fight-for-the-vote/about-this-exhibition/seneca-falls-and-building-a-movement-1776-1890/family-friends-and-the-personal-side-of-the-movement/civil-war-and-clara-barton/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/master-pnp-ppmsca-02900-02935u/annotations/questions/question002",
+              "id": "iiif/2002719342/annotations/questions/question002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/clara-barton-papers/about-this-collection/ ",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3502,7 +3502,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/master-pnp-ppmsca-09500-09504u/manifest.json",
+      "id": "https://www.loc.gov/item/97505164/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -3547,28 +3547,28 @@
       ],
       "items": [
         {
-          "id": "iiif/master-pnp-ppmsca-09500-09504u/canvas/1",
+          "id": "iiif/97505164/canvas/1",
           "type": "Canvas",
           "label": { "none": ["__WORK_NAME__ image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/master-pnp-ppmsca-09500-09504u/page/1",
+              "id": "iiif/97505164/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/master-pnp-ppmsca-09500-09504u/annotation/1",
+                  "id": "iiif/97505164/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/master-pnp-ppmsca-09500-09504u/page/full/max/0/default.jpg",
+                    "id": "iiif/97505164/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/master-pnp-ppmsca-09500-09504u/canvas/1"
+                  "target": "iiif/97505164/canvas/1"
                 }
               ]
             }
@@ -3577,37 +3577,37 @@
       ],
       "annotations": [
         {
-          "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/curator",
+          "id": "iiif/97505164/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/curator/curator001/info.json",
+              "id": "iiif/97505164/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/questions",
+          "id": "iiif/97505164/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/questions/question001",
+              "id": "iiif/97505164/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/architecture-and-design/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/master-pnp-ppmsca-09500-09504u/annotations/questions/question002",
+              "id": "iiif/97505164/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "http://blogs.loc.gov/loc/2017/05/my-job-at-the-library-building-the-architecture-design-and-engineering-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3703,27 +3703,16 @@
           ]
         },
         {
-          "id": "iiif/mbrs00056792/annotations/questions",
+          "id": "iiif/mbrs00056792/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mbrs00056792/annotations/questions/question001",
+              "id": "iiif/mbrs00056792/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mbrs00056792/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/now-see-hear/2014/10/when-polio-was-defeated-by-a-vaccine-and-a-seven-year-old-girl/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3819,27 +3808,38 @@
           ]
         },
         {
-          "id": "iiif/mss454430217/annotations/questions",
+          "id": "iiif/mss454430217/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss454430217/annotations/questions/question001",
+              "id": "iiif/mss454430217/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/catbird/2019/06/watch-walt-whitman-citizen-poet/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss454430217/annotations/questions/question002",
+              "id": "iiif/mss454430217/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/catbird/2019/04/wound-dressing-walt-whitman-in-washington/",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mss454430217/annotations/research/research003",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://blogs.loc.gov/catbird/2021/05/wordsmithing-whitman-diaries-and-notebooks-from-the-feinberg-whitman-papers/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3850,7 +3850,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/ppmsca-51500-51533u/manifest.json",
+      "id": "https://www.loc.gov/item/2017645524/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -3895,28 +3895,28 @@
       ],
       "items": [
         {
-          "id": "iiif/ppmsca-51500-51533u/canvas/1",
+          "id": "iiif/2017645524/canvas/1",
           "type": "Canvas",
           "label": { "none": ["__WORK_NAME__ image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/ppmsca-51500-51533u/page/1",
+              "id": "iiif/2017645524/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/ppmsca-51500-51533u/annotation/1",
+                  "id": "iiif/2017645524/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/ppmsca-51500-51533u/page/full/max/0/default.jpg",
+                    "id": "iiif/2017645524/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/ppmsca-51500-51533u/canvas/1"
+                  "target": "iiif/2017645524/canvas/1"
                 }
               ]
             }
@@ -3925,37 +3925,26 @@
       ],
       "annotations": [
         {
-          "id": "iiif/ppmsca-51500-51533u/annotations/curator",
+          "id": "iiif/2017645524/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/ppmsca-51500-51533u/annotations/curator/curator001/info.json",
+              "id": "iiif/2017645524/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/ppmsca-51500-51533u/annotations/questions",
+          "id": "iiif/2017645524/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ppmsca-51500-51533u/annotations/questions/question001",
+              "id": "iiif2017645524/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ppmsca-51500-51533u/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/not-an-ostrich/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3966,7 +3955,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/ihas200218413/manifest.json",
+      "id": "https://www.loc.gov/item/ihas.200218413/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -4011,28 +4000,28 @@
       ],
       "items": [
         {
-          "id": "iiif/ihas200218413/canvas/1",
+          "id": "iiif/ihas.200218413/canvas/1",
           "type": "Canvas",
           "label": { "none": ["__WORK_NAME__ image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/ihas200218413/page/1",
+              "id": "iiif/ihas.200218413/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/ihas200218413/annotation/1",
+                  "id": "iiif/ihas.200218413/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/ihas200218413/page/full/max/0/default.jpg",
+                    "id": "iiif/ihas.200218413/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/ihas200218413/canvas/1"
+                  "target": "iiif/ihas.200218413/canvas/1"
                 }
               ]
             }
@@ -4041,22 +4030,22 @@
       ],
       "annotations": [
         {
-          "id": "iiif/ihas200218413/annotations/curator",
+          "id": "iiif/ihas.200218413/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/ihas200218413/annotations/curator/curator001/info.json",
+              "id": "iiif/ihas.200218413/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/ihas200218413/annotations/questions",
+          "id": "iiif/ihas.200218413/annotations/questions",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/question001",
+              "id": "iiif/ihas.200218413/annotations/questions/question001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -4067,7 +4056,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/question002",
+              "id": "iiif/ihas.200218413/annotations/questions/question002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -4167,27 +4156,16 @@
           ]
         },
         {
-          "id": "iiif/49039040/annotations/questions",
+          "id": "iiif/49039040/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/49039040/annotations/questions/question001",
+              "id": "iiif/49039040/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/49039040/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/art-of-the-book/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4283,27 +4261,16 @@
           ]
         },
         {
-          "id": "iiif/03012768/annotations/questions",
+          "id": "iiif/03012768/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/03012768/annotations/questions/question001",
+              "id": "iiif/03012768/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/03012768/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/headlinesandheroes/2020/08/astronomer-maria-mitchell/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4399,27 +4366,16 @@
           ]
         },
         {
-          "id": "iiif/mss11049028/annotations/questions",
+          "id": "iiif/mss11049028/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss11049028/annotations/questions/question001",
+              "id": "iiif/mss11049028/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss11049028/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/exhibitions/women-fight-for-the-vote/about-this-exhibition/seneca-falls-and-building-a-movement-1776-1890/a-movement-at-odds-with-itself/womens-declaration-of-rights/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4431,7 +4387,7 @@
     
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/ihas200218413/manifest.json",
+      "id": "https://www.loc.gov/item/ihas.200218413/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -4476,28 +4432,28 @@
       ],
       "items": [
         {
-          "id": "iiif/ihas200218413/canvas/1",
+          "id": "iiif/ihas.200218413/canvas/1",
           "type": "Canvas",
           "label": { "none": ["__WORK_NAME__ image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/ihas200218413/page/1",
+              "id": "iiif/ihas.200218413/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/ihas200218413/annotation/1",
+                  "id": "iiif/ihas.200218413/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/ihas200218413/page/full/max/0/default.jpg",
+                    "id": "iiif/ihas.200218413/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/ihas200218413/canvas/1"
+                  "target": "iiif/ihas.200218413/canvas/1"
                 }
               ]
             }
@@ -4506,37 +4462,26 @@
       ],
       "annotations": [
         {
-          "id": "iiif/ihas200218413/annotations/curator",
+          "id": "iiif/ihas.200218413/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/ihas200218413/annotations/curator/curator001/info.json",
+              "id": "iiif/ihas.200218413/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/ihas200218413/annotations/questions",
+          "id": "iiif/ihas.200218413/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/question001",
+              "id": "iiif/ihas.200218413/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
                 "format": "text/html",
                 "language": "en"
               }

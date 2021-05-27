@@ -62,7 +62,6 @@ function Metadata() {
   async function getWorkMetadata() {
     try {
       const currentManifest = await findManifest(params.id);
-      console.log(`currentManifest`, currentManifest);
       if (!currentManifest) return;
 
       // Fetch the Library of Congress hosted manifest for a work
@@ -207,7 +206,7 @@ function Metadata() {
                         {metadata.research?.map((url, i) => (
                           <WrapItem key={i}>
                             <Link href={url} isExternal>
-                              {url}
+                              {url} <ExternalLinkIcon mx="2px" />
                             </Link>
                           </WrapItem>
                         ))}
