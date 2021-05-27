@@ -104,7 +104,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/00650866/annotations/questions/research001",
+              "id": "iiif/00650866/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -199,7 +199,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/flwpa000213/annotations/questions/research001",
+              "id": "iiif/flwpa000213/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -304,7 +304,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas200218413/annotations/questions/research001",
+              "id": "iiif/ihas200218413/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -409,7 +409,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/22001351/annotations/questions/research001",
+              "id": "iiif/22001351/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -514,7 +514,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/48038600/annotations/questions/research001",
+              "id": "iiif/48038600/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -619,7 +619,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/78694920/annotations/questions/research001",
+              "id": "iiif/78694920/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -724,7 +724,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/97505164/annotations/questions/research001",
+              "id": "iiif/97505164/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -735,7 +735,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/97505164/annotations/questions/research002",
+              "id": "iiif/97505164/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -840,7 +840,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2003654395/annotations/questions/research001",
+              "id": "iiif/2003654395/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -945,7 +945,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2004633094/annotations/questions/research001",
+              "id": "iiif/2004633094/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -1050,7 +1050,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2005676198/annotations/questions/research001",
+              "id": "iiif/2005676198/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -1150,27 +1150,27 @@
           ]
         },
         {
-          "id": "iiif/2006682742/annotations/questions",
+          "id": "iiif/2006682742/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2006682742/annotations/questions/question001",
+              "id": "iiif/2006682742/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/picturethis/2020/02/frederick-douglass-and-the-power-of-pictures/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2006682742/annotations/questions/question002",
+              "id": "iiif/2006682742/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/loc/2020/06/hearing-frederick-douglass-his-speech-on-john-brown/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1266,27 +1266,16 @@
           ]
         },
         {
-          "id": "iiif/2007676131/annotations/questions",
+          "id": "iiif/2007676131/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2007676131/annotations/questions/question001",
+              "id": "iiif/2007676131/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2007676131/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/travel-posters/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1382,27 +1371,16 @@
           ]
         },
         {
-          "id": "iiif/2008401028/annotations/questions",
+          "id": "iiif/2008401028/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2008401028/annotations/questions/question001",
+              "id": "iiif/2008401028/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2008401028/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/finding-our-place-in-the-cosmos-with-carl-sagan/articles-and-essays/modeling-the-cosmos/astronomical-innovation-in-the-islamic-world/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1498,27 +1476,16 @@
           ]
         },
         {
-          "id": "iiif/2011631432/annotations/questions",
+          "id": "iiif/2011631432/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011631432/annotations/questions/question001",
+              "id": "iiif/2011631432/annotations/questions/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011631432/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/international-collections/2021/04/if-these-walls-could-talk-a-virtual-tour-of-the-hispanic-divisions-cndido-portinari-murals/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1614,27 +1581,16 @@
           ]
         },
         {
-          "id": "iiif/2014563896/annotations/questions",
+          "id": "iiif/2014563896/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2014563896/annotations/questions/question001",
+              "id": "iiif/2014563896/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2014563896/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/patriotic-melodies/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1730,27 +1686,27 @@
           ]
         },
         {
-          "id": "iiif/2014646807/annotations/questions",
+          "id": "iiif/2014646807/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2014646807/annotations/questions/question001",
+              "id": "iiif/2014646807/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/picturethis/2021/03/shirley-chisholm-in-pictures-unbought-and-unbossed/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2014646807/annotations/questions/question002",
+              "id": "iiif/2014646807/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/african-american-women-changemakers/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1846,27 +1802,16 @@
           ]
         },
         {
-          "id": "iiif/2017782708/annotations/questions",
+          "id": "iiif/2017782708/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2017782708/annotations/questions/question001",
+              "id": "iiif/2017782708/annotations/research/research",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2017782708/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://guides.loc.gov/latinx-civil-rights/pecan-shellers-strike",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1962,27 +1907,16 @@
           ]
         },
         {
-          "id": "iiif/2017878364/annotations/questions",
+          "id": "iiif/2017878364/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2017878364/annotations/questions/question001",
+              "id": "iiif/2017878364/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2017878364/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/fsa-owi-color-photographs/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2078,27 +2012,16 @@
           ]
         },
         {
-          "id": "iiif/2018677694/annotations/questions",
+          "id": "iiif/2018677694/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2018677694/annotations/questions/question001",
+              "id": "iiif/2018677694/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2018677694/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://blogs.loc.gov/picturethis/2019/11/the-faces-of-child-labor/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2194,27 +2117,16 @@
           ]
         },
         {
-          "id": "iiif/2019641349/annotations/questions",
+          "id": "iiif/2019641349/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2019641349/annotations/questions/question001",
+              "id": "iiif/2019641349/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2019641349/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/stereograph-cards/",
                 "format": "text/html",
                 "language": "en"
               }
