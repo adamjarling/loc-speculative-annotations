@@ -14,7 +14,6 @@ function AdjustmentBarWidthPicker({ buttonSize }) {
   const dispatch = useToolbarOptionsDispatch();
   const stackSpacing = useBreakpointValue({ sm: '5px', md: '10px' });
   const fillColor = useColorModeValue('#2D3748', '#EDF2F7');
-  console.log(`fillColor`, fillColor);
 
   return (
     <Stack direction="row" spacing={stackSpacing} px={1}>

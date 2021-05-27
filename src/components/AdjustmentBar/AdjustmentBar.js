@@ -1,11 +1,7 @@
 import React from 'react';
 import {
-  Box,
-  Center,
-  Divider,
   Flex,
   HStack,
-  Stack,
   StackDivider,
   useBreakpointValue,
   useColorModeValue,
@@ -21,6 +17,7 @@ import UndoRedo from 'components/UndoRedo/UndoRedo';
 import AdjustmentBarWidthPicker from 'components/AdjustmentBar/WidthPicker';
 import Decompressor from 'components/Decompressor';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
+import useIsColorPickerVisible from 'hooks/use-is-color-picker-visible';
 
 function AdjustmentBar(props) {
   const { bg } = useColorModeColors();
@@ -40,10 +37,7 @@ function AdjustmentBar(props) {
     lg: { height: '30px', width: '30px' },
   });
   const isDesktop = useBreakpointValue({ base: false, md: true });
-
-  const isColorVisible = Boolean(
-    activeTool && ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) === -1
-  );
+  const isColorPickerVisible = useIsColorPickerVisible();
   const isWidthPickerVisible = Boolean(
     activeTool && ['DRAW', 'HIGHLIGHTER'].indexOf(activeTool) > -1
   );
@@ -63,7 +57,7 @@ function AdjustmentBar(props) {
         spacing={itemSpacing}
         divider={<StackDivider borderColor={dividerColor} />}
       >
-        {isColorVisible && (
+        {isColorPickerVisible && (
           <Color activeTool={activeTool} buttonSize={buttonSize} />
         )}
         {isWidthPickerVisible && (

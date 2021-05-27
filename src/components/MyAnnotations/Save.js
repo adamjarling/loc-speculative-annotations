@@ -5,6 +5,7 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
+  IconButton,
   Input,
   Modal,
   ModalOverlay,
@@ -23,15 +24,23 @@ import {
 } from 'context/fabric-overlay-context';
 import { useParams } from 'react-router-dom';
 import AltButton from 'components/AltButton';
+import useIsColorPickerVisible from 'hooks/use-is-color-picker-visible';
 
 export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [title, setTitle] = React.useState('');
-  const { activeUserCanvas, fabricOverlay, userCanvases } =
+  const { activeUserCanvas, fabricOverlay, isToolbarVisible, userCanvases } =
     useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const showButtonText = useBreakpointValue({ base: false, xl: true });
+
+  const isColorPickerVisible = useIsColorPickerVisible();
+  console.log(`isColorPickerVisible`, isColorPickerVisible);
+  const buttonProps = {
+    'data-testid': 'save-link',
+    id: 'save-my-annotations',
+  };
 
   React.useEffect(() => {
     setTitle(activeUserCanvas);
@@ -56,14 +65,19 @@ export default function MyAnnotationsSave() {
 
   return (
     <>
-      <AltButton
-        onClick={onOpen}
-        leftIcon={<FaSave />}
-        data-testid="save-link"
-        id="save-my-annotations"
-      >
-        Save
-      </AltButton>
+      {!isColorPickerVisible && (
+        <AltButton onClick={onOpen} leftIcon={<FaSave />} {...buttonProps}>
+          Save
+        </AltButton>
+      )}
+      {isColorPickerVisible && (
+        <IconButton
+          onClick={onOpen}
+          icon={<FaSave />}
+          variant="ghost"
+          {...buttonProps}
+        />
+      )}
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

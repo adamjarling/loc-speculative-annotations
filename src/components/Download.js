@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Button,
   Flex,
+  IconButton,
   Image,
   Modal,
   ModalOverlay,
@@ -17,12 +18,20 @@ import {
 import { DownloadIcon } from '@chakra-ui/icons';
 import html2canvas from 'html2canvas';
 import AltButton from 'components/AltButton';
+import useIsColorPickerVisible from 'hooks/use-is-color-picker-visible';
 
 export default function Download() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [img, setImg] = React.useState();
   const html2CanvasBg = useColorModeValue('#ffffff', '#1A202C');
   const showButtonText = useBreakpointValue({ base: false, xl: true });
+  const isColorPickerVisible = useIsColorPickerVisible();
+  const buttonProps = {
+    'aria-label': 'Download as an image',
+    variant: 'ghost',
+    mr: 2,
+    'data-testid': 'download-link',
+  };
 
   const handleClick = () => {
     html2canvas(document.querySelector('#download-wrapper'), {
@@ -36,16 +45,22 @@ export default function Download() {
 
   return (
     <>
-      <AltButton
-        leftIcon={<DownloadIcon />}
-        onClick={handleClick}
-        aria-label="Download as an image"
-        variant="ghost"
-        mr={2}
-        data-testid="download-link"
-      >
-        Download
-      </AltButton>
+      {isColorPickerVisible && (
+        <IconButton
+          icon={<DownloadIcon />}
+          onClick={handleClick}
+          {...buttonProps}
+        />
+      )}
+      {!isColorPickerVisible && (
+        <AltButton
+          leftIcon={<DownloadIcon />}
+          onClick={handleClick}
+          {...buttonProps}
+        >
+          Download
+        </AltButton>
+      )}
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

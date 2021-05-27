@@ -1,5 +1,11 @@
 import React from 'react';
-import { Box, FormControl, FormLabel, Switch } from '@chakra-ui/react';
+import {
+  Box,
+  FormControl,
+  FormLabel,
+  Switch,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,
@@ -8,6 +14,7 @@ import { useParams } from 'react-router-dom';
 import useIIIFManifests from 'hooks/use-iiif-manifests';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { fabric } from 'openseadragon-fabricjs-overlay';
+import useIsColorPickerVisible from 'hooks/use-is-color-picker-visible';
 
 const defaultState = {
   isCuratorVisible: false,
@@ -29,6 +36,8 @@ export default function ShowHideAnnotations() {
     makeObjectsVisible,
     removeObjectsFromCanvas,
   } = useFabricHelpers();
+  const isColorPickerVisible = useIsColorPickerVisible();
+  const isMobile = useBreakpointValue({ base: true, sm: false });
 
   async function getManifestData() {
     if (!params.id || !fabricOverlay) return;
@@ -106,14 +115,17 @@ export default function ShowHideAnnotations() {
   return (
     <Box pr="12px">
       <FormControl display="flex" alignItems="center">
-        <FormLabel
-          htmlFor="email-alerts"
-          mb="0"
-          fontFamily="ocr-a-std"
-          fontSize="sm"
-        >
-          Hide Annotations
-        </FormLabel>
+        {(isMobile || !isColorPickerVisible) && (
+          <FormLabel
+            htmlFor="email-alerts"
+            mb="0"
+            fontFamily="ocr-a-std"
+            fontSize="sm"
+          >
+            Hide Annotations
+          </FormLabel>
+        )}
+
         <Switch
           id="hide-annotations"
           colorScheme="brand.pink"
