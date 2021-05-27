@@ -14,6 +14,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaSave } from 'react-icons/fa';
 import {
@@ -23,8 +24,6 @@ import {
 import { useParams } from 'react-router-dom';
 import AltButton from 'components/AltButton';
 
-import { useHistory } from 'react-router-dom';
-
 export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
@@ -32,6 +31,7 @@ export default function MyAnnotationsSave() {
   const { activeUserCanvas, fabricOverlay, userCanvases } =
     useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
+  const showButtonText = useBreakpointValue({ base: false, xl: true });
 
   React.useEffect(() => {
     setTitle(activeUserCanvas);
@@ -57,7 +57,6 @@ export default function MyAnnotationsSave() {
   return (
     <>
       <AltButton
-        disabled={false}
         onClick={onOpen}
         leftIcon={<FaSave />}
         data-testid="save-link"

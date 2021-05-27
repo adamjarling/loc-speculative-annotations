@@ -40,6 +40,7 @@ function AdjustmentBar(props) {
     lg: { height: '30px', width: '30px' },
   });
   const isDesktop = useBreakpointValue({ base: false, md: true });
+  console.log(`isDesktop`, isDesktop);
 
   const isColorVisible = Boolean(
     activeTool && ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) === -1
@@ -52,8 +53,8 @@ function AdjustmentBar(props) {
     <Flex
       bgColor={bg}
       justifyContent="space-between"
-      alignItems={['flex-end', 'center']}
-      direction={['column-reverse', 'row']}
+      alignItems={{ base: 'flex-end', sm: 'center' }}
+      direction={{ base: 'column-reverse', sm: 'row' }}
       data-testid="adjustment-bar"
       minH="3rem"
     >
@@ -74,25 +75,19 @@ function AdjustmentBar(props) {
         )}
       </HStack>
 
-      {/* Desktop links */}
-      <HStack
-        spacing={itemSpacingNarrow}
-        pt={[2, 0]}
-        divider={<StackDivider borderColor={dividerColor} />}
-      >
-        {/* <Decompressor /> */}
+      <HStack spacing={itemSpacingNarrow} pt={[2, 0]} align="center">
         {isDesktop && (
           <>
-            <Box>
+            <Flex alignItems="center">
               <ClearCanvas />
               <UndoRedo />
-            </Box>
+            </Flex>
 
-            <Share />
-            <Box>
+            {/* <Share /> */}
+            <Flex alignItems="center">
               <MyAnnotationsSave />
               <Download />
-            </Box>
+            </Flex>
           </>
         )}
 
