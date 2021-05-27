@@ -143,7 +143,7 @@ function WorksListModal() {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size="full"
+        size={{ base: 'xl', lg: 'full' }}
         scrollBehavior="inside"
       >
         <ModalOverlay />
@@ -186,7 +186,7 @@ function WorksListModal() {
             </Wrap>
           </ModalBody>
 
-          <ModalFooter mb="60px">
+          <ModalFooter>
             <Button
               onClick={handleSelectItem}
               disabled={!activeWork}

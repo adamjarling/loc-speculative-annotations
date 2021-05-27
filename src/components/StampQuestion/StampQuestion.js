@@ -66,12 +66,10 @@ export default function StampQuestion({ isActive }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeBubble, setActiveBubble] = React.useState();
   const { fabricOverlay } = useFabricOverlayState();
-  const numColumns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
   const shapeSize = useBreakpointValue({
     base: 150,
     sm: 175,
-    md: 200,
-    lg: 300,
+    md: 400,
   });
 
   const handleBubbleClick = obj => {
@@ -111,14 +109,14 @@ export default function StampQuestion({ isActive }) {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size="full"
+        size={{ base: 'xl', lg: 'full' }}
         scrollBehavior="inside"
       >
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            <SimpleGrid columns={numColumns}>
+            <SimpleGrid columns={{ base: 2, md: 3 }}>
               {speechBubbles.map(stampObj => (
                 <Link
                   key={stampObj.id}
@@ -134,7 +132,7 @@ export default function StampQuestion({ isActive }) {
             </SimpleGrid>
           </ModalBody>
 
-          <ModalFooter mb="60px">
+          <ModalFooter>
             <Button onClick={onClose} variant="ghost" mr={3}>
               Cancel
             </Button>
