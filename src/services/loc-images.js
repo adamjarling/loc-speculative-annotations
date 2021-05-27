@@ -3,8 +3,8 @@ import zoopraxiscope from 'images/loc-images/00650866.png';
 import zoopraxiscope_thumb from 'images/loc-images/thumbnails/00650866_thumbnail.png';
 import floridaExpedition from 'images/loc-images/flwpa000213.jpg';
 import floridaExpedition_thumb from 'images/loc-images/thumbnails/flwpa000213_thumbnail.jpg';
-import candide from 'images/loc-images/ihas200218413.jpg';
-import candide_thumb from 'images/loc-images/thumbnails/ihas200218413_thumbnail.jpg';
+import candide from 'images/loc-images/ihas.200218413.jpg';
+import candide_thumb from 'images/loc-images/thumbnails/ihas.200218413_thumbnail.jpg';
 import browniesBook from 'images/loc-images/22001351.jpg';
 import browniesBook_thumb from 'images/loc-images/thumbnails/22001351_thumbnail.jpg';
 import margarita from 'images/loc-images/48038600.jpg';
@@ -61,12 +61,10 @@ import robertCornelius from 'images/loc-images/2004664436.jpg';
 import robertCornelius_thumb from 'images/loc-images/thumbnails/2004664436_thumbnail.jpg';
 import coplandLetter from 'images/loc-images/copland.corr0781.jpg';
 import coplandLetter_thumb from 'images/loc-images/thumbnails/copland.corr0781_thumbnail.jpg';
-import mayaLin from 'images/loc-images/master-pnp-ppmsca-09500-09504u.jpg';
-import mayaLin_thumb from 'images/loc-images/thumbnails/master-pnp-ppmsca-09500-09504u_thumbnail.jpg';
 import unknown3 from 'images/loc-images/ms019027.jpg';
 import unknown3_thumb from 'images/loc-images/thumbnails/ms019027_thumbnail.jpg';
-import unknown4 from 'images/loc-images/ppmsca-51500-51533u.jpg';
-import unknown4_thumb from 'images/loc-images/thumbnails/ppmsca-51500-51533u_thumbnail.jpg';
+import unknown4 from 'images/loc-images/2017645524.jpg';
+import unknown4_thumb from 'images/loc-images/thumbnails/2017645524_thumbnail.jpg';
 import unknown5 from 'images/loc-images/sn83045462-19571104.jpg';
 import unknown5_thumb from 'images/loc-images/thumbnails/sn83045462-19571104_thumbnail.jpg';
 import vaccination from 'images/loc-images/mbrs00056792.jpg';
@@ -252,7 +250,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'ihas200218413',
+    id: 'ihas.200218413',
     alt: 'Candide: Candide green and purple cape/vest',
     type: 'image',
     url: candide,
@@ -348,14 +346,6 @@ export const locImages = [
     thumbUrl: barton_thumb,
     curatorImageSrc: '',
   },
-  // {
-  //   id: 'master-pnp-ppmsca-09500-09504u',
-  //   alt: 'Maya Lin',
-  //   type: 'image',
-  //   url: mayaLin,
-  //   thumbUrl: mayaLin_thumb,
-  //   curatorImageSrc: '',
-  // },
   {
     id: 'mbrs00056792',
     alt: '',
@@ -381,7 +371,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'ppmsca-51500-51533u',
+    id: '2017645524',
     alt: '',
     type: 'image',
     url: unknown4,

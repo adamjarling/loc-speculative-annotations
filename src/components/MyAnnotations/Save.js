@@ -15,7 +15,6 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaSave } from 'react-icons/fa';
 import {
@@ -33,10 +32,7 @@ export default function MyAnnotationsSave() {
   const { activeUserCanvas, fabricOverlay, isToolbarVisible, userCanvases } =
     useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
-  const showButtonText = useBreakpointValue({ base: false, xl: true });
-
   const isColorPickerVisible = useIsColorPickerVisible();
-  console.log(`isColorPickerVisible`, isColorPickerVisible);
   const buttonProps = {
     'data-testid': 'save-link',
     id: 'save-my-annotations',
