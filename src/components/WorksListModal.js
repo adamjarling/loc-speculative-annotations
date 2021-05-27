@@ -122,24 +122,23 @@ function WorksListModal() {
         handleSave={handleChangeWorkWarningSave}
       />
 
-      {isMobile ? (
-        <IconButton
-          icon={<AddIcon />}
-          onClick={handleOpenModal}
-          bg="brand.pink.500"
-          color="white"
-          mr={2}
-        />
-      ) : (
-        <Button
-          onClick={handleOpenModal}
-          leftIcon={<AddIcon />}
-          variant="saPink"
-          size={buttonSize}
-        >
-          {buttonLabel}
-        </Button>
-      )}
+      <IconButton
+        display={{ base: 'flex', md: 'none' }}
+        icon={<AddIcon />}
+        onClick={handleOpenModal}
+        bg="brand.pink.500"
+        color="white"
+        mr={2}
+      />
+      <Button
+        display={{ base: 'none', md: 'inline-block' }}
+        onClick={handleOpenModal}
+        leftIcon={<AddIcon />}
+        variant="saPink"
+        size={buttonSize}
+      >
+        {buttonLabel}
+      </Button>
 
       <Modal
         isOpen={isOpen}

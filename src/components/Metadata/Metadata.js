@@ -11,6 +11,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Heading,
+  IconButton,
   Link,
   Tooltip,
   Wrap,
@@ -155,17 +156,24 @@ function Metadata() {
 
   return (
     <>
-      <Tooltip label="Info" aria-label="Info" openDelay={500}>
-        <Button
-          leftIcon={<FaInfoCircle />}
-          onClick={handleToolbarClick}
-          size={buttonSize}
-          variant="ghost"
-          disabled={!metadata}
-        >
-          Learn More
-        </Button>
-      </Tooltip>
+      <Button
+        display={{ base: 'none', lg: 'inline-block' }}
+        leftIcon={<FaInfoCircle />}
+        onClick={handleToolbarClick}
+        size={buttonSize}
+        variant="ghost"
+        disabled={!metadata}
+      >
+        Learn More
+      </Button>
+      <IconButton
+        display={{ base: 'flex', lg: 'none' }}
+        icon={<FaInfoCircle />}
+        onClick={handleToolbarClick}
+        disabled={!metadata}
+        alignItems="center"
+        justifyContent="center"
+      />
 
       <Drawer isOpen={isOpen} placement="right" onClose={handleClose}>
         <DrawerOverlay>

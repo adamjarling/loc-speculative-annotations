@@ -19,7 +19,7 @@ function LayoutAppFooter() {
       as="footer"
       bgColor={bgColor}
       justifyContent={hasCuratorImage ? 'space-between' : 'flex-end'}
-      alignItems={isTablet ? 'flex-end' : 'center'}
+      alignItems={'center'}
       px={isBrowser || isTablet ? '12px' : '2px'}
       py={`12px`}
       zIndex="1"

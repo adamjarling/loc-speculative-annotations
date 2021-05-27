@@ -99,7 +99,7 @@ export default function Simple() {
 
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4} direction="row">
+            <Stack as={'nav'} spacing={4} direction="row" align="center">
               <ClearCanvas />
               <UndoRedo />
               <Download />

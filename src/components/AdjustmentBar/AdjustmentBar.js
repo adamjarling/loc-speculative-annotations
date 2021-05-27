@@ -40,7 +40,6 @@ function AdjustmentBar(props) {
     lg: { height: '30px', width: '30px' },
   });
   const isDesktop = useBreakpointValue({ base: false, md: true });
-  console.log(`isDesktop`, isDesktop);
 
   const isColorVisible = Boolean(
     activeTool && ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) === -1
