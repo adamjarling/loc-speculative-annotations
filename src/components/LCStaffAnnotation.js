@@ -15,7 +15,6 @@ function LCStaffAnnotation({ curatorImageSrc }) {
       as="a"
       fontFamily="ocr-a-std"
       rightIcon={<ExternalLinkIcon />}
-      isExternal
       size={buttonSize}
       variant="saRust"
     >

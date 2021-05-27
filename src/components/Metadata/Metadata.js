@@ -61,6 +61,7 @@ function Metadata() {
   async function getWorkMetadata() {
     try {
       const currentManifest = await findManifest(params.id);
+      console.log(`currentManifest`, currentManifest);
       if (!currentManifest) return;
 
       // Fetch the Library of Congress hosted manifest for a work

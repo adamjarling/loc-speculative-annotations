@@ -21,7 +21,7 @@ export default function ViewerContainer() {
   const newViewerPadding = useBreakpointValue({
     base: '50px 20px 30px',
     md: '50px 80px 40px',
-    lg: '40px 160px',
+    lg: '40px 140px 30px',
   });
 
   const newCanvasTitle =

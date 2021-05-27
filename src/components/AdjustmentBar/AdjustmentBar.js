@@ -5,6 +5,7 @@ import {
   Divider,
   Flex,
   HStack,
+  Stack,
   StackDivider,
   useBreakpointValue,
   useColorModeValue,
@@ -24,10 +25,6 @@ import ShowHideAnnotations from 'components/ShowHideAnnotations';
 function AdjustmentBar(props) {
   const { bg } = useColorModeColors();
   const dividerColor = useColorModeValue('white', 'gray.600');
-  const flexDirection = useBreakpointValue({
-    base: 'column-reverse',
-    sm: 'row',
-  });
   const { activeTool } = useFabricOverlayState();
   const itemSpacing = useBreakpointValue({
     base: '10px',
@@ -42,6 +39,7 @@ function AdjustmentBar(props) {
     sm: { height: '24px', width: '24px' },
     lg: { height: '30px', width: '30px' },
   });
+  const isDesktop = useBreakpointValue({ base: false, md: true });
 
   const isColorVisible = Boolean(
     activeTool && ['POINTER', 'STAMP_QUESTION'].indexOf(activeTool) === -1
@@ -54,8 +52,8 @@ function AdjustmentBar(props) {
     <Flex
       bgColor={bg}
       justifyContent="space-between"
-      alignItems="center"
-      direction={flexDirection}
+      alignItems={['flex-end', 'center']}
+      direction={['column-reverse', 'row']}
       data-testid="adjustment-bar"
       minH="3rem"
     >
@@ -75,26 +73,29 @@ function AdjustmentBar(props) {
           />
         )}
       </HStack>
+
+      {/* Desktop links */}
       <HStack
         spacing={itemSpacingNarrow}
         pt={[2, 0]}
         divider={<StackDivider borderColor={dividerColor} />}
       >
         {/* <Decompressor /> */}
-        <Box>
-          <ClearCanvas />
-          <UndoRedo />
-        </Box>
+        {isDesktop && (
+          <>
+            <Box>
+              <ClearCanvas />
+              <UndoRedo />
+            </Box>
 
-        {/* <Center height="20px">
-          <Divider orientation="vertical" />
-        </Center> */}
+            <Share />
+            <Box>
+              <MyAnnotationsSave />
+              <Download />
+            </Box>
+          </>
+        )}
 
-        <Share />
-        <Box>
-          <MyAnnotationsSave />
-          <Download />
-        </Box>
         <ShowHideAnnotations />
       </HStack>
     </Flex>

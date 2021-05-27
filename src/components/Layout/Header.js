@@ -14,6 +14,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import useButtonSize from 'hooks/use-button-size';
 import { ColorModeSwitcher } from 'ColorModeSwitcher';
 import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
+import Navbar from 'components/Layout/Site/Navbar';
 
 function LayoutHeader() {
   const history = useHistory();
@@ -40,7 +41,7 @@ function LayoutHeader() {
   return (
     <Box as="header">
       <EyebrowNav />
-      <Flex
+      {/* <Flex
         justifyContent="space-between"
         alignItems="center"
         zIndex="1"
@@ -65,7 +66,7 @@ function LayoutHeader() {
           </Link>
         </HStack>
 
-        {isApp() && <MyAnnotations />}
+        {isApp() && !isMobile && <MyAnnotations />}
 
         {!isApp() && (
           <Button
@@ -79,8 +80,8 @@ function LayoutHeader() {
             Annotate
           </Button>
         )}
-        {isMobile && <ColorModeSwitcher />}
-      </Flex>
+      </Flex> */}
+      <Navbar />
     </Box>
   );
 }
