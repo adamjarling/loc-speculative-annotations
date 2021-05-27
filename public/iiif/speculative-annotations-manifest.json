@@ -2426,27 +2426,16 @@
           ]
         },
         {
-          "id": "iiif/mss24612.021_0064_0079/annotations/questions",
+          "id": "iiif/mss24612.021_0064_0079/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss24612.021_0064_0079/annotations/questions/question001",
+              "id": "iiif/mss24612.021_0064_0079/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss24612.021_0064_0079/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/classroom-materials/alexander-hamilton/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2542,27 +2531,27 @@
           ]
         },
         {
-          "id": "iiif/mss13375003/annotations/questions",
+          "id": "iiif/mss13375003/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss13375003/annotations/questions/question001",
+              "id": "iiif/mss13375003/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/wm-oland-bourne-papers/articles-and-essays/soldiers-friend-and-left-handed-penmanship-contests/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mss13375003/annotations/questions/question002",
+              "id": "iiif/mss13375003/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/wm-oland-bourne-papers/about-this-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2658,27 +2647,16 @@
           ]
         },
         {
-          "id": "iiif/lcwaN0010826/annotations/questions",
+          "id": "iiif/lcwaN0010826/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/lcwaN0010826/annotations/questions/question001",
+              "id": "iiif/lcwaN0010826/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/lcwaN0010826/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/web-cultures-web-archive/about-this-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2774,27 +2752,16 @@
           ]
         },
         {
-          "id": "iiif/nm0095.sheet.00005a/annotations/questions",
+          "id": "iiif/nm0095.sheet.00005a/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/nm0095.sheet.00005a/annotations/questions/question001",
+              "id": "iiif/nm0095.sheet.00005a/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/nm0095.sheet.00005a/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/articles-and-essays/habs-haer-highlights/nevada-to-new-mexico/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2890,27 +2857,16 @@
           ]
         },
         {
-          "id": "iiif/ny1251.sheet.00037a/annotations/questions",
+          "id": "iiif/ny1251.sheet.00037a/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ny1251.sheet.00037a/annotations/questions/question001",
+              "id": "iiif/ny1251.sheet.00037a/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ny1251.sheet.00037a/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "http://blogs.loc.gov/teachers/2017/10/a-different-view-of-the-statue-of-liberty-through-primary-sources/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2921,7 +2877,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/mm2079013698/manifest.json",
+      "id": "https://www.loc.gov/item/mm79013698/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -2966,18 +2922,18 @@
       ],
       "items": [
         {
-          "id": "iiif/mm2079013698/canvas/1",
+          "id": "iiif/mm79013698/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Votes For Women image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/mm2079013698/page/1",
+              "id": "iiif/mm79013698/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/mm2079013698/annotation/1",
+                  "id": "iiif/mm79013698/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
@@ -2987,7 +2943,7 @@
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/mm2079013698/canvas/1"
+                  "target": "iiif/mm79013698/canvas/1"
                 }
               ]
             }
@@ -2996,37 +2952,37 @@
       ],
       "annotations": [
         {
-          "id": "iiif/mm2079013698/annotations/curator",
+          "id": "iiif/mm79013698/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/mm2079013698/annotations/curator/curator001/info.json",
+              "id": "iiif/mm79013698/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/mm2079013698/annotations/questions",
+          "id": "iiif/mm79013698/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2079013698/annotations/questions/question001",
+              "id": "iiif/mm79013698/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/national-american-woman-suffrage-association-records/about-this-collection/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2079013698/annotations/questions/question002",
+              "id": "iiif/mm79013698/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/item/mm79013698/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3037,7 +2993,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/mm2082052258/manifest.json",
+      "id": "https://www.loc.gov/item/mal0773800/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -3068,9 +3024,9 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/mm82052258/",
+          "id": "https://www.loc.gov/item/mal0773800/",
           "type": "Text",
-          "label": { "en": ["Home page for Earl Warren papers, 1864-1974"] },
+          "label": { "en": ["Home page for Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)"] },
           "format": "text/html"
         }
       ],
@@ -3082,28 +3038,28 @@
       ],
       "items": [
         {
-          "id": "iiif/mm2082052258/canvas/1",
+          "id": "iiif/mal0773800/canvas/1",
           "type": "Canvas",
-          "label": { "none": ["Earl Warren papers, 1864-1974 image"] },
+          "label": { "none": ["Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/mm2082052258/page/1",
+              "id": "iiif/mal0773800/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/mm2082052258/annotation/1",
+                  "id": "iiif/mal0773800/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/mm2082052258/page/full/max/0/default.jpg",
+                    "id": "iiif/mal0773800/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/mm2082052258/canvas/1"
+                  "target": "iiif/mal0773800/canvas/1"
                 }
               ]
             }
@@ -3112,37 +3068,37 @@
       ],
       "annotations": [
         {
-          "id": "iiif/mm2082052258/annotations/curator",
+          "id": "iiif/mal0773800/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/mm2082052258/annotations/curator/curator001/info.json",
+              "id": "iiif/mal0773800/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/mm2082052258/annotations/questions",
+          "id": "iiif/mal0773800/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2082052258/annotations/questions/question001",
+              "id": "iiif/mal0773800/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "http://blogs.loc.gov/loc/2021/01/inauguration-stories-lincolns-1865-with-malice-toward-none-speech/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2082052258/annotations/questions/question002",
+              "id": "iiif/mal0773800/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/free-to-use/abraham-lincoln/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3238,27 +3194,27 @@
           ]
         },
         {
-          "id": "iiif/2011660380/annotations/questions",
+          "id": "iiif/2011660380/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/questions/question001",
+              "id": "iiif/2011660380/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/rr/mss/mink/mink-home.html",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/questions/question002",
+              "id": "iiif/2011660380/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "  https://www.loc.gov/rr/mss/mink-transcript.html ",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3393,27 +3349,16 @@
           ]
         },
         {
-          "id": "iiif/2004664436/annotations/questions",
+          "id": "iiif/2004664436/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2004664436/annotations/questions/question001",
+              "id": "iiif/2004664436/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2004664436/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/exhibits/treasures/tr22c.html#obj24",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3509,27 +3454,16 @@
           ]
         },
         {
-          "id": "iiif/copland.corr0781/annotations/questions",
+          "id": "iiif/copland.corr0781/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/copland.corr0781/annotations/questions/question001",
+              "id": "iiif/copland.corr0781/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/copland.corr0781/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/aaron-copland/articles-and-essays/copland-timeline-1900-to-1990/",
                 "format": "text/html",
                 "language": "en"
               }
