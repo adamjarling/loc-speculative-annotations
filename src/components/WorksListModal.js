@@ -190,7 +190,7 @@ function WorksListModal() {
             <Button
               onClick={handleSelectItem}
               disabled={!activeWork}
-              colorScheme="brand.pink"
+              variant="saPink"
             >
               Annotate
             </Button>

@@ -79,6 +79,8 @@ import mitchell from 'images/loc-images/03012768.jpeg';
 import mitchell_thumb from 'images/loc-images/thumbnails/03012768_thumbnail.jpeg';
 import womensRights from 'images/loc-images/mss11049028.jpg';
 import womensRights_thumb from 'images/loc-images/thumbnails/mss11049028_thumbnail.jpg';
+import unknown from 'images/loc-images/ms014094.jpeg';
+import unknown_thumb from 'images/loc-images/thumbnails/ms014094_thumbnail.jpg';
 
 // Import curator annotation images
 import gospelTemperance_curator1 from 'images/curator-annotations/curator-png-test.png';
@@ -408,6 +410,14 @@ export const locImages = [
     type: 'image',
     url: womensRights,
     thumbUrl: womensRights_thumb,
+    curatorImageSrc: '',
+  },
+  {
+    id: 'ms014094',
+    alt: '',
+    type: 'image',
+    url: unknown,
+    thumbUrl: unknown_thumb,
     curatorImageSrc: '',
   },
 ];

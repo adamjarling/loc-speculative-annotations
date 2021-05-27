@@ -13,7 +13,6 @@ import {
   Heading,
   IconButton,
   Link,
-  Tooltip,
   Wrap,
   WrapItem,
   useDisclosure,
@@ -39,7 +38,6 @@ function MetadataBody({ children }) {
 }
 
 function Metadata() {
-  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [currentWork, setCurrentWork] = React.useState();
@@ -49,14 +47,45 @@ function Metadata() {
   const buttonSize = useButtonSize();
 
   async function getManifestData() {
-    const obj = await getWorkMetadata();
+    // Get app level metadata, and LOC hosted metadata
+    const appObj = await getAppMetadata();
+    const locObj = await getWorkMetadata();
 
+    // Combine the metadata
+    const obj = { ...appObj, ...locObj };
+
+    // Add in collection info
     if (obj) {
       const collection = await getCollection();
       obj.collection = collection;
     }
 
     setMetadata(obj);
+  }
+
+  async function getAppMetadata() {
+    try {
+      const currentManifest = await findManifest(params.id);
+      if (!currentManifest) return;
+
+      const obj = {};
+
+      // And then apply the application's supplemental information
+      obj.contact = currentManifest.getProperty('provider')[0].id;
+
+      // Expect this to get overwritten by LOC manifest, but supply a value just in case
+      obj.label = currentManifest.getProperty('homepage')[0].label.en[0];
+
+      obj.questions = getQuestions(currentManifest);
+      obj.research = getResearch(currentManifest);
+      obj.summary = currentManifest.getProperty('summary')['en'][0];
+      obj.workUrl = currentManifest.getProperty('homepage')[0].id;
+
+      return obj;
+    } catch (e) {
+      console.error('Error loading / parsing app level IIIF manifest', e);
+      return;
+    }
   }
 
   async function getWorkMetadata() {
@@ -75,16 +104,9 @@ function Metadata() {
         metadata: filterMetadata(locManifest.getMetadata()),
       };
 
-      // And then apply the application's supplemental information
-      obj.contact = currentManifest.getProperty('provider')[0].id;
-      obj.questions = getQuestions(currentManifest);
-      obj.research = getResearch(currentManifest);
-      obj.summary = currentManifest.getProperty('summary')['en'][0];
-      obj.workUrl = currentManifest.getProperty('homepage')[0].id;
-
       return obj;
     } catch (e) {
-      console.error('Error loading / parsing IIIF manifest', e);
+      console.error('Error loading / parsing LOC IIIF manifest', e);
       return;
     }
   }
@@ -176,7 +198,7 @@ function Metadata() {
               <DrawerBody>
                 <MetadataBody>{metadata.summary || ''}</MetadataBody>
 
-                {metadata.metadata.map((m, i) => (
+                {metadata.metadata?.map((m, i) => (
                   <div key={i}>
                     <MetadataHeading>
                       {m.getLabel() === 'Contributors' ? 'By' : m.getLabel()}
