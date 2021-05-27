@@ -47,10 +47,10 @@ import bournePapers from 'images/loc-images/mss13375003.jpg';
 import bournePapers_thumb from 'images/loc-images/thumbnails/mss13375003_thumbnail.jpg';
 import saveTheOctopus from 'images/loc-images/lcwaN0010826.jpg';
 import saveTheOctopus_thumb from 'images/loc-images/thumbnails/lcwaN0010826_thumbnail.jpg';
-import puebloAcoma from 'images/loc-images/nm0095.sheet.00005a.jpg';
-import puebloAcoma_thumb from 'images/loc-images/thumbnails/nm0095.sheet.00005a_thumbnail.jpg';
-import statueOfLiberty from 'images/loc-images/ny1251.sheet.00037a.jpg';
-import statueOfLiberty_thumb from 'images/loc-images/thumbnails/ny1251.sheet.00037a_thumbnail.jpg';
+import puebloAcoma from 'images/loc-images/nm0095.jpg';
+import puebloAcoma_thumb from 'images/loc-images/thumbnails/nm0095_thumbnail.jpg';
+import statueOfLiberty from 'images/loc-images/ny1251.jpg';
+import statueOfLiberty_thumb from 'images/loc-images/thumbnails/ny1251_thumbnail.jpg';
 import votesForWomen from 'images/loc-images/mm2079013698.jpg';
 import votesForWomen_thumb from 'images/loc-images/thumbnails/mm2079013698_thumbnail.jpg';
 import earlWarrenPapers from 'images/loc-images/mm2082052258.jpg';
@@ -306,7 +306,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'nm0095.sheet.00005a',
+    id: 'nm0095',
     alt: '',
     type: 'image',
     url: puebloAcoma,
@@ -314,7 +314,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'ny1251.sheet.00037a',
+    id: 'ny1251',
     alt: '',
     type: 'image',
     url: statueOfLiberty,
