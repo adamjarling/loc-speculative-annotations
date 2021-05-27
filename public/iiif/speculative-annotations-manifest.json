@@ -1481,7 +1481,7 @@
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011631432/annotations/questions/research001",
+              "id": "iiif/2011631432/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -2579,7 +2579,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/nm0095.sheet.00005a/manifest.json",
+      "id": "https://www.loc.gov/item/nm0095/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -2610,7 +2610,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/resource/hhh.nm0095.sheet/?sp=6",
+          "id": "https://www.loc.gov/item/nm0095/",
           "type": "Text",
           "label": { "en": ["Home page for Pueblo of Acoma, Casa Blanca vicinity, Acoma Pueblo, Cibola County, NM"] },
           "format": "text/html"
@@ -2624,18 +2624,18 @@
       ],
       "items": [
         {
-          "id": "iiif/nm0095.sheet.00005a/canvas/1",
+          "id": "iiif/nm0095/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Pueblo of Acoma, Casa Blanca vicinity, Acoma Pueblo, Cibola County, NM image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/nm0095.sheet.00005a/page/1",
+              "id": "iiif/nm0095/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/nm0095.sheet.00005a/annotation/1",
+                  "id": "iiif/nm0095/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
@@ -2645,7 +2645,7 @@
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/nm0095.sheet.00005a/canvas/1"
+                  "target": "iiif/nm0095/canvas/1"
                 }
               ]
             }
@@ -2654,22 +2654,22 @@
       ],
       "annotations": [
         {
-          "id": "iiif/nm0095.sheet.00005a/annotations/curator",
+          "id": "iiif/nm0095/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/nm0095.sheet.00005a/annotations/curator/curator001/info.json",
+              "id": "iiif/nm0095/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/nm0095.sheet.00005a/annotations/research",
+          "id": "iiif/nm0095/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/nm0095.sheet.00005a/annotations/research/research001",
+              "id": "iiif/nm0095/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -2684,7 +2684,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/ny1251.sheet.00037a/manifest.json",
+      "id": "https://www.loc.gov/item/ny1251/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -2715,7 +2715,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/pictures/item/ny1251.sheet.00037a/resource/",
+          "id": "https://www.loc.gov/item/ny1251",
           "type": "Text",
           "label": { "en": ["Home page for Statue of Liberty, Liberty Island, Manhattan, New York County, NY"] },
           "format": "text/html"
@@ -2729,18 +2729,18 @@
       ],
       "items": [
         {
-          "id": "iiif/ny1251.sheet.00037a/canvas/1",
+          "id": "iiif/ny1251/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Statue of Liberty, Liberty Island, Manhattan, New York County, NY image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/ny1251.sheet.00037a/page/1",
+              "id": "iiif/ny1251/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/ny1251.sheet.00037a/annotation/1",
+                  "id": "iiif/ny1251/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
@@ -2750,7 +2750,7 @@
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/ny1251.sheet.00037a/canvas/1"
+                  "target": "iiif/ny1251/canvas/1"
                 }
               ]
             }
@@ -2759,22 +2759,22 @@
       ],
       "annotations": [
         {
-          "id": "iiif/ny1251.sheet.00037a/annotations/curator",
+          "id": "iiif/ny1251/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/ny1251.sheet.00037a/annotations/curator/curator001/info.json",
+              "id": "iiif/ny1251/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/ny1251.sheet.00037a/annotations/research",
+          "id": "iiif/ny1251/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ny1251.sheet.00037a/annotations/research/research001",
+              "id": "iiif/ny1251/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
