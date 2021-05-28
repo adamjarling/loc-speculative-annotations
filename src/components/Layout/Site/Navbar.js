@@ -6,11 +6,11 @@ import {
   IconButton,
   Button,
   useDisclosure,
-  useColorModeValue,
   useBreakpointValue,
   Stack,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { CloseIcon } from '@chakra-ui/icons';
+import { BsThreeDots } from 'react-icons/bs';
 import { Link as RRLink, useHistory } from 'react-router-dom';
 import { useLocation, useParams } from 'react-router-dom';
 import useButtonSize from 'hooks/use-button-size';
@@ -90,9 +90,9 @@ export default function Simple() {
 
           <IconButton
             size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            icon={isOpen ? <CloseIcon /> : <BsThreeDots />}
             aria-label={'Open Menu'}
-            display={{ md: 'none' }}
+            display={{ base: 'flex', md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
         </Flex>
