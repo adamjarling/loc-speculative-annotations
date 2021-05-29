@@ -1,0 +1,16 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/chronicling-america/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Chronicling America"] },
+  "homepage": [
+    {
+      "id": "https://chroniclingamerica.loc.gov/",
+      "type": "Text",
+      "label": {
+        "en": ["Home page for Chronicling America"]
+      },
+      "format": "text/html"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/polar-exploration/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Polar Exploration"] },
+  "homepage": [
+    {
+      "id": "https://guides.loc.gov/polar-exploration",
+      "type": "Text",
+      "label": { "en": ["Home page for Polar Exploration"] },
+      "format": "text/html"
+    }
+  ]
+}

@@ -36,9 +36,16 @@ export default function useIIIFManifests() {
 
       // Find current work manifest
       const currentManifest = manifests.find(manifest => {
-        const locId = manifest.id
-          .slice(manifest.id.indexOf('item/'))
-          .split('/')[1];
+        let locId;
+
+        // Item has a LOC hosted manifest
+        if (manifest.id.includes('https://www.loc.gov/item')) {
+          locId = manifest.id.slice(manifest.id.indexOf('item/')).split('/')[1];
+        }
+        // Default to local hosted manifest
+        else {
+          locId = manifest.id.slice(manifest.id.indexOf('iiif/')).split('/')[1];
+        }
         return locId === id;
       });
 

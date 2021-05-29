@@ -69,13 +69,14 @@ function Metadata() {
       if (!currentManifest) return;
 
       const obj = {};
-
-      // And then apply the application's supplemental information
       obj.contact = currentManifest.getProperty('provider')[0].id;
 
-      // Expect this to get overwritten by LOC manifest, but supply a value just in case
-      obj.label = currentManifest.getProperty('homepage')[0].label.en[0];
+      // Expect these to get overwritten by LOC hosted manifest,
+      // but supply values as insurance against LOC manifest not loading
+      obj.label = currentManifest.getLabel().getValue();
+      obj.metadata = filterMetadata(currentManifest.getMetadata());
 
+      // The following metadata items don't exist in LOC manifests
       obj.questions = getQuestions(currentManifest);
       obj.research = getResearch(currentManifest);
       obj.summary = currentManifest.getProperty('summary')['en'][0];

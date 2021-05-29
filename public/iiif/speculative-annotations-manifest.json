@@ -4500,6 +4500,235 @@
         }
       ]
     },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "iiif/ms019027",
+      "type": "Manifest",
+      "label": { "en": [ "Explorer with animals on second Byrd Antarctic Expedition" ] },
+      "summary": {
+        "en": [
+          ""
+        ]
+      },
+      "metadata": [
+        {
+          "label": { "en": [ "Contributors" ] },
+          "value": { "none": [ "Finn Ronne" ] }
+        },
+        {
+          "label": { "en": [ "Created Published" ] },
+          "value": { "none": [ "c.1935" ] }
+        }
+      ],
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "http://hdl.loc.gov/loc.mss/eadmss.ms019027",
+          "type": "Text",
+          "label": { "en": ["Home page for Explorer with animals on second Byrd Antarctic Expedition"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/polar-exploration/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/ms019027/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Explorer with animals on second Byrd Antarctic Expedition image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/ms019027/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/ms019027/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/ms019027/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/ms019027/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/ms019027/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/ms019027/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/ms019027/annotations/research",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/ms019027/annotations/research/research001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "iiif/sn83045462-19571104",
+      "type": "Manifest",
+      "label": { "en": [ "Evening Star Front Page, November 4th, 1957" ] },
+      "summary": {
+        "en": [
+          ""
+        ]
+      },
+      "metadata": [
+        {
+          "label": { "en": [ "Created Published" ] },
+          "value": { "none": [ "1957" ] }
+        }
+      ],
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://chroniclingamerica.loc.gov/lccn/sn83045462/1957-11-04/ed-1/seq-1/",
+          "type": "Text",
+          "label": { "en": ["Home page for Evening Star Front Page, November 4th, 1957"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/chronicling-america/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/sn83045462-19571104/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Evening Star Front Page, November 4th, 1957 image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/sn83045462-19571104/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/sn83045462-19571104/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/sn83045462-19571104/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/sn83045462-19571104/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/sn83045462-19571104/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/sn83045462-19571104/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/sn83045462-19571104/annotations/research",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/sn83045462-19571104/annotations/research/research001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
 
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",

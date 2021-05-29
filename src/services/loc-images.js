@@ -61,12 +61,12 @@ import robertCornelius from 'images/loc-images/2004664436.jpg';
 import robertCornelius_thumb from 'images/loc-images/thumbnails/2004664436_thumbnail.jpg';
 import coplandLetter from 'images/loc-images/copland.corr0781.jpg';
 import coplandLetter_thumb from 'images/loc-images/thumbnails/copland.corr0781_thumbnail.jpg';
-import unknown3 from 'images/loc-images/ms019027.jpg';
-import unknown3_thumb from 'images/loc-images/thumbnails/ms019027_thumbnail.jpg';
+import ronne from 'images/loc-images/ms019027.jpg';
+import ronne_thumb from 'images/loc-images/thumbnails/ms019027_thumbnail.jpg';
 import unknown4 from 'images/loc-images/2017645524.jpg';
 import unknown4_thumb from 'images/loc-images/thumbnails/2017645524_thumbnail.jpg';
-import unknown5 from 'images/loc-images/sn83045462-19571104.jpg';
-import unknown5_thumb from 'images/loc-images/thumbnails/sn83045462-19571104_thumbnail.jpg';
+import eveningStar from 'images/loc-images/sn83045462-19571104.jpg';
+import eveningStar_thumb from 'images/loc-images/thumbnails/sn83045462-19571104_thumbnail.jpg';
 import vaccination from 'images/loc-images/mbrs00056792.jpg';
 import vaccination_thumb from 'images/loc-images/thumbnails/mbrs00056792_thumbnail.jpg';
 import butterflyNotebook from 'images/loc-images/mss454430217.jpg';
@@ -360,8 +360,8 @@ export const locImages = [
     id: 'ms019027',
     alt: '',
     type: 'image',
-    url: unknown3,
-    thumbUrl: unknown3_thumb,
+    url: ronne,
+    thumbUrl: ronne_thumb,
     curatorImageSrc: '',
   },
   {
@@ -384,8 +384,8 @@ export const locImages = [
     id: 'sn83045462-19571104',
     alt: '',
     type: 'image',
-    url: unknown5,
-    thumbUrl: unknown5_thumb,
+    url: eveningStar,
+    thumbUrl: eveningStar_thumb,
     curatorImageSrc: '',
   },
   {
