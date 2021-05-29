@@ -2168,15 +2168,15 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/mm82052258/",
+          "id": "//lccn.loc.gov/mm82052258",
           "type": "Text",
-          "label": { "en": ["Home page for Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)"] },
+          "label": { "en": ["Home page for Earl Warren papers"] },
           "format": "text/html"
         }
       ],
       "partOf": [
         {
-          "id": "iiif/abraham-lincoln-papers/info.json",
+          "id": "iiif/generic-collection/info.json",
           "type": "Collection"
         }
       ],
@@ -2184,7 +2184,7 @@
         {
           "id": "iiif/mm82052258/canvas/1",
           "type": "Canvas",
-          "label": { "none": ["Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version) image"] },
+          "label": { "none": ["Earl Warren papers image"] },
           "width": "",
           "height": "",
           "items": [
@@ -2849,7 +2849,7 @@
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/mm2079013698/page/full/max/0/default.jpg",
+                    "id": "iiif/mm79013698/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
@@ -4716,6 +4716,111 @@
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
               "id": "iiif/sn83045462-19571104/annotations/research/research001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "format": "text/html",
+                "language": "en"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/3/context.json",
+      "id": "https://www.loc.gov/item/mal.0773800/manifest.json",
+      "type": "Manifest",
+      "summary": {
+        "en": [
+          ""
+        ]
+      },
+      "provider": [
+        {
+          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "type": "Agent",
+          "label": { "en": ["Library of Congress"] },
+          "homepage": [
+            {
+              "id": "https://ask.loc.gov",
+              "type": "Text",
+              "label": { "en": ["Library of Congress Homepage"] },
+              "format": "text/html"
+            }
+          ],
+          "logo": [
+            {
+              "id": "https://www.loc.gov/static/images/logo-loc-new-branding.svg",
+              "type": "Image",
+              "format": "image/svg"
+            }
+          ]
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.loc.gov/item/mal0773800/",
+          "type": "Text",
+          "label": { "en": ["Home page for Abraham Lincoln papers"] },
+          "format": "text/html"
+        }
+      ],
+      "partOf": [
+        {
+          "id": "iiif/abraham-lincoln-papers/info.json",
+          "type": "Collection"
+        }
+      ],
+      "items": [
+        {
+          "id": "iiif/mal.0773800/canvas/1",
+          "type": "Canvas",
+          "label": { "none": ["Abraham Lincoln papers image"] },
+          "width": "",
+          "height": "",
+          "items": [
+            {
+              "id": "iiif/mal.0773800/page/1",
+              "type": "AnnotationPage",
+              "items": [
+                {
+                  "id": "iiif/mal.0773800/annotation/1",
+                  "type": "Annotation",
+                  "motivation": "painting",
+                  "body": {
+                    "id": "iiif/mal.0773800/page/full/max/0/default.jpg",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 2250,
+                    "width": 1500
+                  },
+                  "target": "iiif/mal.0773800/canvas/1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "iiif/mal.0773800/annotations/curator",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "iiif/mal.0773800/annotations/curator/curator001/info.json",
+              "type": "Annotation"
+            }
+          ]
+        },
+        {
+          "id": "iiif/mal.0773800/annotations/research",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mal.0773800/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
