@@ -518,7 +518,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/rare-book-selections/?dates=1500/1509",
+                "value": "https://www.loc.gov/collections/rare-book-selections/about-this-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -1590,7 +1590,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/patriotic-melodies/",
+                "value": "https://www.loc.gov/collections/patriotic-melodies/about-this-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2126,7 +2126,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/stereograph-cards/",
+                "value": "https://www.loc.gov/collections/stereograph-cards/about-this-collection/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3881,7 +3881,7 @@
       ],
       "homepage": [
         {
-          "id": "__URL__",
+          "id": "https://www.loc.gov/item/2017645524/",
           "type": "Text",
           "label": { "en": ["Home page for __WORK_NAME__"] },
           "format": "text/html"
@@ -3986,7 +3986,7 @@
       ],
       "homepage": [
         {
-          "id": "__URL__",
+          "id": "https://www.loc.gov/item/ihas.200218413/",
           "type": "Text",
           "label": { "en": ["Home page for __WORK_NAME__"] },
           "format": "text/html"
@@ -4417,9 +4417,9 @@
       ],
       "homepage": [
         {
-          "id": "__URL__",
+          "id": "https://findingaids.loc.gov/db/search/xq/searchMferDsc04.xq?_id=loc.mss.eadmss.ms014094&_start=858&_lines=125",
           "type": "Text",
-          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "label": { "en": ["Home page for Rosa Parks Finding Aid Excerpt"] },
           "format": "text/html"
         }
       ],
@@ -4433,7 +4433,7 @@
         {
           "id": "iiif/ms014094/canvas/1",
           "type": "Canvas",
-          "label": { "none": ["__WORK_NAME__ image"] },
+          "label": { "none": ["Rosa Parks Finding Aid Excerpt image"] },
           "width": "",
           "height": "",
           "items": [
@@ -4480,7 +4480,18 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "value": "https://guides.loc.gov/rosa-parks",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/ms014094/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://guides.loc.gov/polar-exploration/using-finding-aids",
                 "format": "text/html",
                 "language": "en"
               }
