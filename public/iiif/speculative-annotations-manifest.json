@@ -2137,7 +2137,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/mal.0773800/manifest.json",
+      "id": "https://www.loc.gov/item/mm82052258/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -2168,7 +2168,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/mal.0773800/",
+          "id": "https://www.loc.gov/item/mm82052258/",
           "type": "Text",
           "label": { "en": ["Home page for Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)"] },
           "format": "text/html"
@@ -2182,28 +2182,28 @@
       ],
       "items": [
         {
-          "id": "iiif/mal.0773800/canvas/1",
+          "id": "iiif/mm82052258/canvas/1",
           "type": "Canvas",
           "label": { "none": ["Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version) image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/mal.0773800/page/1",
+              "id": "iiif/mm82052258/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/mal.0773800/annotation/1",
+                  "id": "iiif/mm82052258/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/mal.0773800/page/full/max/0/default.jpg",
+                    "id": "iiif/mm82052258/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/mal.0773800/canvas/1"
+                  "target": "iiif/mm82052258/canvas/1"
                 }
               ]
             }
@@ -2212,22 +2212,22 @@
       ],
       "annotations": [
         {
-          "id": "iiif/mal.0773800/annotations/curator",
+          "id": "iiif/mm82052258/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/mal.0773800/annotations/curator/curator001/info.json",
+              "id": "iiif/mm82052258/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/mal.0773800/annotations/questions",
+          "id": "iiif/mm82052258/annotations/questions",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mal.0773800/annotations/questions/question001",
+              "id": "iiif/mm82052258/annotations/questions/question001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -2238,7 +2238,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mal.0773800/annotations/questions/question002",
+              "id": "iiif/mm82052258/annotations/questions/question002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3417,15 +3417,15 @@
       ],
       "homepage": [
         {
-          "id": "__URL__",
+          "id": "https://www.loc.gov/item/2002719342/",
           "type": "Text",
-          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "label": { "en": ["Home page for olograph lecture by Clara Barton about her service during the Civil War"] },
           "format": "text/html"
         }
       ],
       "partOf": [
         {
-          "id": "iiif/__COLLECTION/info.json",
+          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -3433,7 +3433,7 @@
         {
           "id": "iiif/master-pnp-ppmsca-02900-02935u/canvas/1",
           "type": "Canvas",
-          "label": { "none": ["__WORK_NAME__ image"] },
+          "label": { "none": ["olograph lecture by Clara Barton about her service during the Civil War image"] },
           "width": "",
           "height": "",
           "items": [

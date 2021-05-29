@@ -39,8 +39,8 @@ import exhibitPanel from 'images/loc-images/2018677694.jpg';
 import exhibitPanel_thumb from 'images/loc-images/thumbnails/2018677694_thumbnail.jpg';
 import napoleansBedroom from 'images/loc-images/2019641349.jpg';
 import napoleansBedroom_thumb from 'images/loc-images/thumbnails/2019641349_thumbnail.jpg';
-import lincolnPapers from 'images/loc-images/mal.0773800.jpg';
-import lincolnPapers_thumb from 'images/loc-images/thumbnails/mal.0773800_thumbnail.jpg';
+import lincolnPapers from 'images/loc-images/mm82052258.jpg';
+import lincolnPapers_thumb from 'images/loc-images/thumbnails/mm82052258_thumbnail.jpg';
 import hamiltonPapers from 'images/loc-images/mss24612.021_0064_0079.jpg';
 import hamiltonPapers_thumb from 'images/loc-images/thumbnails/mss24612.021_0064_0079_thumbnail.jpg';
 import bournePapers from 'images/loc-images/mss13375003.jpg';
@@ -73,8 +73,8 @@ import butterflyNotebook from 'images/loc-images/mss454430217.jpg';
 import butterflyNotebook_thumb from 'images/loc-images/thumbnails/mss454430217_thumbnail.jpg';
 import evangelistarum from 'images/loc-images/49039040.jpg';
 import evangelistarum_thumb from 'images/loc-images/thumbnails/49039040_thumbnail.jpg';
-import barton from 'images/loc-images/service-pnp-ppmsca-02900-02935v.jpg';
-import barton_thumb from 'images/loc-images/thumbnails/service-pnp-ppmsca-02900-02935v_thumbnail.jpg';
+import barton from 'images/loc-images/2002719342.jpg';
+import barton_thumb from 'images/loc-images/thumbnails/2002719342_thumbnail.jpg';
 import mitchell from 'images/loc-images/03012768.jpeg';
 import mitchell_thumb from 'images/loc-images/thumbnails/03012768_thumbnail.jpeg';
 import womensRights from 'images/loc-images/mss11049028.jpg';
@@ -268,7 +268,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'mal.0773800',
+    id: 'mm82052258',
     alt: 'Abraham Lincoln papers: Series 1. General Correspondence. 1833-1916: Abraham Lincoln, [March 1861] (First Inaugural Address, Final Version)',
     type: 'image',
     url: lincolnPapers,
@@ -341,7 +341,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: 'service-pnp-ppmsca-02900-02935v',
+    id: '2002719342',
     alt: 'Barton',
     type: 'image',
     url: barton,
