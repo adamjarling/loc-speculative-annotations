@@ -11,14 +11,7 @@ import {
   WrapItem,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-
-function SubHeading({ children }) {
-  return (
-    <Heading size="md" pt={5}>
-      {children}
-    </Heading>
-  );
-}
+import SubHeading from 'components/SubHeading';
 
 function WorkHeading({ children }) {
   return <Heading size="xs">{children}</Heading>;
