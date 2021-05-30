@@ -10,7 +10,6 @@ import {
 import TypeTextFontPicker from 'components/TypeText/FontPicker';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { fonts } from 'components/TypeText/FontPicker';
-import FontFaceObserver from 'fontfaceobserver';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { useToolbarOptionsState } from 'context/toolbar-options-context';
 import { useBreakpointValue } from '@chakra-ui/react';
@@ -22,14 +21,13 @@ function TypeText({ isActive }) {
   const { deselectAll, setDefaultCursor } = useFabricHelpers();
   const textBoxWidth = useBreakpointValue({ base: 200, sm: 300, lg: 500 });
   const textBoxFontSize = useBreakpointValue({ base: 20, sm: 30, lg: 50 });
+  console.log(`textBoxWidth`, textBoxWidth);
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
     color,
     isActive, // Is the main Type tool active
     isEditing: false,
-    // TODO: Remove selectedCoords?
-    selectedCoords: { top: 0, left: 0 },
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -134,7 +132,6 @@ function TypeText({ isActive }) {
 
       setMyState({
         ...myStateRef.current,
-        selectedCoords: { top: 0, left: 0 },
       });
     }
 
@@ -163,32 +160,10 @@ function TypeText({ isActive }) {
 
   const handleFontChange = font => {
     setMyState({ ...myState, activeFont: font });
-    //loadAndUse(font.fontFamily);
   };
 
   const handleToolbarButtonClick = e => {
     dispatch({ type: 'updateTool', tool: isActive ? '' : 'TYPE' });
-  };
-
-  const loadAndUse = font => {
-    const canvas = fabricOverlay.fabricCanvas();
-    const activeObject = canvas.getActiveObject();
-
-    if (!activeObject) {
-      return;
-    }
-
-    var myfont = new FontFaceObserver(font);
-    myfont
-      .load()
-      .then(function () {
-        // when font is loaded, use it.
-        canvas.getActiveObject().set('fontFamily', font);
-        canvas.requestRenderAll();
-      })
-      .catch(function (e) {
-        console.error(e);
-      });
   };
 
   return (

@@ -30,8 +30,8 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
   const { fabricOverlay } = useFabricOverlayState();
 
   const activeClasses = {
-    borderColor: useColorModeValue('gray.300', 'white'),
-    borderWidth: '2px',
+    bg: useColorModeValue('gray.200', 'gray.300'),
+    color: useColorModeValue('gray.900', 'gray.900'),
   };
 
   const handleFontClick = font => {
@@ -61,7 +61,7 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
 
   return (
     <>
-      <Heading as="h2" size="sm" mb={3}>
+      <Heading as="h2" size="xs" mb={3}>
         Text
       </Heading>
       <VStack spacing={3}>
@@ -72,13 +72,12 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
                 fontFamily={font.fontFamily}
                 id={font.id}
                 onClick={() => handleFontClick(font)}
-                fontSize={['18px', '24px']}
-                w={['175px', '250px']}
+                fontSize={['18px']}
+                w={['175px']}
                 whiteSpace="nowrap"
                 overflow="hidden"
                 textOverflow="ellipsis"
-                borderWidth="1px"
-                p={[1, 2, 3]}
+                px={1}
                 borderRadius={8}
                 {...(activeFont &&
                   activeFont.id === font.id && { ...activeClasses })}
