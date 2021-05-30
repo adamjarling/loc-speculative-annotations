@@ -142,10 +142,6 @@ export const brandColors = [
     label: 'pastelPurple',
     hex: brandPalette.pastelPurple['100'],
   },
-  {
-    label: 'rust',
-    hex: brandPalette.rust['400'],
-  },
 ];
 
 export default brandPalette;
