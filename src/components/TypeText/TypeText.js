@@ -21,13 +21,13 @@ function TypeText({ isActive }) {
   const { deselectAll, setDefaultCursor } = useFabricHelpers();
   const textBoxWidth = useBreakpointValue({ base: 200, sm: 300, lg: 500 });
   const textBoxFontSize = useBreakpointValue({ base: 20, sm: 30, lg: 50 });
-  console.log(`textBoxWidth`, textBoxWidth);
 
   const [myState, _setMyState] = React.useState({
     activeFont: fonts[0],
     color,
     isActive, // Is the main Type tool active
     isEditing: false,
+    isOptionPanelVisible: false,
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -40,7 +40,6 @@ function TypeText({ isActive }) {
    */
   React.useEffect(() => {
     setMyState({ ...myState, color, isActive });
-
     if (!fabricOverlay) return;
 
     // User is leaving tool, re-enable OSD mouse interactions
@@ -55,7 +54,6 @@ function TypeText({ isActive }) {
 
   React.useEffect(() => {
     if (!isActive) return;
-
     if (myState.isEditing) {
       setDefaultCursor(myState.isEditing ? 'auto' : 'text');
     }
@@ -98,7 +96,11 @@ function TypeText({ isActive }) {
       // Was user previously editing text?
       if (myStateRef.current.isEditing) {
         deselectAll();
-        setMyState({ ...myStateRef.current, isEditing: false });
+        setMyState({
+          ...myStateRef.current,
+          isEditing: false,
+          isOptionPanelVisible: true,
+        });
         return;
       }
 
@@ -124,6 +126,7 @@ function TypeText({ isActive }) {
       setMyState({
         ...myStateRef.current,
         isEditing: true,
+        isOptionPanelVisible: false,
       });
     }
 
@@ -163,7 +166,12 @@ function TypeText({ isActive }) {
   };
 
   const handleToolbarButtonClick = e => {
-    dispatch({ type: 'updateTool', tool: isActive ? '' : 'TYPE' });
+    //dispatch({ type: 'updateTool', tool: isActive ? '' : 'TYPE' });
+    dispatch({ type: 'updateTool', tool: 'TYPE' });
+    setMyState({
+      ...myState,
+      isOptionPanelVisible: !myState.isOptionPanelVisible,
+    });
   };
 
   return (
@@ -174,7 +182,7 @@ function TypeText({ isActive }) {
         isActive={isActive}
         label="Type Text"
       />
-      {isActive && (
+      {isActive && myState.isOptionPanelVisible && (
         <ToolbarOptionsPanel>
           <TypeTextFontPicker
             activeFont={myState.activeFont}
