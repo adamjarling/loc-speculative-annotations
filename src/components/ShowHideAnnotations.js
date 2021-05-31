@@ -13,7 +13,6 @@ import {
 import { useParams } from 'react-router-dom';
 import useIIIFManifests from 'hooks/use-iiif-manifests';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
-import { fabric } from 'openseadragon-fabricjs-overlay';
 import useIsColorPickerVisible from 'hooks/use-is-color-picker-visible';
 
 const defaultState = {
@@ -30,11 +29,9 @@ export default function ShowHideAnnotations() {
   const { findManifest, getCuratorAnnotation } = useIIIFManifests();
   const {
     deselectAll,
-    getNonSelectableObjects,
     getUserObjects,
     makeObjectsInvisible,
     makeObjectsVisible,
-    removeObjectsFromCanvas,
   } = useFabricHelpers();
   const isColorPickerVisible = useIsColorPickerVisible();
   const isMobile = useBreakpointValue({ base: true, sm: false });
@@ -86,29 +83,6 @@ export default function ShowHideAnnotations() {
       deselectAll();
       setState({ ...state, isMyVisible: false });
       dispatch({ type: 'toggleToolbarVisible', isVisible: false });
-    }
-  };
-
-  const handleCuratorCheckboxChange = () => {
-    if (state.isCuratorVisible) {
-      // Disable Curator
-      const curatorObjects = getNonSelectableObjects();
-      removeObjectsFromCanvas(curatorObjects);
-      setState({ ...state, isCuratorVisible: false });
-      dispatch({
-        type: 'updateCuratorAnnotationVisible',
-        isCuratorAnnotationVisible: false,
-      });
-    } else {
-      // Enable Curator
-      fabric.util.enlivenObjects(curatorObjects, objects => {
-        fabricOverlay.fabricCanvas().add(...objects);
-      });
-      setState({ ...state, isCuratorVisible: true });
-      dispatch({
-        type: 'updateCuratorAnnotationVisible',
-        isCuratorAnnotationVisible: true,
-      });
     }
   };
 

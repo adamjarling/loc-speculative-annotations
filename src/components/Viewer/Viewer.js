@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useOpenSeadragon, OpenSeadragon, Overlay } from 'use-open-seadragon';
+import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
-import { isBrowser, isTablet } from 'react-device-detect';
-import ViewerContactInfo from 'components/Viewer/ContactInfo';
+import { isBrowser } from 'react-device-detect';
 import ViewerWatermarkLogo from 'components/Viewer/WatermarkLogo';
 import ViewerDisclaimer from 'components/Viewer/Disclaimer';
 
+/* These options have been re-configured a few times.  Leaving previous settings
+commented out for future reference, if need be */
 const minZoomLevel = isBrowser ? 0.5 : 0.8;
-
 const osdOptions = {
   //constrainDuringPan: isBrowser ? true : false,
   debugMode: false,
@@ -81,7 +81,6 @@ export default function Viewer({ tile }) {
 
   return (
     <Box ref={ref} flexGrow="1" bgColor={bgColor} id="download-wrapper">
-      {/* <ViewerContactInfo /> */}
       <ViewerWatermarkLogo />
       <ViewerDisclaimer />
     </Box>

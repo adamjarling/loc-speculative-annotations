@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import {
   Link,
   Heading,
@@ -9,7 +8,6 @@ import {
   WrapItem,
   useColorModeValue,
 } from '@chakra-ui/react';
-import FontFaceObserver from 'fontfaceobserver';
 
 export const fonts = [
   {
@@ -27,8 +25,6 @@ export const fonts = [
 ];
 
 function TypeTextFontPicker({ activeFont, handleFontChange }) {
-  const { fabricOverlay } = useFabricOverlayState();
-
   const activeClasses = {
     bg: useColorModeValue('gray.200', 'gray.300'),
     color: useColorModeValue('gray.900', 'gray.900'),
@@ -36,27 +32,6 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
 
   const handleFontClick = font => {
     handleFontChange(font);
-  };
-
-  const loadAndUse = font => {
-    const canvas = fabricOverlay.fabricCanvas();
-    const activeObject = canvas.getActiveObject();
-
-    if (!activeObject) {
-      return;
-    }
-
-    var myfont = new FontFaceObserver(font);
-    myfont
-      .load()
-      .then(function () {
-        // when font is loaded, use it.
-        canvas.getActiveObject().set('fontFamily', font);
-        canvas.requestRenderAll();
-      })
-      .catch(function (e) {
-        console.error(e);
-      });
   };
 
   return (

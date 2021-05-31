@@ -37,7 +37,7 @@ const activeStyle = {
   borderColor: 'brand.pink.500',
 };
 
-function ErrorFallback({ error, resetErrorBoundary }) {
+function ErrorFallback({ error }) {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -69,7 +69,6 @@ function WorksListModal() {
     base: '',
     md: 'Select from the Collection',
   });
-  const isMobile = useBreakpointValue({ base: true, sm: false });
 
   const handleImageClick = image => {
     setActiveWork(image);

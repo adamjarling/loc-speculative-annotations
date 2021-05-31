@@ -29,7 +29,7 @@ export default function MyAnnotationsSave() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const params = useParams();
   const [title, setTitle] = React.useState('');
-  const { activeUserCanvas, fabricOverlay, isToolbarVisible, userCanvases } =
+  const { activeUserCanvas, fabricOverlay, userCanvases } =
     useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
   const isColorPickerVisible = useIsColorPickerVisible();

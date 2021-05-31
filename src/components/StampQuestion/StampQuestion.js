@@ -3,19 +3,16 @@ import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import ToolbarButton from 'components/Toolbar/Button';
 import { ReactComponent as StampQuestionIcon } from 'images/Question-Stamp-02.svg';
 import {
-  Box,
   Button,
   Image,
   Link,
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalFooter,
   ModalBody,
   ModalCloseButton,
   SimpleGrid,
-  Text,
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';

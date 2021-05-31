@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Button,
   Modal,
@@ -18,7 +17,7 @@ import {
 } from 'context/fabric-overlay-context';
 import { useHistory } from 'react-router-dom';
 
-function MyAnnotations(props) {
+function MyAnnotations() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { activeUserCanvas, userCanvases } = useFabricOverlayState();
   const dispatch = useFabricOverlayDispatch();
@@ -86,7 +85,5 @@ function MyAnnotations(props) {
     </>
   );
 }
-
-MyAnnotations.propTypes = {};
 
 export default MyAnnotations;

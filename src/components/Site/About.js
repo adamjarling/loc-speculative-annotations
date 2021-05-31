@@ -6,10 +6,9 @@ import {
   Heading,
   Image,
   Link,
-  Stack,
+  ListItem,
   Text,
-  Wrap,
-  WrapItem,
+  UnorderedList,
 } from '@chakra-ui/react';
 import SubHeading from 'components/SubHeading';
 import courtney1 from 'images/McClellan-About1.jpeg';
@@ -214,62 +213,62 @@ function SiteAbout() {
       <Text>
         Speculative Annotation would not be possible without the work of:
       </Text>
-      <Wrap direction="column" pb={6}>
-        <WrapItem>Adam Arling, Developer</WrapItem>
-        <WrapItem>Jess Vu, UX Consultant</WrapItem>
-        <WrapItem>Olivia Graham, Graphic Design Intern</WrapItem>
-      </Wrap>
+      <UnorderedList pb={6}>
+        <ListItem>Adam Arling, Developer</ListItem>
+        <ListItem>Jess Vu, UX Consultant</ListItem>
+        <ListItem>Olivia Graham, Graphic Design Intern</ListItem>
+      </UnorderedList>
       <Text>Additional Thanks to:</Text>
-      <Wrap direction="column" pb={6}>
-        <WrapItem>Jaime Mears, Senior Innovation Specialist, LC Labs</WrapItem>
-        <WrapItem>The LC Labs Team </WrapItem>
-        <WrapItem>Remi Kalir PhD and Antero Garcia PhD</WrapItem>
-        <WrapItem>
+      <UnorderedList pb={6}>
+        <ListItem>Jaime Mears, Senior Innovation Specialist, LC Labs</ListItem>
+        <ListItem>The LC Labs Team </ListItem>
+        <ListItem>Remi Kalir PhD and Antero Garcia PhD</ListItem>
+        <ListItem>
           Emily Kirkpatrick and the National Council of Teachers of English
-        </WrapItem>
-        <WrapItem>Kaleena Stasiak, Printmaker</WrapItem>
-        <WrapItem>Josh Hadro and the team at IIIF</WrapItem>
-      </Wrap>
+        </ListItem>
+        <ListItem>Kaleena Stasiak, Printmaker</ListItem>
+        <ListItem>Josh Hadro and the team at IIIF</ListItem>
+      </UnorderedList>
       <Text>The contributing staff of the Library of Congress:</Text>
-      <Wrap direction="column" pb={6}>
-        <WrapItem>Manuscript Division</WrapItem>
-        <WrapItem>Prints and Photographs Division</WrapItem>
-        <WrapItem>Hispanic Section</WrapItem>
-        <WrapItem>Near East Section</WrapItem>
-        <WrapItem>American Folklife Center</WrapItem>
-        <WrapItem>Performing Arts Division</WrapItem>
-        <WrapItem>Music Division</WrapItem>
-        <WrapItem>Serial and Government Publications</WrapItem>
-        <WrapItem>Rare Book Division</WrapItem>
-        <WrapItem>Geography and Maps Division</WrapItem>
-        <WrapItem>
+      <UnorderedList pb={6}>
+        <ListItem>Manuscript Division</ListItem>
+        <ListItem>Prints and Photographs Division</ListItem>
+        <ListItem>Hispanic Section</ListItem>
+        <ListItem>Near East Section</ListItem>
+        <ListItem>American Folklife Center</ListItem>
+        <ListItem>Performing Arts Division</ListItem>
+        <ListItem>Music Division</ListItem>
+        <ListItem>Serial and Government Publications</ListItem>
+        <ListItem>Rare Book Division</ListItem>
+        <ListItem>Geography and Maps Division</ListItem>
+        <ListItem>
           Professional Learning, Outreach & Initiatives Office
-        </WrapItem>
-        <WrapItem>Motion Picture, Broadcasting & Recorded Sound</WrapItem>
-      </Wrap>
+        </ListItem>
+        <ListItem>Motion Picture, Broadcasting & Recorded Sound</ListItem>
+      </UnorderedList>
       <Text>The teachers and students who advised during development:</Text>
-      <Wrap direction="column" pb={6}>
-        <WrapItem>
+      <UnorderedList pb={6}>
+        <ListItem>
           Ashley Wood’s Photography class at Francis W. Parker Charter Essential
           School, Fort Devens, MA
-        </WrapItem>
-        <WrapItem>
+        </ListItem>
+        <ListItem>
           Shakirah Bryant’s Design class at Benjamin Banneker High School,
           Atlanta, GA
-        </WrapItem>
-        <WrapItem>
+        </ListItem>
+        <ListItem>
           Patrick Pilkey, Dorsey Sammataro and Heidi Domescik’s AP Art classes
           at Holy Innocent’s Episcopal School, Atlanta, GA
-        </WrapItem>
-        <WrapItem>
+        </ListItem>
+        <ListItem>
           Monica Rowley’s English classes at Brooklyn Technical High School,
           Brooklyn, NY
-        </WrapItem>
-        <WrapItem>
+        </ListItem>
+        <ListItem>
           Melissa Guerrette’s 5th grade Language Arts class at Oxford
           Elementary, Oxford, ME
-        </WrapItem>
-      </Wrap>
+        </ListItem>
+      </UnorderedList>
     </Container>
   );
 }

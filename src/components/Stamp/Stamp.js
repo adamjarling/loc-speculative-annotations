@@ -214,27 +214,10 @@ function Stamp({ isActive }) {
       });
     }
 
-    function handleSelected(options) {
-      if (!myStateRef.current.isActive) return;
-
-      // Filter out any non-stamp selections
-      const optionsTargetType = options.target.get('type');
-      // if (
-      //   !FABRIC_SHAPE_TYPES.find(shapeType => shapeType === optionsTargetType)
-      // )
-      //   return;
-
-      setMyState({
-        ...myStateRef.current,
-      });
-    }
-
     // Add click handlers
     canvas.on('mouse:down', handleMouseDown);
     canvas.on('mouse:move', handleMouseMove);
     canvas.on('mouse:up', handleMouseUp);
-    canvas.on('selection:created', handleSelected);
-    canvas.on('selection:updated', handleSelected);
     canvas.on('selection:cleared', handleSelectionCleared);
 
     // Remove handler
@@ -242,8 +225,6 @@ function Stamp({ isActive }) {
       canvas.off('mouse:down', handleMouseDown);
       canvas.off('mouse:move', handleMouseMove);
       canvas.off('mouse:up', handleMouseUp);
-      canvas.off('selection:created', handleSelected);
-      canvas.off('selection:updated', handleSelected);
       canvas.off('selection:cleared', handleSelectionCleared);
     };
   }, [fabricOverlay]);

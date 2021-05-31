@@ -10,7 +10,7 @@ import {
 import { brushWidths } from 'context/toolbar-options-context';
 
 function AdjustmentBarWidthPicker({ buttonSize }) {
-  const { brushWidth, color } = useToolbarOptionsState();
+  const { brushWidth } = useToolbarOptionsState();
   const dispatch = useToolbarOptionsDispatch();
   const stackSpacing = useBreakpointValue({ sm: '5px', md: '10px' });
   const fillColor = useColorModeValue('#2D3748', '#EDF2F7');

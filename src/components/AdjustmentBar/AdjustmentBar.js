@@ -8,18 +8,16 @@ import {
 } from '@chakra-ui/react';
 import useColorModeColors from 'hooks/use-color-mode-colors';
 import ClearCanvas from 'components/ClearCanvas';
-import Share from 'components/Share/Share';
 import MyAnnotationsSave from 'components/MyAnnotations/Save';
 import Download from 'components/Download';
 import Color from 'components/Color/Color';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 import UndoRedo from 'components/UndoRedo/UndoRedo';
 import AdjustmentBarWidthPicker from 'components/AdjustmentBar/WidthPicker';
-import Decompressor from 'components/Decompressor';
 import ShowHideAnnotations from 'components/ShowHideAnnotations';
 import useIsColorPickerVisible from 'hooks/use-is-color-picker-visible';
 
-function AdjustmentBar(props) {
+function AdjustmentBar() {
   const { bg } = useColorModeColors();
   const dividerColor = useColorModeValue('white', 'gray.600');
   const { activeTool } = useFabricOverlayState();
@@ -89,7 +87,5 @@ function AdjustmentBar(props) {
     </Flex>
   );
 }
-
-AdjustmentBar.propTypes = {};
 
 export default AdjustmentBar;

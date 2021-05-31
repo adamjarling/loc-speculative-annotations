@@ -1,9 +1,7 @@
 import React from 'react';
-import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 function ToolbarBorderBoxInner({ ...restProps }) {
-  const bg = useColorModeValue('white', 'gray.700');
-
   return (
     <Box
       as="button"
@@ -11,14 +9,11 @@ function ToolbarBorderBoxInner({ ...restProps }) {
       h="80%"
       borderRadius={3}
       _focus={{
-        // outline: `lightgray auto 1px`,
         outline: `none`,
       }}
       {...restProps}
     ></Box>
   );
 }
-
-ToolbarBorderBoxInner.propTypes = {};
 
 export default ToolbarBorderBoxInner;

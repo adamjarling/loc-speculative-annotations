@@ -4,7 +4,6 @@ import {
   Button,
   Flex,
   HStack,
-  Link,
   IconButton,
   useDisclosure,
   useBreakpointValue,
@@ -12,12 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { BsThreeDots } from 'react-icons/bs';
-import {
-  Link as RRLink,
-  useHistory,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import useButtonSize from 'hooks/use-button-size';
 import MyAnnotations from 'components/MyAnnotations/MyAnnotations';
 import { BiPencil } from 'react-icons/bi';
@@ -126,20 +120,6 @@ export default function Simple() {
               >
                 Teach
               </Button>
-              {/* <Link
-                as={RRLink}
-                to="/about"
-                {...(isCurrentLink('/about') && { ...activeStyles })}
-              >
-                About
-              </Link>
-              <Link
-                as={RRLink}
-                to="/teach"
-                {...(isCurrentLink('/teach') && { ...activeStyles })}
-              >
-                Teach
-              </Link> */}
             </HStack>
           </HStack>
 

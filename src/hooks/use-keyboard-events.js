@@ -1,6 +1,5 @@
 import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import useFabricHelpers from 'hooks/use-fabric-helpers';
 const Mousetrap = require('mousetrap');
 
 // Distance value when moving a selected item
@@ -21,7 +20,6 @@ export default function useKeyboardEvents() {
      */
     function moveSelected(direction) {
       const activeObject = canvas.getActiveObject();
-      //const activeGroup = canvas.getActiveGroup();
       let activeGroup;
       if (!activeObject) return;
 

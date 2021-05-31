@@ -16,7 +16,6 @@ import {
   Wrap,
   WrapItem,
   useDisclosure,
-  useToast,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { useParams } from 'react-router-dom';

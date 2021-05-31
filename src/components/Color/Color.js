@@ -11,7 +11,7 @@ import {
 function Color({ buttonSize }) {
   const toolbarDispatch = useToolbarOptionsDispatch();
   const { color } = useToolbarOptionsState();
-  const { activeTool, fabricOverlay } = useFabricOverlayState();
+  const { activeTool } = useFabricOverlayState();
 
   const [myState, _setMyState] = React.useState({
     isObjectSelected: false,
@@ -27,37 +27,6 @@ function Color({ buttonSize }) {
       ...myState,
     });
   }, [activeTool]);
-
-  /**
-   * Handle FabricJS object selection / deselection events
-   * NOTE: The code below handles when a user selects or deselects a FabricJS
-   * object. It could be used to show/hide controls in the Adjustment bar, if
-   * a user was updating an existing object (say changing it's color, or font size, etc.)
-   */
-  /*
-  React.useEffect(() => {
-    if (!fabricOverlay) return;
-
-    function handleSelectionCleared(e) {
-      setMyState({ ...myStateRef.current, isObjectSelected: false });
-    }
-    function handleSelectionCreated(e) {
-      setMyState({ ...myStateRef.current, isObjectSelected: true });
-    }
-    function handleSelectionUpdated(e) {}
-
-    const canvas = fabricOverlay.fabricCanvas();
-    canvas.on('selection:created', handleSelectionCreated);
-    canvas.on('selection:cleared', handleSelectionCleared);
-    canvas.on('selection:updated', handleSelectionUpdated);
-
-    return () => {
-      canvas.off('selection:created', handleSelectionCreated);
-      canvas.off('selection:cleared', handleSelectionCleared);
-      canvas.off('selection:updated', handleSelectionUpdated);
-    };
-  }, [fabricOverlay]);
-  */
 
   const handleColorSelect = color => {
     toolbarDispatch({ type: 'updateColor', color });

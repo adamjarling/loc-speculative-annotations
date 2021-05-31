@@ -1,22 +1,17 @@
 import React from 'react';
 import {
-  Button,
   ListItem,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   OrderedList,
   Text,
-  useDisclosure,
 } from '@chakra-ui/react';
-import Lorem from 'react-lorem-component';
 
 export default function IntroMessage() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [isModalOpen, setIsModalOpen] = React.useState(true);
 
   return (

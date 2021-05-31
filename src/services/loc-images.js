@@ -1,4 +1,4 @@
-// Import LOC images and thumbnails
+// Import LOC images, thumbnails, and curator images
 import zoopraxiscope from 'images/loc-images/00650866.png';
 import zoopraxiscope_thumb from 'images/loc-images/thumbnails/00650866_thumbnail.png';
 import floridaExpedition from 'images/loc-images/flwpa000213.jpg';
@@ -103,12 +103,6 @@ import unknown_thumb from 'images/loc-images/thumbnails/ms014094_thumbnail.jpg';
 import unknown_curator from 'images/curator-annotations/ms014094-mears.png';
 
 // Import curator annotation images
-import gospelTemperance_curator1 from 'images/curator-annotations/curator-png-test.png';
-
-// Test LOC image hosted via LOC IIIF Image server.
-// NOTE: Not all application images are hosted via IIIF Image server, so opting for local image reference
-const duchessUrl =
-  'https://tile.loc.gov/image-services/iiif/service:music:vaultscan.15:200218724:0001/full/pct:100/0/default.jpg';
 
 export const locImages = [
   {
@@ -165,7 +159,7 @@ export const locImages = [
     type: 'image',
     url: gospelTemperance,
     thumbUrl: gospelTemperance_thumb,
-    curatorImageSrc: gospelTemperance_curator1,
+    curatorImageSrc: '',
   },
   {
     id: '2005676198',

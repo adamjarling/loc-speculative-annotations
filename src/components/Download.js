@@ -12,7 +12,6 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons';
@@ -24,7 +23,6 @@ export default function Download() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [img, setImg] = React.useState();
   const html2CanvasBg = useColorModeValue('#ffffff', '#1A202C');
-  const showButtonText = useBreakpointValue({ base: false, xl: true });
   const isColorPickerVisible = useIsColorPickerVisible();
   const buttonProps = {
     'aria-label': 'Download as an image',

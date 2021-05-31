@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-  Box,
   Container,
   Divider,
   Heading,
   Link,
-  Stack,
   Text,
   Wrap,
   WrapItem,
@@ -223,10 +221,11 @@ function SiteTeach() {
           <WorkHeading>Save The Pacific Northwest Tree Octopus</WorkHeading> A
           elementary school Language Arts class working on internet literacy
         </WorkItem>
-
-        <WorkItem></WorkItem>
       </Wrap>
-      <SubHeading>Can students annotate the same item concurrently?</SubHeading>{' '}
+      <Divider py={6} />
+      <SubHeading>
+        Can students annotate the same item concurrently?
+      </SubHeading>{' '}
       <Text>
         No. Currently, students can not co-annotate a{' '}
         <i>Speculative Annotation</i> item simultaneously. While students cannot
