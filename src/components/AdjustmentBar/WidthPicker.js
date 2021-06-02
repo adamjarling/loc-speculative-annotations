@@ -16,7 +16,12 @@ function AdjustmentBarWidthPicker({ buttonSize }) {
   const fillColor = useColorModeValue('#2D3748', '#EDF2F7');
 
   return (
-    <Stack direction="row" spacing={stackSpacing} px={1}>
+    <Stack
+      direction="row"
+      spacing={stackSpacing}
+      px={1}
+      data-testid="width-picker-wrapper"
+    >
       {brushWidths.map(widthObj => {
         return (
           <ToolbarBorderBox

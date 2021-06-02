@@ -39,7 +39,7 @@ function TypeTextFontPicker({ activeFont, handleFontChange }) {
       <Heading as="h2" size="xs" mb={3}>
         Text
       </Heading>
-      <VStack spacing={3}>
+      <VStack spacing={3} data-testid="font-picker-options">
         <Wrap direction="column" justify="flex-start">
           {fonts.map(font => (
             <WrapItem key={font.id}>

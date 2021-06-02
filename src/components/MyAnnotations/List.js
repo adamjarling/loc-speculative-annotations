@@ -11,7 +11,7 @@ function MyAnnotationsList({
 
   return (
     <>
-      <Wrap direction="column">
+      <Wrap direction="column" data-testid="my-saved-annotations-list">
         {userCanvasTitles.map(uc => (
           <WrapItem key={uc}>
             <Flex

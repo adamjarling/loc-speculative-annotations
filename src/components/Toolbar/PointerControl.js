@@ -22,6 +22,7 @@ function ToolbarPointerControl({ isActive }) {
       icon={<BiPointer />}
       isActive={isActive}
       label="Select"
+      data-testid="pointer-control"
     />
   );
 }

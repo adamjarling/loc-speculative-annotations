@@ -32,7 +32,7 @@ function Toolbar() {
   }, [activeTool]);
 
   return (
-    <Box pt={3} position="relative">
+    <Box pt={3} position="relative" data-testid="toolbar">
       <Wrap spacing="2" as="nav" direction="column" align="center">
         <WrapItem>
           <StampQuestion isActive={activeTool === 'STAMP_QUESTION'} />

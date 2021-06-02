@@ -181,6 +181,7 @@ function TypeText({ isActive }) {
         icon={<FiType />}
         isActive={isActive}
         label="Type Text"
+        data-testid="type-text-control"
       />
       {isActive && myState.isOptionPanelVisible && (
         <ToolbarOptionsPanel>

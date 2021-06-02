@@ -157,6 +157,7 @@ function Draw({ isActive, isHighlighter }) {
         icon={isHighlighter ? <BiHighlight /> : <FaPaintBrush />}
         isActive={isActive}
         label={isHighlighter ? 'Highlighter' : 'Draw'}
+        data-testid={isHighlighter ? 'highlighter-control' : 'draw-control'}
       />
     </>
   );

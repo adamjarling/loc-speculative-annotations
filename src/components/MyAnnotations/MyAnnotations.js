@@ -69,7 +69,7 @@ function MyAnnotations() {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent data-testid="my-annotations">
           <ModalHeader>My Annotations</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>

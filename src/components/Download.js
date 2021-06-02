@@ -62,7 +62,7 @@ export default function Download() {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent data-testid="download-image-content">
           <ModalHeader>Download image</ModalHeader>
           <ModalCloseButton />
           <ModalBody>

@@ -6,7 +6,6 @@ describe('Main content section', () => {
   });
 
   it('renders main layout components as expected', () => {
-    // Intro message
     cy.get('[data-testid=intro-message]');
   });
 });

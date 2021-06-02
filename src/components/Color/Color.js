@@ -33,7 +33,7 @@ function Color({ buttonSize }) {
   };
 
   return (
-    <Box pl={3}>
+    <Box pl={3} data-testid="color-options-wrapper">
       <ColorOptionsPanel
         buttonSize={buttonSize}
         color={color}

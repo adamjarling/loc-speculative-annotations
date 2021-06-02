@@ -24,7 +24,7 @@ export default function EyebrowNav() {
       >
         Visit LOC.gov <ExternalLinkIcon mx="2px" />
       </Link>
-      <ColorModeSwitcher />
+      <ColorModeSwitcher data-testid="color-mode-switcher" />
     </Flex>
   );
 }

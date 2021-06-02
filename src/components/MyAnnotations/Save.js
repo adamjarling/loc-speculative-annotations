@@ -77,7 +77,7 @@ export default function MyAnnotationsSave() {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent data-testid="save-annotation-modal">
           <ModalHeader>My Annotations</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -100,6 +100,7 @@ export default function MyAnnotationsSave() {
                 Cancel
               </Button>
               <Button
+                data-testid="save-button"
                 onClick={handleSaveCanvas}
                 flexGrow="1"
                 variant="saPink"

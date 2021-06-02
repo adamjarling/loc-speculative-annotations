@@ -16,11 +16,12 @@ function ColorOptionsPanel({ buttonSize, color, handleColorSelect }) {
           w={buttonSize?.width}
           h={buttonSize?.height}
           isActive={color.label === brandColor.label}
+          data-testid={brandColor.label}
         >
           <ToolbarBorderBoxInner
             bg={brandColor.hex}
             onClick={() => handleColorSelect(brandColor)}
-          ></ToolbarBorderBoxInner>
+          />
         </ToolbarBorderBox>
       ))}
     </HStack>

@@ -101,6 +101,7 @@ export default function StampQuestion({ isActive }) {
         icon={<StampQuestionIcon height={`30px`} width={`30px`} />}
         isActive={isActive}
         label="Quick question stamp"
+        data-testid="quick-question-button"
       />
 
       <Modal
@@ -112,11 +113,12 @@ export default function StampQuestion({ isActive }) {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody data-testid="quick-question-body">
             <SimpleGrid columns={{ base: 2, md: 3 }}>
               {speechBubbles.map(stampObj => (
                 <Link
                   key={stampObj.id}
+                  data-testid={stampObj.id}
                   p={6}
                   tabIndex="0"
                   onClick={() => handleBubbleClick(stampObj)}
@@ -129,7 +131,7 @@ export default function StampQuestion({ isActive }) {
             </SimpleGrid>
           </ModalBody>
 
-          <ModalFooter>
+          <ModalFooter data-testid="quick-question-footer">
             <Button onClick={onClose} variant="ghost" mr={3}>
               Cancel
             </Button>

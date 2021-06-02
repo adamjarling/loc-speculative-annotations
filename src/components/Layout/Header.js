@@ -5,7 +5,7 @@ import Navbar from 'components/Layout/Site/Navbar';
 
 function LayoutHeader() {
   return (
-    <Box as="header">
+    <Box as="header" data-testid="layout-header">
       <EyebrowNav />
       <Navbar />
     </Box>

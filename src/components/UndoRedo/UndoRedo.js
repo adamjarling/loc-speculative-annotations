@@ -38,6 +38,7 @@ function UndoRedo() {
         <IconButton
           icon={<RiArrowGoBackFill />}
           aria-label="Undo"
+          data-testid="undo-button"
           size={buttonSize}
           onClick={handleUndo}
           variant="ghost"
@@ -47,6 +48,7 @@ function UndoRedo() {
         <IconButton
           icon={<RiArrowGoForwardLine />}
           aria-label="Redo"
+          data-testid="redo-button"
           size={buttonSize}
           onClick={handleRedo}
           variant="ghost"

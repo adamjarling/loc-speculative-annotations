@@ -26,7 +26,10 @@ function ClearCanvas() {
 
   return (
     <>
-      <AltButton onClick={() => setIsOpen(true)} data-testid="clear-all-link">
+      <AltButton
+        onClick={() => setIsOpen(true)}
+        data-testid="clear-canvas-button"
+      >
         {buttonLabel}
       </AltButton>
 
@@ -36,7 +39,7 @@ function ClearCanvas() {
         onClose={onClose}
       >
         <AlertDialogOverlay>
-          <AlertDialogContent data-testid="foo">
+          <AlertDialogContent data-testid="clear-canvas-body">
             <AlertDialogHeader fontSize="lg" fontWeight="bold">
               Clear Canvas
             </AlertDialogHeader>
@@ -50,7 +53,11 @@ function ClearCanvas() {
               <Button ref={cancelRef} onClick={onClose} variant="ghost">
                 Cancel
               </Button>
-              <Button onClick={handleClearCanvas} ml={3}>
+              <Button
+                data-testid="clear-button"
+                onClick={handleClearCanvas}
+                ml={3}
+              >
                 Clear
               </Button>
             </AlertDialogFooter>
