@@ -35,7 +35,7 @@
   </a>
 </div>
 
-# Speculative Annotations
+# Speculative Annotation
 
   <!-- <p>
     <a href="https://labs.loc.gov/work/experiments/annotation/?loclr=blogsig"><strong>More info »</strong></a>
@@ -89,13 +89,11 @@
 
 ## About The Project
 
-**Speculative Annotations** is a dynamic website, presenting items from the Library’s collections for students, teachers, and other users to annotate through captions, drawings, and other types of markmaking.
+**Speculative Annotation** is a dynamic website and public art project by Library of Congress Innovator in Residence Courtney McClellan. The tool presents a unique mini collection of Free to Use items from the Library of Congress for students, teachers, and users of all ages to annotate through captions, drawings, and other types of markmaking. Working with curators at the Library and students and teachers in the classroom, McClellan developed Speculative Annotation to provide a way for students to speak back to history.
 
-Working with curators at the Library of Congress and students and teachers in the classroom, Innovator in Residence Courtney McClellan will develop tools that support the types of conversations students and educators want to have with historical objects.
+Speculative Annotation connects items from the past with the day-to-day experience of users. It was made with a K-12 audience in mind, with the hope that primary sources from the Library’s collection will be used by educators. The items are shared with contextual aids including curator annotations and links to additional resources for further research on the Library’s website.
 
-The web application will include unique design features such as watermarks and/or visual layers to distinguish items annotated with this tool. The experimental application will premier in the summer of 2021, along with lessons plans and example annotations from Library curators. You can read a conversation about annotation and its role in the classroom with Courtney here.
-
-If you are an educator interested in collaborating on the project, please email LC-Labs@loc.gov
+The experimental application will premier at the Library of Congress in the summer of 2021 at https://labs.loc.gov/work/experiments/. We hope that other cultural heritage organizations will use this open source tool with their own materials to spark engagement and dialogue with historical objects.
 
 Visit [Library of Congress Labs](https://labs.loc.gov/work/experiments/annotation/) for more information.
 
@@ -209,23 +207,42 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Library of Congress Labs
 
-Jaime Mears - Innovator in Residence Program Manager
+Jaime Mears - Innovator in Residence Program Manager jame@loc.gov
 
-Courtney McClellan - Artist in Residency
+LC Labs - (https://labs.loc.gov)  lc-labs@loc.gov
+
+Courtney McClellan - Innovator in Residence - www.courtneymcclellan.com
 
 ### Developers / Designers
 
 Adam J. Arling - UI Developer - Northwestern University Libraries :: Repository and Digital Curation
 
-Jessica Vu - contact info here
-
 [adamarling.com](https://adamarling.com)
+
+Jessica VU - UX Consultant
+
+Olivia Graham - Grahpic Design Intern
 
 ## Acknowledgements
 
-- []()
-- []()
-- []()
+Remi Kalir PhD and Antero Garcia PhD
+Emily Kirkpatrick and the National Council of Teachers of English
+Kaleena Stasiak, Printmaker
+Josh Hadro and the team at IIIF
+
+The contributing staff of the Library of Congress:
+Manuscript Division
+Prints and Photographs Division
+Hispanic Section
+Near East Section
+American Folklife Center
+Performing Arts Division
+Music Division
+Serial and Government Publications
+Rare Book Division
+Geography and Maps Division
+Professional Learning, Outreach & Initiatives Office
+Motion Picture, Broadcasting & Recorded Sound
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
