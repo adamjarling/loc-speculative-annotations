@@ -156,18 +156,18 @@ function SiteTeach() {
       </SubHeading>
       <Wrap spacing={6}>
         <WorkItem pt={4}>
-          <WorkHeading>Finn and Edith Ronne Photograph</WorkHeading>
+          <WorkHeading>Item #33 Finn and Edith Ronne Photograph</WorkHeading>
           An elementary school Geography class learning about Antarctica
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Civil rights march on Wash[ington], D.C. / [WKL]{' '}
+            Item #6 Civil rights march on Wash[ington], D.C. / [WKL]{' '}
           </WorkHeading>
           An elementary school Social Studies class learning about Civil Rights
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Thomas Biggs Harned Collection of the Papers of Walt Whitman:
+            Item #34 Thomas Biggs Harned Collection of the Papers of Walt Whitman:
             Recovered Cardboard Butterfly and Notebooks, [1847]-[circa
             1863-1864]; Notebooks; [1847]
           </WorkHeading>{' '}
@@ -175,50 +175,50 @@ function SiteTeach() {
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Wm. Oland Bourne Papers: Left-hand Penmanship contest; Broadsides,
+            Item #26 Wm. Oland Bourne Papers: Left-hand Penmanship contest; Broadsides,
             1866-1867
           </WorkHeading>{' '}
           A high school American History class studying the Civil War
         </WorkItem>
         <WorkItem>
-          The Star Spangled Banner A middle school Band class studying Anthems
+          Item #13 The Star Spangled Banner A middle school Band class studying Anthems
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Proposed Recording Expedition into the Floridas by Zora Neal Hurston
+            Item #19 Proposed Recording Expedition into the Floridas by Zora Neal Hurston
           </WorkHeading>{' '}
           A high school American Literature class preparing to Read Their Eyes
           Were Watching God
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Ṣuwar al-kawākib.</WorkHeading> A high school Astronomy
+          <WorkHeading>Item #10 Ṣuwar al-kawākib.</WorkHeading> A high school Astronomy
           class studying constellations
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Candide Costume</WorkHeading> A middle school Theater
+          <WorkHeading>Item #20 Candide Costume</WorkHeading> A middle school Theater
           class studying Works Progress Administration productions
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            [Vietnam Veterans Memorial. Competition drawing]
+            Item #5 [Vietnam Veterans Memorial. Competition drawing]
           </WorkHeading>{' '}
           A high school Current Events class studying Monuments
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Napoleon's bedroom, Palace of Fontainebleau, France
+            Item #18 Napoleon's bedroom, Palace of Fontainebleau, France
           </WorkHeading>{' '}
           A high school World History class learning about the French Revolution
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            [Robert Cornelius, self-portrait; believed to be the earliest extant
+            Item #29 [Robert Cornelius, self-portrait; believed to be the earliest extant
             American portrait photo]
           </WorkHeading>{' '}
           A high school Photography class studying self portraiture
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Save The Pacific Northwest Tree Octopus</WorkHeading> A
+          <WorkHeading>Item #21 Save The Pacific Northwest Tree Octopus</WorkHeading> A
           elementary school Language Arts class working on internet literacy
         </WorkItem>
       </Wrap>
