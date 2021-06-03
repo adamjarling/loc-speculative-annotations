@@ -3,7 +3,7 @@ import zoopraxiscope from 'images/loc-images/00650866.png';
 import zoopraxiscope_thumb from 'images/loc-images/thumbnails/00650866_thumbnail.png';
 import floridaExpedition from 'images/loc-images/flwpa000213.jpg';
 import floridaExpedition_thumb from 'images/loc-images/thumbnails/flwpa000213_thumbnail.jpg';
-import floridaExpedition_curator from 'images/curator-annotations/flwpa000213_Zeck.jpg';
+import floridaExpedition_curator from 'images/curator-annotations/flwpa000213_Zeck.png';
 import candide from 'images/loc-images/ihas.200218413.jpg';
 import candide_thumb from 'images/loc-images/thumbnails/ihas.200218413_thumbnail.jpg';
 import candide_curator from 'images/curator-annotations/ihas.200218413_Akau.png';
