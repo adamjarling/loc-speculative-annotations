@@ -203,6 +203,17 @@ function SiteAbout() {
         of the American people.
       </Text>
       <Text>Press contact: Jaime Mears, jame@loc.gov</Text>
+      <SubHeading>About LC Labs</SubHeading>
+      <Text>
+       Through experimentation, research and collaboration, LC Labs works to realize
+       the Library’s vision that “all Americans are connected to the Library of 
+       Congress” by enabling the Library’s Digital Strategy. LC Labs is home to the 
+       Library of Congress Innovator in Residence Program; has nurtured experiments 
+       in machine learning and the use of collections as data; and incubated the 
+       Library’s popular crowdsourced transcription program By the People. Learn 
+       more and subscribe to the monthly newsletter at <Link href="mailto: 
+       LC-Labs@loc.gov">LC-Labs@loc.gov</Link>
+      </Text>
       <SubHeading>Get Involved</SubHeading>
       <Text>
         If you would like to share your Speculative Annotation, post it on
