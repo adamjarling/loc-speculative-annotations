@@ -23,9 +23,6 @@ import gospelTemperance from 'images/loc-images/2004633094.jpg';
 import gospelTemperance_thumb from 'images/loc-images/thumbnails/2004633094_thumbnail.jpg';
 import nyMovingPictureTheater from 'images/loc-images/2005676198.jpg';
 import nyMovingPictureTheater_thumb from 'images/loc-images/thumbnails/2005676198_thumbnail.jpg';
-import frederickDouglass from 'images/loc-images/2006682742.jpg';
-import frederickDouglass_thumb from 'images/loc-images/thumbnails/2006682742_thumbnail.jpg';
-import frederickDouglass_curator from 'images/curator-annotations/2006682742_Cannon.png';
 import grandCanyon from 'images/loc-images/2007676131.jpg';
 import grandCanyon_thumb from 'images/loc-images/thumbnails/2007676131_thumbnail.jpg';
 import grandCanyon_curator from 'images/curator-annotations/2007676131_soltys.png';
@@ -168,14 +165,6 @@ export const locImages = [
     url: nyMovingPictureTheater,
     thumbUrl: nyMovingPictureTheater_thumb,
     curatorImageSrc: '',
-  },
-  {
-    id: '2006682742',
-    alt: 'Frederick Douglass, 1818-1895, head and shoulders, facing slightly right',
-    type: 'image',
-    url: frederickDouglass,
-    thumbUrl: frederickDouglass_thumb,
-    curatorImageSrc: frederickDouglass_curator,
   },
   {
     id: '2007676131',
