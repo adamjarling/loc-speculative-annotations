@@ -64,7 +64,7 @@ function SiteTeach() {
         Annotation:
       </Heading>
       <Text>
-        Annotation: A note of explanation or comment added to a text or diagram.
+        A note of explanation or comment added to a text or diagram.
         Examples include margin notes, highlighting, thought bubbles.
       </Text>
       <Text>
@@ -181,7 +181,7 @@ function SiteTeach() {
           A high school American History class studying the Civil War
         </WorkItem>
         <WorkItem>
-          The Star Spangled Banner A middle school Band class studying Anthems
+          <WorkHeading>The Star Spangled Banner</WorkHeading> A middle school Band class studying Anthems
         </WorkItem>
         <WorkItem>
           <WorkHeading>
@@ -230,7 +230,7 @@ function SiteTeach() {
         No. Currently, students can not co-annotate a{' '}
         <i>Speculative Annotation</i> item simultaneously. While students cannot
         edit the same item on separate devices in real time, they can download
-        and share their annotations with one another and their teacher, using
+        and share their annotations with one another and their teacher, using 
         <strong>#AnnotateLOC</strong>. Additionally, teachers can project or
         share their screen and model annotation for their students.
       </Text>
@@ -257,7 +257,7 @@ function SiteTeach() {
       <Text>
         Additional resources, interviews and events about{' '}
         <i>Speculative Annotation</i>
-        can be found here:{' '}
+         can be found here:{' '}
         <Link
           href="https://labs.loc.gov/work/experiments/annotation/?loclr=blogsig"
           isExternal
