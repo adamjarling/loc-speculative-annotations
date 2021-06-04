@@ -3021,7 +3021,7 @@
     },
     {
       "@context": "http://iiif.io/api/presentation/3/context.json",
-      "id": "https://www.loc.gov/item/2011660380/manifest.json",
+      "id": "https://www.loc.gov/item/mm2003084957/manifest.json",
       "type": "Manifest",
       "summary": {
         "en": [
@@ -3052,9 +3052,9 @@
       ],
       "homepage": [
         {
-          "id": "//lccn.loc.gov/2011660380",
+          "id": "https://www.loc.gov/exhibits/civil-rights-act/civil-rights-era.html#obj113",
           "type": "Text",
-          "label": { "en": ["Home page for Visual materials from the Patsy T. Mink papers"] },
+          "label": { "en": ["Patsy T. Mink papers"] },
           "format": "text/html"
         }
       ],
@@ -3066,28 +3066,28 @@
       ],
       "items": [
         {
-          "id": "iiif/2011660380/canvas/1",
+          "id": "iiif/mm2003084957/canvas/1",
           "type": "Canvas",
-          "label": { "none": ["Visual materials from the Patsy T. Mink papers image"] },
+          "label": { "none": ["Patsy T. Mink papers image"] },
           "width": "",
           "height": "",
           "items": [
             {
-              "id": "iiif/2011660380/page/1",
+              "id": "iiif/mm2003084957/page/1",
               "type": "AnnotationPage",
               "items": [
                 {
-                  "id": "iiif/2011660380/annotation/1",
+                  "id": "iiif/mm2003084957/annotation/1",
                   "type": "Annotation",
                   "motivation": "painting",
                   "body": {
-                    "id": "iiif/2011660380/page/full/max/0/default.jpg",
+                    "id": "iiif/mm2003084957/page/full/max/0/default.jpg",
                     "type": "Image",
                     "format": "image/jpeg",
                     "height": 2250,
                     "width": 1500
                   },
-                  "target": "iiif/2011660380/canvas/1"
+                  "target": "iiif/mm2003084957/canvas/1"
                 }
               ]
             }
@@ -3096,22 +3096,22 @@
       ],
       "annotations": [
         {
-          "id": "iiif/2011660380/annotations/curator",
+          "id": "iiif/mm2003084957/annotations/curator",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "iiif/2011660380/annotations/curator/curator001/info.json",
+              "id": "iiif/mm2003084957/annotations/curator/curator001/info.json",
               "type": "Annotation"
             }
           ]
         },
         {
-          "id": "iiif/2011660380/annotations/research",
+          "id": "iiif/mm2003084957/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/research/research001",
+              "id": "iiif/mm2003084957/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3122,7 +3122,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/research/research002",
+              "id": "iiif/mm2003084957/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3134,12 +3134,12 @@
           ]
         },
         {
-          "id": "iiif/2011660380/annotations/research",
+          "id": "iiif/mm2003084957/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/research/research001",
+              "id": "iiif/mm2003084957/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3150,7 +3150,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/research/research002",
+              "id": "iiif/mm2003084957/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3161,7 +3161,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2011660380/annotations/research/research002",
+              "id": "iiif/mm2003084957/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
