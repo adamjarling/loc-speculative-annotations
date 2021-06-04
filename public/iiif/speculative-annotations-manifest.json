@@ -2284,7 +2284,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/mss24612.021_0064_0079/",
+          "id": "https://www.loc.gov/resource/mss24612.021_0064_0079/?sp=2",
           "type": "Text",
           "label": { "en": ["Home page for Notes for Speech in the Convention proposing a Plan of Government"] },
           "format": "text/html"
@@ -2347,10 +2347,21 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/classroom-materials/alexander-hamilton/",
+                "value": "https://guides.loc.gov/alexander-hamilton",
                 "format": "text/html",
                 "language": "en"
               }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mss24612.021_0064_0079/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/classroom-materials/alexander-hamilton/",
+                "format": "text/html",
+                "language": "en"
+             }
             }
           ]
         }
@@ -2791,11 +2802,26 @@
       "@context": "http://iiif.io/api/presentation/3/context.json",
       "id": "https://www.loc.gov/item/mm79013698/manifest.json",
       "type": "Manifest",
+      "label": { "en": [ "Votes for Women postcard" ] },
       "summary": {
         "en": [
           ""
         ]
       },
+      "metadata": [
+        {
+          "label": { "en": [ "Contributors" ] },
+          "value": { "none": [ "Katherine Milhous" ] }
+        },
+        {
+          "label": { "en": [ "Created Published" ] },
+          "value": { "none": [ "ca. 1915" ] }
+        },
+        {
+          "label": { "en": [ "Subjects" ] },
+          "value": { "none": [ "suffrage" ] }
+       }
+      ],
       "provider": [
         {
           "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
@@ -2820,7 +2846,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/mm79013698/",
+          "id": "https://www.loc.gov/exhibitions/women-fight-for-the-vote/about-this-exhibition/new-tactics-for-a-new-generation-1890-1915/marketing-of-the-movement/harnessing-the-visual-power-of-postcards-and-greeting-cards/",
           "type": "Text",
           "label": { "en": ["Home page for Votes For Women"] },
           "format": "text/html"
@@ -3052,7 +3078,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/exhibits/civil-rights-act/civil-rights-era.html#obj113",
+          "id": "https://www.loc.gov/rr/mss/mink/mink-about.html",
           "type": "Text",
           "label": { "en": ["Patsy T. Mink papers"] },
           "format": "text/html"
@@ -3129,43 +3155,15 @@
                 "value": "  https://www.loc.gov/rr/mss/mink-transcript.html ",
                 "format": "text/html",
                 "language": "en"
-              }
-            }
-          ]
-        },
-        {
-          "id": "iiif/mm2003084957/annotations/research",
-          "type": "AnnotationPage",
-          "items": [
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2003084957/annotations/research/research001",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "https://lccn.loc.gov/mm2003084957",
-                "format": "text/html",
-                "language": "en"
-              }
+              }               
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2003084957/annotations/research/research002",
+              "id": "iiif/mm2003084957/annotations/research/research003",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/rr/mss/mink/mink-home.html",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm2003084957/annotations/research/research002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "https://www.loc.gov/rr/mss/mink-transcript.html",
+                "value": "https://www.loc.gov/item/mm2003084957/",
                 "format": "text/html",
                 "language": "en"
               }
