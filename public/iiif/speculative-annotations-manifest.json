@@ -2610,7 +2610,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/nm0095/",
+          "id": "https://www.loc.gov/resource/hhh.nm0095.sheet/?sp=6",
           "type": "Text",
           "label": { "en": ["Home page for Pueblo of Acoma, Casa Blanca vicinity, Acoma Pueblo, Cibola County, NM"] },
           "format": "text/html"
@@ -2715,7 +2715,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/item/ny1251",
+          "id": "https://www.loc.gov/resource/hhh.ny1251.sheet/?sp=37",
           "type": "Text",
           "label": { "en": ["Home page for Statue of Liberty, Liberty Island, Manhattan, New York County, NY"] },
           "format": "text/html"
@@ -3471,12 +3471,12 @@
           ]
         },
         {
-          "id": "iiif/2002719342/annotations/questions",
+          "id": "iiif/2002719342/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2002719342/annotations/questions/question001",
+              "id": "iiif/2002719342/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -3487,7 +3487,7 @@
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/2002719342/annotations/questions/question002",
+              "id": "iiif/2002719342/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
@@ -4040,27 +4040,16 @@
           ]
         },
         {
-          "id": "iiif/ihas.200218413/annotations/questions",
+          "id": "iiif/ihas.200218413/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas.200218413/annotations/questions/question001",
+              "id": "iiif/ihas.200218413/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
-                "format": "text/html",
-                "language": "en"
-              }
-            },
-            {
-              "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/ihas.200218413/annotations/questions/question002",
-              "type": "Annotation",
-              "body": {
-                "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4388,11 +4377,22 @@
       "@context": "http://iiif.io/api/presentation/3/context.json",
       "id": "https://www.loc.gov/item/ms014094/manifest.json",
       "type": "Manifest",
+      "label": { "en": [ "Rosa Parks Papers Finding Aid: Books Owned by Parks, 1866-2001" ] },
       "summary": {
         "en": [
           ""
         ]
       },
+      "metadata": [
+        {
+          "label": { "en": [ "Contributors" ] },
+          "value": { "none": [ "Library of Congress Manuscript Division" ] }
+        },
+        {
+          "label": { "en": [ "Created Published" ] },
+          "value": { "none": [ "2014" ] }
+        }
+      ],
       "provider": [
         {
           "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
@@ -4491,7 +4491,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://guides.loc.gov/polar-exploration/using-finding-aids",
+                "value": "https://www.loc.gov/collections/rosa-parks-papers/articles-and-essays/collection-video/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4607,7 +4607,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "value": "https://guides.loc.gov/polar-exploration/introduction",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4719,7 +4719,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "value": "https://chroniclingamerica.loc.gov/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4824,7 +4824,18 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/",
+                "value": "http://blogs.loc.gov/loc/2021/01/inauguration-stories-lincolns-1865-with-malice-toward-none-speech/",
+                "format": "text/html",
+                "language": "en"
+             }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/mal.0773800/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/free-to-use/abraham-lincoln/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4868,9 +4879,9 @@
       ],
       "homepage": [
         {
-          "id": "__URL__",
+          "id": "https://www.loc.gov/item/ihas.200218413/",
           "type": "Text",
-          "label": { "en": ["Home page for __WORK_NAME__"] },
+          "label": { "en": ["Home page for [Candide: Candide green and purple cape/vest]"] },
           "format": "text/html"
         }
       ],
