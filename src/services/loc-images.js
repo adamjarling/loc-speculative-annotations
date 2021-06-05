@@ -65,9 +65,9 @@ import votesForWomen_curator from 'images/curator-annotations/mm79013698_Novara.
 import earlWarrenPapers from 'images/loc-images/mm82052258.jpg';
 import earlWarrenPapers_thumb from 'images/loc-images/thumbnails/mm82052258_thumbnail.jpg';
 import earlWarrenPapers_curator from 'images/curator-annotations/mm82052258_Cannon.png';
-import patsyMinkPapers from 'images/loc-images/2011660380.jpg';
-import patsyMinkPapers_thumb from 'images/loc-images/thumbnails/2011660380_thumbnail.jpg';
-import patsyMinkPapers_curator from 'images/curator-annotations/2011660380_Novara.png';
+import patsyMinkPapers from 'images/loc-images/mm2003084957.jpg';
+import patsyMinkPapers_thumb from 'images/loc-images/thumbnails/mm2003084957_thumbnail.jpg';
+import patsyMinkPapers_curator from 'images/curator-annotations/mm2003084957_Novara.png';
 import robertCornelius from 'images/loc-images/2004664436.jpg';
 import robertCornelius_thumb from 'images/loc-images/thumbnails/2004664436_thumbnail.jpg';
 import coplandLetter from 'images/loc-images/copland.corr0781.jpg';
@@ -191,7 +191,7 @@ export const locImages = [
     curatorImageSrc: '',
   },
   {
-    id: '2011660380',
+    id: 'mm2003084957',
     alt: 'Visual materials from the Patsy T. Mink papers',
     type: 'image',
     url: patsyMinkPapers,
