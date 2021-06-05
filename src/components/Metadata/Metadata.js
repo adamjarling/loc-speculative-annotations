@@ -46,12 +46,12 @@ function Metadata() {
   const buttonSize = useButtonSize();
 
   async function getManifestData() {
-    // Get app level metadata, and LOC hosted metadata
+    // Get LOC hosted metadata, and then get the app's local metadata for any overwrites
+    const locObj = await getLOCMetadata();
     const appObj = await getAppMetadata();
-    const locObj = await getWorkMetadata();
 
     // Combine the metadata
-    const obj = { ...appObj, ...locObj };
+    const obj = { ...locObj, ...appObj };
 
     // Add in collection info
     if (obj) {
@@ -70,10 +70,16 @@ function Metadata() {
       const obj = {};
       obj.contact = currentManifest.getProperty('provider')[0].id;
 
-      // Expect these to get overwritten by LOC hosted manifest,
-      // but supply values as insurance against LOC manifest not loading
-      obj.label = currentManifest.getLabel().getValue();
-      obj.metadata = filterMetadata(currentManifest.getMetadata());
+      // Use local metadata values as overwrites, if they exist
+      const localLabel = currentManifest.getLabel().getValue();
+      const localMetadata = filterMetadata(currentManifest.getMetadata());
+
+      if (localLabel) {
+        obj.label = localLabel;
+      }
+      if (localMetadata?.length > 0) {
+        obj.metadata = localMetadata;
+      }
 
       // The following metadata items don't exist in LOC manifests
       obj.questions = getQuestions(currentManifest);
@@ -88,7 +94,7 @@ function Metadata() {
     }
   }
 
-  async function getWorkMetadata() {
+  async function getLOCMetadata() {
     try {
       const currentManifest = await findManifest(params.id);
       if (!currentManifest) return;
