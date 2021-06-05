@@ -2,12 +2,12 @@
   "@context": "http://iiif.io/api/presentation/3/context.json",
   "id": "iiif/collection-generic/manifest",
   "type": "Manifest",
-  "label": { "en": ["Placeholder for generic collection"] },
+  "label": { "en": ["Back to loc.gov"] },
   "homepage": [
     {
       "id": "https://www.loc.gov/",
       "type": "Text",
-      "label": { "en": ["Home page for Generic Collection"] },
+      "label": { "en": ["Back to loc.gov"] },
       "format": "text/html"
     }
   ]

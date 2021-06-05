@@ -673,7 +673,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/generic-collection/info.json",
+          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -789,7 +789,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/generic-collection/info.json",
+          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -2176,7 +2176,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/generic-collection/info.json",
+          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -2970,7 +2970,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/generic-collection/info.json",
+          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -3086,7 +3086,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/generic-collection/info.json",
+          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
