@@ -8,6 +8,7 @@ import LayoutSite from 'components/Layout/Site/Site';
 import brandPalette from 'styles/brandPalette';
 import SiteAbout from 'components/Site/About';
 import SiteTeach from 'components/Site/Teach';
+import IntroMessage from 'components/IntroMessage';
 
 const Button = {
   variants: {
@@ -80,6 +81,7 @@ function App() {
       <ChakraProvider theme={theme}>
         <OsdFabricWrapper>
           <Fonts />
+          <IntroMessage />
           <Switch>
             <Route exact path="/about">
               <LayoutSite>

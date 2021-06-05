@@ -14,7 +14,6 @@ import {
   useFabricOverlayState,
 } from 'context/fabric-overlay-context';
 import AdjustmentBar from 'components/AdjustmentBar/AdjustmentBar';
-import IntroMessage from 'components/IntroMessage';
 import LayoutAppMain from 'components/Layout/App/Main';
 import { ToolbarOptionsProvider } from 'context/toolbar-options-context';
 
@@ -35,7 +34,6 @@ function LayoutApp() {
   return (
     <Flex as={Div100vh} h="100vh" direction="column">
       <ShareQueryParamHandler />
-      <IntroMessage />
       <LayoutHeader />
       <ToolbarOptionsProvider>
         <AdjustmentBar />
