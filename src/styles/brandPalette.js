@@ -142,10 +142,14 @@ export const brandColors = [
     label: 'pastelPurple',
     hex: brandPalette.pastelPurple['100'],
   },
-  {
-    label: 'rust',
-    hex: brandPalette.rust['400'],
-  },
+  /**
+   * This color is used for Curator Annotations
+   * Uncommenting below will add the color to the app.
+   */
+  // {
+  //   label: 'rust',
+  //   hex: brandPalette.rust['400'],
+  // },
 ];
 
 export default brandPalette;
