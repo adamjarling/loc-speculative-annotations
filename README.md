@@ -158,9 +158,17 @@ yarn test
 
 ### Source images
 
-Source images are currently hosted locally and defined in the following file:
+Source images are currently hosted locally and defined and imported in the following configuration file:
 
 `src/services/loc-images.js`
+
+An Work image file names should be its LOC `id`. Image files, thumbnails of images, and Curator annotation image files are located in:
+
+```
+src/images/loc-images
+src/images/loc-images/thumbnails
+src/images/curator-annotations
+```
 
 The application uses the OpenSeadragon Viewer to render images, so your source images can be a combination of locally hosted images (within the application), or externally hosted images (for example, served from a IIIF image server).
 
@@ -175,9 +183,25 @@ _Top level manifest:_
 - Individual **Manifest** type manifests which each represent a Work, its metadata, annotations, containing LOC Collection, and more.
 - Placeholder Library of Congress Collection manifests which contain metadata about a containing Collection for each Work.
 
+The naming convention here is also cued off a Work's LOC `id`. Every Work image in the app should have a corresponding folder in:
+
+`public/iiif/[LOC_WORK_ID_HERE]`
+
+Every work image in the app should also be an object entry in the `public/iiif/speculative-annotations-manifest.json` file as well.
+
 ### Custom theme
 
 If you'd like to update the UI with your own custom colors, fonts, etc. this is possible via Style Props and custom theming. This app uses the wonderful Chakra UI package, and see [Chakra UI Customize Theme](https://chakra-ui.com/docs/theming/customize-theme) for details.
+
+### Testing
+
+Currently only broad, high-level integration testing is supported via the Cypress.io testing library. To manually run tests, from the command line do:
+
+```
+yarn cypress:open
+```
+
+See all available application scripts and commands in the `package.json` file.
 
 ## Roadmap
 
@@ -209,15 +233,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Jaime Mears - Innovator in Residence Program Manager jame@loc.gov
 
-LC Labs - (https://labs.loc.gov)  lc-labs@loc.gov
+LC Labs - (https://labs.loc.gov) lc-labs@loc.gov
 
 Courtney McClellan - Innovator in Residence - www.courtneymcclellan.com
 
 ### Developers / Designers
 
-Adam J. Arling - UI Developer - Northwestern University Libraries :: Repository and Digital Curation
-
-[adamarling.com](https://adamarling.com)
+Adam J. Arling - UI Developer - [@adamjarling](https://github.com/adamjarling)
 
 Jessica VU - UX Consultant
 
