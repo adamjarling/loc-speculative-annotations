@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useOpenSeadragon, OpenSeadragon } from 'use-open-seadragon';
 import { Box, useColorModeValue } from '@chakra-ui/react';
-import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
+import {
+  fabric,
+  initFabricJSOverlay,
+} from '@adamjarling/openseadragon-fabricjs-overlay';
 import { useFabricOverlayDispatch } from 'context/fabric-overlay-context';
 import { isBrowser } from 'react-device-detect';
 import ViewerWatermarkLogo from 'components/Viewer/WatermarkLogo';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
-import { fabric } from 'openseadragon-fabricjs-overlay';
+import { fabric } from '@adamjarling/openseadragon-fabricjs-overlay';
 
 export default function useCanvasHelpers() {
   const { fabricOverlay } = useFabricOverlayState();

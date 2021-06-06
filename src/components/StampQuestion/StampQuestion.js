@@ -16,7 +16,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { fabric } from 'openseadragon-fabricjs-overlay';
+import { fabric } from '@adamjarling/openseadragon-fabricjs-overlay';
 import { useFabricOverlayState } from 'context/fabric-overlay-context';
 
 import stamp10 from 'images/speech-bubble/stamp-10.png';

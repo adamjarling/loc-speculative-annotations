@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ToolbarButton from 'components/Toolbar/Button';
 import { FiType } from 'react-icons/fi';
-import { fabric } from 'openseadragon-fabricjs-overlay';
+import { fabric } from '@adamjarling/openseadragon-fabricjs-overlay';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,

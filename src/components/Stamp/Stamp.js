@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GiStamper } from 'react-icons/gi';
-import { fabric } from 'openseadragon-fabricjs-overlay';
+import { fabric } from '@adamjarling/openseadragon-fabricjs-overlay';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import {

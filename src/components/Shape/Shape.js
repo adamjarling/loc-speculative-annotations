@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ToolbarButton from 'components/Toolbar/Button';
 import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { BsCircleSquare } from 'react-icons/bs';
-import { fabric } from 'openseadragon-fabricjs-overlay';
+import { fabric } from '@adamjarling/openseadragon-fabricjs-overlay';
 import {
   useFabricOverlayDispatch,
   useFabricOverlayState,

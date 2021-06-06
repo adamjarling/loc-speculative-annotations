@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@adamjarling/openseadragon-fabricjs-overlay": "^0.3.0",
     "@chakra-ui/icons": "^1.0.1",
     "@chakra-ui/react": "^1.0.0",
     "@emotion/react": "^11.0.0",
@@ -21,7 +22,6 @@
     "manifesto.js": "^4.2.3",
     "mousetrap": "^1.6.5",
     "openseadragon": "^2.4.2",
-    "openseadragon-fabricjs-overlay": "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git",
     "react": "^17.0.1",
     "react-device-detect": "^1.15.0",
     "react-div-100vh": "^0.6.0",
@@ -66,8 +66,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/fileMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileMock.js"
     }
   }
 }

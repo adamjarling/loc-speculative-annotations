@@ -1,13 +1,15 @@
 // TODO: Remove this
 
-import { fabric, initFabricJSOverlay } from 'openseadragon-fabricjs-overlay';
+import {
+  fabric,
+  initFabricJSOverlay,
+} from '@adamjarling/openseadragon-fabricjs-overlay';
 import OpenSeadragon from 'openseadragon';
 import { useCallback } from 'react';
 
 const tile = {
   type: 'image',
-  url:
-    'https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v/full/pct:100/0/default.jpg',
+  url: 'https://tile.loc.gov/image-services/iiif/service:pnp:fsa:8c34000:8c34000:8c34058v/full/pct:100/0/default.jpg',
 };
 
 let openSeadragon = null;

@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@adamjarling/openseadragon-fabricjs-overlay@^0.3.0":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@adamjarling/openseadragon-fabricjs-overlay/-/openseadragon-fabricjs-overlay-0.3.1.tgz#ef6d7b9f633760f9e1baa21dd1c1c49467a4eba3"
+  integrity sha512-L7tBbfFXZYmU2b+c1N0AXs0Ng+TIIdtyW6ntwESpAxGfzt2YO+zz7He+l8vWiFrlx96jfZteMhx9sN931eK4hw==
+  dependencies:
+    openseadragon "^2.0.0"
+
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -9408,12 +9415,6 @@ open@^7.0.2:
   dependencies:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
-
-"openseadragon-fabricjs-overlay@https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git":
-  version "0.2.0"
-  resolved "https://github.com/adamjarling/OpenseadragonFabricjsOverlay.git#303fd33e13fd9f2b4cc2e71bdc0b38baf949a842"
-  dependencies:
-    openseadragon "^2.0.0"
 
 openseadragon@^2.0.0, openseadragon@^2.4.1, openseadragon@^2.4.2:
   version "2.4.2"
