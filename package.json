@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@adamjarling/openseadragon-fabricjs-overlay": "^0.3.0",
+    "@adamjarling/openseadragon-fabricjs-overlay": "^0.3.2",
     "@chakra-ui/icons": "^1.0.1",
-    "@chakra-ui/react": "^1.0.0",
+    "@chakra-ui/react": "^1.6.3",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@react-hook/window-size": "^3.0.7",
-    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "fabric-history": "^1.6.0",
@@ -62,7 +62,7 @@
     "use-open-seadragon/react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "cypress": "^7.0.1"
+    "cypress": "^7.4.0"
   },
   "jest": {
     "moduleNameMapper": {
