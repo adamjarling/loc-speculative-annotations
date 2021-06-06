@@ -135,6 +135,7 @@ function WorksListModal() {
         leftIcon={<AddIcon />}
         variant="saPink"
         size={buttonSize}
+        data-testid="works-list-modal-button"
       >
         {buttonLabel}
       </Button>
@@ -146,7 +147,7 @@ function WorksListModal() {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent data-testid="works-list-wrapper">
           <ModalHeader>
             Select another item from the Library of Congress
           </ModalHeader>
@@ -154,7 +155,7 @@ function WorksListModal() {
           <ModalBody>
             <Wrap spacing="30px" justify="center">
               {locImages.map((image, index) => (
-                <WrapItem key={image.id}>
+                <WrapItem key={image.id} data-testid={`work-item`}>
                   <ErrorBoundary FallbackComponent={ErrorFallback}>
                     <Flex alignItems="flex-end">
                       <Text

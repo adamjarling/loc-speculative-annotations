@@ -26,10 +26,11 @@ function ShapePicker({ activeShape, color, handleShapeSelect }) {
       <Text fontSize="xs" textAlign="center" my={1}>
         Shape
       </Text>
-      <VStack color={color.hex}>
+      <VStack color={color.hex} data-testid="shape-options-wrapper">
         {shapes.map(shape => (
           <IconButton
             key={shape.name}
+            data-testid={`shape-option-${shape.name}`}
             icon={shape.icon}
             onClick={() => handleShapeSelect(shape)}
             size={btnSize}

@@ -180,6 +180,7 @@ function Metadata() {
         size={buttonSize}
         variant="ghost"
         disabled={!metadata}
+        data-testid="metadata-button"
       >
         Learn More
       </Button>
@@ -190,10 +191,11 @@ function Metadata() {
         disabled={!metadata}
         alignItems="center"
         justifyContent="center"
+        data-testid="metadata-button-mobile"
       />
 
       <Drawer isOpen={isOpen} placement="right" onClose={handleClose}>
-        <DrawerOverlay>
+        <DrawerOverlay data-testid="metadata-wrapper">
           {currentWork && metadata && (
             <DrawerContent>
               <DrawerCloseButton />

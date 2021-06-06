@@ -245,17 +245,16 @@ function Stamp({ isActive }) {
         isActive={isActive}
         label="Stamp"
         disabled={false}
+        data-testid="stamp-control"
       />
       {isActive && (
-        <>
-          <ToolbarOptionsPanel>
-            <StampPicker
-              activeStamp={myState.activeStamp}
-              color={color}
-              handleStampChange={handleStampChange}
-            />
-          </ToolbarOptionsPanel>
-        </>
+        <ToolbarOptionsPanel data-testid="stamp-options-wrapper">
+          <StampPicker
+            activeStamp={myState.activeStamp}
+            color={color}
+            handleStampChange={handleStampChange}
+          />
+        </ToolbarOptionsPanel>
       )}
     </div>
   );

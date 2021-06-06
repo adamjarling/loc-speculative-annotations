@@ -271,6 +271,7 @@ function StampPicker({ activeStamp, color, handleStampChange }) {
               draggable="false"
               id={stampObj.id}
               title={stampObj.label}
+              data-testid="stamp-option"
             >
               <ToolbarBorderBoxInner
                 onClick={() => handleStampChange(stampObj)}

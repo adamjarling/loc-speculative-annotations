@@ -47,6 +47,7 @@ export default function RemoveObject() {
       icon={<DeleteIcon />}
       label="Remove item"
       disabled={!isActiveObject}
+      data-testid="remove-object-control"
     />
   );
 }

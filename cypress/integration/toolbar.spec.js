@@ -48,7 +48,7 @@ describe('Toolbar components', () => {
   /**
    * Draw tool
    */
-  it.only('renders the draw control and options panel', () => {
+  it('renders the draw control and options panel', () => {
     cy.get('[data-testid=color-options-wrapper]')
       .as('color-wrapper')
       .should('not.exist');
@@ -89,8 +89,26 @@ describe('Toolbar components', () => {
   /**
    * Shape tool
    */
+  it('renders the shape control and options panel', () => {
+    cy.get('[data-testid=shape-control]').click();
+    cy.get('[data-testid=shape-options-wrapper]');
+    cy.get('[data-testid=shape-option-square]');
+    cy.get('[data-testid=shape-option-circle]');
+  });
 
   /**
    * Stamp tool
    */
+  it('renders the stamp control and stamp options panel', () => {
+    cy.get('[data-testid=stamp-control]').click();
+    cy.get('[data-testid=stamp-options-wrapper]');
+    cy.get('[data-testid=stamp-option]').should('have.length', 30);
+  });
+
+  /**
+   * Delete tool
+   */
+  it('renders the remove object control', () => {
+    cy.get('[data-testid=remove-object-control]').should('be.disabled');
+  });
 });

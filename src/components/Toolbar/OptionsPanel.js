@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
-function ToolbarOptionsPanel({ children }) {
+function ToolbarOptionsPanel({ children, ...restProps }) {
   const bg = useColorModeValue('white', 'gray.700');
 
   return (
@@ -13,6 +13,7 @@ function ToolbarOptionsPanel({ children }) {
       left={['56px', '64px', '72px', '84px']}
       p={[1, 2]}
       boxShadow="xl"
+      {...restProps}
     >
       {children}
     </Box>

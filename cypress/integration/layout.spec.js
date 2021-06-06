@@ -6,6 +6,9 @@ describe('Layout components', () => {
   });
 
   it('renders layout components as expected', () => {
+    // Intro message
+    cy.get('[data-testid=intro-message]');
+
     // Eyebrow navigation
     cy.get('[data-testid="eyebrow-row"]');
     cy.get('[data-testid="loc-link"]');

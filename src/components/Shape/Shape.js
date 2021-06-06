@@ -308,6 +308,7 @@ function Shape({ isActive }) {
         icon={<BsCircleSquare />}
         isActive={isActive}
         label="Shape"
+        data-testid="shape-control"
       />
       {isActive && (
         <ToolbarOptionsPanel>
