@@ -12,12 +12,13 @@ import ToolbarOptionsPanel from 'components/Toolbar/OptionsPanel';
 import { fonts } from 'components/TypeText/FontPicker';
 import useFabricHelpers from 'hooks/use-fabric-helpers';
 import { useToolbarOptionsState } from 'context/toolbar-options-context';
-import { useBreakpointValue } from '@chakra-ui/react';
+import { useBreakpointValue, useToast } from '@chakra-ui/react';
 
 function TypeText({ isActive }) {
   const dispatch = useFabricOverlayDispatch();
   const { fabricOverlay, viewer } = useFabricOverlayState();
   const { color } = useToolbarOptionsState();
+  const toast = useToast();
   const { deselectAll, setDefaultCursor } = useFabricHelpers();
   const textBoxWidth = useBreakpointValue({ base: 200, sm: 300, lg: 500 });
   const textBoxFontSize = useBreakpointValue({ base: 20, sm: 30, lg: 50 });
@@ -28,6 +29,7 @@ function TypeText({ isActive }) {
     isActive, // Is the main Type tool active
     isEditing: false,
     isOptionPanelVisible: false,
+    hasSeenTextHelper: false,
   });
   const myStateRef = React.useRef(myState);
   const setMyState = data => {
@@ -123,8 +125,21 @@ function TypeText({ isActive }) {
       // Make the border of active edited text white instead of light blue
       textbox.borderColor = '#ffffff';
 
+      // Show toast helper message
+      if (!myStateRef.current.hasSeenTextHelper) {
+        toast({
+          description:
+            "Press the 'Escape' key when done typing to select your text",
+          status: 'info',
+          duration: 9000,
+          isClosable: true,
+          position: 'bottom-left',
+        });
+      }
+
       setMyState({
         ...myStateRef.current,
+        hasSeenTextHelper: true,
         isEditing: true,
         isOptionPanelVisible: false,
       });
