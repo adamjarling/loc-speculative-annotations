@@ -20,7 +20,7 @@ function SiteAbout() {
     <Container maxW="4xl" pb="80px">
       <Heading as="h1">About</Heading>
       <Text>
-        <i>Speculative Annotation</i> is a dynamic website and public art
+        <i>Speculative Annotation</i> is an open-source dynamic web application and public art
         project by Library of Congress Innovator in Residence Courtney
         McClellan. The tool presents a unique mini collection of Free to Use
         items from the Library of Congress for students, teachers, and users of
