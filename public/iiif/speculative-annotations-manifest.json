@@ -2819,7 +2819,7 @@
         },
         {
           "label": { "en": [ "Subjects" ] },
-          "value": { "none": [ "suffrage" ] }
+          "value": { "none": [ "National American Woman Suffrage Association", "Women--suffrage", "Women's rights" ] }
        }
       ],
       "provider": [
@@ -2854,7 +2854,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/__COLLECTION/info.json",
+          "id": "https://www.loc.gov/item/mm79013698/",
           "type": "Collection"
         }
       ],
@@ -2920,7 +2920,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/item/mm79013698/",
+                "value": "https://www.loc.gov/classroom-materials/womens-suffrage/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3054,6 +3054,12 @@
           ""
         ]
       },
+       "metadata": [
+        {
+          "label": { "en": [ "Created Published" ] },
+          "value": { "none": [ "July 12,1960" ] }
+        }
+       ],
       "provider": [
         {
           "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
