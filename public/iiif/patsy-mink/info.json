@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "iiif/patsy-mink/manifest",
+  "type": "Manifest",
+  "label": { "en": ["Patsy T. Mink papers"] },
+  "homepage": [
+    {
+      "id": "https://www.loc.gov/item/mm2003084957/",
+      "type": "Text",
+      "label": { "en": ["Home page for Patsy T. Mink papers"] },
+      "format": "text/html"
+    }
+  ]
+}

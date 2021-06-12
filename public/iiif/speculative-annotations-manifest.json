@@ -3084,7 +3084,7 @@
       ],
       "homepage": [
         {
-          "id": "https://www.loc.gov/rr/mss/mink/mink-about.html",
+          "id": "https://www.loc.gov/item/mm2003084957/",
           "type": "Text",
           "label": { "en": ["Patsy T. Mink papers"] },
           "format": "text/html"
@@ -3092,7 +3092,7 @@
       ],
       "partOf": [
         {
-          "id": "iiif/collection-generic/info.json",
+          "id": "iiif/patsy-mink/info.json",
           "type": "Collection"
         }
       ],
@@ -4638,7 +4638,7 @@
       ],
       "provider": [
         {
-          "id": "https://ask.loc.gov/#s-la-box-83050-container-tab1",
+          "id": "https://ask.loc.gov/newspapers-periodicals",
           "type": "Agent",
           "label": { "en": ["Library of Congress"] },
           "homepage": [
@@ -4720,6 +4720,28 @@
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
               "id": "iiif/sn83045462-19571104/annotations/research/research001",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/item/sn83045462/",
+                "format": "text/html",
+                "language": "en"
+             }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/sn83045462-19571104/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://blogs.loc.gov/headlinesandheroes/2019/05/the-animals-of-aeronautics/",
+                "format": "text/html",
+                "language": "en"
+             }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/sn83045462-19571104/annotations/research/research003",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
