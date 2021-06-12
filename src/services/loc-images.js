@@ -47,7 +47,7 @@ import napoleansBedroom from 'images/loc-images/2019641349.jpg';
 import napoleansBedroom_thumb from 'images/loc-images/thumbnails/2019641349_thumbnail.jpg';
 import lincolnPapers from 'images/loc-images/mal.0773800.jpg';
 import lincolnPapers_thumb from 'images/loc-images/thumbnails/mal.0773800_thumbnail.jpg';
-import lincolnPapers_curator from 'images/curator-annotations/mal.0773800_Krowl-v2.png';
+import lincolnPapers_curator from 'images/curator-annotations/mal.0773800_Cannon.png';
 import hamiltonPapers from 'images/loc-images/mss24612.021_0064_0079.jpg';
 import hamiltonPapers_thumb from 'images/loc-images/thumbnails/mss24612.021_0064_0079_thumbnail.jpg';
 import bournePapers from 'images/loc-images/mss13375003.jpg';
@@ -64,7 +64,6 @@ import votesForWomen_thumb from 'images/loc-images/thumbnails/mm79013698_thumbna
 import votesForWomen_curator from 'images/curator-annotations/mm79013698_Novara.png';
 import earlWarrenPapers from 'images/loc-images/mm82052258.jpg';
 import earlWarrenPapers_thumb from 'images/loc-images/thumbnails/mm82052258_thumbnail.jpg';
-import earlWarrenPapers_curator from 'images/curator-annotations/mm82052258_Cannon(1).png';
 import patsyMinkPapers from 'images/loc-images/mm2003084957.jpg';
 import patsyMinkPapers_thumb from 'images/loc-images/thumbnails/mm2003084957_thumbnail.jpg';
 import patsyMinkPapers_curator from 'images/curator-annotations/mm2003084957_Novara.png';
@@ -292,7 +291,7 @@ export const locImages = [
     type: 'image',
     url: earlWarrenPapers,
     thumbUrl: earlWarrenPapers_thumb,
-    curatorImageSrc: earlWarrenPapers_curator,
+    curatorImageSrc: '',
   },
   {
     id: 'mss24612.021_0064_0079',
