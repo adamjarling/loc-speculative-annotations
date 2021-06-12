@@ -100,7 +100,7 @@ function SiteTeach() {
       <Text>
         Primary sources are for everyone, not just historians and history
         students. You probably already use them-- photos, maps, personal
-        correspondence, newspaper articles or professional documents. They can
+        correspondence, newspaper articles, or professional documents. They can
         enrich any K-12 classroom. The Professional Learning and Outreach
         Initiatives Office offers many resources about how to incorporate
         primary source materials in your classroom.{' '}
@@ -152,7 +152,7 @@ function SiteTeach() {
       </Text>
       <Divider pt={6} />
       <SubHeading>
-        A few suggestions of items associated with field and age:
+        A few suggestions of items associated with academic subject and age:
       </SubHeading>
       <Wrap spacing={6}>
         <WorkItem pt={4}>
@@ -229,14 +229,15 @@ function SiteTeach() {
       <Text>
         No. Currently, students can not co-annotate a{' '}
         <i>Speculative Annotation</i> item simultaneously. While students cannot
-        edit the same item on separate devices in real time, they can download
-        and share their annotations with one another and their teacher, using 
+        edit the same item on separate devices in real time, to allow for such 
+        annotations they can download and share their annotations with one 
+        another and their teacher, using 
         <strong>#AnnotateLOC</strong>. Additionally, teachers can project or
-        share their screen and model annotation for their students.
+        share their screen and model annotations for their students.
       </Text>
       <SubHeading>Can students turn in their annotations?</SubHeading>{' '}
       <Text>
-        Yes, students can download their annotation as a PNG file and share it.
+        Yes, students can download their annotations as a PNG file and share it.
       </Text>
       <SubHeading>
         How can you continue the conversation with Library staff and fellow
