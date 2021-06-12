@@ -102,6 +102,14 @@ import unknown_curator from 'images/curator-annotations/ms014094-mears.png';
 
 export const locImages = [
   {
+    id: '48038600',
+    alt: 'Margarita philosophica',
+    type: 'image',
+    url: margarita,
+    thumbUrl: margarita_thumb,
+    curatorImageSrc: margarita_curator,
+  },
+  {
     id: '00650866',
     alt: 'The zoopraxiscope--Horse galloping',
     type: 'image',
@@ -116,14 +124,6 @@ export const locImages = [
     url: browniesBook,
     thumbUrl: browniesBook_thumb,
     curatorImageSrc: '',
-  },
-  {
-    id: '48038600',
-    alt: 'Margarita philosophica',
-    type: 'image',
-    url: margarita,
-    thumbUrl: margarita_thumb,
-    curatorImageSrc: margarita_curator,
   },
   {
     id: '78694920',
