@@ -44,12 +44,12 @@ function SiteAbout() {
         collaborative effort. Throughout the process, McClellan conducted three
         kinds of research: studio experimentation, class visits with students
         and educators, and collaborative curation of the{' '}
-        <i>Speculative Annotation</i>
+        <i>Speculative Annotation</i> 
         mini collection with Library staff.
       </Text>
       <SubHeading>Studio Experimentation & Design</SubHeading>
       <Text>
-        Speculative Annotation was inspired by McClellan’s interest in civic
+        <i>Speculative Annotation</i> was inspired by McClellan’s interest in civic
         engagement and creative notetaking as record. She wanted to stage a
         space where students feel valued within a conversation about shared
         history. When thinking about annotation as an artistic gesture, she
@@ -69,15 +69,15 @@ function SiteAbout() {
         guided many visual choices in the resulting site.{' '}
       </Text>
       <Text>
-        The design of Speculative Annotation’s tools and features visually
-        contrasted the archival material presented in the mini collection. The
-        color palette was inspired by colors regularly used for annotation, like
-        fluorescent highlighter yellow, diverging from the muted colors of many
-        of the aged artifacts and allowing the annotations to be highly visible.
-        Many of the stamp forms, like an arrow or a pointing finger, also allow
-        the user to draw attention to a particular aspect of the historical
-        items,while thought bubbles and punctuation marks offer a way to share
-        ideas, opinions or emotional reactions.
+        McClellan and her team designed the tools and features in <i>Speculative 
+        Annotation</i> to contrast visually with the archival material presented 
+        in the mini collection. The color palette was inspired by colors regularly 
+        used for annotation, like fluorescent highlighter yellow, diverging from 
+        the muted colors of many of the aged artifacts and allowing the annotations 
+        to be highly visible. Many of the stamp forms, like an arrow or a pointing 
+        finger, also allow the user to draw attention to a particular aspect of the 
+        historical items, while thought bubbles and punctuation marks offer a way to 
+        share ideas, opinions, or emotional reactions.
       </Text>
       <Box as="figure" aria-labelledby="fig1" textAlign="center" mb={6}>
         <Flex direction="row" w="100%">
@@ -141,8 +141,8 @@ function SiteAbout() {
       <SubHeading>Library Research and Curation of Mini Collection</SubHeading>
       <Text>
         Working with curators, Library staff and field experts, McClellan
-        developed the mini collection in parallel with the creation of the
-        Speculative Annotation website. Library curators provided a host of
+        developed the mini collection in parallel with the creation of the 
+        <i>Speculative Annotation</i> website. Library curators provided a host of
         contemporaneous examples of historical annotation from the collection.
         Rosenwald and Rare Book curators, for example, shared medieval
         manuscript materials that included ample margin space with the
@@ -168,8 +168,8 @@ function SiteAbout() {
       </Box>
 
       <Text>
-        Library staff also proposed works to be included in the Speculative
-        Annotation mini collection. Through conversations with experts from
+        Library staff also proposed works to be included in the <i>Speculative
+        Annotation</i> mini collection. Through conversations with experts from
         around the Library, several key themes related to storytelling and
         imagination emerged among the items, including civil and human rights,
         the creative process, and technological development.
@@ -269,7 +269,7 @@ function SiteAbout() {
         </ListItem>
         <ListItem>
           Patrick Pilkey, Dorsey Sammataro and Heidi Domescik’s AP Art classes
-          at Holy Innocent’s Episcopal School, Atlanta, GA
+          at Holy Innocents' Episcopal School, Atlanta, GA
         </ListItem>
         <ListItem>
           Monica Rowley’s English classes at Brooklyn Technical High School,
