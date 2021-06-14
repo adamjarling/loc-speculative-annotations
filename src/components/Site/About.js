@@ -141,7 +141,7 @@ function SiteAbout() {
       <SubHeading>Library Research and Curation of Mini Collection</SubHeading>
       <Text>
         Working with curators, Library staff and field experts, McClellan
-        developed the mini collection in parallel with the creation of the 
+        developed the mini collection in parallel with the creation of the{' '} 
         <i>Speculative Annotation</i> website. Library curators provided a host of
         contemporaneous examples of historical annotation from the collection.
         Rosenwald and Rare Book curators, for example, shared medieval
