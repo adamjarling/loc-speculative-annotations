@@ -64,6 +64,7 @@ import votesForWomen_thumb from 'images/loc-images/thumbnails/mm79013698_thumbna
 import votesForWomen_curator from 'images/curator-annotations/mm79013698_Novara.png';
 import earlWarrenPapers from 'images/loc-images/mm82052258.jpg';
 import earlWarrenPapers_thumb from 'images/loc-images/thumbnails/mm82052258_thumbnail.jpg';
+import earlWarrenPapers_curator from 'images/curator-annotations/mm82052258_Cannon.png';
 import patsyMinkPapers from 'images/loc-images/mm2003084957.jpg';
 import patsyMinkPapers_thumb from 'images/loc-images/thumbnails/mm2003084957_thumbnail.jpg';
 import patsyMinkPapers_curator from 'images/curator-annotations/mm2003084957_Novara.png';
@@ -291,7 +292,7 @@ export const locImages = [
     type: 'image',
     url: earlWarrenPapers,
     thumbUrl: earlWarrenPapers_thumb,
-    curatorImageSrc: '',
+    curatorImageSrc: earlWarrenPapers_curator,
   },
   {
     id: 'mss24612.021_0064_0079',
