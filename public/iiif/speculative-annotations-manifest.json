@@ -53,6 +53,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/search/?fa=contributor:muybridge,+eadweard&sp=1",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -245,7 +246,7 @@
       ],
       "homepage": [
         {
-          "id": "__URL__",
+          "id": "https://www.loc.gov/item/ihas.200218413/",
           "type": "Text",
           "label": { "en": ["Home page for __WORK_NAME__"] },
           "format": "text/html"
@@ -673,6 +674,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/photos/?fa=contributor%3Alin%2C+maya+ying",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -789,6 +791,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/search/?fa=subject:march+on+washington+for+jobs+and+freedom",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -2176,6 +2179,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/item/mm82052258/",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -2222,27 +2226,27 @@
           ]
         },
         {
-          "id": "iiif/mm82052258/annotations/questions",
+          "id": "iiif/mm82052258/annotations/research",
           "type": "AnnotationPage",
           "items": [
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm82052258/annotations/questions/question001",
+              "id": "iiif/mm82052258/annotations/research/research001",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://www.loc.gov/exhibits/brown/",
                 "format": "text/html",
                 "language": "en"
               }
             },
             {
               "@context": "http://www.w3.org/ns/anno.jsonld",
-              "id": "iiif/mm82052258/annotations/questions/question002",
+              "id": "iiif/mm82052258/annotations/research/research002",
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "__GENERIC_QUESTION__",
+                "value": "https://guides.loc.gov/brown-v-board-of-education",
                 "format": "text/html",
                 "language": "en"
               }
@@ -2629,6 +2633,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/item/nm0095/",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -2734,6 +2739,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/item/ny1251/",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -3219,6 +3225,7 @@
       ],
       "partOf": [
         {
+         "id": "https://www.loc.gov/search/?fa=partof:america%27s+first+look+into+the+camera:+daguerreotype+portraits+and+views,+1839-1864",
           "id": "iiif/daguerreotypes/info.json",
           "type": "Collection"
         }
@@ -3274,7 +3281,7 @@
               "type": "Annotation",
               "body": {
                 "type": "TextualBody",
-                "value": "https://www.loc.gov/exhibits/treasures/tr22c.html#obj24",
+                "value": "//www.loc.gov/exhibits/treasures/tr22c.html#obj22",
                 "format": "text/html",
                 "language": "en"
               }
@@ -3324,6 +3331,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/collections/aaron-copland/about-this-collection/",
           "id": "iiif/__COLLECTION/info.json",
           "type": "Collection"
         }
@@ -3429,6 +3437,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/collections/clara-barton-papers/about-this-collection/",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
@@ -3612,6 +3621,17 @@
               "body": {
                 "type": "TextualBody",
                 "value": "http://blogs.loc.gov/loc/2017/05/my-job-at-the-library-building-the-architecture-design-and-engineering-collection/",
+                "format": "text/html",
+                "language": "en"
+              }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/97505164/annotations/research/research003",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/item/webcast-8164/",
                 "format": "text/html",
                 "language": "en"
               }
@@ -4267,6 +4287,17 @@
                 "format": "text/html",
                 "language": "en"
               }
+            },
+            {
+              "@context": "http://www.w3.org/ns/anno.jsonld",
+              "id": "iiif/03012768/annotations/research/research002",
+              "type": "Annotation",
+              "body": {
+                "type": "TextualBody",
+                "value": "https://www.loc.gov/item/ma0420/",
+                "format": "text/html",
+                "language": "en"
+              }
             }
           ]
         }
@@ -4313,6 +4344,7 @@
       ],
       "partOf": [
         {
+          "id": "https://www.loc.gov/collections/susan-b-anthony-papers/about-this-collection/",
           "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
