@@ -231,7 +231,7 @@ function SiteTeach() {
         <i>Speculative Annotation</i> item simultaneously. While students cannot
         edit the same item on separate devices in real time, to allow for such 
         annotations they can download and share their annotations with one 
-        another and their teacher, using 
+        another and their teacher, using{' '}  
         <strong>#AnnotateLOC</strong>. Additionally, teachers can project or
         share their screen and model annotations for their students.
       </Text>
@@ -244,7 +244,7 @@ function SiteTeach() {
         teachers?
       </SubHeading>{' '}
       <Text>
-        Help grow Speculative Annotation’s learning community by following other
+        Help grow <i>Speculative Annotation</i>’s learning community by following other
         educators’ lessons, exercises, and implementation of the tool, or share
         your own with <strong>#AnnotateLOC</strong>.
       </Text>
