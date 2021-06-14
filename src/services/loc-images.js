@@ -47,6 +47,7 @@ import napoleansBedroom from 'images/loc-images/2019641349.jpg';
 import napoleansBedroom_thumb from 'images/loc-images/thumbnails/2019641349_thumbnail.jpg';
 import lincolnPapers from 'images/loc-images/mal.0773800.jpg';
 import lincolnPapers_thumb from 'images/loc-images/thumbnails/mal.0773800_thumbnail.jpg';
+import lincolnPapers_curator from 'images/curator-annotations/mal.0773800_Krowl-v2.png';
 import hamiltonPapers from 'images/loc-images/mss24612.021_0064_0079.jpg';
 import hamiltonPapers_thumb from 'images/loc-images/thumbnails/mss24612.021_0064_0079_thumbnail.jpg';
 import bournePapers from 'images/loc-images/mss13375003.jpg';
@@ -275,7 +276,7 @@ export const locImages = [
     type: 'image',
     url: lincolnPapers,
     thumbUrl: lincolnPapers_thumb,
-    curatorImageSrc: '',
+    curatorImageSrc: lincolnPapers_curator,
   },
   {
     id: 'mm79013698',
