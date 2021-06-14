@@ -54,7 +54,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/search/?fa=contributor:muybridge,+eadweard&sp=1",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -675,7 +674,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/photos/?fa=contributor%3Alin%2C+maya+ying",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -792,7 +790,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/search/?fa=subject:march+on+washington+for+jobs+and+freedom",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -2180,7 +2177,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/item/mm82052258/",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -2634,7 +2630,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/item/nm0095/",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -2740,7 +2735,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/item/ny1251/",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -3226,7 +3220,6 @@
       "partOf": [
         {
          "id": "https://www.loc.gov/search/?fa=partof:america%27s+first+look+into+the+camera:+daguerreotype+portraits+and+views,+1839-1864",
-          "id": "iiif/daguerreotypes/info.json",
           "type": "Collection"
         }
       ],
@@ -3332,7 +3325,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/collections/aaron-copland/about-this-collection/",
-          "id": "iiif/__COLLECTION/info.json",
           "type": "Collection"
         }
       ],
@@ -3438,7 +3430,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/collections/clara-barton-papers/about-this-collection/",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],
@@ -4345,7 +4336,6 @@
       "partOf": [
         {
           "id": "https://www.loc.gov/collections/susan-b-anthony-papers/about-this-collection/",
-          "id": "iiif/collection-generic/info.json",
           "type": "Collection"
         }
       ],

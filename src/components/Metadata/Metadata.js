@@ -122,10 +122,18 @@ function Metadata() {
       const currentManifest = await findManifest(params.id);
       if (!currentManifest) return;
 
+      const partOfId = currentManifest.getProperty('partOf')[0].id;
+
+      // If partOfId is a regular URL, link directly to that
+      if (partOfId.includes('http')) {
+        return {
+          label: 'View Collection',
+          url: partOfId,
+        };
+      }
+
       // Fetch work's collection information
-      const collectionManifest = await loadManifest(
-        currentManifest.getProperty('partOf')[0].id
-      );
+      const collectionManifest = await loadManifest(partOfId);
 
       if (collectionManifest) {
         const parsed = parseManifest(collectionManifest);
