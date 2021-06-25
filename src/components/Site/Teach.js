@@ -156,18 +156,17 @@ function SiteTeach() {
       </SubHeading>
       <Wrap spacing={6}>
         <WorkItem pt={4}>
-          <WorkHeading>Item #33 Finn and Edith Ronne Photograph</WorkHeading>
+          <WorkHeading>Finn and Edith Ronne Photograph</WorkHeading>
           An elementary school Geography class learning about Antarctica
         </WorkItem>
         <WorkItem>
-          <WorkHeading>
-            Item #6 Civil rights march on Wash[ington], D.C. / [WKL]{' '}
+          <WorkHeading>Civil rights march on Wash[ington], D.C. / [WKL]{' '}
           </WorkHeading>
           An elementary school Social Studies class learning about Civil Rights
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Item #34 Thomas Biggs Harned Collection of the Papers of Walt Whitman:
+            Thomas Biggs Harned Collection of the Papers of Walt Whitman:
             Recovered Cardboard Butterfly and Notebooks, [1847]-[circa
             1863-1864]; Notebooks; [1847]
           </WorkHeading>{' '}
@@ -175,50 +174,50 @@ function SiteTeach() {
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Item #26 Wm. Oland Bourne Papers: Left-hand Penmanship contest; Broadsides,
+            Wm. Oland Bourne Papers: Left-hand Penmanship contest; Broadsides,
             1866-1867
           </WorkHeading>{' '}
           A high school American History class studying the Civil War
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Item #13 The Star Spangled Banner</WorkHeading> A middle school Band class studying Anthems
+          <WorkHeading>The Star Spangled Banner</WorkHeading> A middle school Band class studying Anthems
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Item #19 Proposed Recording Expedition into the Floridas by Zora Neal Hurston
+            Proposed Recording Expedition into the Floridas by Zora Neal Hurston
           </WorkHeading>{' '}
           A high school American Literature class preparing to Read Their Eyes
           Were Watching God
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Item #10 Ṣuwar al-kawākib.</WorkHeading> A high school Astronomy
+          <WorkHeading>Ṣuwar al-kawākib.</WorkHeading> A high school Astronomy
           class studying constellations
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Item #20 Candide Costume</WorkHeading> A middle school Theater
+          <WorkHeading>Candide Costume</WorkHeading> A middle school Theater
           class studying Works Progress Administration productions
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Item #5 [Vietnam Veterans Memorial. Competition drawing]
+            [Vietnam Veterans Memorial. Competition drawing]
           </WorkHeading>{' '}
           A high school Current Events class studying Monuments
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Item #18 Napoleon's bedroom, Palace of Fontainebleau, France
+            Napoleon's bedroom, Palace of Fontainebleau, France
           </WorkHeading>{' '}
           A high school World History class learning about the French Revolution
         </WorkItem>
         <WorkItem>
           <WorkHeading>
-            Item #29 [Robert Cornelius, self-portrait; believed to be the earliest extant
+            [Robert Cornelius, self-portrait; believed to be the earliest extant
             American portrait photo]
           </WorkHeading>{' '}
           A high school Photography class studying self portraiture
         </WorkItem>
         <WorkItem>
-          <WorkHeading>Item #21 Save The Pacific Northwest Tree Octopus</WorkHeading> A
+          <WorkHeading>Save The Pacific Northwest Tree Octopus</WorkHeading> A
           elementary school Language Arts class working on internet literacy
         </WorkItem>
       </Wrap>
@@ -257,7 +256,7 @@ function SiteTeach() {
       </Text>
       <Text>
         Additional resources, interviews and events about{' '}
-        <i>Speculative Annotation</i>
+        <i>Speculative Annotation</i>{' '}
          can be found here:{' '}
         <Link
           href="https://labs.loc.gov/work/experiments/annotation/?loclr=blogsig"
