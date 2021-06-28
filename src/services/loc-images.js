@@ -41,8 +41,6 @@ import pecanShells_thumb from 'images/loc-images/thumbnails/2017782708_thumbnail
 import pecanShells_curator from 'images/curator-annotations/2017782708_Partida.png';
 import locomotive from 'images/loc-images/2017878364.jpg';
 import locomotive_thumb from 'images/loc-images/thumbnails/2017878364_thumbnail.jpg';
-import exhibitPanel from 'images/loc-images/2018677694.jpg';
-import exhibitPanel_thumb from 'images/loc-images/thumbnails/2018677694_thumbnail.jpg';
 import napoleansBedroom from 'images/loc-images/2019641349.jpg';
 import napoleansBedroom_thumb from 'images/loc-images/thumbnails/2019641349_thumbnail.jpg';
 import lincolnPapers from 'images/loc-images/mal.0773800.jpg';
@@ -228,14 +226,6 @@ export const locImages = [
     type: 'image',
     url: locomotive,
     thumbUrl: locomotive_thumb,
-    curatorImageSrc: '',
-  },
-  {
-    id: '2018677694',
-    alt: 'Exhibit Panel',
-    type: 'image',
-    url: exhibitPanel,
-    thumbUrl: exhibitPanel_thumb,
     curatorImageSrc: '',
   },
   {
